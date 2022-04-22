@@ -61,6 +61,6 @@ Recommended Channels and their gigantic playlists to browse Webdev, HTML, CSS, J
 
 Raul Webdev Journey:
 
-- [Noice Webdev Labs/Collection](https://github.com/noice-noise/noice-webdev-projects)
+- [Noice Webdev Labs/Collection](https://github.com/noice-noise/noice-webdev-labs)
 - [Item Lister](https://github.com/noice-noise/item-lister)
 - [Quiz App](https://github.com/noice-noise/quiz-web-app)
