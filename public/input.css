@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .h1 {
+    @apply text-2xl   font-bold tracking-tight md:text-4xl;
+  }
+
+  .h2 {
+    @apply text-xl font-bold lg:text-3xl;
+  }
+
+  .h3 {
+    @apply text-lg lg:text-2xl;
+  }
+
+  .p--small {
+    @apply text-sm;
+  }
+
+  .p--content {
+    @apply text-justify lg:leading-4;
+  }
+
+  .body {
+    @apply bg-white font-poppins text-gray-900 antialiased;
+  }
+
+  /* Mammoth JS */
+
+  .table {
+    @apply w-fit scale-x-95;
+  }
+
+  .button {
+    @apply flex flex-col items-center justify-center gap-2 rounded-2xl px-3 py-2;
+    @apply hover:-translate-y-1;
+    @apply my-2 mr-2  w-fit  transform-gpu transition-all duration-150 hover:shadow-lg active:translate-y-1;
+    @apply bg-violet-100 text-center font-bold text-violet-600 ring-violet-500 focus:ring-2  active:shadow-sm lg:items-center lg:justify-start lg:px-5 lg:py-3 lg:font-bold lg:hover:text-violet-800 lg:focus:ring-4 lg:active:ring-2;
+
+    /* lg:focus:ring-4 lg:active:ring-2 focus:ring-2 ring-violet-500   */
+  }
+
+  .button--nav {
+    @apply m-0 h-10 w-12 gap-0 bg-white text-gray-700 ring-0 ring-transparent md:h-16 md:w-16 md:p-10 md:hover:bg-violet-50 md:focus:bg-violet-300 md:focus:text-white lg:h-auto lg:w-20 lg:gap-2 lg:p-3;
+    /* @apply hover:h-16 hover:w-16 focus:h-16 focus:w-16 active:h-16  active:w-16; */
+  }
+
+  .nav__container {
+    @apply fixed   bottom-0  h-20 w-full border bg-white shadow-sm md:h-24 lg:left-0 lg:h-screen lg:w-28;
+  }
+
+  .nav__list {
+    @apply flex h-full w-full flex-row items-center justify-center gap-2 px-3 text-xs lg:w-full lg:flex-col lg:items-center lg:justify-center;
+  }
+
+  .nav__list__item {
+    @apply flex w-full items-center justify-center p-1;
+  }
+
+  .button__icon {
+    @apply h-10 w-10 transform-gpu rounded-full p-2 duration-500;
+    @apply group-hover:stroke-violet-600 md:group-hover:rounded-full md:group-hover:bg-violet-100;
+    @apply group-focus:bg-violet-100 group-focus:stroke-violet-600  md:group-focus:rounded-full md:group-focus:bg-violet-100;
+  }
+
+  .button__span__label {
+    @apply hidden text-xs group-hover:flex group-focus:flex group-active:flex md:flex;
+  }
+
+  .container--responsive {
+    @apply m-auto mt-14 mb-48 p-5 lg:ml-32 lg:mb-0;
+  }
+
+  .footer {
+    @apply container--responsive border-t bg-white text-center text-sm font-medium text-gray-500;
+  }
+
+  .l-imposter {
+    @apply flex h-screen w-screen flex-col items-center justify-center;
+  }
+
+  .l-stack-vertical {
+    @apply flex flex-col items-center justify-center;
+  }
+}
