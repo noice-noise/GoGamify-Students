@@ -18,10 +18,10 @@
   },
   "scripts": {
     "start": "node index.js",
-    "watch": "npx tailwindcss -i ./src/css/input.css -o ./src/css/style.css -w",
-    "minify": "npx tailwindcss -i ./src/css/input.css -o ./src/css/style.css -m",
+    "watch-src": "npx tailwindcss -i ./src/css/input.css -o ./src/css/style.css -w",
+    "minify-src": "npx tailwindcss -i ./src/css/input.css -o ./src/css/style.css -m",
     "watch-public": "npx tailwindcss -i ./public/input.css -o ./public/tailwind.css -w",
-    "dev": "concurrently --kill-others \"npm run watch\" \"nodemon app\""
+    "dev": "concurrently --kill-others \"npm run watch-public\" \"nodemon app\""
   },
   "author": "Team iSpiritu",
   "license": "ISC",
