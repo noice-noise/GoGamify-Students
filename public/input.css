@@ -2,9 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
+.theme-default {
+  --color-primary: 109 40 217; /* #6D28D9 */
+  --color-primary-accent: 139 92 246; /* #8B5CF6 */
+  --color-primary-muted: 233 213 255; /* #E9D5FF */
+
+  /* --color-secondary: 255 196 2;
+  --color-secondary-accent: 255 196 2;
+  --color-secondary-muted: 255 196 2; */
+
+  --color-text-neutral: 39 39 42; /* #27272A */
+  --color-text-muted: 82 82 91; /* #52525B */
+
+  --color-foreground: 255 255 255; /* #ffffff */
+  --color-background: 250 250 250; /* #FAFAFA */
+
+  --color-success: 34 197 94; /* #22C55E */
+  --color-danger: 239 68 68; /* #EF4444 */
+  --color-warning: 251 146 60; /* #FB923C */
+}
+
 @layer components {
   .h1 {
-    @apply text-2xl   font-bold tracking-tight md:text-4xl;
+    @apply text-2xl font-bold tracking-tight md:text-4xl;
   }
 
   .h2 {
@@ -24,7 +44,7 @@
   }
 
   .body {
-    @apply bg-white font-poppins text-gray-900 antialiased;
+    @apply theme-default bg-background font-poppins text-neutral antialiased;
   }
 
   /* Components */
@@ -71,6 +91,14 @@
 
   .footer {
     @apply container--responsive border-t bg-white text-center text-sm font-medium text-gray-500;
+  }
+
+  .link {
+    @apply font-bold text-primary-accent transition-colors duration-300 hover:text-primary;
+  }
+
+  .link-active {
+    @apply border-b-4 border-primary;
   }
 
   /* Mammoth JS */
