@@ -27,11 +27,7 @@
     @apply bg-white font-poppins text-gray-900 antialiased;
   }
 
-  /* Mammoth JS */
-
-  .table {
-    @apply w-fit scale-x-95;
-  }
+  /* Components */
 
   .button {
     @apply flex flex-col items-center justify-center gap-2 rounded-2xl px-3 py-2;
@@ -77,11 +73,9 @@
     @apply container--responsive border-t bg-white text-center text-sm font-medium text-gray-500;
   }
 
-  .l-imposter {
-    @apply flex h-screen w-screen flex-col items-center justify-center;
-  }
+  /* Mammoth JS */
 
-  .l-stack-vertical {
-    @apply flex flex-col items-center justify-center;
+  .table {
+    @apply w-fit scale-x-95;
   }
 }
