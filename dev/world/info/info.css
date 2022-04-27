@@ -1,0 +1,41 @@
+.outer{
+    border-radius: 15px;
+    border: 1px solid rgb(245, 155, 245);
+    background-image: linear-gradient(rgb(245, 155, 245), rgba(203, 36, 232, 0.79)); 
+    width: auto;
+    height: 944px;
+
+}
+
+.inner{
+     border-radius: 40px;
+     background-color: rgba(158, 71, 240, 0.662);
+     width: 395px;
+     height: 324px;
+     padding: 40px; 
+     margin: 310px auto 310px auto;
+     color: white;
+     font-family: 'Quicksand', sans-serif;
+     box-shadow: 0px 10px 10px -2px rgba(0, 0, 0, 0.334)
+}
+
+.inner img{
+    background-color: white;
+    border-radius: 50%;
+    padding: 5px;
+    margin-bottom:5%;
+    width: 70px;
+    height: 70px;
+    box-shadow: 0px 10px 10px -2px rgba(0, 0, 0, 0.334)
+}
+
+#logo{
+    background-color: white;
+    border-radius: 50%;
+    padding: 10px;
+    width: 20px;
+    height: 20px;
+    margin: 20px 5px 0px 0px;
+    box-shadow: none;
+}
+
