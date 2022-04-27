@@ -17,22 +17,22 @@
   - [x] Download [GitHub Desktop](https://desktop.github.com/) (optional)
   - [x] Delete all comments in this file, make sure you're in `develop` branch --- then `commit`, `push`, then submit a GitHub `pull` request as what you've learned in tutorials
 
-- [ ] Web Development Journey
+- [x ] Web Development Journey
 
   - [x] I've learned basic HTML
-    - [ ] I know why we should use `<nav>`, `<main>`, `<footer>` instead of `div`, `div`, `div`
-    - I know how to use link HTML pages and use `#id` tags
-  - [ ] I've learned basic CSS
-    - [ ] I am confident with my **Flexbox** skills
-    - [ ] I know how to use `Media` queries and breakpoints
-  - [ ] I've learned basic Javascript
-    - [ ] I know now basic DOM Manipulation (Document Object Model)
-    - [ ] For Loops, Maps, Foreach
+    - [x ] I know why we should use `<nav>`, `<main>`, `<footer>` instead of `div`, `div`, `div`
+    - [x]I know how to use link HTML pages and use `#id` tags
+  - [ x] I've learned basic CSS
+    - [] I am confident with my **Flexbox** skills (didnt use flexbox tho on the practice XD)
+    - [x] I know how to use `Media` queries and breakpoints
+  - [x] I've learned basic Javascript
+    - [x] I know now basic DOM Manipulation (Document Object Model)
+    - [x] For Loops, Maps, Foreach
 
-- [ ] I've finish first task in `info` folder
+- [x] I've finish first task in `info` folder
 
-- [ ] Let's do this!
-  - [ ] I am now confident to take on my **DevTasks**
+- [x] Let's do this!
+  - [x] I am now confident to take on my **DevTasks** (slight)
 
 ### My Notes
 
