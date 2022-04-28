@@ -2,9 +2,43 @@
 @tailwind components;
 @tailwind utilities;
 
+.theme-default {
+  --color-transparent: 109 40 217 0; /* #6D28D9 */
+  --color-primary: 109 40 217; /* #6D28D9 */
+  --color-primary-accent: 139 92 246; /* #8B5CF6 */
+  --color-primary-muted: 233 213 255; /* #E9D5FF */
+
+  /* --color-secondary: 255 196 2;
+  --color-secondary-accent: 255 196 2;
+  --color-secondary-muted: 255 196 2; */
+
+  --color-text-neutral: 39 39 42; /* #27272A */
+  --color-text-muted: 82 82 91; /* #52525B */
+
+  --color-foreground: 255 255 255; /* #ffffff */
+  --color-background: 250 250 250; /* #FAFAFA */
+
+  --color-success: 34 197 94; /* #22C55E */
+  --color-danger: 239 68 68; /* #EF4444 */
+  --color-warning: 251 146 60; /* #FB923C */
+}
+
+@layer base {
+  @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700;800&display=swap");
+
+  html {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  body {
+    @apply body;
+  }
+}
+
 @layer components {
   .h1 {
-    @apply text-2xl   font-bold tracking-tight md:text-4xl;
+    @apply text-2xl font-bold tracking-tight md:text-4xl;
   }
 
   .h2 {
@@ -24,27 +58,49 @@
   }
 
   .body {
-    @apply bg-white font-poppins text-gray-900 antialiased;
+    @apply theme-default bg-background font-poppins text-neutral antialiased;
   }
 
-  /* Components */
+  /* Mammoth JS */
+
+  .table {
+    @apply w-fit scale-x-95;
+  }
+
+  .box {
+    @apply rounded-lg border bg-foreground p-5 md:p-6 lg:p-10;
+  }
+
+  .imposter {
+    @apply flex h-full w-full items-center justify-center;
+  }
 
   .button {
-    @apply flex flex-col items-center justify-center gap-2 rounded-2xl px-3 py-2;
-    @apply hover:-translate-y-1;
-    @apply my-2 mr-2  w-fit  transform-gpu transition-all duration-150 hover:shadow-lg active:translate-y-1;
-    @apply bg-violet-100 text-center font-bold text-violet-600 ring-violet-500 focus:ring-2  active:shadow-sm lg:items-center lg:justify-start lg:px-5 lg:py-3 lg:font-bold lg:hover:text-violet-800 lg:focus:ring-4 lg:active:ring-2;
-
-    /* lg:focus:ring-4 lg:active:ring-2 focus:ring-2 ring-violet-500   */
+    @apply my-2 mr-2 flex w-fit transform-gpu flex-col items-center justify-center gap-2 rounded-2xl bg-primary-muted px-3 py-2 text-center font-bold text-primary-accent ring-primary transition-all duration-150 hover:-translate-y-1 focus:text-primary focus:ring-2 active:translate-y-1 active:text-primary active:shadow-sm lg:items-center lg:justify-start lg:px-5 lg:py-3 lg:font-bold lg:hover:text-primary lg:focus:ring-4 lg:active:ring-2;
   }
 
-  .button--nav {
-    @apply m-0 h-10 w-12 gap-0 bg-white text-gray-700 ring-0 ring-transparent md:h-16 md:w-16 md:p-10 md:hover:bg-violet-50 md:focus:bg-violet-300 md:focus:text-white lg:h-auto lg:w-20 lg:gap-2 lg:p-3;
-    /* @apply hover:h-16 hover:w-16 focus:h-16 focus:w-16 active:h-16  active:w-16; */
+  .button__icon {
+    @apply h-10 w-10 transform-gpu rounded-full p-2 duration-500 group-hover:stroke-primary/80 group-focus:bg-primary-muted group-focus:stroke-primary/80 md:group-hover:rounded-full md:group-hover:bg-primary-muted  md:group-focus:rounded-full md:group-focus:bg-foreground;
+  }
+
+  .button__span__label {
+    @apply hidden text-xs group-hover:flex group-focus:flex group-active:flex md:flex;
+  }
+
+  .main__container {
+    @apply m-auto mt-14 mb-48 p-5 lg:ml-32 lg:mb-0;
+  }
+
+  .section {
+    @apply mx-auto my-5 rounded-lg border bg-foreground p-5 shadow-sm md:p-8 lg:p-10;
+  }
+
+  .nav__button {
+    @apply m-0 h-10 w-12 gap-0 bg-foreground text-neutral ring-0 ring-transparent md:h-16 md:w-16 md:p-10 md:hover:bg-background md:focus:bg-primary-muted md:focus:text-primary-accent lg:h-auto lg:w-20 lg:gap-2 lg:p-3;
   }
 
   .nav__container {
-    @apply fixed   bottom-0  h-20 w-full border bg-white shadow-sm md:h-24 lg:left-0 lg:h-screen lg:w-28;
+    @apply fixed bottom-0 z-10 h-20 w-full border bg-foreground shadow-sm md:h-24 lg:left-0 lg:h-screen lg:w-28;
   }
 
   .nav__list {
@@ -55,27 +111,37 @@
     @apply flex w-full items-center justify-center p-1;
   }
 
-  .button__icon {
-    @apply h-10 w-10 transform-gpu rounded-full p-2 duration-500;
-    @apply group-hover:stroke-violet-600 md:group-hover:rounded-full md:group-hover:bg-violet-100;
-    @apply group-focus:bg-violet-100 group-focus:stroke-violet-600  md:group-focus:rounded-full md:group-focus:bg-violet-100;
+  .header__container {
+    @apply fixed top-0 z-50 hidden h-14 w-full items-center border bg-foreground px-5 shadow-sm lg:flex;
   }
 
-  .button__span__label {
-    @apply hidden text-xs group-hover:flex group-focus:flex group-active:flex md:flex;
-  }
-
-  .container--responsive {
-    @apply m-auto mt-14 mb-48 p-5 lg:ml-32 lg:mb-0;
+  .header__span {
+    @apply text-3xl font-bold tracking-tight text-primary;
   }
 
   .footer {
-    @apply container--responsive border-t bg-white text-center text-sm font-medium text-gray-500;
+    @apply container border-t bg-foreground text-center text-sm font-medium;
+  }
+
+  .link {
+    @apply font-bold text-primary-accent transition-colors duration-300 hover:text-primary;
+  }
+
+  .link-active {
+    @apply border-b-4 border-primary;
   }
 
   /* Mammoth JS */
 
   .table {
     @apply w-fit scale-x-95;
+  }
+
+  .card__container {
+    @apply flex flex-col gap-5 rounded-lg border bg-foreground p-2 shadow-sm md:p-3 lg:p-5;
+  }
+
+  .card__footer {
+    @apply flex gap-3;
   }
 }
