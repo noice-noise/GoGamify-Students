@@ -1,5 +1,5 @@
 # YOUR NAME
-
+J-RODD TECSON
 <!--
 KINDLY CLEARN AND DELETE ALL OF MY COMMENTS AFTER READING
 PERSONAL Markdown file ni ninyo
@@ -18,26 +18,26 @@ I-change change lang ni nga file para about sa mga progress, notes, updates, sim
 
 ## Dev Tasks
 
-- [ ]
+- [X] 
 
 ## SubTasks
 
-- [ ] Getting our hands dirty
+- [X] Getting our hands dirty
 
-  - [ ] Fork the entire project repository and edit this `README` file local computer
+  - [X] Fork the entire project repository and edit this `README` file local computer
   - [ ] Learn Basic Git and GitHub [[Option 1](https://www.youtube.com/watch?v=77W2JSL7-r8) | [Option 2](https://www.youtube.com/watch?v=8Dd7KRpKeaE)]
-  - [ ] Download [GitHub Desktop](https://desktop.github.com/) (optional)
+  - [X] Download [GitHub Desktop](https://desktop.github.com/) (optional)
   - [ ] Delete all comments in this file, make sure you're in `develop` branch --- then `commit`, `push`, then submit a GitHub `pull` request as what you've learned in tutorials
 
-- [ ] Web Development Journey
+- [X] Web Development Journey
 
-  - [ ] I've learned basic HTML
+  - [X] I've learned basic HTML
     - [ ] I know why we should use `<nav>`, `<main>`, `<footer>` instead of `div`, `div`, `div`
     - I know how to use link HTML pages and use `#id` tags
-  - [ ] I've learned basic CSS
+  - [X] I've learned basic CSS
     - [ ] I am confident with my **Flexbox** skills
     - [ ] I know how to use `Media` queries and breakpoints
-  - [ ] I've learned basic Javascript
+  - [] I've learned basic Javascript
     - [ ] I know now basic DOM Manipulation (Document Object Model)
     - [ ] For Loops, Maps, Foreach
 
