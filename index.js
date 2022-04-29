@@ -6,6 +6,8 @@ const fileUpload = require("express-fileupload");
 const mongoose = require("mongoose");
 
 const adminRoutes = require("./routes/adminRoutes");
+const studentRoutes = require("./routes/studentRoutes");
+const authRoutes = require("./routes/authRoute");
 
 const app = express();
 
@@ -52,14 +54,12 @@ app.use(
 );
 
 app.get("/", (req, res) => {
-  res.render("login", { title: "Login | Gamify" });
-});
-
-app.get("/login", (req, res) => {
-  res.render("login", { title: "Login | GoGamify" });
+  res.render("auth/login", { title: "Login | Gamify" });
 });
 
 app.use("/admin", adminRoutes);
+app.use("/auth", authRoutes);
+app.use("/student", studentRoutes);
 
 app.use((req, res) => {
   res.status(404).render("404", { title: "Page not found." });

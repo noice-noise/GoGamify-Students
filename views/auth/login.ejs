@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%- include('./partials/head.ejs') %>
+  <%- include('../partials/head.ejs') %>
 
-  <body class="bg-gray-50 antialiased">
-    <section class="h-full">
+  <body class="body">
+    <%- include('../partials/header.ejs') %>
+    <main class="h-full">
       <div
-        class="mx-auto mt-6 flex h-full w-full flex-col items-center justify-center bg-gray-50 text-gray-700"
+        class="mx-auto mt-10 flex h-full w-full flex-col items-center justify-center bg-gray-50 text-gray-700 lg:mt-20"
       >
         <div
           class="m-2 rounded-xl bg-white px-5 py-3 shadow-sm ring-1 ring-inset ring-black/10"
         >
-          <h3 class="py-5 text-center text-2xl font-bold">Login to GoGamify</h3>
+          <h3 class="h1 pt-5 pb-8 text-center">Login to GoGamify</h3>
           <form
             id="loginForm"
             class="mx-auto flex max-w-sm flex-col space-y-6"
@@ -18,7 +19,7 @@
             method="post"
           >
             <div>
-              <label class="py-3 text-xl font-semibold" for="">Username</label>
+              <label class="py-3 text-lg font-semibold" for="">Username</label>
               <input
                 class="mt-2 w-full rounded-xl bg-gray-50 px-4 py-3 shadow-inner ring-1 ring-inset ring-black/10"
                 type="email"
@@ -27,9 +28,9 @@
               />
             </div>
             <div>
-              <label class="text-xl font-semibold" for="">Password</label>
+              <label class="text-lg font-semibold" for="">Password</label>
               <input
-                class="mt-2 w-full rounded-xl bg-gray-50 px-2 py-3 shadow-inner ring-1 ring-inset ring-black/10"
+                class="mt-2 w-full rounded-xl bg-gray-50 px-4 py-3 shadow-inner ring-1 ring-inset ring-black/10"
                 type="password"
                 required
               />
@@ -65,11 +66,17 @@
             </div>
           </form>
         </div>
-        <div class="mb-5 px-3 py-6 text-center">
-          <a class="" href="#">Create a Free GoGamify Account</a>
+        <div class="flex flex-col items-center justify-center">
+          <a class="button button--muted" href="/auth/register"
+            >Create a Free GoGamify Account</a
+          >
+
+          <%- include('../partials/block-back.ejs', {label:"Back to Home",
+          route:"/"}) %>
         </div>
       </div>
-    </section>
+    </main>
+
     <script>
       //   window.onload = function () {
       //     document.getElementById("loginForm").reset();

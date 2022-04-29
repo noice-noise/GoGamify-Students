@@ -3,7 +3,53 @@
   <%- include('../partials/head.ejs') %>
 
   <body class="body">
-    Admin <%- include('../partials/header.ejs') %> <%-
-    include('../partials/nav.ejs') %>
+    <div class="p-5">
+      <div class="mt-20 flex w-full flex-col items-center justify-center">
+        <h1 class="h1 text-center">
+          GoGamify <span class="text-primary">Admin</span>
+        </h1>
+
+        <!-- nav -->
+        <div class="w-full">
+          <ul class="flex w-full justify-center gap-5 py-3">
+            <li>
+              <a
+                class="link link-active py-3 px-4 text-neutral"
+                href="/admin/student-accounts"
+                >Accounts</a
+              >
+            </li>
+            <li>
+              <a class="link py-3 px-4 text-neutral" href="#"
+                >Learning Resources</a
+              >
+            </li>
+            <li>
+              <a class="link py-3 px-4 text-neutral" href="#">Badges</a>
+            </li>
+            <li>
+              <a class="link py-3 px-4 text-neutral" href="#">Achievements</a>
+            </li>
+            <li>
+              <a class="link py-3 px-4 text-neutral" href="#">Themes</a>
+            </li>
+          </ul>
+        </div>
+
+        <p>Welcome!</p>
+        <div>
+          <ul>
+            <li>
+              <a class="button" href="/login">Login</a>
+              <a class="button" href="/register">Register</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div></div>
+
+      <div class="h-96"></div>
+    </div>
   </body>
 </html>

@@ -21,20 +21,22 @@
     "watch-src": "npx tailwindcss -i ./src/css/input.css -o ./src/css/style.css -w",
     "minify-src": "npx tailwindcss -i ./src/css/input.css -o ./src/css/style.css -m",
     "watch-public": "npx tailwindcss -i ./public/input.css -o ./public/tailwind.css -w",
+    "watch-template": "npx tailwindcss -i ./public/template/input-template.css -o ./public/template/template.css -w",
     "dev": "concurrently --kill-others \"npm run watch-public\" \"nodemon app\""
   },
   "author": "The GoGamify Team",
   "license": "ISC",
   "keywords": [],
   "dependencies": {
-    "nodemon": "^2.0.15",
     "dotenv": "^16.0.0",
     "ejs": "^3.1.6",
     "express": "^4.17.3",
     "express-fileupload": "^1.2.1",
+    "live-server": "^1.2.2",
     "lodash": "^4.17.21",
     "mammoth": "^1.4.21",
     "mongoose": "^6.2.4",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.15"
   }
 }
