@@ -1,5 +1,5 @@
 # YOUR NAME
-
+j-rodd tecson
 <!--
 KINDLY CLEARN AND DELETE ALL OF MY COMMENTS AFTER READING
 PERSONAL Markdown file ni ninyo
@@ -18,33 +18,33 @@ I-change change lang ni nga file para about sa mga progress, notes, updates, sim
 
 ## Dev Tasks
 
-- [ ]
+- [ x]
 
 ## SubTasks
 
-- [ ] Getting our hands dirty
+- [ x] Getting our hands dirty
 
-  - [ ] Fork the entire project repository and edit this `README` file local computer
-  - [ ] Learn Basic Git and GitHub [[Option 1](https://www.youtube.com/watch?v=77W2JSL7-r8) | [Option 2](https://www.youtube.com/watch?v=8Dd7KRpKeaE)]
-  - [ ] Download [GitHub Desktop](https://desktop.github.com/) (optional)
-  - [ ] Delete all comments in this file, make sure you're in `develop` branch --- then `commit`, `push`, then submit a GitHub `pull` request as what you've learned in tutorials
+  - [x ] Fork the entire project repository and edit this `README` file local computer
+  - [ x] Learn Basic Git and GitHub [[Option 1](https://www.youtube.com/watch?v=77W2JSL7-r8) | [Option 2](https://www.youtube.com/watch?v=8Dd7KRpKeaE)]
+  - [x ] Download [GitHub Desktop](https://desktop.github.com/) (optional)
+  - [x ] Delete all comments in this file, make sure you're in `develop` branch --- then `commit`, `push`, then submit a GitHub `pull` request as what you've learned in tutorials
 
-- [ ] Web Development Journey
+- [x ] Web Development Journey
 
-  - [ ] I've learned basic HTML
-    - [ ] I know why we should use `<nav>`, `<main>`, `<footer>` instead of `div`, `div`, `div`
+  - [ x] I've learned basic HTML
+    - [ x] I know why we should use `<nav>`, `<main>`, `<footer>` instead of `div`, `div`, `div`
     - I know how to use link HTML pages and use `#id` tags
-  - [ ] I've learned basic CSS
-    - [ ] I am confident with my **Flexbox** skills
-    - [ ] I know how to use `Media` queries and breakpoints
-  - [ ] I've learned basic Javascript
-    - [ ] I know now basic DOM Manipulation (Document Object Model)
-    - [ ] For Loops, Maps, Foreach
+  - [ x] I've learned basic CSS
+    - [x ] I am confident with my **Flexbox** skills
+    - [ x] I know how to use `Media` queries and breakpoints
+  - [ x] I've learned basic Javascript
+    - [x ] I know now basic DOM Manipulation (Document Object Model)
+    - [ x] For Loops, Maps, Foreach
 
-- [ ] I've finish first task in `info` folder
+- [x ] I've finish first task in `info` folder
 
-- [ ] Let's do this!
-  - [ ] I am now confident to take on my **DevTasks**
+- [ x] Let's do this!
+  - [x ] I am now confident to take on my **DevTasks**
 
 ### My Notes
 
