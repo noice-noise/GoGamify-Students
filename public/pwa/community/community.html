@@ -8,6 +8,7 @@
 
     <!-- Main Stylesheets -->
     <link rel="stylesheet" href="community.css" />
+    <link rel="stylesheet" href="community-style.css" />
 
     <!-- NOTE: You can add and extend for custom stylesheets, but always use "classes" instead of 
     direct tags in css for our standards -->
@@ -185,236 +186,456 @@
     <main id="main">
       <div class="main__container">
         <!-- edit contents below -->
-        <section class="section">
-          <h1 class="h1">Title</h1>
-          <div>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit
-            distinctio veritatis alias esse iure aperiam reiciendis soluta
-            nesciunt? Vero voluptates beatae suscipit itaque quaerat consectetur
-            provident neque corporis velit ducimus.
+        <h1>Community</h1>
+        <button class="tablink" onclick="openPage('Teachers', this, 'red')"id="defaultOpen">Teachers</button>
+        <button class="tablink" onclick="openPage('Classmates', this, 'green')">Classmates</button>
+        <button class="tablink" onclick="openPage('School', this, 'blue')">School</button>
+
+        <div id="Teachers" class="tabcontent">
+          <h3>Teachers</h3>
+          <p>Grade level and Teachers</p>
+        
+          <div class="tab">
+            <button class="tablinks" style="background-color:red" onclick="openPage('Grade1')">Grade 1</button>
+            <button class="tablinks" style="background-color:green" onclick="openPage('Grade2')">Grade 2</button>
+            <button class="tablinks" style="background-color:yellow" onclick="openPage('Grade3')">Grade 3</button>
+            <button class="tablinks" style="background-color:blue" onclick="openPage('Grade4')">Grade 4</button>
+            <button class="tablinks" style="background-color:pink" onclick="openPage('Grade5')">Grade 5</button>
+            <button class="tablinks" style="background-color:grey" onclick="openPage('Grade6')">Grade 6</button>
+            <button class="tablinks" style="background-color:brown" onclick="openPage('Grade7')">Grade 7</button>
+            <button class="tablinks" style="background-color:orange" onclick="openPage('Grade8')">Grade 8</button>
+            <button class="tablinks" style="background-color:purple" onclick="openPage('Grade9')">Grade 9</button>
+            <button class="tablinks" style="background-color:gold" onclick="openPage('Grade10')">Grade 10</button>
           </div>
-          <div>
-            <a class="button" href="#">Next</a>
-            <a class="button" href="#"
-              >Ulta Super Mega Long Button para maka-pasar</a
-            >
+          
+          <div id="Grade1" class="sidemenu topmenu">
+            <h3>Grade 1</h3>
+            <p>Subject Teachers</p>
           </div>
-        </section>
-
-        <section class="section">Lonely section</section>
-        <section class="section">
-          <div class="box border bg-background">
-            NOTE: The items below are bounded in the concept of atomic classes
-            in TailwindCS. You can definitely stick to your what you've learned
-            and ignore the guidelines below, as long as you can execute your
-            task.
+          
+          <div id="Grade2" class="sidemenu topmenu">
+            <h3>Grade 2</h3>
+            <p>Subject Teachers</p>
           </div>
-
-          <h1>H2 tag with h1 style class from our design css</h1>
-          <h2>H2 tag with h2 style class from our design css</h2>
-          <h3>H3 tag with h3 style class from our design css</h3>
-
-          <p>
-            Note that there should only be one H1 tag in an HTML, as what you've
-            learned in semantics.
-          </p>
-
-          <button>Native button</button>
-          <button class="button">Styled buttoned</button>
-
-          <p>
-            As you can see, tailwind removes all native styles to have
-            consistency across all browsers, allowing the developer to have full
-            control. visit
-            <a class="link" href="https://tailwindcss.com/">TailwindCSS</a> for
-            the documentation. (I've demonstrated how to style a link here)
-          </p>
-
-          <h2 class="h2">More styles</h2>
-
-          <a class="button" href="#">Links</a> and
-          <button class="button">buttons</button> can have the same style, the
-          only difference is their semantics.
-
-          <h3>Colors</h3>
-          <p>
-            Use "text-primary" (this is my custom class, not tailwind's for
-            theming soon) class to simply color text.
-          </p>
-          <p class="text-primary">Color all sentence</p>
-
-          <br />
-          <p>Color entire div:</p>
-          <div class="text-primary">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. A
-            reprehenderit dicta ipsa similique repudiandae quia neque nobis
-            corrupti ut, rem necessitatibus officiis blanditiis provident
-            repellendus quas qui odit alias magni!
+        
+          <div id="Grade3" class="sidemenu topmenu">
+            <h3>Grade 3</h3>
+            <p>Subject Teachers</p>
           </div>
-
-          <p class="font-bold">Make em BOLD!</p>
-          <p class="italic">Make em slidee</p>
-          <p class="underline">Of course</p>
-          <p class="text-sm">smaller also</p>
-          <p class="text-center">If you want centered</p>
-
-          <p class="h2 text-primary">Title</p>
-          <p class="p text-primary-accent">Subtitle</p>
-          <p class="p text-primary-muted">Soft info</p>
-        </section>
-
-        <section>
-          <!-- use grid system or max-width in css to limit width when 
-          using lots of cards
-          -->
-          <div class="card">
-            <div
-              class="card__container flex flex-col gap-5 rounded-lg border bg-foreground p-2 shadow-sm md:p-3 lg:p-5"
-            >
-              <div class="card__header">
-                <p class="h2 text-primary">Title</p>
-                <p class="text-primary-accent">Subtitle</p>
-                <p>Another Subtitle</p>
-                <p class="text-sm">Small copy</p>
-              </div>
-              <div class="card__body">
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Mollitia vel molestiae nobis unde omnis, illum reiciendis
-                  quasi ad, adipisci repellat inventore ipsa voluptatum eaque ut
-                  tempora. Iste, dolores. Nostrum, ad!
-                </p>
-              </div>
-              <div class="card__footer">
-                <a class="link" href="#">View</a>
-                <a class="link" href="#">Update</a>
-                <a class="link" href="#">Delete</a>
-                <a class="link" href="#">Share?</a>
-              </div>
-            </div>
+        
+          <div id="Grade4" class="sidemenu topmenu">
+            <h3>Grade 4</h3>
+            <p>Subject Teachers</p>
           </div>
-
-          <!-- spacer -->
-          <div style="height: 50px"></div>
-
-          <div class="card max-w-sm">
-            <div class="card__container">
-              <div class="card__header">
-                <p class="h2 text-primary">Title</p>
-                <p class="text-primary-accent">Subtitle</p>
-                <p>Another Subtitle</p>
-                <p class="text-sm">Small copy</p>
-              </div>
-              <div class="card__body">
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Mollitia vel molestiae nobis unde omnis, illum reiciendis
-                  quasi ad, adipisci repellat inventore ipsa voluptatum eaque ut
-                  tempora. Iste, dolores. Nostrum, ad!
-                </p>
-              </div>
-              <div class="card__footer">
-                <a class="link" href="#">View</a>
-                <a class="link" href="#">Update</a>
-                <a class="link" href="#">Delete</a>
-                <a class="link" href="#">Share?</a>
-              </div>
-            </div>
+        
+          <div id="Grade5" class="sidemenu topmenu">
+            <h3>Grade 5</h3>
+            <p>Subject Teachers</p>
           </div>
-
-          <div class="box">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloremque
-            at alias, qui ea tempora ipsa temporibus neque nihil dolor enim
-            aliquid est provident atque odio possimus quae nemo quod laudantium!
+        
+          <div id="Grade6" class="sidemenu topmenu">
+            <h3>Grade 6</h3>
+            <p>Subject Teachers</p>
           </div>
-
-          <div class="card w-fit">
-            <div class="card__container">
-              <div class="card__header">
-                <span class="imposter"
-                  ><svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="icon icon-tabler icon-tabler-3d-cube-sphere h-24 w-24"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    stroke-width="2"
-                    stroke="currentColor"
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <desc>
-                      Download more icon variants from
-                      https://tabler-icons.io/i/3d-cube-sphere
-                    </desc>
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                    <path d="M6 17.6l-2 -1.1v-2.5"></path>
-                    <path d="M4 10v-2.5l2 -1.1"></path>
-                    <path d="M10 4.1l2 -1.1l2 1.1"></path>
-                    <path d="M18 6.4l2 1.1v2.5"></path>
-                    <path d="M20 14v2.5l-2 1.12"></path>
-                    <path d="M14 19.9l-2 1.1l-2 -1.1"></path>
-                    <line x1="12" y1="12" x2="14" y2="10.9"></line>
-                    <line x1="18" y1="8.6" x2="20" y2="7.5"></line>
-                    <line x1="12" y1="12" x2="12" y2="14.5"></line>
-                    <line x1="12" y1="18.5" x2="12" y2="21"></line>
-                    <path d="M12 12l-2 -1.12"></path>
-                    <line x1="6" y1="8.6" x2="4" y2="7.5"></line>
-                  </svg>
-                </span>
-              </div>
-              <div class="card__body text-center">
-                <p class="h3">Badge Title</p>
-                <p class="p">Badgle Subtitle</p>
-                <p>Some Description</p>
-              </div>
-            </div>
+        
+          <div id="Grade7" class="sidemenu topmenu">
+            <h3>Grade 7</h3>
+            <p>Subject Teachers</p>
           </div>
-          <div class="card w-fit">
-            <div class="card__container">
-              <div class="card__header">
-                <span class="imposter">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="icon icon-tabler icon-tabler-pacman h-24 w-24"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    stroke-width="2"
-                    stroke="currentColor"
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <desc>
-                      Download more icon variants from
-                      https://tabler-icons.io/i/pacman
-                    </desc>
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                    <path
-                      d="M5.636 5.636a9 9 0 0 1 13.397 .747l-5.619 5.617l5.619 5.617a9 9 0 1 1 -13.397 -11.981z"
-                    ></path>
-                    <circle
-                      cx="11.5"
-                      cy="7.5"
-                      r="1"
-                      fill="currentColor"
-                    ></circle>
-                  </svg>
-                </span>
-              </div>
-              <div class="card__body text-center">
-                <p class="h3">Sample Achievement Title</p>
-                <p class="p">Badgle Subtitle</p>
-                <p>Some Description</p>
-              </div>
-            </div>
+        
+          <div id="Grade8" class="sidemenu topmenu">
+            <h3>Grade 8</h3>
+            <p>Subject Teachers</p>
           </div>
-        </section>
-
+        
+          <div id="Grade9" class="sidemenu topmenu">
+            <h3>Grade 9</h3>
+            <p>Subject Teachers</p>
+          </div>
+        
+          <div id="Grade10" class="sidemenu topmenu">
+            <h3>Grade 10</h3>
+            <p>Subject Teachers</p>
+          </div>
+        
+        </div>
+        
+        <div id="Classmates" class="tabcontent">
+          <h3>Classmates</h3>
+          <p>Classmate</p> 
+        </div>
+        
+        <div class="tab">
+          <button class="tablinks" style="background-color:red" onclick="openPage('1Grade')">Grade 1</button>
+          <button class="tablinks" style="background-color:green" onclick="openPage('2Grade')">Grade 2</button>
+          <button class="tablinks" style="background-color:yellow" onclick="openPage('3Grade')">Grade 3</button>
+          <button class="tablinks" style="background-color:blue" onclick="openPage('4Grade')">Grade 4</button>
+          <button class="tablinks" style="background-color:pink" onclick="openPage('5Grade')">Grade 5</button>
+          <button class="tablinks" style="background-color:grey" onclick="openPage('6Grade')">Grade 6</button>
+          <button class="tablinks" style="background-color:brown" onclick="openPage('7Grade')">Grade 7</button>
+          <button class="tablinks" style="background-color:orange" onclick="openPage('8Grade')">Grade 8</button>
+          <button class="tablinks" style="background-color:purple" onclick="openPage('9Grade')">Grade 9</button>
+          <button class="tablinks" style="background-color:gold" onclick="openPage('10Grade')">Grade 10</button>
+        </div>
+        
+        <div id="1Grade" class="sidemenu topmenu">
+          <button class="tablinks" style="background-color:red" onclick="openPage('SectionA1')">Section A</button>
+          <button class="tablinks" style="background-color:red" onclick="openPage('SectionB1')">Section B</button>
+          <button class="tablinks" style="background-color:red" onclick="openPage('SectionC1')">Section C</button>
+          <button class="tablinks" style="background-color:red" onclick="openPage('SectionD1')">Section D</button>
+        </div>
+        
+        <div id="SectionA1" class="sidemenu topmenu">
+          <h3>SECTION A-1</h3>
+          <p>CLASS LIST</p>
+          <p>Boys</p>
+          <p>Girls</p>
+        </div>
+        
+        <div id="SectionB1" class="sidemenu topmenu">
+          <h3>SECTION B-1</h3>
+          <p>CLASS LIST</p>
+          <p>Boys</p>
+          <p>Girls</p>
+        </div>
+        
+        <div id="SectionC1" class="sidemenu topmenu">
+          <h3>SECTION C-1</h3>
+          <p>CLASSMATES MALE</p>
+          <p>Boys</p>
+          <p>Girls</p>
+        </div>
+        
+        <div id="SectionD1" class="sidemenu topmenu">
+          <h3>SECTION D-1</h3>
+          <p>CLASSMATES MALE</p>
+          <p>Boys</p>
+          <p>Girls</p>
+        </div>
+        
+        <div id="2Grade" class="sidemenu topmenu">
+          <button class="tablinks" style="background-color:red" onclick="openPage('SectionA2')">Section A</button>
+          <button class="tablinks" style="background-color:red" onclick="openPage('SectionB2')">Section B</button>
+          <button class="tablinks" style="background-color:red" onclick="openPage('SectionC2')">Section C</button>
+          <button class="tablinks" style="background-color:red" onclick="openPage('SectionD2')">Section D</button>
+        </div>
+        
+        <div id="SectionA2" class="sidemenu topmenu">
+          <h3>SECTION A-2</h3>
+          <p>CLASS LIST</p>
+          <p>Boys</p>
+          <p>Girls</p>
+        </div>
+        
+        <div id="SectionB2" class="sidemenu topmenu">
+          <h3>SECTION B-2</h3>
+          <p>CLASS LIST</p>
+          <p>Boys</p>
+          <p>Girls</p>
+        </div>
+        
+        <div id="SectionC2" class="sidemenu topmenu">
+          <h3>SECTION C-2</h3>
+          <p>CLASSMATES MALE</p>
+          <p>Boys</p>
+          <p>Girls</p>
+        </div>
+        
+        <div id="SectionD2" class="sidemenu topmenu">
+          <h3>SECTION D-2</h3>
+          <p>CLASSMATES MALE</p>
+          <p>Boys</p>
+          <p>Girls</p>
+        </div>
+        
+        <div id="3Grade" class="sidemenu topmenu">
+          <button class="tablinks" style="background-color:red" onclick="openPage('SectionA3')">Section A</button>
+          <button class="tablinks" style="background-color:red" onclick="openPage('SectionB3')">Section B</button>
+          <button class="tablinks" style="background-color:red" onclick="openPage('SectionC3')">Section C</button>
+          <button class="tablinks" style="background-color:red" onclick="openPage('SectionD3')">Section D</button>
+        </div>
+        
+        <div id="SectionA3" class="sidemenu topmenu">
+          <h3>SECTION A-3</h3>
+          <p>CLASS LIST</p>
+          <p>Boys</p>
+          <p>Girls</p>
+        </div>
+        
+        <div id="SectionB3" class="sidemenu topmenu">
+          <h3>SECTION B-3</h3>
+          <p>CLASS LIST</p>
+          <p>Boys</p>
+          <p>Girls</p>
+        </div>
+        
+        <div id="SectionC3" class="sidemenu topmenu">
+          <h3>SECTION C-3</h3>
+          <p>CLASSMATES MALE</p>
+          <p>Boys</p>
+          <p>Girls</p>
+        </div>
+        
+        <div id="SectionD3" class="sidemenu topmenu">
+          <h3>SECTION D-3</h3>
+          <p>CLASSMATES MALE</p>
+          <p>Boys</p>
+          <p>Girls</p>
+        </div>
+        
+        <div id="4Grade" class="sidemenu topmenu">
+          <button class="tablinks" style="background-color:red" onclick="openPage('SectionA4')">Section A</button>
+          <button class="tablinks" style="background-color:red" onclick="openPage('SectionB4')">Section B</button>
+          <button class="tablinks" style="background-color:red" onclick="openPage('SectionC4')">Section C</button>
+          <button class="tablinks" style="background-color:red" onclick="openPage('SectionD4')">Section D</button>
+        </div>
+        
+        <div id="SectionA4" class="sidemenu topmenu">
+          <h3>SECTION A-4</h3>
+          <p>CLASS LIST</p>
+          <p>Boys</p>
+          <p>Girls</p>
+        </div>
+        
+        <div id="SectionB4" class="sidemenu topmenu">
+          <h3>SECTION B-4</h3>
+          <p>CLASS LIST</p>
+          <p>Boys</p>
+          <p>Girls</p>
+        </div>
+        
+        <div id="SectionC4" class="sidemenu topmenu">
+          <h3>SECTION C-4</h3>
+          <p>CLASSMATES MALE</p>
+          <p>Boys</p>
+          <p>Girls</p>
+        </div>
+        
+        <div id="SectionD4" class="sidemenu topmenu">
+          <h3>SECTION D-4</h3>
+          <p>CLASSMATES MALE</p>
+          <p>Boys</p>
+          <p>Girls</p>
+        </div>
+        
+        <div id="5Grade" class="sidemenu topmenu">
+          <button class="tablinks" style="background-color:red" onclick="openPage('SectionA5')">Section A</button>
+          <button class="tablinks" style="background-color:red" onclick="openPage('SectionB5')">Section B</button>
+          <button class="tablinks" style="background-color:red" onclick="openPage('SectionC5')">Section C</button>
+          <button class="tablinks" style="background-color:red" onclick="openPage('SectionD5')">Section D</button>
+        </div>
+        
+        <div id="SectionA5" class="sidemenu topmenu">
+          <h3>SECTION A-5</h3>
+          <p>CLASS LIST</p>
+          <p>Boys</p>
+          <p>Girls</p>
+        </div>
+        
+        <div id="SectionB5" class="sidemenu topmenu">
+          <h3>SECTION B-5</h3>
+          <p>CLASS LIST</p>
+          <p>Boys</p>
+          <p>Girls</p>
+        </div>
+        
+        <div id="SectionC5" class="sidemenu topmenu">
+          <h3>SECTION C-5</h3>
+          <p>CLASSMATES MALE</p>
+          <p>Boys</p>
+          <p>Girls</p>
+        </div>
+        
+        <div id="SectionD5" class="sidemenu topmenu">
+          <h3>SECTION D-5</h3>
+          <p>CLASSMATES MALE</p>
+          <p>Boys</p>
+          <p>Girls</p>
+        </div>
+        
+        <div id="6Grade" class="sidemenu topmenu">
+          <button class="tablinks" style="background-color:red" onclick="openPage('SectionA6')">Section A</button>
+          <button class="tablinks" style="background-color:red" onclick="openPage('SectionB6')">Section B</button>
+          <button class="tablinks" style="background-color:red" onclick="openPage('SectionC6')">Section C</button>
+          <button class="tablinks" style="background-color:red" onclick="openPage('SectionD6')">Section D</button>
+        </div>
+        
+        <div id="SectionA6" class="sidemenu topmenu">
+          <h3>SECTION A-6</h3>
+          <p>CLASS LIST</p>
+          <p>Boys</p>
+          <p>Girls</p>
+        </div>
+        
+        <div id="SectionB6" class="sidemenu topmenu">
+          <h3>SECTION B-6</h3>
+          <p>CLASS LIST</p>
+          <p>Boys</p>
+          <p>Girls</p>
+        </div>
+        
+        <div id="SectionC6" class="sidemenu topmenu">
+          <h3>SECTION C-6</h3>
+          <p>CLASSMATES MALE</p>
+          <p>Boys</p>
+          <p>Girls</p>
+        </div>
+        
+        <div id="SectionD6" class="sidemenu topmenu">
+          <h3>SECTION D-6</h3>
+          <p>CLASSMATES MALE</p>
+          <p>Boys</p>
+          <p>Girls</p>
+        </div>
+        
+        <div id="7Grade" class="sidemenu topmenu">
+          <button class="tablinks" style="background-color:red" onclick="openPage('SectionA7')">Section A</button>
+          <button class="tablinks" style="background-color:red" onclick="openPage('SectionB7')">Section B</button>
+          <button class="tablinks" style="background-color:red" onclick="openPage('SectionC7')">Section C</button>
+          <button class="tablinks" style="background-color:red" onclick="openPage('SectionD7')">Section D</button>
+        </div>
+        
+        <div id="SectionA7" class="sidemenu topmenu">
+          <h3>SECTION A-7</h3>
+          <p>CLASS LIST</p>
+          <p>Boys</p>
+          <p>Girls</p>
+        </div>
+        
+        <div id="SectionB7" class="sidemenu topmenu">
+          <h3>SECTION B-7</h3>
+          <p>CLASS LIST</p>
+          <p>Boys</p>
+          <p>Girls</p>
+        </div>
+        
+        <div id="SectionC7" class="sidemenu topmenu">
+          <h3>SECTION C-7</h3>
+          <p>CLASSMATES MALE</p>
+          <p>Boys</p>
+          <p>Girls</p>
+        </div>
+        
+        <div id="SectionD7" class="sidemenu topmenu">
+          <h3>SECTION D-7</h3>
+          <p>CLASSMATES MALE</p>
+          <p>Boys</p>
+          <p>Girls</p>
+        </div>
+        
+        <div id="8Grade" class="sidemenu topmenu">
+          <button class="tablinks" style="background-color:red" onclick="openPage('SectionA8')">Section A</button>
+          <button class="tablinks" style="background-color:red" onclick="openPage('SectionB8')">Section B</button>
+          <button class="tablinks" style="background-color:red" onclick="openPage('SectionC8')">Section C</button>
+          <button class="tablinks" style="background-color:red" onclick="openPage('SectionD8')">Section D</button>
+        </div>
+        
+        <div id="SectionA8" class="sidemenu topmenu">
+          <h3>SECTION A-8</h3>
+          <p>CLASS LIST</p>
+          <p>Boys</p>
+          <p>Girls</p>
+        </div>
+        
+        <div id="SectionB8" class="sidemenu topmenu">
+          <h3>SECTION B-8</h3>
+          <p>CLASS LIST</p>
+          <p>Boys</p>
+          <p>Girls</p>
+        </div>
+        
+        <div id="SectionC8" class="sidemenu topmenu">
+          <h3>SECTION C-8</h3>
+          <p>CLASSMATES MALE</p>
+          <p>Boys</p>
+          <p>Girls</p>
+        </div>
+        
+        <div id="SectionD8" class="sidemenu topmenu">
+          <h3>SECTION D-8</h3>
+          <p>CLASSMATES MALE</p>
+          <p>Boys</p>
+          <p>Girls</p>
+        </div>
+        
+        <div id="9Grade" class="sidemenu topmenu">
+          <button class="tablinks" style="background-color:red" onclick="openPage('SectionA9')">Section A</button>
+          <button class="tablinks" style="background-color:red" onclick="openPage('SectionB9')">Section B</button>
+          <button class="tablinks" style="background-color:red" onclick="openPage('SectionC9')">Section C</button>
+          <button class="tablinks" style="background-color:red" onclick="openPage('SectionD9')">Section D</button>
+        </div>
+        
+        <div id="SectionA9" class="sidemenu topmenu">
+          <h3>SECTION A-9</h3>
+          <p>CLASS LIST</p>
+          <p>Boys</p>
+          <p>Girls</p>
+        </div>
+        
+        <div id="SectionB9" class="sidemenu topmenu">
+          <h3>SECTION B-9</h3>
+          <p>CLASS LIST</p>
+          <p>Boys</p>
+          <p>Girls</p>
+        </div>
+        
+        <div id="SectionC9" class="sidemenu topmenu">
+          <h3>SECTION C-9</h3>
+          <p>CLASSMATES MALE</p>
+          <p>Boys</p>
+          <p>Girls</p>
+        </div>
+        
+        <div id="SectionD9" class="sidemenu topmenu">
+          <h3>SECTION D-9</h3>
+          <p>CLASSMATES MALE</p>
+          <p>Boys</p>
+          <p>Girls</p>
+        </div>
+        
+        <div id="10Grade" class="sidemenu topmenu">
+          <button class="tablinks" style="background-color:red" onclick="openPage('SectionA10')">Section A</button>
+          <button class="tablinks" style="background-color:red" onclick="openPage('SectionB10')">Section B</button>
+          <button class="tablinks" style="background-color:red" onclick="openPage('SectionC10')">Section C</button>
+          <button class="tablinks" style="background-color:red" onclick="openPage('SectionD10')">Section D</button>
+        </div>
+        
+        <div id="SectionA10" class="sidemenu topmenu">
+          <h3>SECTION A-10</h3>
+          <p>CLASS LIST</p>
+          <p>Boys</p>
+          <p>Girls</p>
+        </div>
+        
+        <div id="SectionB10" class="sidemenu topmenu">
+          <h3>SECTION B-10</h3>
+          <p>CLASS LIST</p>
+          <p>Boys</p>
+          <p>Girls</p>
+        </div>
+        
+        <div id="SectionC10" class="sidemenu topmenu">
+          <h3>SECTION C-10</h3>
+          <p>CLASSMATES MALE</p>
+          <p>Boys</p>
+          <p>Girls</p>
+        </div>
+        
+        <div id="SectionD10" class="sidemenu topmenu">
+          <h3>SECTION D-10</h3>
+          <p>CLASSMATES MALE</p>
+          <p>Boys</p>
+          <p>Girls</p>
+        </div>
+        
+        <div id="School" class="tabcontent">
+          <h3>School</h3>
+          <p>This is Tisa Elementary School</p>
+        </div>
+        
         <!-- edit contents above -->
       </div>
     </main>
+    <script src="community.js"></script>
   </body>
 </html>
