@@ -135,10 +135,6 @@
     @apply font-bold text-primary-accent transition-colors duration-300 hover:text-primary;
   }
 
-  .link-active {
-    @apply border-b-4 border-primary;
-  }
-
   /* Mammoth JS */
 
   .table {
