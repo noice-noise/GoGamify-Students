@@ -141,6 +141,30 @@
     @apply w-fit scale-x-95;
   }
 
+  .card-group {
+    @apply my-5 flex flex-wrap gap-3 md:gap-4 lg:gap-5;
+  }
+
+  .card--extra-small {
+    @apply max-w-xs;
+  }
+
+  .card--small {
+    @apply max-w-sm;
+  }
+
+  .card--large {
+    @apply max-w-lg;
+  }
+
+  .card--xl {
+    @apply max-w-xl;
+  }
+
+  .card__img-container {
+    @apply rounded-sm bg-background object-cover object-center;
+  }
+
   .card__container {
     @apply flex flex-col gap-5 rounded-lg border bg-foreground p-2 shadow-sm md:p-3 lg:p-5;
   }
