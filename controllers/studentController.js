@@ -42,13 +42,13 @@ const student_index = (req, res) => {
   }
 };
 
-const student_post = (req, res) => {
+const student_post = async (req, res) => {
   console.log("Saving");
   console.log(req.body);
 
   const student = new Student(req.body);
   // student.active = req.body.active == "on" ? true : false;
-  student
+  await student
     .save()
     .then(() => {
       res.redirect("/");
@@ -62,10 +62,10 @@ const student_post = (req, res) => {
     });
 };
 
-const student_get = (req, res) => {
+const student_get = async (req, res) => {
   const id = req.params.id;
   console.log(id);
-  Student.findById(id)
+  await Student.findById(id)
     .then((result) => {
       res.render("gamify/details", {
         title: "Learning Resource Details",
@@ -105,10 +105,10 @@ const student_put = (req, res) => {
   //   });
 };
 
-const student_delete = (req, res) => {
+const student_delete = async (req, res) => {
   const id = req.params.id;
 
-  Student.findByIdAndDelete(id)
+  await Student.findByIdAndDelete(id)
     .then((result) => {
       res.json({ redirect: "/admin/student-accounts" });
     })
