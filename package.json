@@ -37,6 +37,8 @@
     "mammoth": "^1.4.21",
     "mongoose": "^6.2.4",
     "morgan": "^1.10.0",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "passport": "^0.5.2",
+    "passport-local": "^1.0.0"
   }
 }
