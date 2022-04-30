@@ -39,7 +39,7 @@ require("dns").resolve("www.google.com", function (err) {
 const listen = () => {
   app.listen(PORT, (err) => {
     if (err) throw err;
-    console.log(`App is listening on port ${PORT}.`);
+    console.log(`App is listening on port http://localhost:${PORT}/`);
   });
 };
 
