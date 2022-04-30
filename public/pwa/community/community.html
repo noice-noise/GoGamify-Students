@@ -186,32 +186,132 @@
     <main id="main">
       <div class="main__container">
         <!-- edit contents below -->
-        <h1>Community</h1>
-        <button class="tablink" onclick="openPage('Teachers', this, 'red')"id="defaultOpen">Teachers</button>
-        <button class="tablink" onclick="openPage('Classmates', this, 'green')">Classmates</button>
-        <button class="tablink" onclick="openPage('School', this, 'blue')">School</button>
+        <h1 class="h1">Community</h1>
+        <button class="tablink button" onclick="openPage('Teachers', this, 'red')"id="defaultOpen">Teachers</button>
+        <button class="tablink button" onclick="openPage('Classmates', this, 'green')">Classmates</button>
+        <button class="tablink button" onclick="openPage('School', this, 'blue')">School</button>
 
         <div id="Teachers" class="tabcontent">
-          <h3>Teachers</h3>
-          <p>Grade level and Teachers</p>
+          <h3 class="h2">Teachers</h3>
+          <p class="h3">Grade level and Teachers</p>
         
           <div class="tab">
-            <button class="tablinks" style="background-color:red" onclick="openPage('Grade1')">Grade 1</button>
-            <button class="tablinks" style="background-color:green" onclick="openPage('Grade2')">Grade 2</button>
-            <button class="tablinks" style="background-color:yellow" onclick="openPage('Grade3')">Grade 3</button>
-            <button class="tablinks" style="background-color:blue" onclick="openPage('Grade4')">Grade 4</button>
-            <button class="tablinks" style="background-color:pink" onclick="openPage('Grade5')">Grade 5</button>
-            <button class="tablinks" style="background-color:grey" onclick="openPage('Grade6')">Grade 6</button>
-            <button class="tablinks" style="background-color:brown" onclick="openPage('Grade7')">Grade 7</button>
-            <button class="tablinks" style="background-color:orange" onclick="openPage('Grade8')">Grade 8</button>
-            <button class="tablinks" style="background-color:purple" onclick="openPage('Grade9')">Grade 9</button>
-            <button class="tablinks" style="background-color:gold" onclick="openPage('Grade10')">Grade 10</button>
+            <button class="tablinks button" onclick="openPage('Grade1')">Grade 1</button>
+            <button class="tablinks button" onclick="openPage('Grade2')">Grade 2</button>
+            <button class="tablinks button" onclick="openPage('Grade3')">Grade 3</button>
+            <button class="tablinks button" onclick="openPage('Grade4')">Grade 4</button>
+            <button class="tablinks button" onclick="openPage('Grade5')">Grade 5</button>
+            <button class="tablinks button" onclick="openPage('Grade6')">Grade 6</button>
+            <button class="tablinks button" onclick="openPage('Grade7')">Grade 7</button>
+            <button class="tablinks button" onclick="openPage('Grade8')">Grade 8</button>
+            <button class="tablinks button" onclick="openPage('Grade9')">Grade 9</button>
+            <button class="tablinks button" onclick="openPage('Grade10')">Grade 10</button>
           </div>
           
           <div id="Grade1" class="sidemenu topmenu">
-            <h3>Grade 1</h3>
-            <p>Subject Teachers</p>
+            <h3 class="h2">Grade 1</h3>
+            <p class="h3">Subject Teachers</p>
+          <div>
+            <div class="card max-w-sm">
+              <div class="card__container flex flex-col gap-5 rounded-lg border bg-foreground p-2 shadow-sm md:p-3 lg:p-5">
+                <div class="card__header">
+                  <p class="h2 text-primary">English</p>
+                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
+                  <p class="h4">Grade 1 Teacher</p>
+                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                </div>
+                <div class="card__body">
+                </div>
+              </div>
+            </div>
           </div>
+
+            <div class="card max-w-sm">
+              <div class="card__container flex flex-col gap-5 rounded-lg border bg-foreground p-2 shadow-sm md:p-3 lg:p-5">
+                <div class="card__header">
+                  <p class="h2 text-primary">Filipino</p>
+                  <p class="text-primary-accent">Mr.Angelo Garcia</p>
+                  <p class="h4">Grade 1 Teacher</p>
+                  <p class="text-sm">Contact Email: angelogarcia@gmail.com</p>
+                </div>
+                <div class="card__body">
+                </div>
+              </div>
+            </div>
+          </div>
+
+            <div class="card max-w-sm">
+              <div class="card__container flex flex-col gap-5 rounded-lg border bg-foreground p-2 shadow-sm md:p-3 lg:p-5">
+                <div class="card__header">
+                  <p class="h2 text-primary">Mathematics</p>
+                  <p class="text-primary-accent">Mrs.Anna Santos</p>
+                  <p class="h4">Grade 1 Teacher</p>
+                  <p class="text-sm">Contact Email: annasantos@gmail.com</p>
+                </div>
+                <div class="card__body">
+                </div>
+              </div>
+            </div>
+          </div>
+
+            <div class="card max-w-sm">
+              <div class="card__container flex flex-col gap-5 rounded-lg border bg-foreground p-2 shadow-sm md:p-3 lg:p-5">
+                <div class="card__header">
+                  <p class="h2 text-primary">Mother Tongue</p>
+                  <p class="text-primary-accent">Ms.Maria Erica Ramos</p>
+                  <p class="h4">Grade 1 Teacher</p>
+                  <p class="text-sm">Contact Email: ericaramos@gmail.com</p>
+                </div>
+                <div class="card__body">
+                </div>
+              </div>
+            </div>
+          </div>
+
+            <div class="card max-w-sm">
+              <div class="card__container flex flex-col gap-5 rounded-lg border bg-foreground p-2 shadow-sm md:p-3 lg:p-5">
+                <div class="card__header">
+                  <p class="h2 text-primary">Aralin Panlipunan</p>
+                  <p class="text-primary-accent">Mrs.Teresa Valdez</p>
+                  <p class="h4">Grade 1 Teacher</p>
+                  <p class="text-sm">Contact Email: teresavaldez@gmail.com</p>
+                </div>
+                <div class="card__body">
+                </div>
+              </div>
+            </div>
+          </div>
+
+            <div class="card max-w-sm">
+              <div class="card__container flex flex-col gap-5 rounded-lg border bg-foreground p-2 shadow-sm md:p-3 lg:p-5">
+                <div class="card__header">
+                  <p class="h2 text-primary">Good Manners and Right Conduct</p>
+                  <p class="text-primary-accent">Mr.Paolo Mendoza</p>
+                  <p class="h4">Grade 1 Teacher</p>
+                  <p class="text-sm">Contact Email: paolomendoza@gmail.com</p>
+                </div>
+                <div class="card__body">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card max-w-sm">
+            <div class="card__container flex flex-col gap-5 rounded-lg border bg-foreground p-2 shadow-sm md:p-3 lg:p-5">
+              <div class="card__header">
+                <p class="h2 text-primary">M.A.P.E.H</p>
+                <p class="text-primary-accent">Mr.Ricardo Sanchez</p>
+                <p class="h4">Grade 1 Teacher</p>
+                <p class="text-sm">Contact Email: ricardosanchez@gmail.com</p>
+              </div>
+              <div class="card__body">
+              </div>
+            </div>
+          </div>
+        </div>
+
+          </div>
+          
           
           <div id="Grade2" class="sidemenu topmenu">
             <h3>Grade 2</h3>
@@ -266,10 +366,10 @@
         </div>
         
         <div class="tab">
-          <button class="tablinks" style="background-color:red" onclick="openPage('1Grade')">Grade 1</button>
-          <button class="tablinks" style="background-color:green" onclick="openPage('2Grade')">Grade 2</button>
-          <button class="tablinks" style="background-color:yellow" onclick="openPage('3Grade')">Grade 3</button>
-          <button class="tablinks" style="background-color:blue" onclick="openPage('4Grade')">Grade 4</button>
+          <button class="tablinks" onclick="openPage('1Grade')">Grade 1</button>
+          <button class="tablinks" onclick="openPage('2Grade')">Grade 2</button>
+          <button class="tablinks" onclick="openPage('3Grade')">Grade 3</button>
+          <button class="tablinks" onclick="openPage('4Grade')">Grade 4</button>
           <button class="tablinks" style="background-color:pink" onclick="openPage('5Grade')">Grade 5</button>
           <button class="tablinks" style="background-color:grey" onclick="openPage('6Grade')">Grade 6</button>
           <button class="tablinks" style="background-color:brown" onclick="openPage('7Grade')">Grade 7</button>
