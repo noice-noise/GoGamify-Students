@@ -10,11 +10,13 @@
         </h1>
 
         <!-- nav -->
-        <div class="w-full">
-          <ul class="flex w-full justify-center gap-5 py-3">
+        <div class="mt-10 w-full">
+          <ul
+            class="flex w-full flex-col justify-center gap-5 py-3 text-center"
+          >
             <li>
               <a
-                class="link link-active py-3 px-4 text-neutral"
+                class="link py-3 px-4 text-neutral"
                 href="/admin/student-accounts"
                 >Accounts</a
               >
@@ -33,15 +35,11 @@
             <li>
               <a class="link py-3 px-4 text-neutral" href="#">Themes</a>
             </li>
-          </ul>
-        </div>
-
-        <p>Welcome!</p>
-        <div>
-          <ul>
             <li>
-              <a class="button" href="/login">Login</a>
-              <a class="button" href="/register">Register</a>
+              <div class="imposter">
+                <%- include('../partials/top-block-back.ejs', { label:`Go Back`,
+                route:`/`}) %>
+              </div>
             </li>
           </ul>
         </div>
