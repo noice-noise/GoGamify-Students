@@ -12,30 +12,28 @@
           class="m-2 rounded-xl bg-white px-5 py-3 shadow-sm ring-1 ring-inset ring-black/10"
         >
           <h3 class="h1 pt-5 pb-8 text-center">Login to GoGamify</h3>
-          <form
-            id="loginForm"
-            class="mx-auto flex max-w-sm flex-col space-y-6"
-            action="/login"
-            method="post"
-          >
-            <div>
-              <label class="py-3 text-lg font-semibold" for="">Username</label>
-              <input
-                class="mt-2 w-full rounded-xl bg-gray-50 px-4 py-3 shadow-inner ring-1 ring-inset ring-black/10"
-                type="email"
-                placeholder="akoatapang.atao@gmail.com"
-                required
-              />
-            </div>
-            <div>
-              <label class="text-lg font-semibold" for="">Password</label>
-              <input
-                class="mt-2 w-full rounded-xl bg-gray-50 px-4 py-3 shadow-inner ring-1 ring-inset ring-black/10"
-                type="password"
-                required
-              />
-            </div>
-            <div class="flex justify-between text-sm">
+
+          <form class="form" action="/auth/login" method="POST">
+            <label class="text-lg" for="email">Email</label>
+            <input
+              class="form__field"
+              type="email"
+              id="email"
+              name="email"
+              required
+            />
+
+            <label class="text-lg" for="password">Password</label>
+            <input
+              class="form__field"
+              type="password"
+              id="password"
+              name="password"
+              required
+            />
+
+            <!-- Extension: Remeber Me & Forget Password -->
+            <!-- <div class="flex justify-between text-sm">
               <div class="group">
                 <label
                   class="group-hover:cursor-pointer"
@@ -52,20 +50,18 @@
                 >
               </div>
               <a class="link text-right" href="#">Forgot your password?</a>
-            </div>
-            <div>
-              <button
-                class="button w-full rounded-xl px-2 py-3 text-3xl"
-                type="submit"
-              >
-                Log in
-              </button>
-              <!-- <button class="btn w-full rounded-xl px-2 py-3" type="submit">
-              Register
-            </button> -->
-            </div>
+            </div> -->
+
+            <button class="button button--cta w-full" type="submit">
+              Login
+            </button>
           </form>
+
+          <% if (messages.error) { %>
+          <div class="border-5 bg-background p-5"><%= messages.error %></div>
+          <% } %>
         </div>
+
         <div class="flex flex-col items-center justify-center">
           <a class="button button--muted" href="/auth/register"
             >Create a Free GoGamify Account</a
@@ -76,12 +72,6 @@
         </div>
       </div>
     </main>
-
-    <script>
-      //   window.onload = function () {
-      //     document.getElementById("loginForm").reset();
-      //     console.log("Window on load, inputs has been reset successfully.");
-      //   };
-    </script>
+    <%- include('../partials/footer.ejs') %>
   </body>
 </html>
