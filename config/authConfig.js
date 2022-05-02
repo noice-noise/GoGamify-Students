@@ -9,7 +9,7 @@ module.exports = {
 
   forwardAuthenticated: function checkNotAuthenticated(req, res, next) {
     if (req.isAuthenticated()) {
-      return res.redirect("/");
+      return res.redirect("/pwa/home.html");
     }
 
     return next();
