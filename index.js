@@ -4,7 +4,6 @@ const express = require("express");
 const morgan = require("morgan");
 const fileUpload = require("express-fileupload");
 const mongoose = require("mongoose");
-const bcrypt = require("bcrypt");
 
 const adminRoutes = require("./routes/adminRoutes");
 const studentRoutes = require("./routes/studentRoutes");
