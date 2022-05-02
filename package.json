@@ -38,6 +38,7 @@
     "live-server": "^1.2.2",
     "lodash": "^4.17.21",
     "mammoth": "^1.4.21",
+    "method-override": "^3.0.0",
     "mongoose": "^6.2.4",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.15",
