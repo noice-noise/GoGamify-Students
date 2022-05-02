@@ -1,9 +1,15 @@
-require("dotenv").config();
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
 
 const express = require("express");
 const morgan = require("morgan");
 const fileUpload = require("express-fileupload");
 const mongoose = require("mongoose");
+const passport = require("passport");
+const flash = require("express-flash");
+const session = require("express-session");
+const methodOverride = require("method-override");
 
 const adminRoutes = require("./routes/adminRoutes");
 const studentRoutes = require("./routes/studentRoutes");
@@ -14,6 +20,14 @@ const app = express();
 console.log("App running...");
 
 const PORT = process.env.PORT || 3000;
+
+const passportConfig = require("./config/passportConfig");
+const {
+  ensureAuthenticated,
+  forwardAuthenticated,
+} = require("./config/authConfig");
+
+passportConfig(passport);
 
 require("dns").resolve("www.google.com", function (err) {
   console.log("Checking Internet connectivity...");
@@ -52,14 +66,26 @@ app.use(
     createParentPath: true,
   })
 );
+app.use(flash());
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+  })
+);
+
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(methodOverride("_method"));
 
 app.get("/", (req, res) => {
   res.render("auth/login", { title: "Login | Gamify" });
 });
 
-app.use("/admin", adminRoutes);
+app.use("/admin", ensureAuthenticated, adminRoutes);
 app.use("/auth", authRoutes);
-app.use("/student", studentRoutes);
+app.use("/student", ensureAuthenticated, studentRoutes);
 
 app.use((req, res) => {
   res.status(404).render("404", { title: "Page not found." });

@@ -44,7 +44,6 @@ const student_index = (req, res) => {
 
 const student_post = async (req, res) => {
   console.log("Saving");
-  console.log(req.body.familyName);
 
   const student = new Student(req.body);
   // student.active = req.body.active == "on" ? true : false;
