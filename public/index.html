@@ -5,7 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GoGamify</title>
-    <link rel="stylesheet" href="/tailwind.css" />
+    <link rel="stylesheet" href="./tailwind.css" />
+    <link rel="shortcut icon" href="../icons/favicon.ico" type="image/x-icon" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../icons/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../icons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../icons/favicon-16x16.png"
+    />
+
+    <link rel="manifest" href="../manifest.json" />
   </head>
   <body class="body">
     <div class="flex h-screen w-screen flex-col items-center justify-center">
@@ -14,5 +34,44 @@
       <a class="button" href="./pwa/install.html">Installation</a>
       <a class="button" href="/admin">Admin</a>
     </div>
+
+    <script>
+      if ("serviceWorker" in navigator) {
+        console.log("Service worker registered");
+        navigator.serviceWorker.register("./service-worker.js");
+      }
+    </script>
+
+    <script>
+      let deferredPrompt;
+      window.addEventListener("beforeinstallprompt", (event) => {
+        // Prevent Chrome 67 and earlier from automatically showing the prompt
+        // event.preventDefault();
+
+        // Stash the event so it can be triggered later.
+        deferredPrompt = event;
+
+        // Attach the install prompt to a user gesture
+        document
+          .querySelector("#installBtn")
+          .addEventListener("click", (event) => {
+            // Show the prompt
+            deferredPrompt.prompt();
+
+            // Wait for the user to respond to the prompt
+            deferredPrompt.userChoice.then((choiceResult) => {
+              if (choiceResult.outcome === "accepted") {
+                console.log("User accepted the A2HS prompt");
+              } else {
+                console.log("User dismissed the A2HS prompt");
+              }
+              deferredPrompt = null;
+            });
+          });
+
+        // Update UI notify the user they can add to home screen
+        document.querySelector("#installBanner").style.display = "flex";
+      });
+    </script>
   </body>
 </html>

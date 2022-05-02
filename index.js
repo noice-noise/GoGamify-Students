@@ -4,6 +4,7 @@ const express = require("express");
 const morgan = require("morgan");
 const fileUpload = require("express-fileupload");
 const mongoose = require("mongoose");
+const bcrypt = require("bcrypt");
 
 const adminRoutes = require("./routes/adminRoutes");
 const studentRoutes = require("./routes/studentRoutes");
@@ -39,7 +40,7 @@ require("dns").resolve("www.google.com", function (err) {
 const listen = () => {
   app.listen(PORT, (err) => {
     if (err) throw err;
-    console.log(`App is listening on port ${PORT}.`);
+    console.log(`App is listening on port http://localhost:${PORT}/`);
   });
 };
 

@@ -120,7 +120,7 @@
   }
 
   .header__container {
-    @apply fixed top-0 z-50 hidden h-12 w-full items-center justify-center justify-between border bg-foreground px-5 shadow-sm lg:flex;
+    @apply fixed top-0 z-50 hidden h-12 w-full items-center justify-between border bg-foreground px-5 shadow-sm lg:flex;
   }
 
   .header__span {
