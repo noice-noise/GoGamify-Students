@@ -439,7 +439,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   --color-transparent: 109 40 217 0;
-  /* #6D28D9 */
   --color-primary: 109 40 217;
   /* #6D28D9 */
   --color-primary-accent: 139 92 246;
@@ -585,6 +584,18 @@ body {
   }
 }
 
+.h4 {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+@media (min-width: 1024px) {
+  .h4 {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+}
+
 .body {
   --tw-bg-opacity: 1;
   background-color: rgb(var(--color-background) / var(--tw-bg-opacity));
@@ -594,7 +605,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   --color-transparent: 109 40 217 0;
-  /* #6D28D9 */
   --color-primary: 109 40 217;
   /* #6D28D9 */
   --color-primary-accent: 139 92 246;
@@ -1325,6 +1335,10 @@ body {
   height: 5rem;
 }
 
+.h-12 {
+  height: 3rem;
+}
+
 .h-full {
   height: 100%;
 }
@@ -1351,12 +1365,8 @@ body {
   height: 9rem;
 }
 
-.h-10 {
-  height: 2.5rem;
-}
-
-.h-12 {
-  height: 3rem;
+.h-28 {
+  height: 7rem;
 }
 
 .w-screen {
@@ -1381,6 +1391,10 @@ body {
   width: 5rem;
 }
 
+.w-12 {
+  width: 3rem;
+}
+
 .w-full {
   width: 100%;
 }
@@ -1401,12 +1415,8 @@ body {
   width: 9rem;
 }
 
-.w-10 {
-  width: 2.5rem;
-}
-
-.w-12 {
-  width: 3rem;
+.w-28 {
+  width: 7rem;
 }
 
 .max-w-sm {
@@ -1529,6 +1539,11 @@ body {
   background-color: rgb(var(--color-background) / var(--tw-bg-opacity));
 }
 
+.bg-primary {
+  --tw-bg-opacity: 1;
+  background-color: rgb(var(--color-primary) / var(--tw-bg-opacity));
+}
+
 .bg-gray-50 {
   --tw-bg-opacity: 1;
   background-color: rgb(249 250 251 / var(--tw-bg-opacity));
@@ -1549,11 +1564,6 @@ body {
   background-color: rgb(var(--color-danger) / var(--tw-bg-opacity));
 }
 
-.bg-primary {
-  --tw-bg-opacity: 1;
-  background-color: rgb(var(--color-primary) / var(--tw-bg-opacity));
-}
-
 .from-violet-700 {
   --tw-gradient-from: #6d28d9;
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(109 40 217 / 0));
@@ -1561,14 +1571,6 @@ body {
 
 .to-purple-400 {
   --tw-gradient-to: #c084fc;
-}
-
-.fill-red-200 {
-  fill: #fecaca;
-}
-
-.fill-primary {
-  fill: rgb(var(--color-primary));
 }
 
 .p-5 {
@@ -1811,7 +1813,6 @@ body {
 
 .theme-default {
   --color-transparent: 109 40 217 0;
-  /* #6D28D9 */
   --color-primary: 109 40 217;
   /* #6D28D9 */
   --color-primary-accent: 139 92 246;

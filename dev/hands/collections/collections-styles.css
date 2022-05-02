@@ -1,4 +1,4 @@
-/* .my-h1{
+/* h1{
     background-color: rgb(225, 235, 235);
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
@@ -8,6 +8,9 @@
     border-radius: 35px;
     padding: 10px;
 } */
+
+.hans-card h2 {
+}
 
 .profile {
   border: 5px solid rgb(26, 128, 0);
