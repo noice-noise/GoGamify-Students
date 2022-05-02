@@ -1130,8 +1130,6 @@ body {
 
 .card__img-container {
   border-radius: 0.125rem;
-  --tw-bg-opacity: 1;
-  background-color: rgb(var(--color-background) / var(--tw-bg-opacity));
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: center;
@@ -1353,6 +1351,14 @@ body {
   height: 9rem;
 }
 
+.h-10 {
+  height: 2.5rem;
+}
+
+.h-12 {
+  height: 3rem;
+}
+
 .w-screen {
   width: 100vw;
 }
@@ -1393,6 +1399,14 @@ body {
 
 .w-36 {
   width: 9rem;
+}
+
+.w-10 {
+  width: 2.5rem;
+}
+
+.w-12 {
+  width: 3rem;
 }
 
 .max-w-sm {
@@ -1547,6 +1561,10 @@ body {
 
 .to-purple-400 {
   --tw-gradient-to: #c084fc;
+}
+
+.fill-red-200 {
+  fill: #fecaca;
 }
 
 .p-5 {

@@ -1,4 +1,4 @@
-h1{
+/* .my-h1{
     background-color: rgb(225, 235, 235);
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
@@ -7,38 +7,38 @@ h1{
     border: 8px solid rgb(112, 23, 190);
     border-radius: 35px;
     padding: 10px;
-}
+} */
 
-.profile{
-    border: 5px solid rgb(26, 128, 0);
-    border-radius: 50%;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    text-align: center;
+.profile {
+  border: 5px solid rgb(26, 128, 0);
+  border-radius: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  text-align: center;
 }
-
+/* 
 body{
     border: 3px solid purple;
     margin-left: 50px;
     margin-right: 50px;
-}
-.achievement_block{
-    height: 100px;
-    width: 100px;
-    border: 5px solid rgb(112, 23, 190);
-    border-radius: 20px;
-    text-align: center;
-    margin-left: 50px;
-    background-color: rgb(239, 228, 238);
-}
-
-.achievement_block img{
-    border: 5px solid rgb(50, 205, 120);
-    margin-top: 10px;
+} */
+.achievement_block {
+  height: 100px;
+  width: 100px;
+  border: 5px solid rgb(112, 23, 190);
+  border-radius: 20px;
+  text-align: center;
+  margin-left: 50px;
+  background-color: rgb(239, 228, 238);
 }
 
-th{
+.achievement_block img {
+  border: 5px solid rgb(50, 205, 120);
+  margin-top: 10px;
+}
+
+/* th{
     border: 1px solid rgb(58, 51, 51);
     padding: 10px;
 }
@@ -75,4 +75,4 @@ aside{
     text-transform: uppercase;
     font-weight: bolder;
     font-size: 50px;
-}
+} */

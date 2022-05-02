@@ -162,7 +162,7 @@
   }
 
   .card__img-container {
-    @apply rounded-sm bg-background object-cover object-center;
+    @apply rounded-sm object-cover object-center;
   }
 
   .card__container {
