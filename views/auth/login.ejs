@@ -58,7 +58,9 @@
           </form>
 
           <% if (messages.error) { %>
-          <div class="border-5 bg-background p-5"><%= messages.error %></div>
+          <div class="form__field mt-2 bg-danger text-foreground">
+            <%= messages.error %>
+          </div>
           <% } %>
         </div>
 
