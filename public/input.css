@@ -157,7 +157,7 @@
   }
 
   .card--small {
-    @apply min-h-[300px] w-[300px] max-w-sm;
+    @apply min-h-[200px] w-[250px] max-w-sm;
   }
 
   .card--large {
