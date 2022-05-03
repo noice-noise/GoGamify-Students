@@ -1134,14 +1134,20 @@ body {
 }
 
 .card--extra-small {
+  min-height: 300px;
+  width: 250px;
   max-width: 20rem;
 }
 
 .card--small {
+  min-height: 300px;
+  width: 300px;
   max-width: 24rem;
 }
 
 .card--large {
+  min-height: 400px;
+  width: 400px;
   max-width: 32rem;
 }
 
@@ -1240,40 +1246,16 @@ body {
   position: relative;
 }
 
+.top-\[75px\] {
+  top: 75px;
+}
+
 .top-3 {
   top: 0.75rem;
 }
 
 .right-3 {
   right: 0.75rem;
-}
-
-.top-10 {
-  top: 2.5rem;
-}
-
-.top-20 {
-  top: 5rem;
-}
-
-.top-11 {
-  top: 2.75rem;
-}
-
-.top-16 {
-  top: 4rem;
-}
-
-.top-\[75px\] {
-  top: 75px;
-}
-
-.z-10 {
-  z-index: 10;
-}
-
-.z-50 {
-  z-index: 50;
 }
 
 .m-2 {
@@ -1298,6 +1280,10 @@ body {
   margin-bottom: 1.25rem;
 }
 
+.mr-2 {
+  margin-right: 0.5rem;
+}
+
 .-mt-14 {
   margin-top: -3.5rem;
 }
@@ -1314,16 +1300,8 @@ body {
   margin-top: 5rem;
 }
 
-.mr-2 {
-  margin-right: 0.5rem;
-}
-
 .mt-2 {
   margin-top: 0.5rem;
-}
-
-.ml-2 {
-  margin-left: 0.5rem;
 }
 
 .block {
@@ -1362,12 +1340,12 @@ body {
   height: 12rem;
 }
 
-.h-24 {
-  height: 6rem;
-}
-
 .h-20 {
   height: 5rem;
+}
+
+.h-24 {
+  height: 6rem;
 }
 
 .h-12 {
@@ -1404,20 +1382,12 @@ body {
   height: 9rem;
 }
 
-.h-40 {
-  height: 10rem;
-}
-
-.h-44 {
-  height: 11rem;
-}
-
-.h-16 {
-  height: 4rem;
-}
-
 .w-48 {
   width: 12rem;
+}
+
+.w-full {
+  width: 100%;
 }
 
 .w-screen {
@@ -1448,10 +1418,6 @@ body {
 
 .w-60 {
   width: 15rem;
-}
-
-.w-full {
-  width: 100%;
 }
 
 .w-5 {
@@ -1579,6 +1545,11 @@ body {
   border-style: none;
 }
 
+.bg-foreground {
+  --tw-bg-opacity: 1;
+  background-color: rgb(var(--color-foreground) / var(--tw-bg-opacity));
+}
+
 .bg-background {
   --tw-bg-opacity: 1;
   background-color: rgb(var(--color-background) / var(--tw-bg-opacity));
@@ -1609,11 +1580,6 @@ body {
   background-color: rgb(var(--color-primary) / var(--tw-bg-opacity));
 }
 
-.bg-foreground {
-  --tw-bg-opacity: 1;
-  background-color: rgb(var(--color-foreground) / var(--tw-bg-opacity));
-}
-
 .from-violet-700 {
   --tw-gradient-from: #6d28d9;
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(109 40 217 / 0));
@@ -1621,6 +1587,10 @@ body {
 
 .to-purple-400 {
   --tw-gradient-to: #c084fc;
+}
+
+.p-10 {
+  padding: 2.5rem;
 }
 
 .p-5 {
@@ -1637,10 +1607,6 @@ body {
 
 .p-0 {
   padding: 0px;
-}
-
-.p-10 {
-  padding: 2.5rem;
 }
 
 .py-6 {
@@ -1703,6 +1669,11 @@ body {
   line-height: 1.25rem;
 }
 
+.text-7xl {
+  font-size: 4.5rem;
+  line-height: 1;
+}
+
 .text-6xl {
   font-size: 3.75rem;
   line-height: 1;
@@ -1715,21 +1686,6 @@ body {
 
 .text-5xl {
   font-size: 3rem;
-  line-height: 1;
-}
-
-.text-base {
-  font-size: 1rem;
-  line-height: 1.5rem;
-}
-
-.text-9xl {
-  font-size: 8rem;
-  line-height: 1;
-}
-
-.text-7xl {
-  font-size: 4.5rem;
   line-height: 1;
 }
 
@@ -1810,12 +1766,6 @@ body {
 .shadow-sm {
   --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
-.shadow-none {
-  --tw-shadow: 0 0 #0000;
-  --tw-shadow-colored: 0 0 #0000;
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 

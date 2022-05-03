@@ -153,15 +153,15 @@
   }
 
   .card--extra-small {
-    @apply max-w-xs;
+    @apply min-h-[300px] w-[250px] max-w-xs;
   }
 
   .card--small {
-    @apply max-w-sm;
+    @apply min-h-[300px] w-[300px] max-w-sm;
   }
 
   .card--large {
-    @apply max-w-lg;
+    @apply min-h-[400px] w-[400px] max-w-lg;
   }
 
   .card--xl {
