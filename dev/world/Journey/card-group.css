@@ -1141,9 +1141,9 @@ body {
 }
 
 .card--extra-small {
-  max-width: 20rem;
+  max-width: 30rem;
 }
-
+/*here*/
 .card--small {
   max-width: 24rem;
 }
