@@ -79,10 +79,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(methodOverride("_method"));
 
-app.get("/", (req, res) => {
-  res.render("auth/login", { title: "Login | Gamify" });
-});
-
 app.use("/admin", ensureAuthenticated, adminRoutes);
 app.use("/auth", authRoutes);
 app.use("/student", ensureAuthenticated, studentRoutes);

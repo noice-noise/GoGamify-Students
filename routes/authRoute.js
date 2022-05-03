@@ -11,7 +11,7 @@ router.delete("/logout", authController.logout);
 router.post(
   "/login",
   passport.authenticate("local", {
-    successRedirect: "/pwa/home.html",
+    successRedirect: "/home.html",
     failureRedirect: "/auth/login",
     failureFlash: true,
   })

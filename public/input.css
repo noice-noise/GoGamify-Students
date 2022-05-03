@@ -8,10 +8,6 @@
   --color-primary-accent: 139 92 246; /* #8B5CF6 */
   --color-primary-muted: 233 213 255; /* #E9D5FF */
 
-  /* --color-secondary: 255 196 2;
-  --color-secondary-accent: 255 196 2;
-  --color-secondary-muted: 255 196 2; */
-
   --color-text-neutral: 39 39 42; /* #27272A */
   --color-text-muted: 82 82 91; /* #52525B */
 
@@ -66,7 +62,6 @@
   }
 
   /* Mammoth JS */
-
   .table {
     @apply w-fit scale-x-95;
   }
@@ -95,6 +90,10 @@
     @apply h-10 w-10 transform-gpu rounded-full p-2 duration-500 group-hover:stroke-primary/80 group-focus:bg-primary-muted group-focus:stroke-primary/80 md:group-hover:rounded-full md:group-hover:bg-primary-muted  md:group-focus:rounded-full md:group-focus:bg-foreground;
   }
 
+  .button__icon--active {
+    @apply rounded-full bg-foreground stroke-primary/80;
+  }
+
   .button__span__label {
     @apply hidden text-xs group-hover:flex group-focus:flex group-active:flex md:flex;
   }
@@ -109,6 +108,10 @@
 
   .nav__button {
     @apply m-0 h-10 w-12 gap-0 bg-foreground text-neutral ring-0 ring-transparent md:h-16 md:w-16 md:p-10 md:hover:bg-background md:focus:bg-primary-muted md:focus:text-primary-accent lg:h-auto lg:w-20 lg:gap-2 lg:p-3;
+  }
+
+  .nav__button--active {
+    @apply bg-primary-muted stroke-primary/80;
   }
 
   .nav__container {

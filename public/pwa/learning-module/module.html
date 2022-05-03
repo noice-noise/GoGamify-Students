@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>JOURNEY</title>
+    <title>Module</title>
 
     <!-- Main Stylesheets -->
     <!-- Production -->
@@ -12,7 +12,7 @@
     <!-- Development -->
     <link rel="stylesheet" type="text/css" href="/public/tailwind.css" />
     <!-- Custom Classes -->
-    <link rel="stylesheet" href="./journey.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="./RENAMEME-style.css" /> -->
 
     <!-- NOTE: You can add and extend for custom stylesheets, but always use "classes" instead of 
     direct tags in css for our standards -->
@@ -39,7 +39,6 @@
 
     <link rel="manifest" href="../manifest.json" />
   </head>
-
   <body class="body">
     <!-- GoGamify Header -->
     <header>
@@ -54,14 +53,11 @@
       <div class="nav__container">
         <ul class="nav__list">
           <li class="nav__list__item">
-            <a
-              class="button nav__button nav__button--active group"
-              href="../journey/journey.html"
-            >
+            <a class="button nav__button group" href="../journey/journey.html">
               <span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="icon icon-tabler icon-tabler-route button__icon button__icon--active"
+                  class="icon icon-tabler icon-tabler-route button__icon"
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"
@@ -123,13 +119,13 @@
           </li>
           <li class="nav__list__item">
             <a
-              class="button nav__button group"
+              class="button nav__button nav__button--active group"
               href="../learning-module/module.html"
             >
               <span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="icon icon-tabler icon-tabler-file-star button__icon"
+                  class="icon icon-tabler icon-tabler-file-star button__icon button__icon--active"
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"
@@ -225,186 +221,13 @@
     <main id="main">
       <div class="main__container">
         <!-- edit contents below -->
-
-        <section>
-          <!-- USING A FLEX CONTAINER WITH CARDS -->
-          <!--START COPY PASTING HEREEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE-->
-          <div class="card-group">
-            <div class="card card--extra-small">
-              <div
-                class="card__container"
-                id="contentFront"
-                onclick="changeToBackContent();"
-              >
-                <div class="card__header">
-                  <div class="card__subject-container">
-                    <div class="card__subject-content">
-                      <p class="text-sub-box">FI</p>
-                    </div>
-                  </div>
-                  <p class="h2 text-primary">Filipino</p>
-                </div>
-                <div class="card__body">
-                  <p class="text-stats">Output : 12</p>
-                  <p class="text-stats">Progress: 50%</p>
-                </div>
-              </div>
-
-              <div
-                class="card__container-back"
-                id="contentBack"
-                onclick="changeToFrontContent();"
-                style="display: none"
-              >
-                <div class="card__header">
-                  <div class="card__subject-container">
-                    <div class="card__subject-content">
-                      <p class="text-sub-box">FI</p>
-                    </div>
-                  </div>
-                  <p class="h2 text-primary">Progress Report</p>
-                </div>
-                <div class="card__body">
-                  <p class="text-stats">Submitted : 12</p>
-                  <p class="text-stats">Currently Doing: 12</p>
-
-                  <p class="text-stats">To-do: 15</p>
-
-                  <p class="text-stats">Total Homework: 36</p>
-                </div>
-              </div>
-            </div>
-
-            <!-- newshit -->
-            <!-- <div class="card card--small"> -->
-
-            <div class="card__container">
-              <div class="card__header">
-                <div class="card__subject-container">
-                  <div class="card__subject-content">
-                    <p class="text-sub-box">HI</p>
-                  </div>
-                </div>
-                <p class="h2 text-primary">History</p>
-              </div>
-              <div class="card__body">
-                <p class="text-stats">Output : 12</p>
-                <p class="text-stats">Progress: 50%</p>
-              </div>
-            </div>
-
-            <div class="card__container">
-              <div class="card__header">
-                <div class="card__subject-container">
-                  <div class="card__subject-content">
-                    <p class="text-sub-box">SC</p>
-                  </div>
-                </div>
-                <p class="h2 text-primary">Science</p>
-              </div>
-              <div class="card__body">
-                <p class="text-stats">Output : 12</p>
-                <p class="text-stats">Progress: 50%</p>
-              </div>
-            </div>
-
-            <div class="card__container">
-              <div class="card__header">
-                <div class="card__subject-container">
-                  <div class="card__subject-content">
-                    <p class="text-sub-box">MA</p>
-                  </div>
-                </div>
-                <p class="h2 text-primary">Mathematics</p>
-              </div>
-              <div class="card__body">
-                <p class="text-stats">Output : 12</p>
-                <p class="text-stats">Progress: 50%</p>
-              </div>
-            </div>
-
-            <div class="card__container">
-              <div class="card__header">
-                <div class="card__subject-container">
-                  <div class="card__subject-content">
-                    <p class="text-sub-box">AP</p>
-                  </div>
-                </div>
-                <p class="h2 text-primary">Araling Panlipunan</p>
-              </div>
-              <div class="card__body">
-                <p class="text-stats">Output : 12</p>
-                <p class="text-stats">Progress: 50%</p>
-              </div>
-            </div>
-
-            <div class="card__container">
-              <div class="card__header">
-                <div class="card__subject-container">
-                  <div class="card__subject-content">
-                    <p class="text-sub-box">EN</p>
-                  </div>
-                </div>
-                <p class="h2 text-primary">English</p>
-              </div>
-              <div class="card__body">
-                <p class="text-stats">Output : 12</p>
-                <p class="text-stats">Progress: 50%</p>
-              </div>
-            </div>
-
-            <div class="card__container">
-              <div class="card__header">
-                <div class="card__subject-container">
-                  <div class="card__subject-content">
-                    <p class="text-sub-box">ES</p>
-                  </div>
-                </div>
-                <p class="h2 text-primary">ESP</p>
-              </div>
-              <div class="card__body">
-                <p class="text-stats">Output : 12</p>
-                <p class="text-stats">Progress: 50%</p>
-              </div>
-            </div>
-
-            <div class="card__container">
-              <div class="card__header">
-                <div class="card__subject-container">
-                  <div class="card__subject-content">
-                    <p class="text-sub-box">TL</p>
-                  </div>
-                </div>
-                <p class="h2 text-primary">TLE</p>
-              </div>
-              <div class="card__body">
-                <p class="text-stats">Output : 12</p>
-                <p class="text-stats">Progress: 50%</p>
-              </div>
-            </div>
-
-            <div class="card__container">
-              <div class="card__header">
-                <div class="card__subject-container">
-                  <div class="card__subject-content">
-                    <p class="text-sub-box">MA</p>
-                  </div>
-                </div>
-                <p class="h2 text-primary">MAPEH</p>
-              </div>
-              <div class="card__body">
-                <p class="text-stats">Output : 12</p>
-                <p class="text-stats">Progress: 50%</p>
-              </div>
-            </div>
-          </div>
+        <section class="section">
+          <h1 class="h1">Week 1: Differential Equations</h1>
+          <p>Wala nang intro intro, quiz dayon!</p>
         </section>
-
-        <!--end-->
 
         <!-- edit contents above -->
       </div>
     </main>
-    <script src="main.js"></script>
   </body>
 </html>
