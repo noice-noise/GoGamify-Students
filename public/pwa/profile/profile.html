@@ -4,8 +4,20 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../tailwind.css" />
-    <title>Home | GoGamify</title>
+    <title>Module</title>
+
+    <!-- Main Stylesheets -->
+    <!-- Production -->
+    <link rel="stylesheet" type="text/css" href="/tailwind.css" />
+    <!-- Development -->
+    <link rel="stylesheet" type="text/css" href="/public/tailwind.css" />
+    <!-- Custom Classes -->
+    <!-- <link rel="stylesheet" type="text/css" href="./RENAMEME-style.css" /> -->
+
+    <!-- NOTE: You can add and extend for custom stylesheets, but always use "classes" instead of 
+    direct tags in css for our standards -->
+
+    <!-- Web Accessibility -->
     <link rel="shortcut icon" href="../icons/favicon.ico" type="image/x-icon" />
     <link
       rel="apple-touch-icon"
@@ -41,7 +53,7 @@
       <div class="nav__container">
         <ul class="nav__list">
           <li class="nav__list__item">
-            <a class="button nav__button group" href="./journey/journey.html">
+            <a class="button nav__button group" href="../journey/journey.html">
               <span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -73,7 +85,7 @@
           <li class="nav__list__item">
             <a
               class="button nav__button group"
-              href="./community/community.html"
+              href="../community/community.html"
             >
               <span>
                 <svg
@@ -108,7 +120,7 @@
           <li class="nav__list__item">
             <a
               class="button nav__button group"
-              href="./learning-module/module.html"
+              href="../learning-module/module.html"
             >
               <span>
                 <svg
@@ -143,7 +155,7 @@
           <li class="nav__list__item">
             <a
               class="button nav__button group"
-              href="./collections/achievements.html"
+              href="../collections/collections.html"
             >
               <span>
                 <svg
@@ -175,11 +187,14 @@
             </a>
           </li>
           <li class="nav__list__item">
-            <a class="button nav__button group" href="./profile/profile.html">
+            <a
+              class="button nav__button nav__button--active group"
+              href="../profile/profile.html"
+            >
               <span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="icon icon-tabler icon-tabler-user button__icon"
+                  class="icon icon-tabler icon-tabler-user button__icon button__icon--active"
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"
@@ -207,35 +222,10 @@
     <!-- end of nav -->
 
     <main id="main">
-      <div class="main__container text-center">
+      <div class="main__container">
         <!-- edit contents below -->
-        <section class="section h-screen">
-          <div class="mb-10 flex items-center justify-center">
-            <span>
-              <img
-                class="h-48 w-48"
-                src="../assets/undraw_happy_news_re_tsbd.svg"
-                alt=""
-                srcset=""
-              />
-            </span>
-          </div>
-
-          <h1 class="h1 mb-5">Welcome to GoGamify</h1>
-
-          <div>
-            The core vision of the platform is to help teachers and students
-            have an educational platform where they can easily integrate
-            game-mechanics and fun in both teaching and learning. Applying the
-            element of fun and games in this today’s digital age should be easy
-            and seamless for users. **GoGamify** can be used as a supplementary
-            platform for existing software infrastructures like Learning
-            Management Systems, Learning Portals, or Learning Libraries. Since
-            the platform is designed to help provide solution to the needs,
-            challenges, and use cases of teachers and students, the two
-            progressive web applications were designed with features relevant to
-            differing types of users.
-          </div>
+        <section class="section">
+          <h1 class="h1">Profile</h1>
 
           <div>
             <form action="/auth/logout?_method=DELETE" method="POST">
@@ -243,62 +233,9 @@
             </form>
           </div>
         </section>
+
         <!-- edit contents above -->
       </div>
     </main>
-
-    <footer class="auto-container border-t">
-      <div class="flex items-center justify-between text-sm text-neutral/80">
-        <a href="/">GoGamify Education 2022</a>
-        <a href="https://github.com/noice-noise/GoGamify-Students"
-          >The GoGamify Team</a
-        >
-      </div>
-    </footer>
-
-    <script>
-      if ("serviceWorker" in navigator) {
-        console.log("Service worker registered");
-        navigator.serviceWorker.register("./service-worker.js");
-      }
-    </script>
-
-    <script>
-      let deferredPrompt;
-      window.addEventListener(
-        "beforeinstallprompt",
-        (event) => {
-          // Prevent Chrome 67 and earlier from automatically showing the prompt
-          // event.preventDefault();
-
-          // Stash the event so it can be triggered later.
-          deferredPrompt = event;
-
-          // Attach the install prompt to a user gesture
-          document
-            .querySelector("#install")
-            .addEventListener("click", (event) => {
-              // Show the prompt
-              deferredPrompt.prompt();
-
-              // Wait for the user to respond to the prompt
-              deferredPrompt.userChoice.then((choiceResult) => {
-                if (choiceResult.outcome === "accepted") {
-                  console.log("User accepted the A2HS prompt");
-                } else {
-                  console.log("User dismissed the A2HS prompt");
-                }
-                deferredPrompt = null;
-              });
-            });
-
-          // Update UI notify the user they can add to home screen
-          document.querySelector("#installBanner").style.display = "flex";
-        },
-        (error) => {
-          console.log("Install prompt not available.");
-        }
-      );
-    </script>
   </body>
 </html>
