@@ -1,0 +1,16 @@
+/* Butang ari tanan custom styles */
+
+/* Note avoid using direct tags
+like 
+
+h2 {
+    width: 100%;
+}
+
+-- instead use:
+
+.myclass h2 {
+    width: 100%;
+}
+
+*/
