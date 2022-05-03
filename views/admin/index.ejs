@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head.ejs') %>
+
+  <body class="body">
+    <div class="p-5">
+      <div class="mt-20 flex w-full flex-col items-center justify-center">
+        <h1 class="h1 text-center">
+          GoGamify <span class="text-primary">Admin</span>
+        </h1>
+
+        <!-- nav -->
+        <div class="mt-10 w-full">
+          <ul
+            class="flex w-full flex-col justify-center gap-5 py-3 text-center"
+          >
+            <li>
+              <a
+                class="link py-3 px-4 text-neutral"
+                href="/admin/student-accounts"
+                >Accounts</a
+              >
+            </li>
+            <li>
+              <a class="link py-3 px-4 text-neutral" href="#"
+                >Learning Resources</a
+              >
+            </li>
+            <li>
+              <a class="link py-3 px-4 text-neutral" href="#">Badges</a>
+            </li>
+            <li>
+              <a class="link py-3 px-4 text-neutral" href="#">Achievements</a>
+            </li>
+            <li>
+              <a class="link py-3 px-4 text-neutral" href="#">Themes</a>
+            </li>
+            <li>
+              <div class="imposter">
+                <%- include('../partials/top-block-back.ejs', { label:`Go Back`,
+                route:`/`}) %>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div></div>
+
+      <div class="h-96"></div>
+    </div>
+  </body>
+</html>

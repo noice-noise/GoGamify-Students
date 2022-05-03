@@ -29,9 +29,9 @@ I-change change lang ni nga file para about sa mga progress, notes, updates, sim
   - [ ] Download [GitHub Desktop](https://desktop.github.com/) (optional)
   - [ ] Delete all comments in this file, make sure you're in `develop` branch --- then `commit`, `push`, then submit a GitHub `pull` request as what you've learned in tutorials
 
-- [ ] Web Development Journey
+- [x] Web Development Journey
 
-  - [ ] I've learned basic HTML
+  - [x] I've learned basic HTML
     - [ ] I know why we should use `<nav>`, `<main>`, `<footer>` instead of `div`, `div`, `div`
     - I know how to use link HTML pages and use `#id` tags
   - [ ] I've learned basic CSS
@@ -43,8 +43,8 @@ I-change change lang ni nga file para about sa mga progress, notes, updates, sim
 
 - [ ] I've finish first task in `info` folder
 
-- [ ] Let's do this!
-  - [ ] I am now confident to take on my **DevTasks**
+- [x] Let's do this!
+  - [x] I am now confident to take on my **DevTasks**
 
 ### My Notes
 
@@ -61,6 +61,6 @@ Recommended Channels and their gigantic playlists to browse Webdev, HTML, CSS, J
 
 Raul Webdev Journey:
 
-- [Noice Webdev Labs/Collection](https://github.com/noice-noise/noice-webdev-projects)
+- [Noice Webdev Labs/Collection](https://github.com/noice-noise/noice-webdev-labs)
 - [Item Lister](https://github.com/noice-noise/item-lister)
 - [Quiz App](https://github.com/noice-noise/quiz-web-app)

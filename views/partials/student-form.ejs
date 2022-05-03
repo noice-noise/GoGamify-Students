@@ -1,0 +1,67 @@
+<form class="form" action="/student/register" method="POST">
+  <label for="familyName">Family Name</label>
+  <input name="familyName" class="form__field" type="text" required />
+  <label for="middleName">Middle Name</label>
+  <input name="middleName" class="form__field" type="text" required />
+  <label for="firstName">First Name</label>
+  <input name="firstName" class="form__field" type="text" required />
+
+  <label for="gender">Gender</label>
+  <select class="form__field" name="gender" id="gender" required>
+    <option value="Prefer not to say" selected>Prefer to say</option>
+
+    <option value="Male">Male</option>
+    <option value="Female">Female</option>
+  </select>
+
+  <label for="school">School</label>
+  <input name="school" class="form__field" type="text" required />
+
+  <label for="gradeLevel">Grade Level</label>
+  <select class="form__field" name="gradeLevel" id="gradeLevel" required>
+    <option class="" value="" disabled selected hidden>My grade level</option>
+
+    <option value="1">Grade 1</option>
+    <option value="2">Grade 2</option>
+    <option value="3">Grade 3</option>
+    <option value="4">Grade 4</option>
+    <option value="5">Grade 5</option>
+    <option value="6">Grade 6</option>
+    <option value="7">Grade 7</option>
+    <option value="8">Grade 8</option>
+    <option value="9">Grade 9</option>
+    <option value="10">Grade 10</option>
+    <option value="-1">Others</option>
+  </select>
+
+  <label for="section">Current section</label>
+  <input name="section" class="form__field" type="text" />
+
+  <label for="email">Email</label>
+  <input name="email" class="form__field" type="text" />
+
+  <label for="about">About me</label>
+  <textarea
+    class="form__field resize-y"
+    name="about"
+    id="about"
+    cols="30"
+    rows="6"
+  ></textarea>
+
+  <label for="social">My Social Media</label>
+  <textarea
+    class="form__field resize-y"
+    name="social"
+    id="social"
+    cols="30"
+    rows="3"
+  ></textarea>
+
+  <div class="flex gap-10">
+    <button class="button button--cta px-10 lg:px-20" type="submit">
+      Register
+    </button>
+    <button class="button button--muted" type="reset">Reset</button>
+  </div>
+</form>
