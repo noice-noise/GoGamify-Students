@@ -7,7 +7,8 @@
     <title>TEMPLATE</title>
 
     <!-- Main Stylesheets -->
-    <link rel="stylesheet" href="./card-group.css" />
+    <link rel="stylesheet" href="community.css" />
+    <link rel="stylesheet" href="community-style.css" />
 
     <!-- NOTE: You can add and extend for custom stylesheets, but always use "classes" instead of 
     direct tags in css for our standards -->
@@ -183,144 +184,27 @@
     <!-- end of nav -->
 
     <main id="main">
-      <div class="main__container">
-        <!-- edit contents below -->
+        <div class="main__container">
+          <!-- edit contents below -->
+          <h1 class="h1">Community</h1>
+          <button class="tablink button" onclick="openPage('School', this, 'blue')">School</button>
 
-        <section>
-          <!-- USING A FLEX CONTAINER WITH CARDS -->
-          <div class="card-group">
-            <div class="card card--small">
-              <div class="card__container">
-                <div class="card__header">
-                  <div class="card__img-container">
-                    <img
-                      class="card__img h-20 w-20"
-                      src="#"
-                      alt="Profile Image"
-                    />
-                  </div>
-                  <p class="h2 text-primary">Title</p>
-                  <p class="text-primary-accent">Subtitle</p>
-                  <p>Another Subtitle</p>
-                  <p class="text-sm">Small copy</p>
-                </div>
-                <div class="card__body">
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Mollitia vel molestiae nobis unde omnis, illum reiciendis
-                    quasi ad, adipisci repellat inventore ipsa voluptatum eaque
-                    ut tempora. Iste, dolores. Nostrum, ad!
-                  </p>
-                </div>
-                <div class="card__footer">
-                  <a class="link" href="#">View</a>
-                  <a class="link" href="#">Update</a>
-                  <a class="link" href="#">Delete</a>
-                  <a class="link" href="#">Share?</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="card card--extra-small">
-              <div class="card__container">
-                <div class="card__header">
-                  <div class="card__img-container">
-                    <img
-                      class="card__img h-20 w-20"
-                      src="#"
-                      alt="Profile Image"
-                    />
-                  </div>
-                  <p class="h2 text-primary">Title</p>
-                  <p class="text-primary-accent">Subtitle</p>
-                  <p>Another Subtitle</p>
-                  <p class="text-sm">Small copy</p>
-                </div>
-                <div class="card__body">
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Mollitia vel molestiae nobis unde omnis, illum reiciendis
-                    quasi ad, adipisci repellat inventore ipsa voluptatum eaque
-                    ut tempora. Iste, dolores. Nostrum, ad!
-                  </p>
-                </div>
-                <div class="card__footer">
-                  <a class="link" href="#">View</a>
-                  <a class="link" href="#">Update</a>
-                  <a class="link" href="#">Delete</a>
-                  <a class="link" href="#">Share?</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="card card--large">
-              <div class="card__container">
-                <div class="card__header">
-                  <div class="card__img-container">
-                    <img
-                      class="card__img h-20 w-20"
-                      src="#"
-                      alt="Profile Image"
-                    />
-                  </div>
-                  <p class="h2 text-primary">Title</p>
-                  <p class="text-primary-accent">Subtitle</p>
-                  <p>Another Subtitle</p>
-                  <p class="text-sm">Small copy</p>
-                </div>
-                <div class="card__body">
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Mollitia vel molestiae nobis unde omnis, illum reiciendis
-                    quasi ad, adipisci repellat inventore ipsa voluptatum eaque
-                    ut tempora. Iste, dolores. Nostrum, ad!
-                  </p>
-                </div>
-                <div class="card__footer">
-                  <a class="link" href="#">View</a>
-                  <a class="link" href="#">Update</a>
-                  <a class="link" href="#">Delete</a>
-                  <a class="link" href="#">Share?</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="card card--small">
-              <div class="card__container">
-                <div class="card__header">
-                  <div class="card__img-container">
-                    <img
-                      class="card__img h-20 w-20"
-                      src="#"
-                      alt="Profile Image"
-                    />
-                  </div>
-                  <p class="h2 text-primary">Title</p>
-                  <p class="text-primary-accent">Subtitle</p>
-                  <p>Another Subtitle</p>
-                  <p class="text-sm">Small copy</p>
-                </div>
-                <div class="card__body">
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Mollitia vel molestiae nobis unde omnis, illum reiciendis
-                    quasi ad, adipisci repellat inventore ipsa voluptatum eaque
-                    ut tempora. Iste, dolores. Nostrum, ad!
-                  </p>
-                </div>
-                <div class="card__footer">
-                  <a class="link" href="#">View</a>
-                  <a class="link" href="#">Update</a>
-                  <a class="link" href="#">Delete</a>
-                  <a class="link" href="#">Share?</a>
-                </div>
-              </div>
-            </div>
+          <div id="School" class="tabcontent">
+            <h3>School</h3>
+            <p class="h3">The Cebu Institute of Technology – University (CIT-University, or less often CIT-U, and colloquially CIT)<br></p> 
+            <p class="h3">is a private non-sectarian academic institution in Cebu City, Philippines. The university provides basic <br></p>
+            <p class="h3">and higher education with a foundation in general and technological education. The university was known simply <br></p> 
+            <p class="h3">as Cebu Institute of Technology until 2010 when it has attained university status.<br><br></p>
+                
+            <p class="h3">CIT-U is the first higher educational institution (HEI) in the Visayas and Mindanao classified as Category A.<br></p> 
+            <p class="h3">This places CIT-U as a mature teaching institution under the CHED-IQuAME framework.<br></p> 
+            <p class="h3">IQuAME is the Institutional Quality Assurance through Monitoring and Evaluation,<br></p> 
+            <p class="h3">a system of higher education quality assurance and classification.<br><br></p>
+                
+            <p class="h3">CIT-U is one of only nine schools in the Philippines to be awarded by the Commission on Higher Education (CHED) as a Center of Excellence in Information Technology Education.l</p>
           </div>
-        </section>
-
-        <!-- edit contents above -->
-      </div>
-    </main>
-  </body>
-</html>
+        </div>  
+      </main>
+      <script src="community.js"></script>
+    </body>
+  </html>
