@@ -31,9 +31,6 @@ const studentSchema = new Schema(
       type: String,
       required: true,
     },
-    email: {
-      type: String,
-    },
     about: {
       type: String,
     },
