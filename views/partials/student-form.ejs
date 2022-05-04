@@ -1,5 +1,4 @@
 <form class="form" action="/student/register" method="POST">
-  <h3 class="h2">Account</h3>
   <label for="familyName">Family Name</label>
   <input name="familyName" class="form__field" type="text" required />
   <label for="middleName">Middle Name</label>
@@ -16,7 +15,25 @@
   </select>
 
   <label for="school">School</label>
-  <input name="school" class="form__field" type="text" required />
+  <select class="form__field" name="school" id="school" required>
+    <option class="" value="" disabled selected hidden>My school</option>
+
+    <option value="Cebu Institute of Technology - University">
+      Cebu Institute of Technology - University
+    </option>
+
+    <option value="Abbey Park Academy Corp.">Abbey Park Academy Corp.</option>
+    <option value="Abellana NHS (Day & NIght)">
+      Abellana NHS (Day & NIght)
+    </option>
+    <option value="Abraham's Children Montessori">
+      Abraham's Children Montessori
+    </option>
+    <option value="Abundant Grace Leaning Center, Inc.">
+      Abundant Grace Leaning Center, Inc.
+    </option>
+    <option value="Not specified">Others</option>
+  </select>
 
   <label for="gradeLevel">Grade Level</label>
   <select class="form__field" name="gradeLevel" id="gradeLevel" required>
@@ -38,9 +55,6 @@
   <label for="section">Current section</label>
   <input name="section" class="form__field" type="text" />
 
-  <label for="email">Email</label>
-  <input name="email" class="form__field" type="text" />
-
   <label for="about">About me</label>
   <textarea
     class="form__field resize-y"
@@ -61,7 +75,7 @@
 
   <div class="flex gap-10">
     <button class="button button--cta px-10 lg:px-20" type="submit">
-      Register
+      Update Profile
     </button>
     <button class="button button--muted" type="reset">Reset</button>
   </div>
