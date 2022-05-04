@@ -1123,8 +1123,18 @@ body {
   margin-top: 1.25rem;
   margin-bottom: 1.25rem;
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 0px;
+}
+
+@media (min-width: 640px) {
+  .card-group {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
 }
 
 @media (min-width: 768px) {
@@ -1140,7 +1150,10 @@ body {
 }
 
 .card--extra-small {
-  min-height: 300px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  min-height: 250px;
   width: 250px;
   max-width: 20rem;
 }

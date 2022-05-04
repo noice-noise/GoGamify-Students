@@ -149,11 +149,11 @@
   }
 
   .card-group {
-    @apply my-5 flex flex-wrap gap-3 md:gap-4 lg:gap-5;
+    @apply my-5 flex flex-col flex-nowrap items-center gap-0 sm:flex-row sm:flex-wrap sm:gap-3 md:gap-4 lg:gap-5;
   }
 
   .card--extra-small {
-    @apply min-h-[300px] w-[250px] max-w-xs;
+    @apply h-fit min-h-[250px] w-[250px] max-w-xs;
   }
 
   .card--small {
