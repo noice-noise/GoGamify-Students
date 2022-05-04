@@ -1,4 +1,6 @@
+const { builtinModules } = require("module");
 const Student = require("../models/student");
+const User = require("../models/user");
 
 // check internet connection
 let isOffline;
@@ -43,21 +45,30 @@ const student_index = (req, res) => {
 };
 
 const student_post = async (req, res) => {
-  console.log("Saving");
+  console.log("Saving student model...");
 
   const student = new Student(req.body);
-  // student.active = req.body.active == "on" ? true : false;
   await student
     .save()
-    .then(() => {
-      res.redirect("/login");
-      // res.send({ message: "Student registered successfully." });
+    .then((data) => {
+      User.findByIdAndUpdate(
+        req.user._id,
+        { profile: data._id },
+        (err, docs) => {
+          if (err) {
+            console.log(err);
+          } else {
+            console.log(docs);
+          }
+        }
+      );
+
+      res.redirect("/home");
     })
     .catch((err) => {
       res.status(500).send({
         message: err.message || "Sorry, something went wrong.",
       });
-      // res.render("404", { title: "Sorry, something went wrong." });
     });
 };
 

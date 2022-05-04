@@ -75,7 +75,7 @@
   }
 
   .button {
-    @apply my-2 mr-2 flex w-fit transform-gpu flex-col items-center justify-center gap-2 rounded-2xl bg-primary-muted px-3 py-2 text-center font-bold text-primary-accent shadow-sm ring-primary transition-all duration-150 hover:-translate-y-1 hover:shadow-md focus:text-primary focus:ring-2 active:translate-y-1 active:text-primary active:shadow-sm lg:items-center lg:justify-start lg:px-5 lg:py-3 lg:font-bold lg:hover:text-primary lg:focus:ring-4 lg:active:ring-2;
+    @apply my-2 mr-2 flex w-fit transform-gpu flex-col items-center justify-center gap-2 rounded-2xl bg-primary-muted px-3 py-2 text-center font-bold text-primary-accent shadow-sm ring-primary transition-all duration-150 hover:-translate-y-1 hover:shadow-md focus:text-primary focus:ring-2 active:translate-y-1 active:text-primary active:shadow-sm disabled:pointer-events-none disabled:bg-background lg:items-center lg:justify-start lg:px-5 lg:py-3 lg:font-bold lg:hover:text-primary lg:focus:ring-4 lg:active:ring-2;
   }
 
   .button--cta {

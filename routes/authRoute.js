@@ -11,7 +11,7 @@ router.delete("/logout", authController.logout);
 router.post(
   "/login",
   passport.authenticate("local", {
-    successRedirect: "/home.html",
+    successRedirect: "/home",
     failureRedirect: "/auth/login",
     failureFlash: true,
   })
@@ -19,6 +19,8 @@ router.post(
 
 router.post("/register", authController.register_post);
 router.get("/register", authController.register);
+router.get("/register/account", authController.register_account);
 router.get("/register/student", authController.register_student);
+router.post("/register/student", authController.register_student_post);
 
 module.exports = router;

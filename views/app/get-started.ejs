@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head.ejs') %>
+
+  <body>
+    <main>
+      <div class="auto-container">
+        <!-- edit contents below -->
+        <section class="section text-center">
+          <div class="mb-10 flex items-center justify-center">
+            <span>
+              <img
+                class="h-48 w-48"
+                src="../assets/undraw_happy_news_re_tsbd.svg"
+                alt=""
+                srcset=""
+              />
+            </span>
+          </div>
+
+          <h1 class="h1 mb-5">Welcome to GoGamify</h1>
+
+          <div>
+            The core vision of the platform is to help teachers and students
+            have an educational platform where they can easily integrate
+            game-mechanics and fun in both teaching and learning. Applying the
+            element of fun and games in this today’s digital age should be easy
+            and seamless for users. **GoGamify** can be used as a supplementary
+            platform for existing software infrastructures like Learning
+            Management Systems, Learning Portals, or Learning Libraries. Since
+            the platform is designed to help provide solution to the needs,
+            challenges, and use cases of teachers and students, the two
+            progressive web applications were designed with features relevant to
+            differing types of users.
+          </div>
+
+          <div class="mt-5 flex w-full justify-center">
+            <a class="button button--cta" href="/auth/register/student"
+              >Update my profile</a
+            >
+            <%- include('../partials/logout.ejs') %>
+          </div>
+        </section>
+        <!-- edit contents above -->
+      </div>
+    </main>
+    <%- include('../partials/footer.ejs') %>
+  </body>
+</html>

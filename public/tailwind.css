@@ -722,6 +722,12 @@ body {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
+.button:disabled {
+  pointer-events: none;
+  --tw-bg-opacity: 1;
+  background-color: rgb(var(--color-background) / var(--tw-bg-opacity));
+}
+
 @media (min-width: 1024px) {
   .button {
     align-items: center;
@@ -1650,6 +1656,10 @@ body {
 
 .pb-8 {
   padding-bottom: 2rem;
+}
+
+.pt-10 {
+  padding-top: 2.5rem;
 }
 
 .pt-28 {

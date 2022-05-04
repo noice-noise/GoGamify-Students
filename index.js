@@ -25,6 +25,7 @@ const passportConfig = require("./config/passportConfig");
 const {
   ensureAuthenticated,
   forwardAuthenticated,
+  forwardFirstLogin,
 } = require("./config/authConfig");
 
 passportConfig(passport);
@@ -38,7 +39,10 @@ require("dns").resolve("www.google.com", function (err) {
     console.log("Attempting to connect to database...");
     const dbURI = `mongodb+srv://${process.env.USER}:${process.env.PASSWORD}-@${process.env.DATABASE}.afth4.mongodb.net/goGamifyDB?retryWrites=true&w=majority`;
     mongoose
-      .connect(dbURI)
+      .connect(dbURI, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      })
       .then((result) => {
         console.log("Database connection success...");
         listen();
@@ -72,6 +76,11 @@ app.use(
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
+    // cookie: {
+    //   secure: true,
+    //   httpOnly: true,
+    //   maxAge: 1000 * 60 * 60 * 24,
+    // },
   })
 );
 
@@ -81,6 +90,18 @@ app.use(methodOverride("_method"));
 
 app.use("/admin", ensureAuthenticated, adminRoutes);
 app.use("/auth", authRoutes);
+
+app.use("/home", forwardFirstLogin, (req, res) => {
+  res.redirect("/pwa/learning-module/module.html");
+});
+
+app.use("/get-started", (req, res) => {
+  res.render("app/get-started", {
+    title: "Update Profile | GoGamify",
+    user: req.user,
+  });
+});
+
 app.use("/student", ensureAuthenticated, studentRoutes);
 
 app.use((req, res) => {
