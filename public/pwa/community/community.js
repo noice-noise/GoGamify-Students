@@ -1,5 +1,5 @@
 // Get the element with id="defaultOpen" and click on it
-document.getElementById("defaultOpen").click();
+//document.getElementById("defaultOpen").click();
   function openCity(evt, cityName) {
     var i, sidemenu, tablinks;
     sidemenu = document.getElementsByClassName("sidemenu");
@@ -13,6 +13,7 @@ document.getElementById("defaultOpen").click();
     document.getElementById(cityName).style.display = "block";
     evt.currentTarget.className += " active";
   }
+  
   function openPage(pageName,elmnt,color) {
     var i, topmenu, tablinks;
     topmenu = document.getElementsByClassName("topmenu");
