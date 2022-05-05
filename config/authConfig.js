@@ -16,9 +16,17 @@ module.exports = {
   },
 
   forwardFirstLogin: function checkFirstLogin(req, res, next) {
-    console.log("First time login");
     if (req.user.profile === undefined || req.user.profile == "NA") {
       return res.redirect("/get-started");
+    }
+
+    return next();
+  },
+
+  forwardAdmin: function checkAdminRole(req, res, next) {
+    if (req.user.role === "admin") {
+      console.log("Admin reidirect");
+      return res.redirect("/admin");
     }
 
     return next();
