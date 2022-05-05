@@ -3,7 +3,7 @@
   <%- include('../partials/head.ejs') %>
 
   <body class="body">
-    <div class="p-5">
+    <div class="auto-container section">
       <div class="mt-20 flex w-full flex-col items-center justify-center">
         <h1 class="h1 text-center">
           GoGamify <span class="text-primary">Admin</span>
@@ -12,34 +12,33 @@
         <!-- nav -->
         <div class="mt-10 w-full">
           <ul
-            class="flex w-full flex-col justify-center gap-5 py-3 text-center"
+            class="flex w-full flex-col items-center justify-center py-3 text-center"
           >
             <li>
               <a
-                class="link py-3 px-4 text-neutral"
+                class="button py-3 px-4 text-neutral"
                 href="/admin/student-accounts"
-                >Accounts</a
+                >Student Profiles</a
               >
             </li>
             <li>
-              <a class="link py-3 px-4 text-neutral" href="/gamify/create"
-                >Learning Resources</a
+              <a class="button py-3 px-4 text-neutral" href="/gamify/"
+                >Resource Collection</a
               >
             </li>
             <li>
-              <a class="link py-3 px-4 text-neutral" href="#">Badges</a>
+              <a class="button py-3 px-4 text-neutral" href="/gamify/create"
+                >Gamify Resources</a
+              >
             </li>
             <li>
-              <a class="link py-3 px-4 text-neutral" href="#">Achievements</a>
+              <a class="button py-3 px-4 text-neutral" href="#">Badges</a>
             </li>
             <li>
-              <a class="link py-3 px-4 text-neutral" href="#">Themes</a>
+              <a class="button py-3 px-4 text-neutral" href="#">Achievements</a>
             </li>
             <li>
-              <div class="imposter">
-                <%- include('../partials/top-block-back.ejs', { label:`Go Back`,
-                route:`/`}) %>
-              </div>
+              <a class="button py-3 px-4 text-neutral" href="#">Themes</a>
             </li>
             <li>
               <div class="imposter">
@@ -53,10 +52,8 @@
           </ul>
         </div>
       </div>
-
-      <div></div>
-
-      <div class="h-96"></div>
     </div>
+
+    <%- include('../partials/footer.ejs') %>
   </body>
 </html>
