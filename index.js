@@ -14,6 +14,7 @@ const methodOverride = require("method-override");
 const adminRoutes = require("./routes/adminRoutes");
 const studentRoutes = require("./routes/studentRoutes");
 const authRoutes = require("./routes/authRoute");
+const gamifyRoutes = require("./routes/gamifyRoutes");
 
 const app = express();
 
@@ -26,6 +27,7 @@ const {
   ensureAuthenticated,
   forwardAuthenticated,
   forwardFirstLogin,
+  forwardAdmin,
 } = require("./config/authConfig");
 
 passportConfig(passport);
@@ -91,7 +93,7 @@ app.use(methodOverride("_method"));
 app.use("/admin", ensureAuthenticated, adminRoutes);
 app.use("/auth", authRoutes);
 
-app.use("/home", forwardFirstLogin, (req, res) => {
+app.use("/home", forwardAdmin, forwardFirstLogin, (req, res) => {
   res.redirect("/pwa/learning-module/module.html");
 });
 
@@ -102,6 +104,7 @@ app.use("/get-started", (req, res) => {
   });
 });
 
+app.use("/gamify", gamifyRoutes);
 app.use("/student", ensureAuthenticated, studentRoutes);
 
 app.use((req, res) => {
