@@ -77,7 +77,7 @@ const student_get = async (req, res) => {
   console.log(id);
   await Student.findById(id)
     .then((result) => {
-      res.render("gamify/details", {
+      res.render("student/details", {
         title: "Learning Resource Details",
         resource: result,
       });
