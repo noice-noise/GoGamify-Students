@@ -191,4 +191,8 @@
   .auto-container {
     @apply mx-auto max-w-5xl p-5 sm:p-10;
   }
+
+  .drag-active {
+    @apply bg-primary-accent;
+  }
 }
