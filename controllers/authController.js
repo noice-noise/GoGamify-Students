@@ -21,6 +21,7 @@ const register_post = async (req, res) => {
     email: req.body.email,
     password: (await hashedPassword).toString(),
     profile: req.body.profile,
+    role: req.body.role,
   });
 
   await user
