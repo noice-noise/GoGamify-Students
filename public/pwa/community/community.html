@@ -196,35 +196,34 @@
       <div class="main__container">
         <!-- edit contents below -->
         <h1 class="h1">Community</h1>
-        <button class="tablink button" onclick="openPage('Teachers',this,'red')" id="Teachers"> Teachers</button>
-        <button class="tablink button" onclick="openPage('Classmates', this, 'green')"> Classmates </button>
-        <button class="tablink button" onclick="openPage('School', this, 'blue')"> School </button>
+        <button class="tablink button" onclick="openPage('Teachers', this, 'black')"id="defaultOpen">Teachers</button>
+        <button class="tablink button" onclick="openPage('Classmates', this, 'black')">Classmates</button>
+        <button class="tablink button" onclick="openPage('School', this, 'black')">School</button>
 
         <div id="Teachers" class="tabcontent">
           <h3 class="h2">Teachers</h3>
           <p class="h3">Grade level and Teachers</p>
         
           <div class="tab">
-            <button class="tablinks button" onclick="openPage('Grade1')">Grade 1</button>
-            <button class="tablinks button" onclick="openPage('Grade2')">Grade 2</button>
-            <button class="tablinks button" onclick="openPage('Grade3')">Grade 3</button>
-            <button class="tablinks button" onclick="openPage('Grade4')">Grade 4</button>
-            <button class="tablinks button" onclick="openPage('Grade5')">Grade 5</button>
-            <button class="tablinks button" onclick="openPage('Grade6')">Grade 6</button>
-            <button class="tablinks button" onclick="openPage('Grade7')">Grade 7</button>
-            <button class="tablinks button" onclick="openPage('Grade8')">Grade 8</button>
-            <button class="tablinks button" onclick="openPage('Grade9')">Grade 9</button>
-            <button class="tablinks button" onclick="openPage('Grade10')">Grade 10</button>
+            <button class="sidelink button" onclick="openCity(event,'Grade1')">Grade 1</button>
+            <button class="sidelink button" onclick="openCity(event,'Grade2')">Grade 2</button>
+            <button class="sidelink button" onclick="openCity(event,'Grade3')">Grade 3</button>
+            <button class="sidelink button" onclick="openCity(event,'Grade4')">Grade 4</button>
+            <button class="sidelink button" onclick="openCity(event,'Grade5')">Grade 5</button>
+            <button class="sidelink button" onclick="openCity(event,'Grade6')">Grade 6</button>
+            <button class="sidelink button" onclick="openCity(event,'Grade7')">Grade 7</button>
+            <button class="sidelink button" onclick="openCity(event,'Grade8')">Grade 8</button>
+            <button class="sidelink button" onclick="openCity(event,'Grade9')">Grade 9</button>
+            <button class="sidelink button" onclick="openCity(event,'Grade10')">Grade 10</button>
           </div>
-          
-          <div id="Grade1" class="sidemenu topmenu">
+
+
+          <div id="Grade1" class="sidemenu"><!--start of grade-->
             <h3 class="h2">Grade 1</h3>
             <p class="h3">Subject Teachers</p>
 
           <div class="card-group">
-
-
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -239,10 +238,10 @@
                   <p class="h4">Grade 1 Teacher</p>
                   <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -252,15 +251,15 @@
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">English</p>
-                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
+                  <p class="h2 text-primary">Filipino</p>
+                  <p class="text-primary-accent">Mr.Angelo Garcia</p>
                   <p class="h4">Grade 1 Teacher</p>
-                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                  <p class="text-sm">Contact Email: angelogarcia@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -270,15 +269,15 @@
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">English</p>
-                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
+                  <p class="h2 text-primary">Mother Tongue</p>
+                  <p class="text-primary-accent">Mr.Juan Carlos Reyes</p>
                   <p class="h4">Grade 1 Teacher</p>
-                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                  <p class="text-sm">Contact Email: juancarlosreyes@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -288,15 +287,15 @@
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">English</p>
-                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
+                  <p class="h2 text-primary">Mathematics</p>
+                  <p class="text-primary-accent">Mrs.Maria Erica Ramos</p>
                   <p class="h4">Grade 1 Teacher</p>
-                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                  <p class="text-sm">Contact Email: mariaericaramos@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -306,15 +305,15 @@
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">English</p>
-                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
+                  <p class="h2 text-primary">Aralin Panlipunan</p>
+                  <p class="text-primary-accent">Ms.Anna Santos</p>
                   <p class="h4">Grade 1 Teacher</p>
-                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                  <p class="text-sm">Contact Email: annasantos@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -324,15 +323,15 @@
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">English</p>
-                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
+                  <p class="h2 text-primary">Values Education</p>
+                  <p class="text-primary-accent">Mr.Paolo Mendoza</p>
                   <p class="h4">Grade 1 Teacher</p>
-                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                  <p class="text-sm">Contact Email: paolomendoza@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -342,24 +341,24 @@
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">English</p>
-                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
+                  <p class="h2 text-primary">MAPEH</p>
+                  <p class="text-primary-accent">Mr.Ricardo Sanchez</p>
                   <p class="h4">Grade 1 Teacher</p>
-                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                  <p class="text-sm">Contact Email: ricardosanchez@gmail.com</p>
                 </div>
-            </div>
-          </div>
-          </div>
-          </div>
+              </div>
+            </div><!--end of card-->
+            
+            </div><!--end of cardgroup-->
+          </div><!--end of grade-->
+          
 
-          <div id="Grade2" class="sidemenu topmenu">
+          <div id="Grade2" class="sidemenu"><!--start of grade-->
             <h3 class="h2">Grade 2</h3>
             <p class="h3">Subject Teachers</p>
 
           <div class="card-group">
-
-
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -371,13 +370,13 @@
                   </div>
                   <p class="h2 text-primary">English</p>
                   <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
+                  <p class="h4">Grade 2 Teacher</p>
                   <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -387,15 +386,15 @@
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">English</p>
-                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
-                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                  <p class="h2 text-primary">Filipino</p>
+                  <p class="text-primary-accent">Mr.Angelo Garcia</p>
+                  <p class="h4">Grade 2 Teacher</p>
+                  <p class="text-sm">Contact Email: angelogarcia@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -405,15 +404,15 @@
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">English</p>
-                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
-                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                  <p class="h2 text-primary">Mother Tongue</p>
+                  <p class="text-primary-accent">Mr.Juan Carlos Reyes</p>
+                  <p class="h4">Grade 2 Teacher</p>
+                  <p class="text-sm">Contact Email: juancarlosreyes@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -423,15 +422,15 @@
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">English</p>
-                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
-                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                  <p class="h2 text-primary">Mathematics</p>
+                  <p class="text-primary-accent">Mrs.Maria Erica Ramos</p>
+                  <p class="h4">Grade 2 Teacher</p>
+                  <p class="text-sm">Contact Email: mariaericaramos@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -441,15 +440,15 @@
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">English</p>
-                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
-                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                  <p class="h2 text-primary">Aralin Panlipunan</p>
+                  <p class="text-primary-accent">Ms.Anna Santos</p>
+                  <p class="h4">Grade 2 Teacher</p>
+                  <p class="text-sm">Contact Email: annasantos@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -459,15 +458,15 @@
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">English</p>
-                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
-                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                  <p class="h2 text-primary">Values Education</p>
+                  <p class="text-primary-accent">Mr.Paolo Mendoza</p>
+                  <p class="h4">Grade 2 Teacher</p>
+                  <p class="text-sm">Contact Email: paolomendoza@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -477,25 +476,24 @@
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">English</p>
-                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
-                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                  <p class="h2 text-primary">MAPEH</p>
+                  <p class="text-primary-accent">Mr.Ricardo Sanchez</p>
+                  <p class="h4">Grade 2 Teacher</p>
+                  <p class="text-sm">Contact Email: ricardosanchez@gmail.com</p>
                 </div>
-            </div>
-          </div>
-          </div>
-          </div>
-        
-          <div id="Grade3" class="sidemenu topmenu">
+              </div>
+            </div><!--end of card-->
+            
+            </div><!--end of cardgroup-->
+          </div><!--end of grade-->
+
+
+          <div id="Grade3" class="sidemenu"><!--start of grade-->
             <h3 class="h2">Grade 3</h3>
             <p class="h3">Subject Teachers</p>
 
           <div class="card-group">
- 
-
-
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -507,13 +505,13 @@
                   </div>
                   <p class="h2 text-primary">English</p>
                   <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
+                  <p class="h4">Grade 3 Teacher</p>
                   <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -523,15 +521,15 @@
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">English</p>
-                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
-                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                  <p class="h2 text-primary">Filipino</p>
+                  <p class="text-primary-accent">Mr.Angelo Garcia</p>
+                  <p class="h4">Grade 3 Teacher</p>
+                  <p class="text-sm">Contact Email: angelogarcia@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -541,15 +539,15 @@
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">English</p>
-                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
-                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                  <p class="h2 text-primary">Mother Tongue</p>
+                  <p class="text-primary-accent">Mr.Juan Carlos Reyes</p>
+                  <p class="h4">Grade 3 Teacher</p>
+                  <p class="text-sm">Contact Email: juancarlosreyes@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -559,15 +557,15 @@
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">English</p>
-                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
-                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                  <p class="h2 text-primary">Mathematics</p>
+                  <p class="text-primary-accent">Mrs.Maria Erica Ramos</p>
+                  <p class="h4">Grade 3 Teacher</p>
+                  <p class="text-sm">Contact Email: mariaericaramos@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -577,15 +575,15 @@
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">English</p>
-                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
-                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                  <p class="h2 text-primary">Aralin Panlipunan</p>
+                  <p class="text-primary-accent">Ms.Anna Santos</p>
+                  <p class="h4">Grade 3 Teacher</p>
+                  <p class="text-sm">Contact Email: annasantos@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -595,15 +593,15 @@
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">English</p>
-                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
-                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                  <p class="h2 text-primary">Values Education</p>
+                  <p class="text-primary-accent">Mr.Paolo Mendoza</p>
+                  <p class="h4">Grade 3 Teacher</p>
+                  <p class="text-sm">Contact Email: paolomendoza@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -613,24 +611,24 @@
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">English</p>
-                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
-                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                  <p class="h2 text-primary">MAPEH</p>
+                  <p class="text-primary-accent">Mr.Ricardo Sanchez</p>
+                  <p class="h4">Grade 3 Teacher</p>
+                  <p class="text-sm">Contact Email: ricardosanchez@gmail.com</p>
                 </div>
-            </div>
-          </div>
-          </div>
-          </div>
-        
-          <div id="Grade4" class="sidemenu topmenu">
+              </div>
+            </div><!--end of card-->
+            
+            </div><!--end of cardgroup-->
+          </div><!--end of grade-->
+
+
+          <div id="Grade4" class="sidemenu"><!--start of grade-->
             <h3 class="h2">Grade 4</h3>
             <p class="h3">Subject Teachers</p>
 
           <div class="card-group">
-
-
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -642,13 +640,13 @@
                   </div>
                   <p class="h2 text-primary">English</p>
                   <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
+                  <p class="h4">Grade 4 Teacher</p>
                   <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -658,15 +656,15 @@
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">English</p>
-                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
-                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                  <p class="h2 text-primary">Filipino</p>
+                  <p class="text-primary-accent">Mr.Angelo Garcia</p>
+                  <p class="h4">Grade 4 Teacher</p>
+                  <p class="text-sm">Contact Email: angelogarcia@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -676,15 +674,15 @@
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">English</p>
-                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
-                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                  <p class="h2 text-primary">Mathematics</p>
+                  <p class="text-primary-accent">Mr.Juan Carlos Reyes</p>
+                  <p class="h4">Grade 4 Teacher</p>
+                  <p class="text-sm">Contact Email: juancarlosreyes@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -694,15 +692,15 @@
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">English</p>
-                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
-                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                  <p class="h2 text-primary">Science</p>
+                  <p class="text-primary-accent">Mrs.Maria Erica Ramos</p>
+                  <p class="h4">Grade 4 Teacher</p>
+                  <p class="text-sm">Contact Email: mariaericaramos@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -712,15 +710,15 @@
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">English</p>
-                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
-                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                  <p class="h2 text-primary">Aralin Panlipunan</p>
+                  <p class="text-primary-accent">Ms.Anna Santos</p>
+                  <p class="h4">Grade 4 Teacher</p>
+                  <p class="text-sm">Contact Email: annasantos@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -730,15 +728,15 @@
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">English</p>
-                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
-                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                  <p class="h2 text-primary">Values Education</p>
+                  <p class="text-primary-accent">Mr.Paolo Mendoza</p>
+                  <p class="h4">Grade 4 Teacher</p>
+                  <p class="text-sm">Contact Email: paolomendoza@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -748,15 +746,15 @@
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">English</p>
-                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
-                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                  <p class="h2 text-primary">MAPEH</p>
+                  <p class="text-primary-accent">Mr.Ricardo Sanchez</p>
+                  <p class="h4">Grade 4 Teacher</p>
+                  <p class="text-sm">Contact Email: ricardosanchez@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -766,24 +764,24 @@
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">English</p>
-                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
-                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                  <p class="h2 text-primary">T.L.E</p>
+                  <p class="text-primary-accent">Mrs.Teresa Valdez</p>
+                  <p class="h4">Grade 4 Teacher</p>
+                  <p class="text-sm">Contact Email: teresavaldez@gmail.com</p>
                 </div>
-            </div>
-          </div>
-          </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-          <div id="Grade5" class="sidemenu topmenu">
+            </div>
+          </div><!--end of grade-->
+
+
+          <div id="Grade5" class="sidemenu"><!--start of grade-->
             <h3 class="h2">Grade 5</h3>
             <p class="h3">Subject Teachers</p>
 
           <div class="card-group">
-
-
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -795,13 +793,13 @@
                   </div>
                   <p class="h2 text-primary">English</p>
                   <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
+                  <p class="h4">Grade 5 Teacher</p>
                   <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -811,15 +809,15 @@
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">English</p>
-                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
-                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                  <p class="h2 text-primary">Filipino</p>
+                  <p class="text-primary-accent">Mr.Angelo Garcia</p>
+                  <p class="h4">Grade 5 Teacher</p>
+                  <p class="text-sm">Contact Email: angelogarcia@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -829,15 +827,15 @@
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">English</p>
-                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
-                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                  <p class="h2 text-primary">Mathematics</p>
+                  <p class="text-primary-accent">Mr.Juan Carlos Reyes</p>
+                  <p class="h4">Grade 5 Teacher</p>
+                  <p class="text-sm">Contact Email: juancarlosreyes@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -847,15 +845,15 @@
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">English</p>
-                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
-                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                  <p class="h2 text-primary">Science</p>
+                  <p class="text-primary-accent">Mrs.Maria Erica Ramos</p>
+                  <p class="h4">Grade 5 Teacher</p>
+                  <p class="text-sm">Contact Email: mariaericaramos@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -865,15 +863,15 @@
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">English</p>
-                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
-                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                  <p class="h2 text-primary">Aralin Panlipunan</p>
+                  <p class="text-primary-accent">Ms.Anna Santos</p>
+                  <p class="h4">Grade 5 Teacher</p>
+                  <p class="text-sm">Contact Email: annasantos@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -883,15 +881,15 @@
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">English</p>
-                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
-                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                  <p class="h2 text-primary">Values Education</p>
+                  <p class="text-primary-accent">Mr.Paolo Mendoza</p>
+                  <p class="h4">Grade 5 Teacher</p>
+                  <p class="text-sm">Contact Email: paolomendoza@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -901,15 +899,15 @@
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">English</p>
-                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
-                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                  <p class="h2 text-primary">MAPEH</p>
+                  <p class="text-primary-accent">Mr.Ricardo Sanchez</p>
+                  <p class="h4">Grade 5 Teacher</p>
+                  <p class="text-sm">Contact Email: ricardosanchez@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -919,24 +917,24 @@
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">English</p>
-                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
-                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                  <p class="h2 text-primary">T.L.E</p>
+                  <p class="text-primary-accent">Mrs.Teresa Valdez</p>
+                  <p class="h4">Grade 5 Teacher</p>
+                  <p class="text-sm">Contact Email: teresavaldez@gmail.com</p>
                 </div>
+              </div>
+            </div><!--end of card-->
+
             </div>
-          </div>
-          </div>
-          </div>
-        
-          <div id="Grade6" class="sidemenu topmenu">
+          </div><!--end of grade-->
+
+
+            <div id="Grade6" class="sidemenu"><!--start of grade-->
             <h3 class="h2">Grade 6</h3>
             <p class="h3">Subject Teachers</p>
 
           <div class="card-group">
-
-
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -948,13 +946,13 @@
                   </div>
                   <p class="h2 text-primary">English</p>
                   <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
+                  <p class="h4">Grade 6 Teacher</p>
                   <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -964,15 +962,15 @@
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">English</p>
-                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
-                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                  <p class="h2 text-primary">Filipino</p>
+                  <p class="text-primary-accent">Mr.Angelo Garcia</p>
+                  <p class="h4">Grade 6 Teacher</p>
+                  <p class="text-sm">Contact Email: angelogarcia@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -982,15 +980,15 @@
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">English</p>
-                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
-                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                  <p class="h2 text-primary">Mathematics</p>
+                  <p class="text-primary-accent">Mr.Juan Carlos Reyes</p>
+                  <p class="h4">Grade 6 Teacher</p>
+                  <p class="text-sm">Contact Email: juancarlosreyes@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -1000,15 +998,15 @@
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">English</p>
-                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
-                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                  <p class="h2 text-primary">Science</p>
+                  <p class="text-primary-accent">Mrs.Maria Erica Ramos</p>
+                  <p class="h4">Grade 6 Teacher</p>
+                  <p class="text-sm">Contact Email: mariaericaramos@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -1018,15 +1016,15 @@
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">English</p>
-                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
-                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                  <p class="h2 text-primary">Aralin Panlipunan</p>
+                  <p class="text-primary-accent">Ms.Anna Santos</p>
+                  <p class="h4">Grade 6 Teacher</p>
+                  <p class="text-sm">Contact Email: annasantos@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -1036,15 +1034,15 @@
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">English</p>
-                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
-                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                  <p class="h2 text-primary">Values Education</p>
+                  <p class="text-primary-accent">Mr.Paolo Mendoza</p>
+                  <p class="h4">Grade 6 Teacher</p>
+                  <p class="text-sm">Contact Email: paolomendoza@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -1054,15 +1052,15 @@
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">English</p>
-                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
-                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                  <p class="h2 text-primary">MAPEH</p>
+                  <p class="text-primary-accent">Mr.Ricardo Sanchez</p>
+                  <p class="h4">Grade 6 Teacher</p>
+                  <p class="text-sm">Contact Email: ricardosanchez@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -1072,26 +1070,24 @@
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">English</p>
-                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
-                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                  <p class="h2 text-primary">T.L.E</p>
+                  <p class="text-primary-accent">Mrs.Teresa Valdez</p>
+                  <p class="h4">Grade 6 Teacher</p>
+                  <p class="text-sm">Contact Email: teresavaldez@gmail.com</p>
                 </div>
+              </div>
+            </div><!--end of card-->
+
             </div>
-          </div>
+          </div><!--end of grade-->
 
-          </div>
 
-          </div>
-
-          <div id="Grade7" class="sidemenu topmenu">
+          <div id="Grade7" class="sidemenu"><!--start of grade-->
             <h3 class="h2">Grade 7</h3>
             <p class="h3">Subject Teachers</p>
 
           <div class="card-group">
-
-
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -1103,13 +1099,13 @@
                   </div>
                   <p class="h2 text-primary">English</p>
                   <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
+                  <p class="h4">Grade 7 Teacher</p>
                   <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -1119,15 +1115,15 @@
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">English</p>
-                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
-                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                  <p class="h2 text-primary">Filipino</p>
+                  <p class="text-primary-accent">Mr.Angelo Garcia</p>
+                  <p class="h4">Grade 7 Teacher</p>
+                  <p class="text-sm">Contact Email: angelogarcia@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -1137,15 +1133,15 @@
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">English</p>
-                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
-                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                  <p class="h2 text-primary">Mathematics</p>
+                  <p class="text-primary-accent">Mr.Juan Carlos Reyes</p>
+                  <p class="h4">Grade 7 Teacher</p>
+                  <p class="text-sm">Contact Email: juancarlosreyes@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -1155,15 +1151,15 @@
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">English</p>
-                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
-                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                  <p class="h2 text-primary">Science</p>
+                  <p class="text-primary-accent">Mrs.Maria Erica Ramos</p>
+                  <p class="h4">Grade 7 Teacher</p>
+                  <p class="text-sm">Contact Email: mariaericaramos@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -1173,15 +1169,15 @@
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">English</p>
-                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
-                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                  <p class="h2 text-primary">Social Studies</p>
+                  <p class="text-primary-accent">Ms.Anna Santos</p>
+                  <p class="h4">Grade 7 Teacher</p>
+                  <p class="text-sm">Contact Email: annasantos@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -1191,15 +1187,15 @@
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">English</p>
-                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
-                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                  <p class="h2 text-primary">Values Education</p>
+                  <p class="text-primary-accent">Mr.Paolo Mendoza</p>
+                  <p class="h4">Grade 7 Teacher</p>
+                  <p class="text-sm">Contact Email: paolomendoza@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -1209,15 +1205,15 @@
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">English</p>
-                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
-                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                  <p class="h2 text-primary">MAPEH</p>
+                  <p class="text-primary-accent">Mr.Ricardo Sanchez</p>
+                  <p class="h4">Grade 7 Teacher</p>
+                  <p class="text-sm">Contact Email: ricardosanchez@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -1227,15 +1223,15 @@
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">English</p>
-                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
-                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                  <p class="h2 text-primary">Environmental Science</p>
+                  <p class="text-primary-accent">Mrs.Teresa Valdez</p>
+                  <p class="h4">Grade 7 Teacher</p>
+                  <p class="text-sm">Contact Email: teresavaldez@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -1245,26 +1241,24 @@
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">English</p>
-                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
-                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                  <p class="h2 text-primary">ICT 1</p>
+                  <p class="text-primary-accent">Mrs.Carmelita De Leon</p>
+                  <p class="h4">Grade 7 Teacher</p>
+                  <p class="text-sm">Contact Email: carmelitadeleon@gmail.com</p>
                 </div>
+              </div>
+            </div><!--end of card-->
+
             </div>
-          </div>
+          </div><!--end of grade-->
 
-          </div>
 
-          </div>
-
-          <div id="Grade8" class="sidemenu topmenu">
+          <div id="Grade8" class="sidemenu"><!--start of grade-->
             <h3 class="h2">Grade 8</h3>
             <p class="h3">Subject Teachers</p>
 
           <div class="card-group">
-
-
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -1276,13 +1270,13 @@
                   </div>
                   <p class="h2 text-primary">English</p>
                   <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
+                  <p class="h4">Grade 8 Teacher</p>
                   <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -1292,15 +1286,15 @@
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">English</p>
-                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
-                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                  <p class="h2 text-primary">Filipino</p>
+                  <p class="text-primary-accent">Mr.Angelo Garcia</p>
+                  <p class="h4">Grade 8 Teacher</p>
+                  <p class="text-sm">Contact Email: angelogarcia@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -1310,15 +1304,15 @@
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">English</p>
-                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
-                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                  <p class="h2 text-primary">Mathematics</p>
+                  <p class="text-primary-accent">Mr.Juan Carlos Reyes</p>
+                  <p class="h4">Grade 8 Teacher</p>
+                  <p class="text-sm">Contact Email: juancarlosreyes@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -1328,15 +1322,15 @@
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">English</p>
-                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
-                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                  <p class="h2 text-primary">Science</p>
+                  <p class="text-primary-accent">Mrs.Maria Erica Ramos</p>
+                  <p class="h4">Grade 8 Teacher</p>
+                  <p class="text-sm">Contact Email: mariaericaramos@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -1346,15 +1340,15 @@
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">English</p>
-                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
-                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                  <p class="h2 text-primary">Social Studies</p>
+                  <p class="text-primary-accent">Ms.Anna Santos</p>
+                  <p class="h4">Grade 8 Teacher</p>
+                  <p class="text-sm">Contact Email: annasantos@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -1364,15 +1358,15 @@
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">English</p>
-                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
-                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                  <p class="h2 text-primary">Values Education</p>
+                  <p class="text-primary-accent">Mr.Paolo Mendoza</p>
+                  <p class="h4">Grade 8 Teacher</p>
+                  <p class="text-sm">Contact Email: paolomendoza@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -1382,15 +1376,15 @@
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">English</p>
-                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
-                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                  <p class="h2 text-primary">MAPEH</p>
+                  <p class="text-primary-accent">Mr.Ricardo Sanchez</p>
+                  <p class="h4">Grade 8 Teacher</p>
+                  <p class="text-sm">Contact Email: ricardosanchez@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -1400,15 +1394,15 @@
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">English</p>
-                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
-                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                  <p class="h2 text-primary">Biotechnology</p>
+                  <p class="text-primary-accent">Mrs.Teresa Valdez</p>
+                  <p class="h4">Grade 8 Teacher</p>
+                  <p class="text-sm">Contact Email: teresavaldez@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -1418,26 +1412,24 @@
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">English</p>
-                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
-                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                  <p class="h2 text-primary">ICT 2</p>
+                  <p class="text-primary-accent">Mrs.Carmelita De Leon</p>
+                  <p class="h4">Grade 8 Teacher</p>
+                  <p class="text-sm">Contact Email: carmelitadeleon@gmail.com</p>
                 </div>
+              </div>
+            </div><!--end of card-->
+
             </div>
-          </div>
+          </div><!--end of grade-->
 
-          </div>
 
-          </div>
-        
-          <div id="Grade9" class="sidemenu topmenu">
+          <div id="Grade9" class="sidemenu"><!--start of grade-->
             <h3 class="h2">Grade 9</h3>
             <p class="h3">Subject Teachers</p>
 
           <div class="card-group">
-
-
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -1449,13 +1441,13 @@
                   </div>
                   <p class="h2 text-primary">English</p>
                   <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
+                  <p class="h4">Grade 9 Teacher</p>
                   <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -1465,15 +1457,15 @@
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">English</p>
-                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
-                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                  <p class="h2 text-primary">Filipino</p>
+                  <p class="text-primary-accent">Mr.Angelo Garcia</p>
+                  <p class="h4">Grade 9 Teacher</p>
+                  <p class="text-sm">Contact Email: angelogarcia@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -1483,15 +1475,15 @@
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">English</p>
-                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
-                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                  <p class="h2 text-primary">Mathematics</p>
+                  <p class="text-primary-accent">Mr.Juan Carlos Reyes</p>
+                  <p class="h4">Grade 9 Teacher</p>
+                  <p class="text-sm">Contact Email: juancarlosreyes@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -1501,15 +1493,15 @@
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">English</p>
-                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
-                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                  <p class="h2 text-primary">Science</p>
+                  <p class="text-primary-accent">Mrs.Maria Erica Ramos</p>
+                  <p class="h4">Grade 9 Teacher</p>
+                  <p class="text-sm">Contact Email: mariaericaramos@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -1519,15 +1511,15 @@
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">English</p>
-                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
-                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                  <p class="h2 text-primary">Social Studies</p>
+                  <p class="text-primary-accent">Ms.Anna Santos</p>
+                  <p class="h4">Grade 9 Teacher</p>
+                  <p class="text-sm">Contact Email: annasantos@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -1537,15 +1529,15 @@
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">English</p>
-                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
-                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                  <p class="h2 text-primary">Values Education</p>
+                  <p class="text-primary-accent">Mr.Paolo Mendoza</p>
+                  <p class="h4">Grade 9 Teacher</p>
+                  <p class="text-sm">Contact Email: paolomendoza@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -1555,15 +1547,15 @@
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">English</p>
-                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
-                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                  <p class="h2 text-primary">MAPEH</p>
+                  <p class="text-primary-accent">Mr.Ricardo Sanchez</p>
+                  <p class="h4">Grade 9 Teacher</p>
+                  <p class="text-sm">Contact Email: ricardosanchez@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -1573,15 +1565,15 @@
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">English</p>
-                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
-                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                  <p class="h2 text-primary">Applied Chemistry</p>
+                  <p class="text-primary-accent">Mrs.Teresa Valdez</p>
+                  <p class="h4">Grade 9 Teacher</p>
+                  <p class="text-sm">Contact Email: teresavaldez@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -1591,25 +1583,23 @@
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">English</p>
-                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
-                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                  <p class="h2 text-primary">Research 1</p>
+                  <p class="text-primary-accent">Mrs.Carmelita De Leon</p>
+                  <p class="h4">Grade 9 Teacher</p>
+                  <p class="text-sm">Contact Email: carmelitadeleon@gmail.com</p>
                 </div>
+              </div>
+            </div><!--end of card-->
             </div>
-          </div>
+          </div><!--end of grade-->
 
-          </div>
-          </div>
-        
-          <div id="Grade10" class="sidemenu topmenu">
+
+            <div id="Grade10" class="sidemenu"><!--start of grade-->
             <h3 class="h2">Grade 10</h3>
             <p class="h3">Subject Teachers</p>
 
           <div class="card-group">
-
-
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -1621,13 +1611,13 @@
                   </div>
                   <p class="h2 text-primary">English</p>
                   <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
+                  <p class="h4">Grade 10 Teacher</p>
                   <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -1637,15 +1627,15 @@
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">English</p>
-                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
-                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                  <p class="h2 text-primary">Filipino</p>
+                  <p class="text-primary-accent">Mr.Angelo Garcia</p>
+                  <p class="h4">Grade 10 Teacher</p>
+                  <p class="text-sm">Contact Email: angelogarcia@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -1655,15 +1645,15 @@
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">English</p>
-                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
-                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                  <p class="h2 text-primary">Mathematics</p>
+                  <p class="text-primary-accent">Mr.Juan Carlos Reyes</p>
+                  <p class="h4">Grade 10 Teacher</p>
+                  <p class="text-sm">Contact Email: juancarlosreyes@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -1673,15 +1663,15 @@
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">English</p>
-                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
-                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                  <p class="h2 text-primary">Science</p>
+                  <p class="text-primary-accent">Mrs.Maria Erica Ramos</p>
+                  <p class="h4">Grade 10 Teacher</p>
+                  <p class="text-sm">Contact Email: mariaericaramos@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -1691,15 +1681,15 @@
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">English</p>
-                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
-                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                  <p class="h2 text-primary">Social Studies</p>
+                  <p class="text-primary-accent">Ms.Anna Santos</p>
+                  <p class="h4">Grade 10 Teacher</p>
+                  <p class="text-sm">Contact Email: annasantos@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -1709,15 +1699,15 @@
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">English</p>
-                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
-                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                  <p class="h2 text-primary">Values Education</p>
+                  <p class="text-primary-accent">Mr.Paolo Mendoza</p>
+                  <p class="h4">Grade 10 Teacher</p>
+                  <p class="text-sm">Contact Email: paolomendoza@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -1727,15 +1717,15 @@
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">English</p>
-                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
-                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                  <p class="h2 text-primary">MAPEH</p>
+                  <p class="text-primary-accent">Mr.Ricardo Sanchez</p>
+                  <p class="h4">Grade 10 Teacher</p>
+                  <p class="text-sm">Contact Email: ricardosanchez@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -1745,15 +1735,15 @@
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">English</p>
-                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
-                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                  <p class="h2 text-primary">Electronics</p>
+                  <p class="text-primary-accent">Mrs.Teresa Valdez</p>
+                  <p class="h4">Grade 10 Teacher</p>
+                  <p class="text-sm">Contact Email: teresavaldez@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-            <div class="card card--small">
+            <div class="card card--small"><!--start of card-->
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -1763,20 +1753,1893 @@
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">English</p>
-                  <p class="text-primary-accent">Ms.Cristina Dela Cruz</p>
-                  <p class="h4">Grade 1 Teacher</p>
-                  <p class="text-sm">Contact Email: cristinadelacruz@gmail.com</p>
+                  <p class="h2 text-primary">Research 2</p>
+                  <p class="text-primary-accent">Mrs.Carmelita De Leon</p>
+                  <p class="h4">Grade 10 Teacher</p>
+                  <p class="text-sm">Contact Email: carmelitadeleon@gmail.com</p>
                 </div>
-            </div>
-          </div>
+              </div>
+            </div><!--end of card-->
 
-          </div>
+            </div>
+          </div><!--end of grade-->
+        </div> <!--end div of id="Teachers"-->
+
+        <div id="Classmates" class="tabcontent">
+          <h3 class="h2">Classmate</h3>
+          <p class="h3">Class List</p> 
         
+          <div class="tab">
+            <button class="sidelink button" onclick="openCity(event,'1Grade')">Grade 1</button>
+            <button class="sidelink button" onclick="openCity(event,'2Grade')">Grade 2</button>
+            <button class="sidelink button" onclick="openCity(event,'3Grade')">Grade 3</button>
+            <button class="sidelink button" onclick="openCity(event,'4Grade')">Grade 4</button>
+            <button class="sidelink button" onclick="openCity(event,'5Grade')">Grade 5</button>
+            <button class="sidelink button" onclick="openCity(event,'6Grade')">Grade 6</button>
+            <button class="sidelink button" onclick="openCity(event,'7Grade')">Grade 7</button>
+            <button class="sidelink button" onclick="openCity(event,'8Grade')">Grade 8</button>
+            <button class="sidelink button" onclick="openCity(event,'9Grade')">Grade 9</button>
+            <button class="sidelink button" onclick="openCity(event,'10Grade')">Grade 10</button>
+          </div>
+
+          <div id="1Grade" class="sidemenu">
+            <button class="tablinks" style="background-color:red" onclick="openCity(event,'SectionA1')"><p class="h3">Section A1</p></button>
+            <button class="tablinks" style="background-color:red" onclick="openCity(event,'SectionB1')"><p class="h3">Section B1</p></button>
+            <button class="tablinks" style="background-color:red" onclick="openCity(event,'SectionC1')"><p class="h3">Section C1</p></button>
+            <button class="tablinks" style="background-color:red" onclick="openCity(event,'SectionD1')"><p class="h3">Section D1</p></button>
+          </div>
+          
+          <div id="SectionA1" class="sidemenu">
+              <p class="h2 text-primary">SECTION A-1</p>
+              <p class="h3">CLASS LIST</p>
+    
+          <div class="card-group">
+  
+            <div class="card card--small">
+              <div class="card__container">
+                <div class="card__header">
+                  <p class="h2 text-primary">Boys Class List</p>
+                  <p class="h3">1. Joe Charles Allen</p><br>
+                  <p class="h3">2. James Robert Anderson</p><br>
+                  <p class="h3">3. Thomas Brent Arnold</p><br>
+                  <p class="h3">4. Frank Beard</p><br>
+                  <p class="h3">5. Kenneth Michael Beeson</p><br>
+                  <p class="h3">6. Jerry Wayne Bliss </p><br>
+                  <p class="h3">7. Johnny Card</p><br>
+                  <p class="h3">8. Eduard Allen Dixon</p><br>
+                  <p class="h3">9. Jepoy Dizon</p><br>
+                  <p class="h3">10. Jose Moreno</p><br>
+                </div>
+            </div>
+          </div>
+  
+          <div class="card card--small">
+            <div class="card__container">
+              <div class="card__header">
+                <p class="h2 text-primary">Girls Class List</p>
+                <p class="h3">1. Jacquelyn Allison</p><br>
+                <p class="h3">2. Betty Marie Armstrong</p><br>
+                <p class="h3">3. Kathryn Bartels</p><br>
+                <p class="h3">4. Alyssa Catarozoli</p><br>
+                <p class="h3">5. Brianna Demotto</p><br>
+                <p class="h3">6. Sarah Dakwar </p><br>
+                <p class="h3">7. Alexandria Fons</p><br>
+                <p class="h3">8. Camille Marcos</p><br>
+                <p class="h3">9. Kylie Marie Trevor</p><br>
+                <p class="h3">10. Kimberly Zuckerburg</p><br>
+              </div>
+            </div>
+          </div>
+          </div>
         </div>
-        <!-- edit contents above -->
-      </div>
-      </div>
+        
+  
+          <div id="SectionB1" class="sidemenu">
+              <p class="h2 text-primary">SECTION B-1</p>
+              <p class="h3">CLASS LIST</p>
+    
+              <div class="card-group">
+  
+                <div class="card card--small">
+                  <div class="card__container">
+                    <div class="card__header">
+                      <p class="h2 text-primary">Boys Class List</p>
+                      <p class="h3">1. Joe Charles Allen</p><br>
+                      <p class="h3">2. James Robert Anderson</p><br>
+                      <p class="h3">3. Thomas Brent Arnold</p><br>
+                      <p class="h3">4. Frank Beard</p><br>
+                      <p class="h3">5. Kenneth Michael Beeson</p><br>
+                      <p class="h3">6. Jerry Wayne Bliss </p><br>
+                      <p class="h3">7. Johnny Card</p><br>
+                      <p class="h3">8. Eduard Allen Dixon</p><br>
+                      <p class="h3">9. Jepoy Dizon</p><br>
+                      <p class="h3">10. Jose Moreno</p><br>
+                    </div>
+                </div>
+              </div>
+      
+              <div class="card card--small">
+                <div class="card__container">
+                  <div class="card__header">
+                    <p class="h2 text-primary">Girls Class List</p>
+                    <p class="h3">1. Jacquelyn Allison</p><br>
+                    <p class="h3">2. Betty Marie Armstrong</p><br>
+                    <p class="h3">3. Kathryn Bartels</p><br>
+                    <p class="h3">4. Alyssa Catarozoli</p><br>
+                    <p class="h3">5. Brianna Demotto</p><br>
+                    <p class="h3">6. Sarah Dakwar </p><br>
+                    <p class="h3">7. Alexandria Fons</p><br>
+                    <p class="h3">8. Camille Marcos</p><br>
+                    <p class="h3">9. Kylie Marie Trevor</p><br>
+                    <p class="h3">10. Kimberly Zuckerburg</p><br>
+                  </div>
+              </div>
+            </div>
+            </div>
+          </div>
+          
+          <div id="SectionC1" class="sidemenu">
+            <p class="h2 text-primary">SECTION C-1</p>
+            <p class="h3">CLASS LIST</p>
+    
+          <div class="card-group">
+  
+              <div class="card card--small">
+                <div class="card__container">
+                  <div class="card__header">
+                    <p class="h2 text-primary">Boys Class List</p>
+                    <p class="h3">1. Joe Charles Allen</p><br>
+                    <p class="h3">2. James Robert Anderson</p><br>
+                    <p class="h3">3. Thomas Brent Arnold</p><br>
+                    <p class="h3">4. Frank Beard</p><br>
+                    <p class="h3">5. Kenneth Michael Beeson</p><br>
+                    <p class="h3">6. Jerry Wayne Bliss </p><br>
+                    <p class="h3">7. Johnny Card</p><br>
+                    <p class="h3">8. Eduard Allen Dixon</p><br>
+                    <p class="h3">9. Jepoy Dizon</p><br>
+                    <p class="h3">10. Jose Moreno</p><br>
+                  </div>
+              </div>
+            </div>
+    
+            <div class="card card--small">
+              <div class="card__container">
+                <div class="card__header">
+                  <p class="h2 text-primary">Girls Class List</p>
+                  <p class="h3">1. Jacquelyn Allison</p><br>
+                  <p class="h3">2. Betty Marie Armstrong</p><br>
+                  <p class="h3">3. Kathryn Bartels</p><br>
+                  <p class="h3">4. Alyssa Catarozoli</p><br>
+                  <p class="h3">5. Brianna Demotto</p><br>
+                  <p class="h3">6. Sarah Dakwar </p><br>
+                  <p class="h3">7. Alexandria Fons</p><br>
+                  <p class="h3">8. Camille Marcos</p><br>
+                  <p class="h3">9. Kylie Marie Trevor</p><br>
+                  <p class="h3">10. Kimberly Zuckerburg</p><br>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+          
+          <div id="SectionD1" class="sidemenu">
+            <p class="h2 text-primary">SECTION D-1</p>
+            <p class="h3">CLASS LIST</p>
+  
+          <div class="card-group">
+  
+            <div class="card card--small">
+              <div class="card__container">
+                <div class="card__header">
+                  <p class="h2 text-primary">Boys Class List</p>
+                  <p class="h3">1. Joe Charles Allen</p><br>
+                  <p class="h3">2. James Robert Anderson</p><br>
+                  <p class="h3">3. Thomas Brent Arnold</p><br>
+                  <p class="h3">4. Frank Beard</p><br>
+                  <p class="h3">5. Kenneth Michael Beeson</p><br>
+                  <p class="h3">6. Jerry Wayne Bliss </p><br>
+                  <p class="h3">7. Johnny Card</p><br>
+                  <p class="h3">8. Eduard Allen Dixon</p><br>
+                  <p class="h3">9. Jepoy Dizon</p><br>
+                  <p class="h3">10. Jose Moreno</p><br>                
+                </div>
+              </div>
+            </div>
+    
+            <div class="card card--small">
+              <div class="card__container">
+                <div class="card__header">
+                  <p class="h2 text-primary">Girls Class List</p>
+                  <p class="h3">1. Jacquelyn Allison</p><br>
+                  <p class="h3">2. Betty Marie Armstrong</p><br>
+                  <p class="h3">3. Kathryn Bartels</p><br>
+                  <p class="h3">4. Alyssa Catarozoli</p><br>
+                  <p class="h3">5. Brianna Demotto</p><br>
+                  <p class="h3">6. Sarah Dakwar </p><br>
+                  <p class="h3">7. Alexandria Fons</p><br>
+                  <p class="h3">8. Camille Marcos</p><br>
+                  <p class="h3">9. Kylie Marie Trevor</p><br>
+                  <p class="h3">10. Kimberly Zuckerburg</p><br>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+          
+          <div id="2Grade" class="sidemenu">
+            <button class="tablinks" style="background-color:red" onclick="openCity(event,'SectionA2')"><p class="h3">Section A2</p></button>
+            <button class="tablinks" style="background-color:red" onclick="openCity(event,'SectionB2')"><p class="h3">Section B2</p></button>
+            <button class="tablinks" style="background-color:red" onclick="openCity(event,'SectionC2')"><p class="h3">Section C2</p></button>
+            <button class="tablinks" style="background-color:red" onclick="openCity(event,'SectionD2')"><p class="h3">Section D2</p></button>
+          </div>
+          
+          <div id="SectionA2" class="sidemenu">
+            <p class="h2 text-primary">SECTION A-2</p>
+            <p class="h3">CLASS LIST</p>
+    
+            <div class="card-group">
+  
+              <div class="card card--small">
+                <div class="card__container">
+                  <div class="card__header">
+                    <p class="h2 text-primary">Boys Class List</p>
+                    <p class="h3">1. Joe Charles Allen</p><br>
+                    <p class="h3">2. James Robert Anderson</p><br>
+                    <p class="h3">3. Thomas Brent Arnold</p><br>
+                    <p class="h3">4. Frank Beard</p><br>
+                    <p class="h3">5. Kenneth Michael Beeson</p><br>
+                    <p class="h3">6. Jerry Wayne Bliss </p><br>
+                    <p class="h3">7. Johnny Card</p><br>
+                    <p class="h3">8. Eduard Allen Dixon</p><br>
+                    <p class="h3">9. Jepoy Dizon</p><br>
+                    <p class="h3">10. Jose Moreno</p><br>
+                  </div>
+              </div>
+            </div>
+    
+            <div class="card card--small">
+              <div class="card__container">
+                <div class="card__header">
+                  <p class="h2 text-primary">Girls Class List</p>
+                  <p class="h3">1. Jacquelyn Allison</p><br>
+                  <p class="h3">2. Betty Marie Armstrong</p><br>
+                  <p class="h3">3. Kathryn Bartels</p><br>
+                  <p class="h3">4. Alyssa Catarozoli</p><br>
+                  <p class="h3">5. Brianna Demotto</p><br>
+                  <p class="h3">6. Sarah Dakwar </p><br>
+                  <p class="h3">7. Alexandria Fons</p><br>
+                  <p class="h3">8. Camille Marcos</p><br>
+                  <p class="h3">9. Kylie Marie Trevor</p><br>
+                  <p class="h3">10. Kimberly Zuckerburg</p><br>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+          
+          <div id="SectionB2" class="sidemenu">
+            <p class="h2 text-primary">SECTION B-2</p>
+            <p class="h3">CLASS LIST</p>
+            
+            <div class="card-group">
+  
+              <div class="card card--small">
+                <div class="card__container">
+                  <div class="card__header">
+                    <p class="h2 text-primary">Boys Class List</p>
+                    <p class="h3">1. Joe Charles Allen</p><br>
+                    <p class="h3">2. James Robert Anderson</p><br>
+                    <p class="h3">3. Thomas Brent Arnold</p><br>
+                    <p class="h3">4. Frank Beard</p><br>
+                    <p class="h3">5. Kenneth Michael Beeson</p><br>
+                    <p class="h3">6. Jerry Wayne Bliss </p><br>
+                    <p class="h3">7. Johnny Card</p><br>
+                    <p class="h3">8. Eduard Allen Dixon</p><br>
+                    <p class="h3">9. Jepoy Dizon</p><br>
+                    <p class="h3">10. Jose Moreno</p><br>
+                  </div>
+              </div>
+            </div>
+    
+            <div class="card card--small">
+              <div class="card__container">
+                <div class="card__header">
+                  <p class="h2 text-primary">Girls Class List</p>
+                  <p class="h3">1. Jacquelyn Allison</p><br>
+                  <p class="h3">2. Betty Marie Armstrong</p><br>
+                  <p class="h3">3. Kathryn Bartels</p><br>
+                  <p class="h3">4. Alyssa Catarozoli</p><br>
+                  <p class="h3">5. Brianna Demotto</p><br>
+                  <p class="h3">6. Sarah Dakwar </p><br>
+                  <p class="h3">7. Alexandria Fons</p><br>
+                  <p class="h3">8. Camille Marcos</p><br>
+                  <p class="h3">9. Kylie Marie Trevor</p><br>
+                  <p class="h3">10. Kimberly Zuckerburg</p><br>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+            
+          
+          <div id="SectionC2" class="sidemenu">
+            <p class="h2 text-primary">SECTION C-2</p>
+            <p class="h3">CLASS LIST</p>
+            <div class="card-group">
+  
+              <div class="card card--small">
+                <div class="card__container">
+                  <div class="card__header">
+                    <p class="h2 text-primary">Boys Class List</p>
+                    <p class="h3">1. Joe Charles Allen</p><br>
+                    <p class="h3">2. James Robert Anderson</p><br>
+                    <p class="h3">3. Thomas Brent Arnold</p><br>
+                    <p class="h3">4. Frank Beard</p><br>
+                    <p class="h3">5. Kenneth Michael Beeson</p><br>
+                    <p class="h3">6. Jerry Wayne Bliss </p><br>
+                    <p class="h3">7. Johnny Card</p><br>
+                    <p class="h3">8. Eduard Allen Dixon</p><br>
+                    <p class="h3">9. Jepoy Dizon</p><br>
+                    <p class="h3">10. Jose Moreno</p><br>
+                  </div>
+              </div>
+            </div>
+    
+            <div class="card card--small">
+              <div class="card__container">
+                <div class="card__header">
+                  <p class="h2 text-primary">Girls Class List</p>
+                  <p class="h3">1. Jacquelyn Allison</p><br>
+                  <p class="h3">2. Betty Marie Armstrong</p><br>
+                  <p class="h3">3. Kathryn Bartels</p><br>
+                  <p class="h3">4. Alyssa Catarozoli</p><br>
+                  <p class="h3">5. Brianna Demotto</p><br>
+                  <p class="h3">6. Sarah Dakwar </p><br>
+                  <p class="h3">7. Alexandria Fons</p><br>
+                  <p class="h3">8. Camille Marcos</p><br>
+                  <p class="h3">9. Kylie Marie Trevor</p><br>
+                  <p class="h3">10. Kimberly Zuckerburg</p><br>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+          
+          <div id="SectionD2" class="sidemenu">
+            <p class="h2 text-primary">SECTION D-2</p>
+            <p class="h3">CLASS LIST</p>
+            
+            <div class="card-group">
+  
+              <div class="card card--small">
+                <div class="card__container">
+                  <div class="card__header">
+                    <p class="h2 text-primary">Boys Class List</p>
+                    <p class="h3">1. Joe Charles Allen</p><br>
+                    <p class="h3">2. James Robert Anderson</p><br>
+                    <p class="h3">3. Thomas Brent Arnold</p><br>
+                    <p class="h3">4. Frank Beard</p><br>
+                    <p class="h3">5. Kenneth Michael Beeson</p><br>
+                    <p class="h3">6. Jerry Wayne Bliss </p><br>
+                    <p class="h3">7. Johnny Card</p><br>
+                    <p class="h3">8. Eduard Allen Dixon</p><br>
+                    <p class="h3">9. Jepoy Dizon</p><br>
+                    <p class="h3">10. Jose Moreno</p><br>
+                  </div>
+              </div>
+            </div>
+    
+            <div class="card card--small">
+              <div class="card__container">
+                <div class="card__header">
+                  <p class="h2 text-primary">Girls Class List</p>
+                  <p class="h3">1. Jacquelyn Allison</p><br>
+                  <p class="h3">2. Betty Marie Armstrong</p><br>
+                  <p class="h3">3. Kathryn Bartels</p><br>
+                  <p class="h3">4. Alyssa Catarozoli</p><br>
+                  <p class="h3">5. Brianna Demotto</p><br>
+                  <p class="h3">6. Sarah Dakwar </p><br>
+                  <p class="h3">7. Alexandria Fons</p><br>
+                  <p class="h3">8. Camille Marcos</p><br>
+                  <p class="h3">9. Kylie Marie Trevor</p><br>
+                  <p class="h3">10. Kimberly Zuckerburg</p><br>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+
+
+          <div id="3Grade" class="sidemenu">
+            <button class="tablinks" style="background-color:red" onclick="openCity(event,'SectionA3')"><p class="h3">Section A3</p></button>
+            <button class="tablinks" style="background-color:red" onclick="openCity(event,'SectionB3')"><p class="h3">Section B3</p></button>
+            <button class="tablinks" style="background-color:red" onclick="openCity(event,'SectionC3')"><p class="h3">Section C3</p></button>
+            <button class="tablinks" style="background-color:red" onclick="openCity(event,'SectionD3')"><p class="h3">Section D3</p></button>
+          </div>
+          
+          <div id="SectionA3" class="sidemenu">
+              <p class="h2 text-primary">SECTION A-3</p>
+              <p class="h3">CLASS LIST</p>
+    
+          <div class="card-group">
+  
+            <div class="card card--small">
+              <div class="card__container">
+                <div class="card__header">
+                  <p class="h2 text-primary">Boys Class List</p>
+                  <p class="h3">1. Joe Charles Allen</p><br>
+                  <p class="h3">2. James Robert Anderson</p><br>
+                  <p class="h3">3. Thomas Brent Arnold</p><br>
+                  <p class="h3">4. Frank Beard</p><br>
+                  <p class="h3">5. Kenneth Michael Beeson</p><br>
+                  <p class="h3">6. Jerry Wayne Bliss </p><br>
+                  <p class="h3">7. Johnny Card</p><br>
+                  <p class="h3">8. Eduard Allen Dixon</p><br>
+                  <p class="h3">9. Jepoy Dizon</p><br>
+                  <p class="h3">10. Jose Moreno</p><br>
+                </div>
+            </div>
+          </div>
+  
+          <div class="card card--small">
+            <div class="card__container">
+              <div class="card__header">
+                <p class="h2 text-primary">Girls Class List</p>
+                <p class="h3">1. Jacquelyn Allison</p><br>
+                <p class="h3">2. Betty Marie Armstrong</p><br>
+                <p class="h3">3. Kathryn Bartels</p><br>
+                <p class="h3">4. Alyssa Catarozoli</p><br>
+                <p class="h3">5. Brianna Demotto</p><br>
+                <p class="h3">6. Sarah Dakwar </p><br>
+                <p class="h3">7. Alexandria Fons</p><br>
+                <p class="h3">8. Camille Marcos</p><br>
+                <p class="h3">9. Kylie Marie Trevor</p><br>
+                <p class="h3">10. Kimberly Zuckerburg</p><br>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+        
+  
+          <div id="SectionB3" class="sidemenu">
+              <p class="h2 text-primary">SECTION B-3</p>
+              <p class="h3">CLASS LIST</p>
+    
+              <div class="card-group">
+  
+                <div class="card card--small">
+                  <div class="card__container">
+                    <div class="card__header">
+                      <p class="h2 text-primary">Boys Class List</p>
+                      <p class="h3">1. Joe Charles Allen</p><br>
+                      <p class="h3">2. James Robert Anderson</p><br>
+                      <p class="h3">3. Thomas Brent Arnold</p><br>
+                      <p class="h3">4. Frank Beard</p><br>
+                      <p class="h3">5. Kenneth Michael Beeson</p><br>
+                      <p class="h3">6. Jerry Wayne Bliss </p><br>
+                      <p class="h3">7. Johnny Card</p><br>
+                      <p class="h3">8. Eduard Allen Dixon</p><br>
+                      <p class="h3">9. Jepoy Dizon</p><br>
+                      <p class="h3">10. Jose Moreno</p><br>
+                    </div>
+                </div>
+              </div>
+      
+              <div class="card card--small">
+                <div class="card__container">
+                  <div class="card__header">
+                    <p class="h2 text-primary">Girls Class List</p>
+                    <p class="h3">1. Jacquelyn Allison</p><br>
+                    <p class="h3">2. Betty Marie Armstrong</p><br>
+                    <p class="h3">3. Kathryn Bartels</p><br>
+                    <p class="h3">4. Alyssa Catarozoli</p><br>
+                    <p class="h3">5. Brianna Demotto</p><br>
+                    <p class="h3">6. Sarah Dakwar </p><br>
+                    <p class="h3">7. Alexandria Fons</p><br>
+                    <p class="h3">8. Camille Marcos</p><br>
+                    <p class="h3">9. Kylie Marie Trevor</p><br>
+                    <p class="h3">10. Kimberly Zuckerburg</p><br>
+                  </div>
+              </div>
+            </div>
+            </div>
+          </div>
+          
+          <div id="SectionC3" class="sidemenu">
+            <p class="h2 text-primary">SECTION C-3</p>
+            <p class="h3">CLASS LIST</p>
+    
+          <div class="card-group">
+  
+              <div class="card card--small">
+                <div class="card__container">
+                  <div class="card__header">
+                    <p class="h2 text-primary">Boys Class List</p>
+                    <p class="h3">1. Joe Charles Allen</p><br>
+                    <p class="h3">2. James Robert Anderson</p><br>
+                    <p class="h3">3. Thomas Brent Arnold</p><br>
+                    <p class="h3">4. Frank Beard</p><br>
+                    <p class="h3">5. Kenneth Michael Beeson</p><br>
+                    <p class="h3">6. Jerry Wayne Bliss </p><br>
+                    <p class="h3">7. Johnny Card</p><br>
+                    <p class="h3">8. Eduard Allen Dixon</p><br>
+                    <p class="h3">9. Jepoy Dizon</p><br>
+                    <p class="h3">10. Jose Moreno</p><br>
+                  </div>
+              </div>
+            </div>
+    
+            <div class="card card--small">
+              <div class="card__container">
+                <div class="card__header">
+                  <p class="h2 text-primary">Girls Class List</p>
+                  <p class="h3">1. Jacquelyn Allison</p><br>
+                  <p class="h3">2. Betty Marie Armstrong</p><br>
+                  <p class="h3">3. Kathryn Bartels</p><br>
+                  <p class="h3">4. Alyssa Catarozoli</p><br>
+                  <p class="h3">5. Brianna Demotto</p><br>
+                  <p class="h3">6. Sarah Dakwar </p><br>
+                  <p class="h3">7. Alexandria Fons</p><br>
+                  <p class="h3">8. Camille Marcos</p><br>
+                  <p class="h3">9. Kylie Marie Trevor</p><br>
+                  <p class="h3">10. Kimberly Zuckerburg</p><br>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+          
+          <div id="SectionD3" class="sidemenu">
+            <p class="h2 text-primary">SECTION D-3</p>
+            <p class="h3">CLASS LIST</p>
+  
+          <div class="card-group">
+  
+            <div class="card card--small">
+              <div class="card__container">
+                <div class="card__header">
+                  <p class="h2 text-primary">Boys Class List</p>
+                  <p class="h3">1. Joe Charles Allen</p><br>
+                  <p class="h3">2. James Robert Anderson</p><br>
+                  <p class="h3">3. Thomas Brent Arnold</p><br>
+                  <p class="h3">4. Frank Beard</p><br>
+                  <p class="h3">5. Kenneth Michael Beeson</p><br>
+                  <p class="h3">6. Jerry Wayne Bliss </p><br>
+                  <p class="h3">7. Johnny Card</p><br>
+                  <p class="h3">8. Eduard Allen Dixon</p><br>
+                  <p class="h3">9. Jepoy Dizon</p><br>
+                  <p class="h3">10. Jose Moreno</p><br>                
+                </div>
+              </div>
+            </div>
+    
+            <div class="card card--small">
+              <div class="card__container">
+                <div class="card__header">
+                  <p class="h2 text-primary">Girls Class List</p>
+                  <p class="h3">1. Jacquelyn Allison</p><br>
+                  <p class="h3">2. Betty Marie Armstrong</p><br>
+                  <p class="h3">3. Kathryn Bartels</p><br>
+                  <p class="h3">4. Alyssa Catarozoli</p><br>
+                  <p class="h3">5. Brianna Demotto</p><br>
+                  <p class="h3">6. Sarah Dakwar </p><br>
+                  <p class="h3">7. Alexandria Fons</p><br>
+                  <p class="h3">8. Camille Marcos</p><br>
+                  <p class="h3">9. Kylie Marie Trevor</p><br>
+                  <p class="h3">10. Kimberly Zuckerburg</p><br>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+
+          <div id="4Grade" class="sidemenu">
+            <button class="tablinks" style="background-color:red" onclick="openCity(event,'SectionA4')"><p class="h3">Section A4</p></button>
+            <button class="tablinks" style="background-color:red" onclick="openCity(event,'SectionB4')"><p class="h3">Section B4</p></button>
+            <button class="tablinks" style="background-color:red" onclick="openCity(event,'SectionC4')"><p class="h3">Section C4</p></button>
+            <button class="tablinks" style="background-color:red" onclick="openCity(event,'SectionD4')"><p class="h3">Section D4</p></button>
+          </div>
+          
+          <div id="SectionA4" class="sidemenu">
+              <p class="h2 text-primary">SECTION A-4</p>
+              <p class="h3">CLASS LIST</p>
+    
+          <div class="card-group">
+  
+            <div class="card card--small">
+              <div class="card__container">
+                <div class="card__header">
+                  <p class="h2 text-primary">Boys Class List</p>
+                  <p class="h3">1. Joe Charles Allen</p><br>
+                  <p class="h3">2. James Robert Anderson</p><br>
+                  <p class="h3">3. Thomas Brent Arnold</p><br>
+                  <p class="h3">4. Frank Beard</p><br>
+                  <p class="h3">5. Kenneth Michael Beeson</p><br>
+                  <p class="h3">6. Jerry Wayne Bliss </p><br>
+                  <p class="h3">7. Johnny Card</p><br>
+                  <p class="h3">8. Eduard Allen Dixon</p><br>
+                  <p class="h3">9. Jepoy Dizon</p><br>
+                  <p class="h3">10. Jose Moreno</p><br>
+                </div>
+            </div>
+          </div>
+  
+          <div class="card card--small">
+            <div class="card__container">
+              <div class="card__header">
+                <p class="h2 text-primary">Girls Class List</p>
+                <p class="h3">1. Jacquelyn Allison</p><br>
+                <p class="h3">2. Betty Marie Armstrong</p><br>
+                <p class="h3">3. Kathryn Bartels</p><br>
+                <p class="h3">4. Alyssa Catarozoli</p><br>
+                <p class="h3">5. Brianna Demotto</p><br>
+                <p class="h3">6. Sarah Dakwar </p><br>
+                <p class="h3">7. Alexandria Fons</p><br>
+                <p class="h3">8. Camille Marcos</p><br>
+                <p class="h3">9. Kylie Marie Trevor</p><br>
+                <p class="h3">10. Kimberly Zuckerburg</p><br>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+        
+  
+          <div id="SectionB4" class="sidemenu">
+              <p class="h2 text-primary">SECTION B-4</p>
+              <p class="h3">CLASS LIST</p>
+    
+              <div class="card-group">
+  
+                <div class="card card--small">
+                  <div class="card__container">
+                    <div class="card__header">
+                      <p class="h2 text-primary">Boys Class List</p>
+                      <p class="h3">1. Joe Charles Allen</p><br>
+                      <p class="h3">2. James Robert Anderson</p><br>
+                      <p class="h3">3. Thomas Brent Arnold</p><br>
+                      <p class="h3">4. Frank Beard</p><br>
+                      <p class="h3">5. Kenneth Michael Beeson</p><br>
+                      <p class="h3">6. Jerry Wayne Bliss </p><br>
+                      <p class="h3">7. Johnny Card</p><br>
+                      <p class="h3">8. Eduard Allen Dixon</p><br>
+                      <p class="h3">9. Jepoy Dizon</p><br>
+                      <p class="h3">10. Jose Moreno</p><br>
+                    </div>
+                </div>
+              </div>
+      
+              <div class="card card--small">
+                <div class="card__container">
+                  <div class="card__header">
+                    <p class="h2 text-primary">Girls Class List</p>
+                    <p class="h3">1. Jacquelyn Allison</p><br>
+                    <p class="h3">2. Betty Marie Armstrong</p><br>
+                    <p class="h3">3. Kathryn Bartels</p><br>
+                    <p class="h3">4. Alyssa Catarozoli</p><br>
+                    <p class="h3">5. Brianna Demotto</p><br>
+                    <p class="h3">6. Sarah Dakwar </p><br>
+                    <p class="h3">7. Alexandria Fons</p><br>
+                    <p class="h3">8. Camille Marcos</p><br>
+                    <p class="h3">9. Kylie Marie Trevor</p><br>
+                    <p class="h3">10. Kimberly Zuckerburg</p><br>
+                  </div>
+              </div>
+            </div>
+            </div>
+          </div>
+          
+          <div id="SectionC4" class="sidemenu">
+            <p class="h2 text-primary">SECTION C-4</p>
+            <p class="h3">CLASS LIST</p>
+    
+          <div class="card-group">
+  
+              <div class="card card--small">
+                <div class="card__container">
+                  <div class="card__header">
+                    <p class="h2 text-primary">Boys Class List</p>
+                    <p class="h3">1. Joe Charles Allen</p><br>
+                    <p class="h3">2. James Robert Anderson</p><br>
+                    <p class="h3">3. Thomas Brent Arnold</p><br>
+                    <p class="h3">4. Frank Beard</p><br>
+                    <p class="h3">5. Kenneth Michael Beeson</p><br>
+                    <p class="h3">6. Jerry Wayne Bliss </p><br>
+                    <p class="h3">7. Johnny Card</p><br>
+                    <p class="h3">8. Eduard Allen Dixon</p><br>
+                    <p class="h3">9. Jepoy Dizon</p><br>
+                    <p class="h3">10. Jose Moreno</p><br>
+                  </div>
+              </div>
+            </div>
+    
+            <div class="card card--small">
+              <div class="card__container">
+                <div class="card__header">
+                  <p class="h2 text-primary">Girls Class List</p>
+                  <p class="h3">1. Jacquelyn Allison</p><br>
+                  <p class="h3">2. Betty Marie Armstrong</p><br>
+                  <p class="h3">3. Kathryn Bartels</p><br>
+                  <p class="h3">4. Alyssa Catarozoli</p><br>
+                  <p class="h3">5. Brianna Demotto</p><br>
+                  <p class="h3">6. Sarah Dakwar </p><br>
+                  <p class="h3">7. Alexandria Fons</p><br>
+                  <p class="h3">8. Camille Marcos</p><br>
+                  <p class="h3">9. Kylie Marie Trevor</p><br>
+                  <p class="h3">10. Kimberly Zuckerburg</p><br>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+          
+          <div id="SectionD4" class="sidemenu">
+            <p class="h2 text-primary">SECTION D-4</p>
+            <p class="h3">CLASS LIST</p>
+  
+          <div class="card-group">
+  
+            <div class="card card--small">
+              <div class="card__container">
+                <div class="card__header">
+                  <p class="h2 text-primary">Boys Class List</p>
+                  <p class="h3">1. Joe Charles Allen</p><br>
+                  <p class="h3">2. James Robert Anderson</p><br>
+                  <p class="h3">3. Thomas Brent Arnold</p><br>
+                  <p class="h3">4. Frank Beard</p><br>
+                  <p class="h3">5. Kenneth Michael Beeson</p><br>
+                  <p class="h3">6. Jerry Wayne Bliss </p><br>
+                  <p class="h3">7. Johnny Card</p><br>
+                  <p class="h3">8. Eduard Allen Dixon</p><br>
+                  <p class="h3">9. Jepoy Dizon</p><br>
+                  <p class="h3">10. Jose Moreno</p><br>                
+                </div>
+              </div>
+            </div>
+    
+            <div class="card card--small">
+              <div class="card__container">
+                <div class="card__header">
+                  <p class="h2 text-primary">Girls Class List</p>
+                  <p class="h3">1. Jacquelyn Allison</p><br>
+                  <p class="h3">2. Betty Marie Armstrong</p><br>
+                  <p class="h3">3. Kathryn Bartels</p><br>
+                  <p class="h3">4. Alyssa Catarozoli</p><br>
+                  <p class="h3">5. Brianna Demotto</p><br>
+                  <p class="h3">6. Sarah Dakwar </p><br>
+                  <p class="h3">7. Alexandria Fons</p><br>
+                  <p class="h3">8. Camille Marcos</p><br>
+                  <p class="h3">9. Kylie Marie Trevor</p><br>
+                  <p class="h3">10. Kimberly Zuckerburg</p><br>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+
+          <div id="5Grade" class="sidemenu">
+            <button class="tablinks" style="background-color:red" onclick="openCity(event,'SectionA5')"><p class="h3">Section A5</p></button>
+            <button class="tablinks" style="background-color:red" onclick="openCity(event,'SectionB5')"><p class="h3">Section B5</p></button>
+            <button class="tablinks" style="background-color:red" onclick="openCity(event,'SectionC5')"><p class="h3">Section C5</p></button>
+            <button class="tablinks" style="background-color:red" onclick="openCity(event,'SectionD5')"><p class="h3">Section D5</p></button>
+          </div>
+          
+          <div id="SectionA5" class="sidemenu">
+              <p class="h2 text-primary">SECTION A-3</p>
+              <p class="h3">CLASS LIST</p>
+    
+          <div class="card-group">
+  
+            <div class="card card--small">
+              <div class="card__container">
+                <div class="card__header">
+                  <p class="h2 text-primary">Boys Class List</p>
+                  <p class="h3">1. Joe Charles Allen</p><br>
+                  <p class="h3">2. James Robert Anderson</p><br>
+                  <p class="h3">3. Thomas Brent Arnold</p><br>
+                  <p class="h3">4. Frank Beard</p><br>
+                  <p class="h3">5. Kenneth Michael Beeson</p><br>
+                  <p class="h3">6. Jerry Wayne Bliss </p><br>
+                  <p class="h3">7. Johnny Card</p><br>
+                  <p class="h3">8. Eduard Allen Dixon</p><br>
+                  <p class="h3">9. Jepoy Dizon</p><br>
+                  <p class="h3">10. Jose Moreno</p><br>
+                </div>
+            </div>
+          </div>
+  
+          <div class="card card--small">
+            <div class="card__container">
+              <div class="card__header">
+                <p class="h2 text-primary">Girls Class List</p>
+                <p class="h3">1. Jacquelyn Allison</p><br>
+                <p class="h3">2. Betty Marie Armstrong</p><br>
+                <p class="h3">3. Kathryn Bartels</p><br>
+                <p class="h3">4. Alyssa Catarozoli</p><br>
+                <p class="h3">5. Brianna Demotto</p><br>
+                <p class="h3">6. Sarah Dakwar </p><br>
+                <p class="h3">7. Alexandria Fons</p><br>
+                <p class="h3">8. Camille Marcos</p><br>
+                <p class="h3">9. Kylie Marie Trevor</p><br>
+                <p class="h3">10. Kimberly Zuckerburg</p><br>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+        
+  
+          <div id="SectionB5" class="sidemenu">
+              <p class="h2 text-primary">SECTION B-3</p>
+              <p class="h3">CLASS LIST</p>
+    
+              <div class="card-group">
+  
+                <div class="card card--small">
+                  <div class="card__container">
+                    <div class="card__header">
+                      <p class="h2 text-primary">Boys Class List</p>
+                      <p class="h3">1. Joe Charles Allen</p><br>
+                      <p class="h3">2. James Robert Anderson</p><br>
+                      <p class="h3">3. Thomas Brent Arnold</p><br>
+                      <p class="h3">4. Frank Beard</p><br>
+                      <p class="h3">5. Kenneth Michael Beeson</p><br>
+                      <p class="h3">6. Jerry Wayne Bliss </p><br>
+                      <p class="h3">7. Johnny Card</p><br>
+                      <p class="h3">8. Eduard Allen Dixon</p><br>
+                      <p class="h3">9. Jepoy Dizon</p><br>
+                      <p class="h3">10. Jose Moreno</p><br>
+                    </div>
+                </div>
+              </div>
+      
+              <div class="card card--small">
+                <div class="card__container">
+                  <div class="card__header">
+                    <p class="h2 text-primary">Girls Class List</p>
+                    <p class="h3">1. Jacquelyn Allison</p><br>
+                    <p class="h3">2. Betty Marie Armstrong</p><br>
+                    <p class="h3">3. Kathryn Bartels</p><br>
+                    <p class="h3">4. Alyssa Catarozoli</p><br>
+                    <p class="h3">5. Brianna Demotto</p><br>
+                    <p class="h3">6. Sarah Dakwar </p><br>
+                    <p class="h3">7. Alexandria Fons</p><br>
+                    <p class="h3">8. Camille Marcos</p><br>
+                    <p class="h3">9. Kylie Marie Trevor</p><br>
+                    <p class="h3">10. Kimberly Zuckerburg</p><br>
+                  </div>
+              </div>
+            </div>
+            </div>
+          </div>
+          
+          <div id="SectionC5" class="sidemenu">
+            <p class="h2 text-primary">SECTION C-3</p>
+            <p class="h3">CLASS LIST</p>
+    
+          <div class="card-group">
+  
+              <div class="card card--small">
+                <div class="card__container">
+                  <div class="card__header">
+                    <p class="h2 text-primary">Boys Class List</p>
+                    <p class="h3">1. Joe Charles Allen</p><br>
+                    <p class="h3">2. James Robert Anderson</p><br>
+                    <p class="h3">3. Thomas Brent Arnold</p><br>
+                    <p class="h3">4. Frank Beard</p><br>
+                    <p class="h3">5. Kenneth Michael Beeson</p><br>
+                    <p class="h3">6. Jerry Wayne Bliss </p><br>
+                    <p class="h3">7. Johnny Card</p><br>
+                    <p class="h3">8. Eduard Allen Dixon</p><br>
+                    <p class="h3">9. Jepoy Dizon</p><br>
+                    <p class="h3">10. Jose Moreno</p><br>
+                  </div>
+              </div>
+            </div>
+    
+            <div class="card card--small">
+              <div class="card__container">
+                <div class="card__header">
+                  <p class="h2 text-primary">Girls Class List</p>
+                  <p class="h3">1. Jacquelyn Allison</p><br>
+                  <p class="h3">2. Betty Marie Armstrong</p><br>
+                  <p class="h3">3. Kathryn Bartels</p><br>
+                  <p class="h3">4. Alyssa Catarozoli</p><br>
+                  <p class="h3">5. Brianna Demotto</p><br>
+                  <p class="h3">6. Sarah Dakwar </p><br>
+                  <p class="h3">7. Alexandria Fons</p><br>
+                  <p class="h3">8. Camille Marcos</p><br>
+                  <p class="h3">9. Kylie Marie Trevor</p><br>
+                  <p class="h3">10. Kimberly Zuckerburg</p><br>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+          
+          <div id="SectionD5" class="sidemenu">
+            <p class="h2 text-primary">SECTION D-3</p>
+            <p class="h3">CLASS LIST</p>
+  
+          <div class="card-group">
+  
+            <div class="card card--small">
+              <div class="card__container">
+                <div class="card__header">
+                  <p class="h2 text-primary">Boys Class List</p>
+                  <p class="h3">1. Joe Charles Allen</p><br>
+                  <p class="h3">2. James Robert Anderson</p><br>
+                  <p class="h3">3. Thomas Brent Arnold</p><br>
+                  <p class="h3">4. Frank Beard</p><br>
+                  <p class="h3">5. Kenneth Michael Beeson</p><br>
+                  <p class="h3">6. Jerry Wayne Bliss </p><br>
+                  <p class="h3">7. Johnny Card</p><br>
+                  <p class="h3">8. Eduard Allen Dixon</p><br>
+                  <p class="h3">9. Jepoy Dizon</p><br>
+                  <p class="h3">10. Jose Moreno</p><br>                
+                </div>
+              </div>
+            </div>
+    
+            <div class="card card--small">
+              <div class="card__container">
+                <div class="card__header">
+                  <p class="h2 text-primary">Girls Class List</p>
+                  <p class="h3">1. Jacquelyn Allison</p><br>
+                  <p class="h3">2. Betty Marie Armstrong</p><br>
+                  <p class="h3">3. Kathryn Bartels</p><br>
+                  <p class="h3">4. Alyssa Catarozoli</p><br>
+                  <p class="h3">5. Brianna Demotto</p><br>
+                  <p class="h3">6. Sarah Dakwar </p><br>
+                  <p class="h3">7. Alexandria Fons</p><br>
+                  <p class="h3">8. Camille Marcos</p><br>
+                  <p class="h3">9. Kylie Marie Trevor</p><br>
+                  <p class="h3">10. Kimberly Zuckerburg</p><br>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+
+          <div id="6Grade" class="sidemenu">
+            <button class="tablinks" style="background-color:red" onclick="openCity(event,'SectionA6')"><p class="h3">Section A6</p></button>
+            <button class="tablinks" style="background-color:red" onclick="openCity(event,'SectionB6')"><p class="h3">Section B6</p></button>
+            <button class="tablinks" style="background-color:red" onclick="openCity(event,'SectionC6')"><p class="h3">Section C6</p></button>
+            <button class="tablinks" style="background-color:red" onclick="openCity(event,'SectionD6')"><p class="h3">Section D6</p></button>
+          </div>
+          
+          <div id="SectionA6" class="sidemenu">
+              <p class="h2 text-primary">SECTION A-6</p>
+              <p class="h3">CLASS LIST</p>
+    
+          <div class="card-group">
+  
+            <div class="card card--small">
+              <div class="card__container">
+                <div class="card__header">
+                  <p class="h2 text-primary">Boys Class List</p>
+                  <p class="h3">1. Joe Charles Allen</p><br>
+                  <p class="h3">2. James Robert Anderson</p><br>
+                  <p class="h3">3. Thomas Brent Arnold</p><br>
+                  <p class="h3">4. Frank Beard</p><br>
+                  <p class="h3">5. Kenneth Michael Beeson</p><br>
+                  <p class="h3">6. Jerry Wayne Bliss </p><br>
+                  <p class="h3">7. Johnny Card</p><br>
+                  <p class="h3">8. Eduard Allen Dixon</p><br>
+                  <p class="h3">9. Jepoy Dizon</p><br>
+                  <p class="h3">10. Jose Moreno</p><br>
+                </div>
+            </div>
+          </div>
+  
+          <div class="card card--small">
+            <div class="card__container">
+              <div class="card__header">
+                <p class="h2 text-primary">Girls Class List</p>
+                <p class="h3">1. Jacquelyn Allison</p><br>
+                <p class="h3">2. Betty Marie Armstrong</p><br>
+                <p class="h3">3. Kathryn Bartels</p><br>
+                <p class="h3">4. Alyssa Catarozoli</p><br>
+                <p class="h3">5. Brianna Demotto</p><br>
+                <p class="h3">6. Sarah Dakwar </p><br>
+                <p class="h3">7. Alexandria Fons</p><br>
+                <p class="h3">8. Camille Marcos</p><br>
+                <p class="h3">9. Kylie Marie Trevor</p><br>
+                <p class="h3">10. Kimberly Zuckerburg</p><br>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+        
+  
+          <div id="SectionB6" class="sidemenu">
+              <p class="h2 text-primary">SECTION B-6</p>
+              <p class="h3">CLASS LIST</p>
+    
+              <div class="card-group">
+  
+                <div class="card card--small">
+                  <div class="card__container">
+                    <div class="card__header">
+                      <p class="h2 text-primary">Boys Class List</p>
+                      <p class="h3">1. Joe Charles Allen</p><br>
+                      <p class="h3">2. James Robert Anderson</p><br>
+                      <p class="h3">3. Thomas Brent Arnold</p><br>
+                      <p class="h3">4. Frank Beard</p><br>
+                      <p class="h3">5. Kenneth Michael Beeson</p><br>
+                      <p class="h3">6. Jerry Wayne Bliss </p><br>
+                      <p class="h3">7. Johnny Card</p><br>
+                      <p class="h3">8. Eduard Allen Dixon</p><br>
+                      <p class="h3">9. Jepoy Dizon</p><br>
+                      <p class="h3">10. Jose Moreno</p><br>
+                    </div>
+                </div>
+              </div>
+      
+              <div class="card card--small">
+                <div class="card__container">
+                  <div class="card__header">
+                    <p class="h2 text-primary">Girls Class List</p>
+                    <p class="h3">1. Jacquelyn Allison</p><br>
+                    <p class="h3">2. Betty Marie Armstrong</p><br>
+                    <p class="h3">3. Kathryn Bartels</p><br>
+                    <p class="h3">4. Alyssa Catarozoli</p><br>
+                    <p class="h3">5. Brianna Demotto</p><br>
+                    <p class="h3">6. Sarah Dakwar </p><br>
+                    <p class="h3">7. Alexandria Fons</p><br>
+                    <p class="h3">8. Camille Marcos</p><br>
+                    <p class="h3">9. Kylie Marie Trevor</p><br>
+                    <p class="h3">10. Kimberly Zuckerburg</p><br>
+                  </div>
+              </div>
+            </div>
+            </div>
+          </div>
+          
+          <div id="SectionC6" class="sidemenu">
+            <p class="h2 text-primary">SECTION C-6</p>
+            <p class="h3">CLASS LIST</p>
+    
+          <div class="card-group">
+  
+              <div class="card card--small">
+                <div class="card__container">
+                  <div class="card__header">
+                    <p class="h2 text-primary">Boys Class List</p>
+                    <p class="h3">1. Joe Charles Allen</p><br>
+                    <p class="h3">2. James Robert Anderson</p><br>
+                    <p class="h3">3. Thomas Brent Arnold</p><br>
+                    <p class="h3">4. Frank Beard</p><br>
+                    <p class="h3">5. Kenneth Michael Beeson</p><br>
+                    <p class="h3">6. Jerry Wayne Bliss </p><br>
+                    <p class="h3">7. Johnny Card</p><br>
+                    <p class="h3">8. Eduard Allen Dixon</p><br>
+                    <p class="h3">9. Jepoy Dizon</p><br>
+                    <p class="h3">10. Jose Moreno</p><br>
+                  </div>
+              </div>
+            </div>
+    
+            <div class="card card--small">
+              <div class="card__container">
+                <div class="card__header">
+                  <p class="h2 text-primary">Girls Class List</p>
+                  <p class="h3">1. Jacquelyn Allison</p><br>
+                  <p class="h3">2. Betty Marie Armstrong</p><br>
+                  <p class="h3">3. Kathryn Bartels</p><br>
+                  <p class="h3">4. Alyssa Catarozoli</p><br>
+                  <p class="h3">5. Brianna Demotto</p><br>
+                  <p class="h3">6. Sarah Dakwar </p><br>
+                  <p class="h3">7. Alexandria Fons</p><br>
+                  <p class="h3">8. Camille Marcos</p><br>
+                  <p class="h3">9. Kylie Marie Trevor</p><br>
+                  <p class="h3">10. Kimberly Zuckerburg</p><br>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+          
+          <div id="SectionD6" class="sidemenu">
+            <p class="h2 text-primary">SECTION D-6</p>
+            <p class="h3">CLASS LIST</p>
+  
+          <div class="card-group">
+  
+            <div class="card card--small">
+              <div class="card__container">
+                <div class="card__header">
+                  <p class="h2 text-primary">Boys Class List</p>
+                  <p class="h3">1. Joe Charles Allen</p><br>
+                  <p class="h3">2. James Robert Anderson</p><br>
+                  <p class="h3">3. Thomas Brent Arnold</p><br>
+                  <p class="h3">4. Frank Beard</p><br>
+                  <p class="h3">5. Kenneth Michael Beeson</p><br>
+                  <p class="h3">6. Jerry Wayne Bliss </p><br>
+                  <p class="h3">7. Johnny Card</p><br>
+                  <p class="h3">8. Eduard Allen Dixon</p><br>
+                  <p class="h3">9. Jepoy Dizon</p><br>
+                  <p class="h3">10. Jose Moreno</p><br>                
+                </div>
+              </div>
+            </div>
+    
+            <div class="card card--small">
+              <div class="card__container">
+                <div class="card__header">
+                  <p class="h2 text-primary">Girls Class List</p>
+                  <p class="h3">1. Jacquelyn Allison</p><br>
+                  <p class="h3">2. Betty Marie Armstrong</p><br>
+                  <p class="h3">3. Kathryn Bartels</p><br>
+                  <p class="h3">4. Alyssa Catarozoli</p><br>
+                  <p class="h3">5. Brianna Demotto</p><br>
+                  <p class="h3">6. Sarah Dakwar </p><br>
+                  <p class="h3">7. Alexandria Fons</p><br>
+                  <p class="h3">8. Camille Marcos</p><br>
+                  <p class="h3">9. Kylie Marie Trevor</p><br>
+                  <p class="h3">10. Kimberly Zuckerburg</p><br>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+
+          <div id="7Grade" class="sidemenu">
+            <button class="tablinks" style="background-color:red" onclick="openCity(event,'SectionA7')"><p class="h3">Section A7</p></button>
+            <button class="tablinks" style="background-color:red" onclick="openCity(event,'SectionB7')"><p class="h3">Section B7</p></button>
+            <button class="tablinks" style="background-color:red" onclick="openCity(event,'SectionC7')"><p class="h3">Section C7</p></button>
+            <button class="tablinks" style="background-color:red" onclick="openCity(event,'SectionD7')"><p class="h3">Section D7</p></button>
+          </div>
+          
+          <div id="SectionA7" class="sidemenu">
+              <p class="h2 text-primary">SECTION A-7</p>
+              <p class="h3">CLASS LIST</p>
+    
+          <div class="card-group">
+  
+            <div class="card card--small">
+              <div class="card__container">
+                <div class="card__header">
+                  <p class="h2 text-primary">Boys Class List</p>
+                  <p class="h3">1. Joe Charles Allen</p><br>
+                  <p class="h3">2. James Robert Anderson</p><br>
+                  <p class="h3">3. Thomas Brent Arnold</p><br>
+                  <p class="h3">4. Frank Beard</p><br>
+                  <p class="h3">5. Kenneth Michael Beeson</p><br>
+                  <p class="h3">6. Jerry Wayne Bliss </p><br>
+                  <p class="h3">7. Johnny Card</p><br>
+                  <p class="h3">8. Eduard Allen Dixon</p><br>
+                  <p class="h3">9. Jepoy Dizon</p><br>
+                  <p class="h3">10. Jose Moreno</p><br>
+                </div>
+            </div>
+          </div>
+  
+          <div class="card card--small">
+            <div class="card__container">
+              <div class="card__header">
+                <p class="h2 text-primary">Girls Class List</p>
+                <p class="h3">1. Jacquelyn Allison</p><br>
+                <p class="h3">2. Betty Marie Armstrong</p><br>
+                <p class="h3">3. Kathryn Bartels</p><br>
+                <p class="h3">4. Alyssa Catarozoli</p><br>
+                <p class="h3">5. Brianna Demotto</p><br>
+                <p class="h3">6. Sarah Dakwar </p><br>
+                <p class="h3">7. Alexandria Fons</p><br>
+                <p class="h3">8. Camille Marcos</p><br>
+                <p class="h3">9. Kylie Marie Trevor</p><br>
+                <p class="h3">10. Kimberly Zuckerburg</p><br>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+        
+  
+          <div id="SectionB7" class="sidemenu">
+              <p class="h2 text-primary">SECTION B-7</p>
+              <p class="h3">CLASS LIST</p>
+    
+              <div class="card-group">
+  
+                <div class="card card--small">
+                  <div class="card__container">
+                    <div class="card__header">
+                      <p class="h2 text-primary">Boys Class List</p>
+                      <p class="h3">1. Joe Charles Allen</p><br>
+                      <p class="h3">2. James Robert Anderson</p><br>
+                      <p class="h3">3. Thomas Brent Arnold</p><br>
+                      <p class="h3">4. Frank Beard</p><br>
+                      <p class="h3">5. Kenneth Michael Beeson</p><br>
+                      <p class="h3">6. Jerry Wayne Bliss </p><br>
+                      <p class="h3">7. Johnny Card</p><br>
+                      <p class="h3">8. Eduard Allen Dixon</p><br>
+                      <p class="h3">9. Jepoy Dizon</p><br>
+                      <p class="h3">10. Jose Moreno</p><br>
+                    </div>
+                </div>
+              </div>
+      
+              <div class="card card--small">
+                <div class="card__container">
+                  <div class="card__header">
+                    <p class="h2 text-primary">Girls Class List</p>
+                    <p class="h3">1. Jacquelyn Allison</p><br>
+                    <p class="h3">2. Betty Marie Armstrong</p><br>
+                    <p class="h3">3. Kathryn Bartels</p><br>
+                    <p class="h3">4. Alyssa Catarozoli</p><br>
+                    <p class="h3">5. Brianna Demotto</p><br>
+                    <p class="h3">6. Sarah Dakwar </p><br>
+                    <p class="h3">7. Alexandria Fons</p><br>
+                    <p class="h3">8. Camille Marcos</p><br>
+                    <p class="h3">9. Kylie Marie Trevor</p><br>
+                    <p class="h3">10. Kimberly Zuckerburg</p><br>
+                  </div>
+              </div>
+            </div>
+            </div>
+          </div>
+          
+          <div id="SectionC7" class="sidemenu">
+            <p class="h2 text-primary">SECTION C-7</p>
+            <p class="h3">CLASS LIST</p>
+    
+          <div class="card-group">
+  
+              <div class="card card--small">
+                <div class="card__container">
+                  <div class="card__header">
+                    <p class="h2 text-primary">Boys Class List</p>
+                    <p class="h3">1. Joe Charles Allen</p><br>
+                    <p class="h3">2. James Robert Anderson</p><br>
+                    <p class="h3">3. Thomas Brent Arnold</p><br>
+                    <p class="h3">4. Frank Beard</p><br>
+                    <p class="h3">5. Kenneth Michael Beeson</p><br>
+                    <p class="h3">6. Jerry Wayne Bliss </p><br>
+                    <p class="h3">7. Johnny Card</p><br>
+                    <p class="h3">8. Eduard Allen Dixon</p><br>
+                    <p class="h3">9. Jepoy Dizon</p><br>
+                    <p class="h3">10. Jose Moreno</p><br>
+                  </div>
+              </div>
+            </div>
+    
+            <div class="card card--small">
+              <div class="card__container">
+                <div class="card__header">
+                  <p class="h2 text-primary">Girls Class List</p>
+                  <p class="h3">1. Jacquelyn Allison</p><br>
+                  <p class="h3">2. Betty Marie Armstrong</p><br>
+                  <p class="h3">3. Kathryn Bartels</p><br>
+                  <p class="h3">4. Alyssa Catarozoli</p><br>
+                  <p class="h3">5. Brianna Demotto</p><br>
+                  <p class="h3">6. Sarah Dakwar </p><br>
+                  <p class="h3">7. Alexandria Fons</p><br>
+                  <p class="h3">8. Camille Marcos</p><br>
+                  <p class="h3">9. Kylie Marie Trevor</p><br>
+                  <p class="h3">10. Kimberly Zuckerburg</p><br>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+          
+          <div id="SectionD7" class="sidemenu">
+            <p class="h2 text-primary">SECTION D-7</p>
+            <p class="h3">CLASS LIST</p>
+  
+          <div class="card-group">
+  
+            <div class="card card--small">
+              <div class="card__container">
+                <div class="card__header">
+                  <p class="h2 text-primary">Boys Class List</p>
+                  <p class="h3">1. Joe Charles Allen</p><br>
+                  <p class="h3">2. James Robert Anderson</p><br>
+                  <p class="h3">3. Thomas Brent Arnold</p><br>
+                  <p class="h3">4. Frank Beard</p><br>
+                  <p class="h3">5. Kenneth Michael Beeson</p><br>
+                  <p class="h3">6. Jerry Wayne Bliss </p><br>
+                  <p class="h3">7. Johnny Card</p><br>
+                  <p class="h3">8. Eduard Allen Dixon</p><br>
+                  <p class="h3">9. Jepoy Dizon</p><br>
+                  <p class="h3">10. Jose Moreno</p><br>                
+                </div>
+              </div>
+            </div>
+    
+            <div class="card card--small">
+              <div class="card__container">
+                <div class="card__header">
+                  <p class="h2 text-primary">Girls Class List</p>
+                  <p class="h3">1. Jacquelyn Allison</p><br>
+                  <p class="h3">2. Betty Marie Armstrong</p><br>
+                  <p class="h3">3. Kathryn Bartels</p><br>
+                  <p class="h3">4. Alyssa Catarozoli</p><br>
+                  <p class="h3">5. Brianna Demotto</p><br>
+                  <p class="h3">6. Sarah Dakwar </p><br>
+                  <p class="h3">7. Alexandria Fons</p><br>
+                  <p class="h3">8. Camille Marcos</p><br>
+                  <p class="h3">9. Kylie Marie Trevor</p><br>
+                  <p class="h3">10. Kimberly Zuckerburg</p><br>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+
+          <div id="8Grade" class="sidemenu">
+            <button class="tablinks" style="background-color:red" onclick="openCity(event,'SectionA8')"><p class="h3">Section A8</p></button>
+            <button class="tablinks" style="background-color:red" onclick="openCity(event,'SectionB8')"><p class="h3">Section B8</p></button>
+            <button class="tablinks" style="background-color:red" onclick="openCity(event,'SectionC8')"><p class="h3">Section C8</p></button>
+            <button class="tablinks" style="background-color:red" onclick="openCity(event,'SectionD8')"><p class="h3">Section D8</p></button>
+          </div>
+          
+          <div id="SectionA8" class="sidemenu">
+              <p class="h2 text-primary">SECTION A-8</p>
+              <p class="h3">CLASS LIST</p>
+    
+          <div class="card-group">
+  
+            <div class="card card--small">
+              <div class="card__container">
+                <div class="card__header">
+                  <p class="h2 text-primary">Boys Class List</p>
+                  <p class="h3">1. Joe Charles Allen</p><br>
+                  <p class="h3">2. James Robert Anderson</p><br>
+                  <p class="h3">3. Thomas Brent Arnold</p><br>
+                  <p class="h3">4. Frank Beard</p><br>
+                  <p class="h3">5. Kenneth Michael Beeson</p><br>
+                  <p class="h3">6. Jerry Wayne Bliss </p><br>
+                  <p class="h3">7. Johnny Card</p><br>
+                  <p class="h3">8. Eduard Allen Dixon</p><br>
+                  <p class="h3">9. Jepoy Dizon</p><br>
+                  <p class="h3">10. Jose Moreno</p><br>
+                </div>
+            </div>
+          </div>
+  
+          <div class="card card--small">
+            <div class="card__container">
+              <div class="card__header">
+                <p class="h2 text-primary">Girls Class List</p>
+                <p class="h3">1. Jacquelyn Allison</p><br>
+                <p class="h3">2. Betty Marie Armstrong</p><br>
+                <p class="h3">3. Kathryn Bartels</p><br>
+                <p class="h3">4. Alyssa Catarozoli</p><br>
+                <p class="h3">5. Brianna Demotto</p><br>
+                <p class="h3">6. Sarah Dakwar </p><br>
+                <p class="h3">7. Alexandria Fons</p><br>
+                <p class="h3">8. Camille Marcos</p><br>
+                <p class="h3">9. Kylie Marie Trevor</p><br>
+                <p class="h3">10. Kimberly Zuckerburg</p><br>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+        
+  
+          <div id="SectionB8" class="sidemenu">
+              <p class="h2 text-primary">SECTION B-8</p>
+              <p class="h3">CLASS LIST</p>
+    
+              <div class="card-group">
+  
+                <div class="card card--small">
+                  <div class="card__container">
+                    <div class="card__header">
+                      <p class="h2 text-primary">Boys Class List</p>
+                      <p class="h3">1. Joe Charles Allen</p><br>
+                      <p class="h3">2. James Robert Anderson</p><br>
+                      <p class="h3">3. Thomas Brent Arnold</p><br>
+                      <p class="h3">4. Frank Beard</p><br>
+                      <p class="h3">5. Kenneth Michael Beeson</p><br>
+                      <p class="h3">6. Jerry Wayne Bliss </p><br>
+                      <p class="h3">7. Johnny Card</p><br>
+                      <p class="h3">8. Eduard Allen Dixon</p><br>
+                      <p class="h3">9. Jepoy Dizon</p><br>
+                      <p class="h3">10. Jose Moreno</p><br>
+                    </div>
+                </div>
+              </div>
+      
+              <div class="card card--small">
+                <div class="card__container">
+                  <div class="card__header">
+                    <p class="h2 text-primary">Girls Class List</p>
+                    <p class="h3">1. Jacquelyn Allison</p><br>
+                    <p class="h3">2. Betty Marie Armstrong</p><br>
+                    <p class="h3">3. Kathryn Bartels</p><br>
+                    <p class="h3">4. Alyssa Catarozoli</p><br>
+                    <p class="h3">5. Brianna Demotto</p><br>
+                    <p class="h3">6. Sarah Dakwar </p><br>
+                    <p class="h3">7. Alexandria Fons</p><br>
+                    <p class="h3">8. Camille Marcos</p><br>
+                    <p class="h3">9. Kylie Marie Trevor</p><br>
+                    <p class="h3">10. Kimberly Zuckerburg</p><br>
+                  </div>
+              </div>
+            </div>
+            </div>
+          </div>
+          
+          <div id="SectionC8" class="sidemenu">
+            <p class="h2 text-primary">SECTION C-8</p>
+            <p class="h3">CLASS LIST</p>
+    
+          <div class="card-group">
+  
+              <div class="card card--small">
+                <div class="card__container">
+                  <div class="card__header">
+                    <p class="h2 text-primary">Boys Class List</p>
+                    <p class="h3">1. Joe Charles Allen</p><br>
+                    <p class="h3">2. James Robert Anderson</p><br>
+                    <p class="h3">3. Thomas Brent Arnold</p><br>
+                    <p class="h3">4. Frank Beard</p><br>
+                    <p class="h3">5. Kenneth Michael Beeson</p><br>
+                    <p class="h3">6. Jerry Wayne Bliss </p><br>
+                    <p class="h3">7. Johnny Card</p><br>
+                    <p class="h3">8. Eduard Allen Dixon</p><br>
+                    <p class="h3">9. Jepoy Dizon</p><br>
+                    <p class="h3">10. Jose Moreno</p><br>
+                  </div>
+              </div>
+            </div>
+    
+            <div class="card card--small">
+              <div class="card__container">
+                <div class="card__header">
+                  <p class="h2 text-primary">Girls Class List</p>
+                  <p class="h3">1. Jacquelyn Allison</p><br>
+                  <p class="h3">2. Betty Marie Armstrong</p><br>
+                  <p class="h3">3. Kathryn Bartels</p><br>
+                  <p class="h3">4. Alyssa Catarozoli</p><br>
+                  <p class="h3">5. Brianna Demotto</p><br>
+                  <p class="h3">6. Sarah Dakwar </p><br>
+                  <p class="h3">7. Alexandria Fons</p><br>
+                  <p class="h3">8. Camille Marcos</p><br>
+                  <p class="h3">9. Kylie Marie Trevor</p><br>
+                  <p class="h3">10. Kimberly Zuckerburg</p><br>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+          
+          <div id="SectionD8" class="sidemenu">
+            <p class="h2 text-primary">SECTION D-8</p>
+            <p class="h3">CLASS LIST</p>
+  
+          <div class="card-group">
+  
+            <div class="card card--small">
+              <div class="card__container">
+                <div class="card__header">
+                  <p class="h2 text-primary">Boys Class List</p>
+                  <p class="h3">1. Joe Charles Allen</p><br>
+                  <p class="h3">2. James Robert Anderson</p><br>
+                  <p class="h3">3. Thomas Brent Arnold</p><br>
+                  <p class="h3">4. Frank Beard</p><br>
+                  <p class="h3">5. Kenneth Michael Beeson</p><br>
+                  <p class="h3">6. Jerry Wayne Bliss </p><br>
+                  <p class="h3">7. Johnny Card</p><br>
+                  <p class="h3">8. Eduard Allen Dixon</p><br>
+                  <p class="h3">9. Jepoy Dizon</p><br>
+                  <p class="h3">10. Jose Moreno</p><br>                
+                </div>
+              </div>
+            </div>
+    
+            <div class="card card--small">
+              <div class="card__container">
+                <div class="card__header">
+                  <p class="h2 text-primary">Girls Class List</p>
+                  <p class="h3">1. Jacquelyn Allison</p><br>
+                  <p class="h3">2. Betty Marie Armstrong</p><br>
+                  <p class="h3">3. Kathryn Bartels</p><br>
+                  <p class="h3">4. Alyssa Catarozoli</p><br>
+                  <p class="h3">5. Brianna Demotto</p><br>
+                  <p class="h3">6. Sarah Dakwar </p><br>
+                  <p class="h3">7. Alexandria Fons</p><br>
+                  <p class="h3">8. Camille Marcos</p><br>
+                  <p class="h3">9. Kylie Marie Trevor</p><br>
+                  <p class="h3">10. Kimberly Zuckerburg</p><br>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+
+          <div id="9Grade" class="sidemenu">
+            <button class="tablinks" style="background-color:red" onclick="openCity(event,'SectionA9')"><p class="h3">Section A9</p></button>
+            <button class="tablinks" style="background-color:red" onclick="openCity(event,'SectionB9')"><p class="h3">Section B9</p></button>
+            <button class="tablinks" style="background-color:red" onclick="openCity(event,'SectionC9')"><p class="h3">Section C9</p></button>
+            <button class="tablinks" style="background-color:red" onclick="openCity(event,'SectionD9')"><p class="h3">Section D9</p></button>
+          </div>
+          
+          <div id="SectionA9" class="sidemenu">
+              <p class="h2 text-primary">SECTION A-9</p>
+              <p class="h3">CLASS LIST</p>
+    
+          <div class="card-group">
+  
+            <div class="card card--small">
+              <div class="card__container">
+                <div class="card__header">
+                  <p class="h2 text-primary">Boys Class List</p>
+                  <p class="h3">1. Joe Charles Allen</p><br>
+                  <p class="h3">2. James Robert Anderson</p><br>
+                  <p class="h3">3. Thomas Brent Arnold</p><br>
+                  <p class="h3">4. Frank Beard</p><br>
+                  <p class="h3">5. Kenneth Michael Beeson</p><br>
+                  <p class="h3">6. Jerry Wayne Bliss </p><br>
+                  <p class="h3">7. Johnny Card</p><br>
+                  <p class="h3">8. Eduard Allen Dixon</p><br>
+                  <p class="h3">9. Jepoy Dizon</p><br>
+                  <p class="h3">10. Jose Moreno</p><br>
+                </div>
+            </div>
+          </div>
+  
+          <div class="card card--small">
+            <div class="card__container">
+              <div class="card__header">
+                <p class="h2 text-primary">Girls Class List</p>
+                <p class="h3">1. Jacquelyn Allison</p><br>
+                <p class="h3">2. Betty Marie Armstrong</p><br>
+                <p class="h3">3. Kathryn Bartels</p><br>
+                <p class="h3">4. Alyssa Catarozoli</p><br>
+                <p class="h3">5. Brianna Demotto</p><br>
+                <p class="h3">6. Sarah Dakwar </p><br>
+                <p class="h3">7. Alexandria Fons</p><br>
+                <p class="h3">8. Camille Marcos</p><br>
+                <p class="h3">9. Kylie Marie Trevor</p><br>
+                <p class="h3">10. Kimberly Zuckerburg</p><br>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+        
+  
+          <div id="SectionB9" class="sidemenu">
+              <p class="h2 text-primary">SECTION B-9</p>
+              <p class="h3">CLASS LIST</p>
+    
+              <div class="card-group">
+  
+                <div class="card card--small">
+                  <div class="card__container">
+                    <div class="card__header">
+                      <p class="h2 text-primary">Boys Class List</p>
+                      <p class="h3">1. Joe Charles Allen</p><br>
+                      <p class="h3">2. James Robert Anderson</p><br>
+                      <p class="h3">3. Thomas Brent Arnold</p><br>
+                      <p class="h3">4. Frank Beard</p><br>
+                      <p class="h3">5. Kenneth Michael Beeson</p><br>
+                      <p class="h3">6. Jerry Wayne Bliss </p><br>
+                      <p class="h3">7. Johnny Card</p><br>
+                      <p class="h3">8. Eduard Allen Dixon</p><br>
+                      <p class="h3">9. Jepoy Dizon</p><br>
+                      <p class="h3">10. Jose Moreno</p><br>
+                    </div>
+                </div>
+              </div>
+      
+              <div class="card card--small">
+                <div class="card__container">
+                  <div class="card__header">
+                    <p class="h2 text-primary">Girls Class List</p>
+                    <p class="h3">1. Jacquelyn Allison</p><br>
+                    <p class="h3">2. Betty Marie Armstrong</p><br>
+                    <p class="h3">3. Kathryn Bartels</p><br>
+                    <p class="h3">4. Alyssa Catarozoli</p><br>
+                    <p class="h3">5. Brianna Demotto</p><br>
+                    <p class="h3">6. Sarah Dakwar </p><br>
+                    <p class="h3">7. Alexandria Fons</p><br>
+                    <p class="h3">8. Camille Marcos</p><br>
+                    <p class="h3">9. Kylie Marie Trevor</p><br>
+                    <p class="h3">10. Kimberly Zuckerburg</p><br>
+                  </div>
+              </div>
+            </div>
+            </div>
+          </div>
+          
+          <div id="SectionC9" class="sidemenu">
+            <p class="h2 text-primary">SECTION C-9</p>
+            <p class="h3">CLASS LIST</p>
+    
+          <div class="card-group">
+  
+              <div class="card card--small">
+                <div class="card__container">
+                  <div class="card__header">
+                    <p class="h2 text-primary">Boys Class List</p>
+                    <p class="h3">1. Joe Charles Allen</p><br>
+                    <p class="h3">2. James Robert Anderson</p><br>
+                    <p class="h3">3. Thomas Brent Arnold</p><br>
+                    <p class="h3">4. Frank Beard</p><br>
+                    <p class="h3">5. Kenneth Michael Beeson</p><br>
+                    <p class="h3">6. Jerry Wayne Bliss </p><br>
+                    <p class="h3">7. Johnny Card</p><br>
+                    <p class="h3">8. Eduard Allen Dixon</p><br>
+                    <p class="h3">9. Jepoy Dizon</p><br>
+                    <p class="h3">10. Jose Moreno</p><br>
+                  </div>
+              </div>
+            </div>
+    
+            <div class="card card--small">
+              <div class="card__container">
+                <div class="card__header">
+                  <p class="h2 text-primary">Girls Class List</p>
+                  <p class="h3">1. Jacquelyn Allison</p><br>
+                  <p class="h3">2. Betty Marie Armstrong</p><br>
+                  <p class="h3">3. Kathryn Bartels</p><br>
+                  <p class="h3">4. Alyssa Catarozoli</p><br>
+                  <p class="h3">5. Brianna Demotto</p><br>
+                  <p class="h3">6. Sarah Dakwar </p><br>
+                  <p class="h3">7. Alexandria Fons</p><br>
+                  <p class="h3">8. Camille Marcos</p><br>
+                  <p class="h3">9. Kylie Marie Trevor</p><br>
+                  <p class="h3">10. Kimberly Zuckerburg</p><br>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+          
+          <div id="SectionD9" class="sidemenu">
+            <p class="h2 text-primary">SECTION D-9</p>
+            <p class="h3">CLASS LIST</p>
+  
+          <div class="card-group">
+  
+            <div class="card card--small">
+              <div class="card__container">
+                <div class="card__header">
+                  <p class="h2 text-primary">Boys Class List</p>
+                  <p class="h3">1. Joe Charles Allen</p><br>
+                  <p class="h3">2. James Robert Anderson</p><br>
+                  <p class="h3">3. Thomas Brent Arnold</p><br>
+                  <p class="h3">4. Frank Beard</p><br>
+                  <p class="h3">5. Kenneth Michael Beeson</p><br>
+                  <p class="h3">6. Jerry Wayne Bliss </p><br>
+                  <p class="h3">7. Johnny Card</p><br>
+                  <p class="h3">8. Eduard Allen Dixon</p><br>
+                  <p class="h3">9. Jepoy Dizon</p><br>
+                  <p class="h3">10. Jose Moreno</p><br>                
+                </div>
+              </div>
+            </div>
+    
+            <div class="card card--small">
+              <div class="card__container">
+                <div class="card__header">
+                  <p class="h2 text-primary">Girls Class List</p>
+                  <p class="h3">1. Jacquelyn Allison</p><br>
+                  <p class="h3">2. Betty Marie Armstrong</p><br>
+                  <p class="h3">3. Kathryn Bartels</p><br>
+                  <p class="h3">4. Alyssa Catarozoli</p><br>
+                  <p class="h3">5. Brianna Demotto</p><br>
+                  <p class="h3">6. Sarah Dakwar </p><br>
+                  <p class="h3">7. Alexandria Fons</p><br>
+                  <p class="h3">8. Camille Marcos</p><br>
+                  <p class="h3">9. Kylie Marie Trevor</p><br>
+                  <p class="h3">10. Kimberly Zuckerburg</p><br>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+
+          <div id="10Grade" class="sidemenu">
+            <button class="tablinks" style="background-color:red" onclick="openCity(event,'SectionA10')"><p class="h3">Section A10</p></button>
+            <button class="tablinks" style="background-color:red" onclick="openCity(event,'SectionB10')"><p class="h3">Section B10</p></button>
+            <button class="tablinks" style="background-color:red" onclick="openCity(event,'SectionC10')"><p class="h3">Section C10</p></button>
+            <button class="tablinks" style="background-color:red" onclick="openCity(event,'SectionD10')"><p class="h3">Section D10</p></button>
+          </div>
+          
+          <div id="SectionA10" class="sidemenu">
+              <p class="h2 text-primary">SECTION A-10</p>
+              <p class="h3">CLASS LIST</p>
+    
+          <div class="card-group">
+  
+            <div class="card card--small">
+              <div class="card__container">
+                <div class="card__header">
+                  <p class="h2 text-primary">Boys Class List</p>
+                  <p class="h3">1. Joe Charles Allen</p><br>
+                  <p class="h3">2. James Robert Anderson</p><br>
+                  <p class="h3">3. Thomas Brent Arnold</p><br>
+                  <p class="h3">4. Frank Beard</p><br>
+                  <p class="h3">5. Kenneth Michael Beeson</p><br>
+                  <p class="h3">6. Jerry Wayne Bliss </p><br>
+                  <p class="h3">7. Johnny Card</p><br>
+                  <p class="h3">8. Eduard Allen Dixon</p><br>
+                  <p class="h3">9. Jepoy Dizon</p><br>
+                  <p class="h3">10. Jose Moreno</p><br>
+                </div>
+            </div>
+          </div>
+  
+          <div class="card card--small">
+            <div class="card__container">
+              <div class="card__header">
+                <p class="h2 text-primary">Girls Class List</p>
+                <p class="h3">1. Jacquelyn Allison</p><br>
+                <p class="h3">2. Betty Marie Armstrong</p><br>
+                <p class="h3">3. Kathryn Bartels</p><br>
+                <p class="h3">4. Alyssa Catarozoli</p><br>
+                <p class="h3">5. Brianna Demotto</p><br>
+                <p class="h3">6. Sarah Dakwar </p><br>
+                <p class="h3">7. Alexandria Fons</p><br>
+                <p class="h3">8. Camille Marcos</p><br>
+                <p class="h3">9. Kylie Marie Trevor</p><br>
+                <p class="h3">10. Kimberly Zuckerburg</p><br>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+        
+  
+          <div id="SectionB10" class="sidemenu">
+              <p class="h2 text-primary">SECTION B-10</p>
+              <p class="h3">CLASS LIST</p>
+    
+              <div class="card-group">
+  
+                <div class="card card--small">
+                  <div class="card__container">
+                    <div class="card__header">
+                      <p class="h2 text-primary">Boys Class List</p>
+                      <p class="h3">1. Joe Charles Allen</p><br>
+                      <p class="h3">2. James Robert Anderson</p><br>
+                      <p class="h3">3. Thomas Brent Arnold</p><br>
+                      <p class="h3">4. Frank Beard</p><br>
+                      <p class="h3">5. Kenneth Michael Beeson</p><br>
+                      <p class="h3">6. Jerry Wayne Bliss </p><br>
+                      <p class="h3">7. Johnny Card</p><br>
+                      <p class="h3">8. Eduard Allen Dixon</p><br>
+                      <p class="h3">9. Jepoy Dizon</p><br>
+                      <p class="h3">10. Jose Moreno</p><br>
+                    </div>
+                </div>
+              </div>
+      
+              <div class="card card--small">
+                <div class="card__container">
+                  <div class="card__header">
+                    <p class="h2 text-primary">Girls Class List</p>
+                    <p class="h3">1. Jacquelyn Allison</p><br>
+                    <p class="h3">2. Betty Marie Armstrong</p><br>
+                    <p class="h3">3. Kathryn Bartels</p><br>
+                    <p class="h3">4. Alyssa Catarozoli</p><br>
+                    <p class="h3">5. Brianna Demotto</p><br>
+                    <p class="h3">6. Sarah Dakwar </p><br>
+                    <p class="h3">7. Alexandria Fons</p><br>
+                    <p class="h3">8. Camille Marcos</p><br>
+                    <p class="h3">9. Kylie Marie Trevor</p><br>
+                    <p class="h3">10. Kimberly Zuckerburg</p><br>
+                  </div>
+              </div>
+            </div>
+            </div>
+          </div>
+          
+          <div id="SectionC10" class="sidemenu">
+            <p class="h2 text-primary">SECTION C-10</p>
+            <p class="h3">CLASS LIST</p>
+    
+          <div class="card-group">
+  
+              <div class="card card--small">
+                <div class="card__container">
+                  <div class="card__header">
+                    <p class="h2 text-primary">Boys Class List</p>
+                    <p class="h3">1. Joe Charles Allen</p><br>
+                    <p class="h3">2. James Robert Anderson</p><br>
+                    <p class="h3">3. Thomas Brent Arnold</p><br>
+                    <p class="h3">4. Frank Beard</p><br>
+                    <p class="h3">5. Kenneth Michael Beeson</p><br>
+                    <p class="h3">6. Jerry Wayne Bliss </p><br>
+                    <p class="h3">7. Johnny Card</p><br>
+                    <p class="h3">8. Eduard Allen Dixon</p><br>
+                    <p class="h3">9. Jepoy Dizon</p><br>
+                    <p class="h3">10. Jose Moreno</p><br>
+                  </div>
+              </div>
+            </div>
+    
+            <div class="card card--small">
+              <div class="card__container">
+                <div class="card__header">
+                  <p class="h2 text-primary">Girls Class List</p>
+                  <p class="h3">1. Jacquelyn Allison</p><br>
+                  <p class="h3">2. Betty Marie Armstrong</p><br>
+                  <p class="h3">3. Kathryn Bartels</p><br>
+                  <p class="h3">4. Alyssa Catarozoli</p><br>
+                  <p class="h3">5. Brianna Demotto</p><br>
+                  <p class="h3">6. Sarah Dakwar </p><br>
+                  <p class="h3">7. Alexandria Fons</p><br>
+                  <p class="h3">8. Camille Marcos</p><br>
+                  <p class="h3">9. Kylie Marie Trevor</p><br>
+                  <p class="h3">10. Kimberly Zuckerburg</p><br>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+          
+          <div id="SectionD10" class="sidemenu">
+            <p class="h2 text-primary">SECTION D-10</p>
+            <p class="h3">CLASS LIST</p>
+  
+          <div class="card-group">
+  
+            <div class="card card--small">
+              <div class="card__container">
+                <div class="card__header">
+                  <p class="h2 text-primary">Boys Class List</p>
+                  <p class="h3">1. Joe Charles Allen</p><br>
+                  <p class="h3">2. James Robert Anderson</p><br>
+                  <p class="h3">3. Thomas Brent Arnold</p><br>
+                  <p class="h3">4. Frank Beard</p><br>
+                  <p class="h3">5. Kenneth Michael Beeson</p><br>
+                  <p class="h3">6. Jerry Wayne Bliss </p><br>
+                  <p class="h3">7. Johnny Card</p><br>
+                  <p class="h3">8. Eduard Allen Dixon</p><br>
+                  <p class="h3">9. Jepoy Dizon</p><br>
+                  <p class="h3">10. Jose Moreno</p><br>                
+                </div>
+              </div>
+            </div>
+    
+            <div class="card card--small">
+              <div class="card__container">
+                <div class="card__header">
+                  <p class="h2 text-primary">Girls Class List</p>
+                  <p class="h3">1. Jacquelyn Allison</p><br>
+                  <p class="h3">2. Betty Marie Armstrong</p><br>
+                  <p class="h3">3. Kathryn Bartels</p><br>
+                  <p class="h3">4. Alyssa Catarozoli</p><br>
+                  <p class="h3">5. Brianna Demotto</p><br>
+                  <p class="h3">6. Sarah Dakwar </p><br>
+                  <p class="h3">7. Alexandria Fons</p><br>
+                  <p class="h3">8. Camille Marcos</p><br>
+                  <p class="h3">9. Kylie Marie Trevor</p><br>
+                  <p class="h3">10. Kimberly Zuckerburg</p><br>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+
+        </div><!--end div of id="Classmates"-->
+
+        <div id="School" class="tabcontent">
+          <h3 class="h2">School</h3>
+          <p class="h3">About Us</p><br>
+          <p class="h3">The Cebu Institute of Technology – University (CIT-University, or less often CIT-U, and colloquially CIT)<br></p> 
+          <p class="h3">is a private non-sectarian academic institution in Cebu City, Philippines. The university provides basic <br></p>
+          <p class="h3">and higher education with a foundation in general and technological education. The university was known simply <br></p> 
+          <p class="h3">as Cebu Institute of Technology until 2010 when it has attained university status.<br><br></p>
+              
+          <p class="h3">CIT-U is the first higher educational institution (HEI) in the Visayas and Mindanao classified as Category A.<br></p> 
+          <p class="h3">This places CIT-U as a mature teaching institution under the CHED-IQuAME framework.<br></p> 
+          <p class="h3">IQuAME is the Institutional Quality Assurance through Monitoring and Evaluation,<br></p> 
+          <p class="h3">a system of higher education quality assurance and classification.<br><br></p>
+              
+          <p class="h3">CIT-U is one of only nine schools in the Philippines to be awarded by the Commission on Higher Education (CHED) as a Center of Excellence in Information Technology Education.l</p>
+        </div><!--end div of id="School"-->
+
       </div>
     </main>
     <script src="community.js"></script>
