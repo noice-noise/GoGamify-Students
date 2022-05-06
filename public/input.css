@@ -266,11 +266,11 @@
   }
 
   .nav__button {
-    @apply m-0 h-10 w-12 gap-0 bg-foreground text-neutral ring-0 ring-transparent md:h-16 md:w-16 md:p-10 md:hover:bg-background md:focus:bg-primary-muted md:focus:text-primary-accent lg:h-auto lg:w-20 lg:gap-2 lg:p-3;
+    @apply m-0 h-10 w-12 gap-0 bg-foreground text-neutral shadow-none ring-0 ring-transparent md:h-16 md:w-16 md:p-10 md:hover:bg-background md:focus:bg-primary-muted md:focus:text-primary-accent lg:h-auto lg:w-20 lg:gap-2 lg:p-3;
   }
 
   .nav__button--active {
-    @apply bg-primary-muted stroke-primary/80;
+    @apply stroke-primary/80 md:bg-primary-muted;
   }
 
   .nav__container {
