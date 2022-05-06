@@ -2,11 +2,170 @@
 @tailwind components;
 @tailwind utilities;
 
+/**
+* Color palette reference: https://tailwindcss.com/docs/customizing-colors
+* Note: The RGB values must be without spaces, and the fourth value is for opacity.
+* This is defined in implementing themes in the TailwindCSS documentation.
+*/
+
 .theme-default {
-  --color-transparent: 109 40 217 0;
+  --color-transparent: 0 0 0 0;
   --color-primary: 109 40 217; /* #6D28D9 */
   --color-primary-accent: 139 92 246; /* #8B5CF6 */
   --color-primary-muted: 233 213 255; /* #E9D5FF */
+
+  --color-text-neutral: 39 39 42; /* #27272A */
+  --color-text-muted: 82 82 91; /* #52525B */
+
+  --color-foreground: 255 255 255; /* #ffffff */
+  --color-background: 250 250 250; /* #FAFAFA */
+
+  --color-success: 34 197 94; /* #22C55E */
+  --color-danger: 239 68 68; /* #EF4444 */
+  --color-warning: 251 146 60; /* #FB923C */
+}
+
+.theme-fuchsia {
+  --color-transparent: 0 0 0 0;
+  --color-primary: 112 26 117; /* #701a75 */
+  --color-primary-accent: 134 25 143; /* #86198f */
+  --color-primary-muted: 245 208 254; /* #f5d0fe */
+
+  --color-text-neutral: 39 39 42; /* #27272A */
+  --color-text-muted: 82 82 91; /* #52525B */
+
+  --color-foreground: 255 255 255; /* #ffffff */
+  --color-background: 250 250 250; /* #FAFAFA */
+
+  --color-success: 34 197 94; /* #22C55E */
+  --color-danger: 239 68 68; /* #EF4444 */
+  --color-warning: 251 146 60; /* #FB923C */
+}
+
+.theme-blue {
+  --color-transparent: 0 0 0 0;
+  --color-primary: 37 99 235; /* #2563eb */
+  --color-primary-accent: 96 165 250; /* #60a5fa */
+  --color-primary-muted: 224 242 254; /* #e0f2fe */
+
+  --color-text-neutral: 39 39 42; /* #27272A */
+  --color-text-muted: 82 82 91; /* #52525B */
+
+  --color-foreground: 255 255 255; /* #ffffff */
+  --color-background: 250 250 250; /* #FAFAFA */
+
+  --color-success: 34 197 94; /* #22C55E */
+  --color-danger: 239 68 68; /* #EF4444 */
+  --color-warning: 251 146 60; /* #FB923C */
+}
+
+.theme-cyan {
+  --color-transparent: 0 0 0 0;
+  --color-primary: 21 94 117; /* #155e75 */
+  --color-primary-accent: 20 184 166; /* #14b8a6 */
+  --color-primary-muted: 153 246 228; /* #99f6e4 */
+
+  --color-text-neutral: 39 39 42; /* #27272A */
+  --color-text-muted: 82 82 91; /* #52525B */
+
+  --color-foreground: 255 255 255; /* #ffffff */
+  --color-background: 250 250 250; /* #FAFAFA */
+
+  --color-success: 34 197 94; /* #22C55E */
+  --color-danger: 239 68 68; /* #EF4444 */
+  --color-warning: 251 146 60; /* #FB923C */
+}
+
+.theme-green {
+  --color-transparent: 0 0 0 0;
+  --color-primary: 22 163 74; /* #16a34a */
+  --color-primary-accent: 74 222 128; /* #4ade80 */
+  --color-primary-muted: 187 247 208; /* #bbf7d0 */
+
+  --color-text-neutral: 39 39 42; /* #27272A */
+  --color-text-muted: 82 82 91; /* #52525B */
+
+  --color-foreground: 255 255 255; /* #ffffff */
+  --color-background: 250 250 250; /* #FAFAFA */
+
+  --color-success: 34 197 94; /* #22C55E */
+  --color-danger: 239 68 68; /* #EF4444 */
+  --color-warning: 251 146 60; /* #FB923C */
+}
+
+.theme-red {
+  --color-transparent: 0 0 0 0;
+  --color-primary: 220 38 38; /* #dc2626 */
+  --color-primary-accent: 248 113 113; /* #f87171 */
+  --color-primary-muted: 254 202 202; /* #fecaca */
+
+  --color-text-neutral: 39 39 42; /* #27272A */
+  --color-text-muted: 82 82 91; /* #52525B */
+
+  --color-foreground: 255 255 255; /* #ffffff */
+  --color-background: 250 250 250; /* #FAFAFA */
+
+  --color-success: 34 197 94; /* #22C55E */
+  --color-danger: 239 68 68; /* #EF4444 */
+  --color-warning: 251 146 60; /* #FB923C */
+}
+
+.theme-orange {
+  --color-transparent: 0 0 0 0;
+  --color-primary: 234 88 12; /* #ea580c */
+  --color-primary-accent: 251 146 60; /* #fb923c */
+  --color-primary-muted: 254 215 170; /* #fed7aa */
+
+  --color-text-neutral: 39 39 42; /* #27272A */
+  --color-text-muted: 82 82 91; /* #52525B */
+
+  --color-foreground: 255 255 255; /* #ffffff */
+  --color-background: 250 250 250; /* #FAFAFA */
+
+  --color-success: 34 197 94; /* #22C55E */
+  --color-danger: 239 68 68; /* #EF4444 */
+  --color-warning: 251 146 60; /* #FB923C */
+}
+
+.theme-yellow {
+  --color-transparent: 0 0 0 0;
+  --color-primary: 133 77 14; /* #854d0e */
+  --color-primary-accent: 234 179 8; /* #eab308 */
+  --color-primary-muted: 254 240 138; /* #fef08a */
+
+  --color-text-neutral: 39 39 42; /* #27272A */
+  --color-text-muted: 82 82 91; /* #52525B */
+
+  --color-foreground: 255 255 255; /* #ffffff */
+  --color-background: 250 250 250; /* #FAFAFA */
+
+  --color-success: 34 197 94; /* #22C55E */
+  --color-danger: 239 68 68; /* #EF4444 */
+  --color-warning: 251 146 60; /* #FB923C */
+}
+
+.theme-pink {
+  --color-transparent: 0 0 0 0;
+  --color-primary: 157 23 77; /* #9d174d */
+  --color-primary-accent: 219 39 119; /* #db2777 */
+  --color-primary-muted: 251 207 232; /* #fbcfe8 */
+
+  --color-text-neutral: 39 39 42; /* #27272A */
+  --color-text-muted: 82 82 91; /* #52525B */
+
+  --color-foreground: 255 255 255; /* #ffffff */
+  --color-background: 250 250 250; /* #FAFAFA */
+
+  --color-success: 34 197 94; /* #22C55E */
+  --color-danger: 239 68 68; /* #EF4444 */
+  --color-warning: 251 146 60; /* #FB923C */
+}
+
+.theme-rose {
+  --color-transparent: 0 0 0 0;
+  --color-primary: 225 29 72; /* #e11d48 */
+  --color-primary-accent: 251 113 133; /* #fb7185 */
+  --color-primary-muted: 254 215 170; /* #fecdd3 */
 
   --color-text-neutral: 39 39 42; /* #27272A */
   --color-text-muted: 82 82 91; /* #52525B */
