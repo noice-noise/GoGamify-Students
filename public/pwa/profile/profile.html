@@ -228,6 +228,30 @@
           <h1 class="h1">Profile</h1>
 
           <div>
+            <h2 class="h2 py-3">Account</h2>
+            <a class="button button--cta" href="#">Update my Account Profile</a>
+          </div>
+          <div class="py-10">
+            <h2 class="h2 py-3">Appearance</h2>
+            <form class="form" method="POST">
+              <label for="theme">Theme</label>
+              <select id="profileThemeSelect" name="theme" class="form__field">
+                <option hidden selected disabled>Choose GoGamify theme</option>
+                <option value="theme-default">Default</option>
+                <option value="theme-fuchsia">Fuchsia</option>
+                <option value="theme-blue">Blue</option>
+                <option value="theme-cyan">Cyan</option>
+                <option value="theme-orange">Orange</option>
+                <option value="theme-yellow">Yellow</option>
+                <option value="theme-red">Red</option>
+                <option value="theme-pink">Pink</option>
+                <option value="theme-rose">Rose</option>
+              </select>
+              <button id="profileSaveBtn" class="button">Save</button>
+            </form>
+          </div>
+
+          <div>
             <form action="/auth/logout?_method=DELETE" method="POST">
               <button class="button button--muted" type="submit">Logout</button>
             </form>
@@ -237,5 +261,7 @@
         <!-- edit contents above -->
       </div>
     </main>
+
+    <script src="./profile.js"></script>
   </body>
 </html>
