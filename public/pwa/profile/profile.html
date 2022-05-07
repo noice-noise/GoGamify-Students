@@ -233,7 +233,12 @@
           </div>
           <div class="py-10">
             <h2 class="h2 py-3">Appearance</h2>
-            <form class="form" method="POST">
+            <form
+              id="appearanceForm"
+              class="form"
+              action="/student/profile/theme"
+              method="POST"
+            >
               <label for="theme">Theme</label>
               <select id="profileThemeSelect" name="theme" class="form__field">
                 <option hidden selected disabled>Choose GoGamify theme</option>
@@ -247,7 +252,7 @@
                 <option value="theme-pink">Pink</option>
                 <option value="theme-rose">Rose</option>
               </select>
-              <button id="profileSaveBtn" class="button">Save</button>
+              <button class="button">Save</button>
             </form>
           </div>
 
