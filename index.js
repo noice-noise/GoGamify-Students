@@ -15,6 +15,7 @@ const adminRoutes = require("./routes/adminRoutes");
 const studentRoutes = require("./routes/studentRoutes");
 const authRoutes = require("./routes/authRoute");
 const gamifyRoutes = require("./routes/gamifyRoutes");
+const pwaRoutes = require("./routes/pwaRoutes");
 
 const app = express();
 
@@ -25,13 +26,15 @@ const PORT = process.env.PORT || 3000;
 const passportConfig = require("./config/passportConfig");
 const {
   ensureAuthenticated,
-  forwardAuthenticated,
   forwardFirstLogin,
   forwardAdmin,
 } = require("./config/authConfig");
 
 passportConfig(passport);
 
+/**
+ * MongoDB connection with internet connectivity check
+ */
 require("dns").resolve("www.google.com", function (err) {
   console.log("Checking Internet connectivity...");
   if (err) {
@@ -63,6 +66,9 @@ const listen = () => {
   });
 };
 
+/***
+ * Middlewares
+ */
 app.set("view engine", "ejs");
 app.use(morgan("dev"));
 app.use(express.static("public"));
@@ -85,11 +91,13 @@ app.use(
     // },
   })
 );
-
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(methodOverride("_method"));
 
+/**
+ * Routes
+ */
 app.use("/admin", ensureAuthenticated, adminRoutes);
 app.use("/auth", authRoutes);
 
@@ -104,6 +112,7 @@ app.use("/get-started", (req, res) => {
   });
 });
 
+app.use("/pwa", pwaRoutes);
 app.use("/gamify", gamifyRoutes);
 app.use("/student", ensureAuthenticated, studentRoutes);
 
