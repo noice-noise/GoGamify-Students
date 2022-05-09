@@ -168,6 +168,9 @@
     background-image: linear-gradient(#6af165, #0af316);
     border-radius: 20px;
   }
+  .yellow > span {
+    background-image: linear-gradient(#e3f165, #f3e30a);
+  }
 
   .progress-text{
       display: flex;
