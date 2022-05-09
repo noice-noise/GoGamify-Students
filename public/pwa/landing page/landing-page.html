@@ -1,23 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>GoGamify</title>
-    <link rel="stylesheet" href="landing-page.css">
-</head>
-<body>
-   
-<!--NAVIGATION--> 
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TEMPLATE</title>
+
+    <!-- Main Stylesheets -->
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="landing-page-template.css" />
+
+    <!-- NOTE: You can add and extend for custom stylesheets, but always use "classes" instead of 
+    direct tags in css for our standards -->
+  </head>
+  <body class="body">
+ 
+ <!--NAVIGATION--> 
        <nav>
-          <img src="landing-assets/logo.png" class="png" alt="GoGamify"> 
+	   <header>
+      <div class="header__container">
+        <span class="header__span">GoGamify</span>
           <ul>
               <li><a class="button button-muted" href="/auth/HOME">HOME</a></li>
               <li><a class="button button-muted" href="/auth/Login">Login</a></li>
               <li><a class="button button-muted" href="/auth/Register">Register</a></li>
               <li><a class="button button-muted" href="/pwa/install.html">Install</a></li>
           </ul>
-       </nav>
+			</div>
+			</header>
 <!--END OF NAVIGATION-->
-      
+      <br>
       <div class="section">
           <h1>Welcome to GoGamify</h1>
 		  <h3>WE ENSURE BETTER EDUCATION <br> FOR THE NEW NORMAL</h3>
@@ -27,25 +39,25 @@
             have an educational platform where they can easily integrate
             game-mechanics and fun in both teaching and learning. Applying the
             element of fun and games in this today’s digital age should be easy
-            and seamless for users. **GoGamify** can be used as a supplementary
+            and seamless for users. *GoGamify* can be used as a supplementary
             platform for existing software infrastructures like Learning
             Management Systems, Learning Portals, or Learning Libraries. Since
             the platform is designed to help provide solution to the needs,
             challenges, and use cases of teachers and students, the two
             progressive web applications were designed with features relevant to
             differing types of users.</p>
-         
+<br>
           <h1>BENEFITS</h1
 <!--BENEFITS->
          
          <div class="benefits">
-             <h2>Teacher's Benefit</h2>
+             <h1>Teacher's Benefit</h1>
 			   <button>Formulate</button>
 			  <button>Gamified Learning Modules</button>
 			  <button>Costumize Student Experience</button>
 			<button>Deliver Quickly</button>
 			<button>Track student progress</button>
-             <h2>Student's Benefit</h2>
+             <h1>Student's Benefit</h1>
 			 <button>Learning Journeys</button>
 			 <button>Gamified Learning Modules</button>
 			 <button>Costumize your experience</button>
@@ -60,33 +72,32 @@
 <!--SHOWCASE-->
    <showcase>
    <!--FEATURES-->
-       <h1>FEATURES</h1>
+<br>       <h1>FEATURES</h1>
        <div id="features">
            <div class="bwa">
-
                <h3>Browser Web App</h3> 
-               <img src="landing-assets/browser.png" >
+               <img src="landing-assets/browser.png" alt="bwa" >
 				<br>
            </div>
            <div class="pwa">
                <h3>Progressive Web App</h3>
-               <img src="landing-assets/progress1.png">
+               <img src="landing-assets/progress1.png" alt="pwa">
 				<br>
            </div>
 		 
            <div class="U/A">
                <h3>User/Accounts Management</h3>
-               <img src="landing-assets/account.png" >
+               <img src="landing-assets/account.png" alt="U/A">
 				<br>
            </div>
-           <div class="Entities Management">
+           <div class="EM">
                <h3>Entities Management</h3>
-               <img src="landing-assets/entities.png">
+               <img src="landing-assets/entities.png" alt="EM">
 				<br>
            </div>
-           <div class="Gamification">
+           <div class="game">
                <h3>Gamification</h3>
-               <img src="landing-assets/game.png">
+               <img src="landing-assets/game.png" alt="game">
 			   <br>
                <div>
 			   <br>
@@ -98,6 +109,7 @@
 <!--END OF SHOWCASE-->
 <!--END OF FEATURES-->
    
+       
 
 </body>
 </html>
