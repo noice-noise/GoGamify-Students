@@ -127,10 +127,54 @@ const student_delete = async (req, res) => {
     });
 };
 
+const profile_preference_post = async (req, res) => {
+  await User.findByIdAndUpdate(
+    req.user._id,
+    {
+      preferences: {
+        theme: req.body.theme,
+      },
+    },
+    (err, docs) => {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log(docs);
+        // TODO align response with Profile appearance form
+        res.send("Preference changes saved");
+      }
+    }
+  )
+    .clone()
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+const profile_preference_get = async (req, res) => {
+  await User.findById(req.user._id, (err, doc) => {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log("Successful");
+      console.log("doc", doc);
+      console.log(doc.preferences);
+      // console.log(JSON.parse(doc.preferences));
+      res.send(doc.preferences);
+    }
+  })
+    .clone()
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
 module.exports = {
   student_index,
   student_post,
   student_get,
   student_put,
   student_delete,
+  profile_preference_post,
+  profile_preference_get,
 };
