@@ -25,7 +25,6 @@ module.exports = {
 
   forwardAdmin: function checkAdminRole(req, res, next) {
     if (req.user.role === "admin") {
-      console.log("Admin reidirect");
       return res.redirect("/admin");
     }
 
