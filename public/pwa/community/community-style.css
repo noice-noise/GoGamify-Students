@@ -1,7 +1,6 @@
 /* Style tab links */
 .tablink {
   background-color: #555;
-  color: white;
   float: left;
   border: none;
   outline: none;
@@ -16,8 +15,7 @@
 }
 
 /* Style the tab content (and add height:100% for full page content) */
-.tabcontent {
-  color: black;
+.tabcontent { 
   display: none;
   padding: 100px 20px;
   height: 100%;
@@ -44,7 +42,6 @@
 .tab button {
   display: block;
   background-color: inherit;
-  color: black;
   padding: 22px 16px;
   width: 100%;
   border: none;
@@ -66,7 +63,6 @@
 
 /* Style the sidemenu/topmenu */
 .topmenu {
-  color: black;
   display: none;
   padding: 100px 20px;
   height: 100%;
@@ -75,7 +71,6 @@
 .sidemenu {
   float: left;
   padding: 0px 12px;
-  border: 1px solid #ccc;
   width: 70%;
   border-left: none;
   height: 300px;
