@@ -2,56 +2,37 @@ const body = document.querySelector("body");
 const appearanceForm = document.getElementById("appearanceForm");
 const profileThemeSelect = document.getElementById("profileThemeSelect");
 
-let currentTheme;
+const preferences = JSON.parse(window.localStorage.getItem("preferences"));
+let currentTheme = preferences.theme;
 
 profileThemeSelect.addEventListener("change", (e) => {
-  console.log(e);
-  console.log("currentTheme", currentTheme);
   const targetTheme = profileThemeSelect.value;
-  setTheme(targetTheme);
+  previewTheme(targetTheme);
 });
 
-appearanceForm.addEventListener("submit", (e) => {
+appearanceForm.addEventListener("submit", async (e) => {
   e.preventDefault();
-  console.log(e.target.action);
 
-  fetch(e.target.action, {
+  await fetch(e.target.action, {
     method: "post",
     body: new URLSearchParams(new FormData(e.target)),
   })
-    .then((response) => {
-      return response.json();
+    .then((res) => {
+      return res.json();
     })
     .then((data) => {
-      // TODO get message from POST student/profile/theme response
-      alert("Preferences saved successfully.");
+      window.localStorage.removeItem("isLocalStorageSet");
+      alert(data?.message);
+    })
+    .catch((err) => {
+      console.log(err);
+      alert("An error occurred.");
     });
 });
 
-const init = () => {
-  console.log("Loading");
-  fetch("/student/profile/theme", {
-    method: "get",
-  })
-    .then((result) => {
-      return result.json();
-    })
-    .then((data) => {
-      const preferences = data;
-
-      preferences.forEach((item) => {
-        if (item.theme !== undefined) {
-          setTheme(item.theme);
-        }
-      });
-    });
-};
-
-const setTheme = (targetTheme) => {
+const previewTheme = (targetTheme) => {
   body.classList.add(targetTheme);
   currentTheme === undefined ? null : body.classList.remove(currentTheme);
   currentTheme = targetTheme;
   console.log("Current Theme", currentTheme);
 };
-
-init();

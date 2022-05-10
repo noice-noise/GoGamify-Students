@@ -38,6 +38,7 @@
     />
 
     <link rel="manifest" href="../manifest.json" />
+    <script src="/js/preload.js"></script>
   </head>
   <body class="body">
     <!-- GoGamify Header -->
@@ -236,7 +237,7 @@
             <form
               id="appearanceForm"
               class="form"
-              action="/student/profile/theme"
+              action="/student/profile/preferences"
               method="POST"
             >
               <label for="theme">Theme</label>
@@ -266,7 +267,7 @@
         <!-- edit contents above -->
       </div>
     </main>
-
+    <script type="module" src="/js/onload.js"></script>
     <script src="./profile.js"></script>
   </body>
 </html>

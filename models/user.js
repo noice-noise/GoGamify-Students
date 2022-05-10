@@ -19,7 +19,9 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
-    preferences: [],
+    preferences: {
+      type: Object
+    },
   },
   { timestamps: true }
 );
