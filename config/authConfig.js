@@ -8,7 +8,7 @@ module.exports = {
   },
 
   forwardAuthenticated: function checkNotAuthenticated(req, res, next) {
-    if (req.isAuthenticated()) {
+    if (req.isAuthenticated() || req.cookies.user !== undefined) {
       return res.redirect("/home");
     }
 
@@ -16,7 +16,10 @@ module.exports = {
   },
 
   forwardFirstLogin: function checkFirstLogin(req, res, next) {
-    if (req.user.profile === undefined || req.user.profile == "NA") {
+    if (
+      req.user.profile === undefined &&
+      req.cookies.user.profile === undefined
+    ) {
       return res.redirect("/get-started");
     }
 
@@ -24,7 +27,7 @@ module.exports = {
   },
 
   forwardAdmin: function checkAdminRole(req, res, next) {
-    if (req.user.role === "admin") {
+    if (req.user?.role === "admin" || req.cookies?.user === "admin") {
       return res.redirect("/admin");
     }
 
