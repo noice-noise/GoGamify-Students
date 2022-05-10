@@ -4,40 +4,14 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Community</title>
+    <title>TEMPLATE</title>
 
     <!-- Main Stylesheets -->
-    <!-- Production -->
-    <link rel="stylesheet" type="text/css" href="/tailwind.css" />
-    <!-- Development -->
-    <link rel="stylesheet" type="text/css" href="/public/tailwind.css" />
-    <!-- Custom Classes -->
-    <link rel="stylesheet" type="text/css" href="./community-style.css" />
+    <link rel="stylesheet" href="community.css" />
+    <link rel="stylesheet" href="community-style.css" />
 
     <!-- NOTE: You can add and extend for custom stylesheets, but always use "classes" instead of 
     direct tags in css for our standards -->
-
-    <!-- Web Accessibility -->
-    <link rel="shortcut icon" href="../icons/favicon.ico" type="image/x-icon" />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="../icons/apple-touch-icon.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="../icons/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="../icons/favicon-16x16.png"
-    />
-
-    <link rel="manifest" href="../manifest.json" />
   </head>
   <body class="body">
     <!-- GoGamify Header -->
@@ -53,7 +27,7 @@
       <div class="nav__container">
         <ul class="nav__list">
           <li class="nav__list__item">
-            <a class="button nav__button group" href="../journey/journey.html">
+            <a class="button nav__button group" href="#">
               <span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -83,10 +57,7 @@
             </a>
           </li>
           <li class="nav__list__item">
-            <a
-              class="button nav__button group"
-              href="../community/community.html"
-            >
+            <a class="button nav__button group" href="#">
               <span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -118,10 +89,7 @@
             </a>
           </li>
           <li class="nav__list__item">
-            <a
-              class="button nav__button group"
-              href="../learning-module/module.html"
-            >
+            <a class="button nav__button group" href="#">
               <span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -153,10 +121,7 @@
             </a>
           </li>
           <li class="nav__list__item">
-            <a
-              class="button nav__button group"
-              href="../collections/collections.html"
-            >
+            <a class="button nav__button group" href="#">
               <span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -187,7 +152,7 @@
             </a>
           </li>
           <li class="nav__list__item">
-            <a class="button nav__button group" href="../profile/profile.html">
+            <a class="button nav__button group" href="#">
               <span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -222,9 +187,19 @@
       <div class="main__container">
         <!-- edit contents below -->
         <h1 class="h1">Community</h1>
-        <button class="tablink button" onclick="openPage('Teachers', this)"id="defaultOpen">Teachers</button>
-        <button class="tablink button" onclick="openPage('Classmates', this)">Classmates</button>
-        <button class="tablink button" onclick="openPage('School', this)">School</button>
+        <button
+          class="tablink button"
+          onclick="openPage('Teachers', this)"
+          id="defaultOpen"
+        >
+          Teachers
+        </button>
+        <button class="tablink button" onclick="openPage('Classmates', this)">
+          Classmates
+        </button>
+        <button class="tablink button" onclick="openPage('School', this)">
+          School
+        </button>
 
         <div id="Teachers" class="tabcontent">
           <h3 class="h2">Teachers</h3>
@@ -2104,10 +2079,30 @@
           </div>
 
           <div id="1Grade" class="sidemenu">
-            <button class="tablink button" onclick="openCity(event,'SectionA1')"><p class="h3">Section A1</p></button>
-            <button class="tablink button" onclick="openCity(event,'SectionB1')"><p class="h3">Section B1</p></button>
-            <button class="tablink button" onclick="openCity(event,'SectionC1')"><p class="h3">Section C1</p></button>
-            <button class="tablink button" onclick="openCity(event,'SectionD1')"><p class="h3">Section D1</p></button>
+            <button
+              class="tablink button"
+              onclick="openCity(event,'SectionA1')"
+            >
+              <p class="h3">Section A1</p>
+            </button>
+            <button
+              class="tablink button"
+              onclick="openCity(event,'SectionB1')"
+            >
+              <p class="h3">Section B1</p>
+            </button>
+            <button
+              class="tablink button"
+              onclick="openCity(event,'SectionC1')"
+            >
+              <p class="h3">Section C1</p>
+            </button>
+            <button
+              class="tablink button"
+              onclick="openCity(event,'SectionD1')"
+            >
+              <p class="h3">Section D1</p>
+            </button>
           </div>
 
           <div id="SectionA1" class="sidemenu">
@@ -2115,7 +2110,7 @@
             <p class="h3">CLASS LIST</p>
 
             <div class="card-group">
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Boys Class List</p>
@@ -2143,7 +2138,7 @@
                 </div>
               </div>
 
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Girls Class List</p>
@@ -2178,7 +2173,7 @@
             <p class="h3">CLASS LIST</p>
 
             <div class="card-group">
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Boys Class List</p>
@@ -2206,7 +2201,7 @@
                 </div>
               </div>
 
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Girls Class List</p>
@@ -2241,7 +2236,7 @@
             <p class="h3">CLASS LIST</p>
 
             <div class="card-group">
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Boys Class List</p>
@@ -2269,7 +2264,7 @@
                 </div>
               </div>
 
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Girls Class List</p>
@@ -2304,7 +2299,7 @@
             <p class="h3">CLASS LIST</p>
 
             <div class="card-group">
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Boys Class List</p>
@@ -2332,7 +2327,7 @@
                 </div>
               </div>
 
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Girls Class List</p>
@@ -2363,10 +2358,30 @@
           </div>
 
           <div id="2Grade" class="sidemenu">
-            <button class="tablink button" onclick="openCity(event,'SectionA2')"><p class="h3">Section A2</p></button>
-            <button class="tablink button" onclick="openCity(event,'SectionB2')"><p class="h3">Section B2</p></button>
-            <button class="tablink button" onclick="openCity(event,'SectionC2')"><p class="h3">Section C2</p></button>
-            <button class="tablink button" onclick="openCity(event,'SectionD2')"><p class="h3">Section D2</p></button>
+            <button
+              class="tablink button"
+              onclick="openCity(event,'SectionA2')"
+            >
+              <p class="h3">Section A2</p>
+            </button>
+            <button
+              class="tablink button"
+              onclick="openCity(event,'SectionB2')"
+            >
+              <p class="h3">Section B2</p>
+            </button>
+            <button
+              class="tablink button"
+              onclick="openCity(event,'SectionC2')"
+            >
+              <p class="h3">Section C2</p>
+            </button>
+            <button
+              class="tablink button"
+              onclick="openCity(event,'SectionD2')"
+            >
+              <p class="h3">Section D2</p>
+            </button>
           </div>
 
           <div id="SectionA2" class="sidemenu">
@@ -2374,7 +2389,7 @@
             <p class="h3">CLASS LIST</p>
 
             <div class="card-group">
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Boys Class List</p>
@@ -2402,7 +2417,7 @@
                 </div>
               </div>
 
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Girls Class List</p>
@@ -2437,7 +2452,7 @@
             <p class="h3">CLASS LIST</p>
 
             <div class="card-group">
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Boys Class List</p>
@@ -2465,7 +2480,7 @@
                 </div>
               </div>
 
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Girls Class List</p>
@@ -2499,7 +2514,7 @@
             <p class="h2 text-primary">SECTION C-2</p>
             <p class="h3">CLASS LIST</p>
             <div class="card-group">
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Boys Class List</p>
@@ -2527,83 +2542,6 @@
                 </div>
               </div>
 
-
-          <div id="3Grade" class="sidemenu">
-            <button class="tablink button" onclick="openCity(event,'SectionA3')"><p class="h3">Section A3</p></button>
-            <button class="tablink button" onclick="openCity(event,'SectionB3')"><p class="h3">Section B3</p></button>
-            <button class="tablink button" onclick="openCity(event,'SectionC3')"><p class="h3">Section C3</p></button>
-            <button class="tablink button" onclick="openCity(event,'SectionD3')"><p class="h3">Section D3</p></button>
-          </div>
-          
-          <div id="SectionA3" class="sidemenu">
-              <p class="h2 text-primary">SECTION A-3</p>
-              <p class="h3">CLASS LIST</p>
-    
-          <div class="card-group">
-  
-            <div class="card card--small">
-              <div class="card__container">
-                <div class="card__header">
-                  <p class="h2 text-primary">Boys Class List</p>
-                  <p class="h3">1. Joe Charles Allen</p><br>
-                  <p class="h3">2. James Robert Anderson</p><br>
-                  <p class="h3">3. Thomas Brent Arnold</p><br>
-                  <p class="h3">4. Frank Beard</p><br>
-                  <p class="h3">5. Kenneth Michael Beeson</p><br>
-                  <p class="h3">6. Jerry Wayne Bliss </p><br>
-                  <p class="h3">7. Johnny Card</p><br>
-                  <p class="h3">8. Eduard Allen Dixon</p><br>
-                  <p class="h3">9. Jepoy Dizon</p><br>
-                  <p class="h3">10. Jose Moreno</p><br>
-                </div>
-            </div>
-          </div>
-  
-          <div class="card card--small">
-            <div class="card__container">
-              <div class="card__header">
-                <p class="h2 text-primary">Girls Class List</p>
-                <p class="h3">1. Jacquelyn Allison</p><br>
-                <p class="h3">2. Betty Marie Armstrong</p><br>
-                <p class="h3">3. Kathryn Bartels</p><br>
-                <p class="h3">4. Alyssa Catarozoli</p><br>
-                <p class="h3">5. Brianna Demotto</p><br>
-                <p class="h3">6. Sarah Dakwar </p><br>
-                <p class="h3">7. Alexandria Fons</p><br>
-                <p class="h3">8. Camille Marcos</p><br>
-                <p class="h3">9. Kylie Marie Trevor</p><br>
-                <p class="h3">10. Kimberly Zuckerburg</p><br>
-              </div>
-            </div>
-          </div>
-          </div>
-        </div>
-        
-  
-          <div id="SectionB3" class="sidemenu">
-              <p class="h2 text-primary">SECTION B-3</p>
-              <p class="h3">CLASS LIST</p>
-    
-              <div class="card-group">
-  
-                <div class="card card--small">
-                  <div class="card__container">
-                    <div class="card__header">
-                      <p class="h2 text-primary">Boys Class List</p>
-                      <p class="h3">1. Joe Charles Allen</p><br>
-                      <p class="h3">2. James Robert Anderson</p><br>
-                      <p class="h3">3. Thomas Brent Arnold</p><br>
-                      <p class="h3">4. Frank Beard</p><br>
-                      <p class="h3">5. Kenneth Michael Beeson</p><br>
-                      <p class="h3">6. Jerry Wayne Bliss </p><br>
-                      <p class="h3">7. Johnny Card</p><br>
-                      <p class="h3">8. Eduard Allen Dixon</p><br>
-                      <p class="h3">9. Jepoy Dizon</p><br>
-                      <p class="h3">10. Jose Moreno</p><br>
-                    </div>
-                </div>
-              </div>
-      
               <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
@@ -2639,7 +2577,7 @@
             <p class="h3">CLASS LIST</p>
 
             <div class="card-group">
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Boys Class List</p>
@@ -2667,7 +2605,7 @@
                 </div>
               </div>
 
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Girls Class List</p>
@@ -2699,29 +2637,25 @@
 
           <div id="3Grade" class="sidemenu">
             <button
-              class="tablinks"
-              style="background-color: red"
+              class="tablink button"
               onclick="openCity(event,'SectionA3')"
             >
               <p class="h3">Section A3</p>
             </button>
             <button
-              class="tablinks"
-              style="background-color: red"
+              class="tablink button"
               onclick="openCity(event,'SectionB3')"
             >
               <p class="h3">Section B3</p>
             </button>
             <button
-              class="tablinks"
-              style="background-color: red"
+              class="tablink button"
               onclick="openCity(event,'SectionC3')"
             >
               <p class="h3">Section C3</p>
             </button>
             <button
-              class="tablinks"
-              style="background-color: red"
+              class="tablink button"
               onclick="openCity(event,'SectionD3')"
             >
               <p class="h3">Section D3</p>
@@ -2733,7 +2667,7 @@
             <p class="h3">CLASS LIST</p>
 
             <div class="card-group">
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Boys Class List</p>
@@ -2761,7 +2695,7 @@
                 </div>
               </div>
 
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Girls Class List</p>
@@ -2796,7 +2730,7 @@
             <p class="h3">CLASS LIST</p>
 
             <div class="card-group">
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Boys Class List</p>
@@ -2824,7 +2758,7 @@
                 </div>
               </div>
 
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Girls Class List</p>
@@ -2859,7 +2793,7 @@
             <p class="h3">CLASS LIST</p>
 
             <div class="card-group">
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Boys Class List</p>
@@ -2887,7 +2821,7 @@
                 </div>
               </div>
 
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Girls Class List</p>
@@ -2922,7 +2856,7 @@
             <p class="h3">CLASS LIST</p>
 
             <div class="card-group">
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Boys Class List</p>
@@ -2950,7 +2884,7 @@
                 </div>
               </div>
 
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Girls Class List</p>
@@ -2981,10 +2915,30 @@
           </div>
 
           <div id="4Grade" class="sidemenu">
-            <button class="tablink button" onclick="openCity(event,'SectionA4')"><p class="h3">Section A4</p></button>
-            <button class="tablink button" onclick="openCity(event,'SectionB4')"><p class="h3">Section B4</p></button>
-            <button class="tablink button" onclick="openCity(event,'SectionC4')"><p class="h3">Section C4</p></button>
-            <button class="tablink button" onclick="openCity(event,'SectionD4')"><p class="h3">Section D4</p></button>
+            <button
+              class="tablink button"
+              onclick="openCity(event,'SectionA4')"
+            >
+              <p class="h3">Section A4</p>
+            </button>
+            <button
+              class="tablink button"
+              onclick="openCity(event,'SectionB4')"
+            >
+              <p class="h3">Section B4</p>
+            </button>
+            <button
+              class="tablink button"
+              onclick="openCity(event,'SectionC4')"
+            >
+              <p class="h3">Section C4</p>
+            </button>
+            <button
+              class="tablink button"
+              onclick="openCity(event,'SectionD4')"
+            >
+              <p class="h3">Section D4</p>
+            </button>
           </div>
 
           <div id="SectionA4" class="sidemenu">
@@ -2992,7 +2946,7 @@
             <p class="h3">CLASS LIST</p>
 
             <div class="card-group">
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Boys Class List</p>
@@ -3020,7 +2974,7 @@
                 </div>
               </div>
 
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Girls Class List</p>
@@ -3055,7 +3009,7 @@
             <p class="h3">CLASS LIST</p>
 
             <div class="card-group">
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Boys Class List</p>
@@ -3083,7 +3037,7 @@
                 </div>
               </div>
 
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Girls Class List</p>
@@ -3118,7 +3072,7 @@
             <p class="h3">CLASS LIST</p>
 
             <div class="card-group">
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Boys Class List</p>
@@ -3146,7 +3100,7 @@
                 </div>
               </div>
 
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Girls Class List</p>
@@ -3181,7 +3135,7 @@
             <p class="h3">CLASS LIST</p>
 
             <div class="card-group">
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Boys Class List</p>
@@ -3209,7 +3163,7 @@
                 </div>
               </div>
 
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Girls Class List</p>
@@ -3240,10 +3194,30 @@
           </div>
 
           <div id="5Grade" class="sidemenu">
-            <button class="tablink button" onclick="openCity(event,'SectionA5')"><p class="h3">Section A5</p></button>
-            <button class="tablink button" onclick="openCity(event,'SectionB5')"><p class="h3">Section B5</p></button>
-            <button class="tablink button" onclick="openCity(event,'SectionC5')"><p class="h3">Section C5</p></button>
-            <button class="tablink button" onclick="openCity(event,'SectionD5')"><p class="h3">Section D5</p></button>
+            <button
+              class="tablink button"
+              onclick="openCity(event,'SectionA5')"
+            >
+              <p class="h3">Section A5</p>
+            </button>
+            <button
+              class="tablink button"
+              onclick="openCity(event,'SectionB5')"
+            >
+              <p class="h3">Section B5</p>
+            </button>
+            <button
+              class="tablink button"
+              onclick="openCity(event,'SectionC5')"
+            >
+              <p class="h3">Section C5</p>
+            </button>
+            <button
+              class="tablink button"
+              onclick="openCity(event,'SectionD5')"
+            >
+              <p class="h3">Section D5</p>
+            </button>
           </div>
 
           <div id="SectionA5" class="sidemenu">
@@ -3251,7 +3225,7 @@
             <p class="h3">CLASS LIST</p>
 
             <div class="card-group">
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Boys Class List</p>
@@ -3279,7 +3253,7 @@
                 </div>
               </div>
 
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Girls Class List</p>
@@ -3314,7 +3288,7 @@
             <p class="h3">CLASS LIST</p>
 
             <div class="card-group">
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Boys Class List</p>
@@ -3342,7 +3316,7 @@
                 </div>
               </div>
 
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Girls Class List</p>
@@ -3377,7 +3351,7 @@
             <p class="h3">CLASS LIST</p>
 
             <div class="card-group">
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Boys Class List</p>
@@ -3405,7 +3379,7 @@
                 </div>
               </div>
 
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Girls Class List</p>
@@ -3440,7 +3414,7 @@
             <p class="h3">CLASS LIST</p>
 
             <div class="card-group">
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Boys Class List</p>
@@ -3468,7 +3442,7 @@
                 </div>
               </div>
 
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Girls Class List</p>
@@ -3499,10 +3473,30 @@
           </div>
 
           <div id="6Grade" class="sidemenu">
-            <button class="tablink button" onclick="openCity(event,'SectionA6')"><p class="h3">Section A6</p></button>
-            <button class="tablink button" onclick="openCity(event,'SectionB6')"><p class="h3">Section B6</p></button>
-            <button class="tablink button" onclick="openCity(event,'SectionC6')"><p class="h3">Section C6</p></button>
-            <button class="tablink button" onclick="openCity(event,'SectionD6')"><p class="h3">Section D6</p></button>
+            <button
+              class="tablink button"
+              onclick="openCity(event,'SectionA6')"
+            >
+              <p class="h3">Section A6</p>
+            </button>
+            <button
+              class="tablink button"
+              onclick="openCity(event,'SectionB6')"
+            >
+              <p class="h3">Section B6</p>
+            </button>
+            <button
+              class="tablink button"
+              onclick="openCity(event,'SectionC6')"
+            >
+              <p class="h3">Section C6</p>
+            </button>
+            <button
+              class="tablink button"
+              onclick="openCity(event,'SectionD6')"
+            >
+              <p class="h3">Section D6</p>
+            </button>
           </div>
 
           <div id="SectionA6" class="sidemenu">
@@ -3510,7 +3504,7 @@
             <p class="h3">CLASS LIST</p>
 
             <div class="card-group">
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Boys Class List</p>
@@ -3538,7 +3532,7 @@
                 </div>
               </div>
 
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Girls Class List</p>
@@ -3573,7 +3567,7 @@
             <p class="h3">CLASS LIST</p>
 
             <div class="card-group">
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Boys Class List</p>
@@ -3601,7 +3595,7 @@
                 </div>
               </div>
 
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Girls Class List</p>
@@ -3636,7 +3630,7 @@
             <p class="h3">CLASS LIST</p>
 
             <div class="card-group">
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Boys Class List</p>
@@ -3664,7 +3658,7 @@
                 </div>
               </div>
 
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Girls Class List</p>
@@ -3699,7 +3693,7 @@
             <p class="h3">CLASS LIST</p>
 
             <div class="card-group">
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Boys Class List</p>
@@ -3727,7 +3721,7 @@
                 </div>
               </div>
 
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Girls Class List</p>
@@ -3758,10 +3752,30 @@
           </div>
 
           <div id="7Grade" class="sidemenu">
-            <button class="tablink button" onclick="openCity(event,'SectionA7')"><p class="h3">Section A7</p></button>
-            <button class="tablink button" onclick="openCity(event,'SectionB7')"><p class="h3">Section B7</p></button>
-            <button class="tablink button" onclick="openCity(event,'SectionC7')"><p class="h3">Section C7</p></button>
-            <button class="tablink button" onclick="openCity(event,'SectionD7')"><p class="h3">Section D7</p></button>
+            <button
+              class="tablink button"
+              onclick="openCity(event,'SectionA7')"
+            >
+              <p class="h3">Section A7</p>
+            </button>
+            <button
+              class="tablink button"
+              onclick="openCity(event,'SectionB7')"
+            >
+              <p class="h3">Section B7</p>
+            </button>
+            <button
+              class="tablink button"
+              onclick="openCity(event,'SectionC7')"
+            >
+              <p class="h3">Section C7</p>
+            </button>
+            <button
+              class="tablink button"
+              onclick="openCity(event,'SectionD7')"
+            >
+              <p class="h3">Section D7</p>
+            </button>
           </div>
 
           <div id="SectionA7" class="sidemenu">
@@ -3769,7 +3783,7 @@
             <p class="h3">CLASS LIST</p>
 
             <div class="card-group">
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Boys Class List</p>
@@ -3797,7 +3811,7 @@
                 </div>
               </div>
 
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Girls Class List</p>
@@ -3832,7 +3846,7 @@
             <p class="h3">CLASS LIST</p>
 
             <div class="card-group">
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Boys Class List</p>
@@ -3860,7 +3874,7 @@
                 </div>
               </div>
 
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Girls Class List</p>
@@ -3895,7 +3909,7 @@
             <p class="h3">CLASS LIST</p>
 
             <div class="card-group">
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Boys Class List</p>
@@ -3923,7 +3937,7 @@
                 </div>
               </div>
 
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Girls Class List</p>
@@ -3958,7 +3972,7 @@
             <p class="h3">CLASS LIST</p>
 
             <div class="card-group">
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Boys Class List</p>
@@ -3986,7 +4000,7 @@
                 </div>
               </div>
 
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Girls Class List</p>
@@ -4017,10 +4031,30 @@
           </div>
 
           <div id="8Grade" class="sidemenu">
-            <button class="tablink button" onclick="openCity(event,'SectionA8')"><p class="h3">Section A8</p></button>
-            <button class="tablink button" onclick="openCity(event,'SectionB8')"><p class="h3">Section B8</p></button>
-            <button class="tablink button" onclick="openCity(event,'SectionC8')"><p class="h3">Section C8</p></button>
-            <button class="tablink button" onclick="openCity(event,'SectionD8')"><p class="h3">Section D8</p></button>
+            <button
+              class="tablink button"
+              onclick="openCity(event,'SectionA8')"
+            >
+              <p class="h3">Section A8</p>
+            </button>
+            <button
+              class="tablink button"
+              onclick="openCity(event,'SectionB8')"
+            >
+              <p class="h3">Section B8</p>
+            </button>
+            <button
+              class="tablink button"
+              onclick="openCity(event,'SectionC8')"
+            >
+              <p class="h3">Section C8</p>
+            </button>
+            <button
+              class="tablink button"
+              onclick="openCity(event,'SectionD8')"
+            >
+              <p class="h3">Section D8</p>
+            </button>
           </div>
 
           <div id="SectionA8" class="sidemenu">
@@ -4028,7 +4062,7 @@
             <p class="h3">CLASS LIST</p>
 
             <div class="card-group">
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Boys Class List</p>
@@ -4056,7 +4090,7 @@
                 </div>
               </div>
 
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Girls Class List</p>
@@ -4091,7 +4125,7 @@
             <p class="h3">CLASS LIST</p>
 
             <div class="card-group">
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Boys Class List</p>
@@ -4119,7 +4153,7 @@
                 </div>
               </div>
 
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Girls Class List</p>
@@ -4154,7 +4188,7 @@
             <p class="h3">CLASS LIST</p>
 
             <div class="card-group">
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Boys Class List</p>
@@ -4182,7 +4216,7 @@
                 </div>
               </div>
 
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Girls Class List</p>
@@ -4217,7 +4251,7 @@
             <p class="h3">CLASS LIST</p>
 
             <div class="card-group">
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Boys Class List</p>
@@ -4245,7 +4279,7 @@
                 </div>
               </div>
 
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Girls Class List</p>
@@ -4276,10 +4310,30 @@
           </div>
 
           <div id="9Grade" class="sidemenu">
-            <button class="tablink button" onclick="openCity(event,'SectionA9')"><p class="h3">Section A9</p></button>
-            <button class="tablink button" onclick="openCity(event,'SectionB9')"><p class="h3">Section B9</p></button>
-            <button class="tablink button" onclick="openCity(event,'SectionC9')"><p class="h3">Section C9</p></button>
-            <button class="tablink button" onclick="openCity(event,'SectionD9')"><p class="h3">Section D9</p></button>
+            <button
+              class="tablink button"
+              onclick="openCity(event,'SectionA9')"
+            >
+              <p class="h3">Section A9</p>
+            </button>
+            <button
+              class="tablink button"
+              onclick="openCity(event,'SectionB9')"
+            >
+              <p class="h3">Section B9</p>
+            </button>
+            <button
+              class="tablink button"
+              onclick="openCity(event,'SectionC9')"
+            >
+              <p class="h3">Section C9</p>
+            </button>
+            <button
+              class="tablink button"
+              onclick="openCity(event,'SectionD9')"
+            >
+              <p class="h3">Section D9</p>
+            </button>
           </div>
 
           <div id="SectionA9" class="sidemenu">
@@ -4287,7 +4341,7 @@
             <p class="h3">CLASS LIST</p>
 
             <div class="card-group">
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Boys Class List</p>
@@ -4315,7 +4369,7 @@
                 </div>
               </div>
 
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Girls Class List</p>
@@ -4350,7 +4404,7 @@
             <p class="h3">CLASS LIST</p>
 
             <div class="card-group">
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Boys Class List</p>
@@ -4378,7 +4432,7 @@
                 </div>
               </div>
 
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Girls Class List</p>
@@ -4413,7 +4467,7 @@
             <p class="h3">CLASS LIST</p>
 
             <div class="card-group">
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Boys Class List</p>
@@ -4441,7 +4495,7 @@
                 </div>
               </div>
 
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Girls Class List</p>
@@ -4476,7 +4530,7 @@
             <p class="h3">CLASS LIST</p>
 
             <div class="card-group">
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Boys Class List</p>
@@ -4504,7 +4558,7 @@
                 </div>
               </div>
 
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Girls Class List</p>
@@ -4535,10 +4589,30 @@
           </div>
 
           <div id="10Grade" class="sidemenu">
-            <button class="tablink button" onclick="openCity(event,'SectionA10')"><p class="h3">Section A10</p></button>
-            <button class="tablink button" onclick="openCity(event,'SectionB10')"><p class="h3">Section B10</p></button>
-            <button class="tablink button" onclick="openCity(event,'SectionC10')"><p class="h3">Section C10</p></button>
-            <button class="tablink button" onclick="openCity(event,'SectionD10')"><p class="h3">Section D10</p></button>
+            <button
+              class="tablink button"
+              onclick="openCity(event,'SectionA10')"
+            >
+              <p class="h3">Section A10</p>
+            </button>
+            <button
+              class="tablink button"
+              onclick="openCity(event,'SectionB10')"
+            >
+              <p class="h3">Section B10</p>
+            </button>
+            <button
+              class="tablink button"
+              onclick="openCity(event,'SectionC10')"
+            >
+              <p class="h3">Section C10</p>
+            </button>
+            <button
+              class="tablink button"
+              onclick="openCity(event,'SectionD10')"
+            >
+              <p class="h3">Section D10</p>
+            </button>
           </div>
 
           <div id="SectionA10" class="sidemenu">
@@ -4546,7 +4620,7 @@
             <p class="h3">CLASS LIST</p>
 
             <div class="card-group">
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Boys Class List</p>
@@ -4574,7 +4648,7 @@
                 </div>
               </div>
 
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Girls Class List</p>
@@ -4609,7 +4683,7 @@
             <p class="h3">CLASS LIST</p>
 
             <div class="card-group">
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Boys Class List</p>
@@ -4637,7 +4711,7 @@
                 </div>
               </div>
 
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Girls Class List</p>
@@ -4672,7 +4746,7 @@
             <p class="h3">CLASS LIST</p>
 
             <div class="card-group">
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Boys Class List</p>
@@ -4700,7 +4774,7 @@
                 </div>
               </div>
 
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Girls Class List</p>
@@ -4735,7 +4809,7 @@
             <p class="h3">CLASS LIST</p>
 
             <div class="card-group">
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Boys Class List</p>
@@ -4763,7 +4837,7 @@
                 </div>
               </div>
 
-              <div class="card card--small w-fit">
+              <div class="card card--small">
                 <div class="card__container">
                   <div class="card__header">
                     <p class="h2 text-primary">Girls Class List</p>
