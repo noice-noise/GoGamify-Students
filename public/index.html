@@ -4,21 +4,138 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GoGamify</title>
+    <title>GoGamify Education</title>
     <link rel="stylesheet" href="./tailwind.css" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="shortcut icon" href="../icons/favicon.ico" type="image/x-icon" />
     <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Poppins:wght@300;400;700;900&display=swap"
-      rel="stylesheet"
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../icons/apple-touch-icon.png"
     />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../icons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../icons/favicon-16x16.png"
+    />
+
+    <link rel="manifest" href="../manifest.json" />
   </head>
-  <body>
+  <body class="body">
+    <!-- GoGamify Header -->
+    <header>
+      <div class="header__container h-20 text-sm">
+        <li class="mr-2">
+          <a class="" href="/"><span class="header__span">GoGamify</span></a>
+        </li>
+        <ul class="flex items-center">
+          <li>
+            <a class="button button--muted" href="/auth/login">Login</a>
+          </li>
+          <li>
+            <a class="button button--muted" href="/auth/register">Register</a>
+          </li>
+          <li>
+            <a class="button button--cta" href="/pwa/install.html">Install</a>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <!-- end - GoGamify Header -->
     <div class="flex h-screen w-screen flex-col items-center justify-center">
-      <h1 class="h1">GoGamify Landing Page</h1>
-      <a class="button active focus" href="./pwa/login/login.html">Login</a>
-      <a class="button" href="./pwa/install.html">Installation</a>
+      <div class="mb-10 flex items-center justify-center">
+        <span>
+          <img
+            class="h-48 w-48"
+            src="../assets/undraw_happy_news_re_tsbd.svg"
+            alt=""
+            srcset=""
+          />
+        </span>
+      </div>
+
+      <h1 class="text-7xl font-bold text-primary">GoGamify Education</h1>
     </div>
+    <main id="main">
+      <div class="p-10">
+        <!-- edit contents below -->
+        <section class="section">
+          <div class="mb-10 flex items-center justify-center">
+            <span>
+              <img
+                class="h-48 w-48"
+                src="../assets/undraw_happy_news_re_tsbd.svg"
+                alt=""
+                srcset=""
+              />
+            </span>
+          </div>
+
+          <h1 class="h1 mb-5">Welcome to GoGamify</h1>
+
+          <div>
+            The core vision of the platform is to help teachers and students
+            have an educational platform where they can easily integrate
+            game-mechanics and fun in both teaching and learning. Applying the
+            element of fun and games in this today’s digital age should be easy
+            and seamless for users. **GoGamify** can be used as a supplementary
+            platform for existing software infrastructures like Learning
+            Management Systems, Learning Portals, or Learning Libraries. Since
+            the platform is designed to help provide solution to the needs,
+            challenges, and use cases of teachers and students, the two
+            progressive web applications were designed with features relevant to
+            differing types of users.
+          </div>
+        </section>
+        <!-- edit contents above -->
+      </div>
+    </main>
+
+    <!-- Script for Service Worker  -->
+    <script>
+      if ("serviceWorker" in navigator) {
+        console.log("Service worker registered");
+        navigator.serviceWorker.register("./service-worker.js");
+      }
+    </script>
+
+    <script>
+      let deferredPrompt;
+      window.addEventListener("beforeinstallprompt", (event) => {
+        // Prevent Chrome 67 and earlier from automatically showing the prompt
+        // event.preventDefault();
+
+        // Stash the event so it can be triggered later.
+        deferredPrompt = event;
+
+        // Attach the install prompt to a user gesture
+        document
+          .querySelector("#installBtn")
+          .addEventListener("click", (event) => {
+            // Show the prompt
+            deferredPrompt.prompt();
+
+            // Wait for the user to respond to the prompt
+            deferredPrompt.userChoice.then((choiceResult) => {
+              if (choiceResult.outcome === "accepted") {
+                console.log("User accepted the A2HS prompt");
+              } else {
+                console.log("User dismissed the A2HS prompt");
+              }
+              deferredPrompt = null;
+            });
+          });
+
+        // Update UI notify the user they can add to home screen
+        document.querySelector("#installBanner").style.display = "flex";
+      });
+    </script>
   </body>
 </html>

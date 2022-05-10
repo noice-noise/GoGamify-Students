@@ -3,7 +3,58 @@
   <%- include('../partials/head.ejs') %>
 
   <body class="body">
-    Admin <%- include('../partials/header.ejs') %> <%-
-    include('../partials/nav.ejs') %>
+    <%- include('../partials/header.ejs') %>
+    <div class="auto-container section">
+      <div class="mt-10 flex w-full flex-col items-center justify-center">
+        <h1 class="h1 text-center">
+          GoGamify <span class="text-primary">Admin</span>
+        </h1>
+
+        <!-- nav -->
+        <div class="mt-10 w-full">
+          <ul
+            class="flex w-full flex-col items-center justify-center py-3 text-center"
+          >
+            <li>
+              <a
+                class="button py-3 px-4 text-neutral"
+                href="/admin/student-accounts"
+                >Student Profiles</a
+              >
+            </li>
+            <li>
+              <a class="button py-3 px-4 text-neutral" href="/gamify/"
+                >Resource Collection</a
+              >
+            </li>
+            <li>
+              <a class="button py-3 px-4 text-neutral" href="/gamify/create"
+                >Gamify Resources</a
+              >
+            </li>
+            <li>
+              <a class="button py-3 px-4 text-neutral" href="#">Badges</a>
+            </li>
+            <li>
+              <a class="button py-3 px-4 text-neutral" href="#">Achievements</a>
+            </li>
+            <li>
+              <a class="button py-3 px-4 text-neutral" href="#">Themes</a>
+            </li>
+            <li>
+              <div class="imposter">
+                <form action="/auth/logout?_method=DELETE" method="POST">
+                  <button class="button button--muted" type="submit">
+                    Logout
+                  </button>
+                </form>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <%- include('../partials/footer.ejs') %>
   </body>
 </html>

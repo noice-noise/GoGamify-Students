@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head.ejs') %>
+
+  <body>
+    <%- include('../partials/header.ejs') %>
+    <div class="auto-container">
+      <!-- CONTENT -->
+      <div class="section flex w-full flex-col gap-5">
+        <div class="mt-5">
+          <h2 class="h1">Gamification Labs</h2>
+        </div>
+        <div>
+          <!-- <h2 class="mb-5 text-center text-3xl">
+          GoGamify: Gamification Web Platform 
+        </h2> -->
+          <div class="flex flex-col items-center justify-between">
+            <div
+              id="dropArea"
+              class="mx-auto flex h-48 w-full flex-col items-center justify-center rounded-xl border-2 border-dashed border-violet-700 p-5 text-center"
+            >
+              <span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-16 w-16 transform-gpu animate-bounce rounded-xl fill-violet-700 p-2"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M5.5 13a3.5 3.5 0 01-.369-6.98 4 4 0 117.753-1.977A4.5 4.5 0 1113.5 13H11V9.413l1.293 1.293a1 1 0 001.414-1.414l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13H5.5z"
+                  />
+                  <path d="M9 13h2v5a1 1 0 11-2 0v-5z" />
+                </svg>
+              </span>
+              <h2 id="dropAreaText">Drag and Drop to Upload File (.docx)</h2>
+              <p class="text-sm">OR</p>
+              <button id="browseBtn" class="button">Browse File</button>
+              <input hidden type="file" name="file-upload" id="browseInput" />
+            </div>
+            <div class="max-w-sm px-5">
+              <div>
+                <div class="flex items-center justify-between">
+                  <h3 class="text-lg">Upload List</h3>
+                  <button
+                    class="button button--muted"
+                    id="uploadListRefreshBtn"
+                  >
+                    Refresh
+                  </button>
+                </div>
+                <ul
+                  id="uploadList"
+                  class="flex flex-col gap-5 divide-y py-5"
+                ></ul>
+                <div class="mt-5 flex items-center justify-center gap-5">
+                  <button id="clearBtn" class="button button--muted">
+                    Clear Queue
+                  </button>
+                  <button id="gamifyBtn" class="button button--cta">
+                    Gamify
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <%- include('../partials/gamify/resource-details.ejs') %>
+
+        <!-- Message -->
+        <div class="hidden h-24 w-full">
+          <div>
+            <div class="full my-5 w-full rounded-lg bg-white p-5">
+              <textarea
+                class="w-full"
+                name="content"
+                id="resultText"
+                cols="20"
+                rows="10"
+              >
+            Message
+            </textarea
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Footer -->
+    <%- include('../partials/footer.ejs') %>
+    <script type="text/javascript" src="/js/gamify/create.js"></script>
+  </body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head.ejs') %>
+
+  <body class="body">
+    <%- include('../partials/header.ejs') %>
+    <main class="h-full">
+      <div
+        class="mx-auto mt-10 flex h-full w-full flex-col items-center justify-center bg-gray-50 text-gray-700 lg:mt-20"
+      >
+        <div
+          class="m-2 rounded-xl bg-white px-5 py-3 shadow-sm ring-1 ring-inset ring-black/10"
+        >
+          <h3 class="h1 pt-5 pb-8 text-center">Login to GoGamify</h3>
+
+          <form class="form" action="/auth/login" method="POST">
+            <label class="text-lg" for="email">Email</label>
+            <input
+              class="form__field"
+              type="email"
+              id="email"
+              name="email"
+              required
+            />
+
+            <label class="text-lg" for="password">Password</label>
+            <input
+              class="form__field"
+              type="password"
+              id="password"
+              name="password"
+              required
+            />
+
+            <!-- Extension: Remeber Me & Forget Password -->
+            <!-- <div class="flex justify-between text-sm">
+              <div class="group">
+                <label
+                  class="group-hover:cursor-pointer"
+                  for="remember-password"
+                >
+                  <input
+                    class="mr-2 h-4 w-4 accent-violet-500 group-hover:cursor-pointer"
+                    type="checkbox"
+                    name="remember-password"
+                    id="remember-password"
+                    checked
+                  />
+                  <span>Remember me</span></label
+                >
+              </div>
+              <a class="link text-right" href="#">Forgot your password?</a>
+            </div> -->
+
+            <button class="button button--cta w-full" type="submit">
+              Login
+            </button>
+          </form>
+
+          <% if (messages.error) { %>
+          <div class="form__field mt-2 bg-danger text-foreground">
+            <%= messages.error %>
+          </div>
+          <% } %>
+        </div>
+
+        <div class="flex flex-col items-center justify-center">
+          <a class="button button--muted" href="/auth/register"
+            >Create a Free GoGamify Account</a
+          >
+
+          <%- include('../partials/block-back.ejs', {label:"Back to Home",
+          route:"/"}) %>
+        </div>
+      </div>
+    </main>
+    <%- include('../partials/footer.ejs') %>
+  </body>
+</html>
