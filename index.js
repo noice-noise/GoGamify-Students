@@ -104,11 +104,18 @@ app.use(methodOverride("_method"));
 app.use("/admin", ensureAuthenticated, adminRoutes);
 app.use("/auth", authRoutes);
 
-app.use("/home", setAuthCookie, forwardAdmin, forwardFirstLogin, (req, res) => {
-  res.redirect("/pwa/learning-module/module.html");
-});
+app.use(
+  "/home",
+  ensureAuthenticated,
+  setAuthCookie,
+  forwardAdmin,
+  forwardFirstLogin,
+  (req, res) => {
+    res.redirect("/pwa/learning-module/module.html");
+  }
+);
 
-app.use("/get-started", (req, res) => {
+app.use("/get-started", ensureAuthenticated, (req, res) => {
   res.render("app/get-started", {
     title: "Update Profile | GoGamify",
     user: req.user,
