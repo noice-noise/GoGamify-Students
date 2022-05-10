@@ -48,7 +48,10 @@ const gamify_index = (req, res) => {
 
 const gamify_create_get = (req, res) => {
   console.log("Gamify create...");
-  res.render("gamify/create", { title: "Gamify Create", user: req.user });
+  res.render("gamify/create", {
+    title: "Gamify Create",
+    user: req.session.user,
+  });
 };
 
 const gamify_file_post = (req, res) => {

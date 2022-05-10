@@ -5,7 +5,10 @@ const User = require("../models/user");
 const login = (req, res) => {
   // console.log("user", req.user);
   // req.session.Auth = req.body.user; // => user values?
-  res.render("auth/login", { title: "Login | GoGamify", user: req.user });
+  res.render("auth/login", {
+    title: "Login | GoGamify",
+    user: req.session.user,
+  });
 };
 
 const register = async (req, res) => {
