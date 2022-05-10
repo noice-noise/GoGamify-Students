@@ -10,6 +10,7 @@ const passport = require("passport");
 const flash = require("express-flash");
 const session = require("express-session");
 const methodOverride = require("method-override");
+const cookieParser = require("cookie-parser");
 
 const adminRoutes = require("./routes/adminRoutes");
 const studentRoutes = require("./routes/studentRoutes");
@@ -28,6 +29,7 @@ const {
   ensureAuthenticated,
   forwardFirstLogin,
   forwardAdmin,
+  setAuthCookie,
 } = require("./config/authConfig");
 
 passportConfig(passport);
@@ -73,6 +75,7 @@ app.set("view engine", "ejs");
 app.use(morgan("dev"));
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 app.use(
   fileUpload({
     createParentPath: true,
@@ -101,7 +104,7 @@ app.use(methodOverride("_method"));
 app.use("/admin", ensureAuthenticated, adminRoutes);
 app.use("/auth", authRoutes);
 
-app.use("/home", forwardAdmin, forwardFirstLogin, (req, res) => {
+app.use("/home", setAuthCookie, forwardAdmin, forwardFirstLogin, (req, res) => {
   res.redirect("/pwa/learning-module/module.html");
 });
 
