@@ -142,7 +142,6 @@ const profile_preference_post = async (req, res) => {
         console.log(err);
       } else {
         console.log(docs);
-        // TODO align response with Profile appearance form
         res.send({ message: "Preference changes saved" });
       }
     }
