@@ -6,38 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>User Achievements</title>
 
-    <!-- Main Stylesheets -->
-    <!-- Production -->
     <link rel="stylesheet" type="text/css" href="/tailwind.css" />
-    <!-- Development -->
     <link rel="stylesheet" type="text/css" href="/public/tailwind.css" />
-    <!-- Custom Classes -->
     <link rel="stylesheet" type="text/css" href="./collections-styles.css" />
 
-    <!-- NOTE: You can add and extend for custom stylesheets, but always use "classes" instead of 
-    direct tags in css for our standards -->
 
-    <!-- Web Accessibility -->
-    <link rel="shortcut icon" href="../icons/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="/icons/favicon.ico" type="image/x-icon" />
     <link
       rel="apple-touch-icon"
       sizes="180x180"
-      href="../icons/apple-touch-icon.png"
+      href="/icons/apple-touch-icon.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="../icons/favicon-32x32.png"
+      href="/icons/favicon-32x32.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="16x16"
-      href="../icons/favicon-16x16.png"
+      href="/icons/favicon-16x16.png"
     />
 
     <link rel="manifest" href="../manifest.json" />
+    <script src="/js/preload.js"></script>
   </head>
   <body class="body">
     <!-- GoGamify Header -->
@@ -154,13 +148,13 @@
           </li>
           <li class="nav__list__item">
             <a
-              class="button nav__button group"
+              class="button nav__button group nav__button--active"
               href="../collections/collections.html"
             >
               <span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="icon icon-tabler icon-tabler-trophy button__icon"
+                  class="icon icon-tabler icon-tabler-trophy button__icon button__icon--active"
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"
@@ -187,11 +181,14 @@
             </a>
           </li>
           <li class="nav__list__item">
-            <a class="button nav__button group" href="../profile/profile.html">
+            <a
+              class="button nav__button group"
+              href="../profile/profile.html"
+            >
               <span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="icon icon-tabler icon-tabler-user button__icon"
+                  class="icon icon-tabler icon-tabler-user button__icon button__icon--active"
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"
@@ -221,8 +218,8 @@
     <main class="main">
       <div class="main__container">
         <section class="section">
-          <h1>Username's Achievements</h1>
-          <br />
+          <h1 class="h1">My Collections</h1>
+
           <img
             class="profile"
             src="default_male.jpg"
@@ -230,27 +227,10 @@
             height="120"
             width="120"
           />
-          <br />
+          <!-- <br />
           <div class="achievement_block">
             <img src="default_male.jpg" alt="profile" height="50" width="50" />
-          </div>
-
-          <table>
-            <caption>
-              Number of achievements obtained:
-              <strong>10</strong>
-            </caption>
-            <tr>
-              <th class="head" scope="col">Name of Achievement</th>
-              <th class="head" scope="col">Date Obtained</th>
-              <th class="head" scope="col">Description</th>
-            </tr>
-            <tr>
-              <th scope="row">Baptised by CPE</th>
-              <td>04/17/22</td>
-              <td>Pahagbong either Differential Calculus or Programming 2</td>
-            </tr>
-          </table>
+          </div> -->
 
           <!--SEMANTICS-->
           <!-- <header>
@@ -269,9 +249,8 @@
           <!--/SEMANTICS-->
         </section>
 
-        <!-- A DEMO ON Achievements -->
         <section class="section">
-          <!-- card-group put every cards inside this -->
+          <h2 class="h1">Achievements</h2>
           <div class="card-group">
             <div class="card card--extra-small text-center">
               <div class="card__container">
@@ -279,18 +258,20 @@
                   <div class="card__img-container">
                     <img
                       class="card__img mx-auto h-12 w-12"
-                      src="./badges/star.svg"
+                      src="./badges/Begginer.png"
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h2 text-primary">Baby Steps</p>
-                  <p class="text-primary-accent">Read 1 Learning Module</p>
+                  <p class="h2 text-primary">Baby's Little Steps</p>
+                  <p class="text-primary-accent">
+                    Read 1 Learning Module on any subject
+                  </p>
                   <!-- <p>Another Subtitle</p> -->
                   <p class="text-sm">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    <!-- Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Laborum assumenda labore vero provident tenetur numquam id
                     iure cupiditate culpa nesciunt, eius distinctio. Eligendi
-                    eum necessitatibus nostrum illum pariatur maxime quam?
+                    eum necessitatibus nostrum illum pariatur maxime quam? -->
                   </p>
                 </div>
 
@@ -312,37 +293,24 @@
               </div>
             </div>
 
+            <!--This is the card div-->
             <div class="card card--extra-small text-center">
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
                     <img
-                      class="card__img mx-auto h-28 w-28"
-                      src="./badges/swimming_96px.png"
+                      class="card__img mx-auto h-12 w-12"
+                      src="./badges/English_begin.png"
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h4 text-primary">Baby Steps Legendary</p>
-                  <p class="text-primary-accent">Read 1 Learning Module</p>
-                  <!-- <p>Another Subtitle</p> -->
-                  <p class="text-sm"></p>
-                </div>
-
-                <!-- <div class="card__body">
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Mollitia vel molestiae nobis unde omnis, illum reiciendis
-                    quasi ad, adipisci repellat inventore ipsa voluptatum eaque
-                    ut tempora. Iste, dolores. Nostrum, ad!
+                  <p class="h2 text-primary">Global Language</p>
+                  <p class="text-primary-accent">
+                    Begin your first class in English
                   </p>
+                  <!-- <p>Another Subtitle</p> -->
+                  <p class="text-sm"></p>
                 </div>
-
-                <div class="card__footer">
-                  <a class="link" href="#">View</a>
-                  <a class="link" href="#">Update</a>
-                  <a class="link" href="#">Delete</a>
-                  <a class="link" href="#">Share?</a>
-                </div> -->
               </div>
             </div>
 
@@ -351,51 +319,399 @@
                 <div class="card__header">
                   <div class="card__img-container">
                     <img
-                      class="card__img mx-auto h-28 w-28"
-                      src="./badges/swimming_96px.png"
+                      class="card__img mx-auto h-12 w-12"
+                      src="./badges/math_begin.png"
                       alt="Profile Image"
                     />
                   </div>
-                  <p class="h4 text-primary">Baby Steps Legendary</p>
-                  <p class="text-primary-accent">Read 1 Learning Module</p>
-                  <!-- <p>Another Subtitle</p> -->
-                  <p class="text-sm"></p>
-                </div>
-
-                <!-- <div class="card__body">
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Mollitia vel molestiae nobis unde omnis, illum reiciendis
-                    quasi ad, adipisci repellat inventore ipsa voluptatum eaque
-                    ut tempora. Iste, dolores. Nostrum, ad!
+                  <p class="h2 text-primary">So you like numbers?</p>
+                  <p class="text-primary-accent">
+                    Begin your first class in Mathematics
                   </p>
-                </div>
-
-                <div class="card__footer">
-                  <a class="link" href="#">View</a>
-                  <a class="link" href="#">Update</a>
-                  <a class="link" href="#">Delete</a>
-                  <a class="link" href="#">Share?</a>
-                </div> -->
-              </div>
-            </div>
-            <div class="card card--extra-small text-center">
-              <div class="card__container">
-                <div class="card__header">
-                  <div class="card__img-container">
-                    <img
-                      class="card__img mx-auto h-28 w-28"
-                      src="./badges/swimming_96px.png"
-                      alt="Profile Image"
-                    />
-                  </div>
-                  <p class="h4 text-primary">Baby Steps Legendary</p>
-                  <p class="text-primary-accent">Read 1 Learning Module</p>
                   <!-- <p>Another Subtitle</p> -->
                   <p class="text-sm"></p>
                 </div>
               </div>
             </div>
+
+            <div class="card card--extra-small text-center">
+              <div class="card__container">
+                <div class="card__header">
+                  <div class="card__img-container">
+                    <img
+                      class="card__img mx-auto h-12 w-12"
+                      src="./badges/Science.png"
+                      alt="Profile Image"
+                    />
+                  </div>
+                  <p class="h2 text-primary">The possibilities</p>
+                  <p class="text-primary-accent">
+                    Begin your first class in Science
+                  </p>
+                  <!-- <p>Another Subtitle</p> -->
+                  <p class="text-sm"></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card card--extra-small text-center">
+              <div class="card__container">
+                <div class="card__header">
+                  <div class="card__img-container">
+                    <img
+                      class="card__img mx-auto h-12 w-12"
+                      src="./badges/Araling Panlipunan.png"
+                      alt="Profile Image"
+                    />
+                  </div>
+                  <p class="h2 text-primary">Philippine society</p>
+                  <p class="text-primary-accent">
+                    Begin your first class in Araling Panlipunan
+                  </p>
+                  <!-- <p>Another Subtitle</p> -->
+                  <p class="text-sm"></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card card--extra-small text-center">
+              <div class="card__container">
+                <div class="card__header">
+                  <div class="card__img-container">
+                    <img
+                      class="card__img mx-auto h-12 w-12"
+                      src="./badges/Read.png"
+                      alt="Profile Image"
+                    />
+                  </div>
+                  <p class="h2 text-primary">Tell me, do you read?</p>
+                  <p class="text-primary-accent">
+                    Begin your first class in Reading
+                  </p>
+                  <!-- <p>Another Subtitle</p> -->
+                  <p class="text-sm"></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card card--extra-small text-center">
+              <div class="card__container">
+                <div class="card__header">
+                  <div class="card__img-container">
+                    <img
+                      class="card__img mx-auto h-12 w-12"
+                      src="./badges/filipino_begin.png"
+                      alt="Profile Image"
+                    />
+                  </div>
+                  <p class="h2 text-primary">Adarnang malaya</p>
+                  <p class="text-primary-accent">
+                    Simulan ang unang aralin sa Filipinong wikain
+                  </p>
+                  <!-- <p>Another Subtitle</p> -->
+                  <p class="text-sm"></p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <section class="section">
+          <!-- card-group put every cards inside this -->
+          <h2 class="h1">Badges</h2>
+          <div class="card-group">
+
+            <!--This is the card div-->
+            <div class="card card--extra-small text-center">
+              <div class="card__container">
+                <div class="card__header">
+                  <div class="card__img-container">
+                    <!-- ORIG src="./badges/swimming_96px.png"-->
+                    <!--Honor-->
+                    <img
+                      class="card__img mx-auto h-12 w-12"
+                      src="./badges/Honor.png"
+                      alt="Profile Image"
+                    />
+                  </div>
+                  <p class="h2 text-primary">First Perfect Score</p>
+                  <p class="text-primary-accent">
+                    Got a first perfect Score on any subject's quizzes
+                  </p>
+                  <!-- <p>Another Subtitle</p> -->
+                  <p class="text-sm"></p>
+                </div>
+              </div>
+            </div>
+            <!--End of card div-->
+
+            <div class="card card--extra-small text-center">
+              <div class="card__container">
+                <div class="card__header">
+                  <div class="card__img-container">
+                    <!-- ORIG src="./badges/swimming_96px.png"-->
+                    <!--Honor-->
+                    <img
+                      class="card__img mx-auto h-12 w-12"
+                      src="./badges/10_perfect_scores.png"
+                      alt="Profile Image"
+                    />
+                  </div>
+                  <p class="h2 text-primary">10 Perfect Scores</p>
+                  <p class="text-primary-accent">
+                    Got 10 perfect scores on any subject's quizzes
+                  </p>
+                  <!-- <p>Another Subtitle</p> -->
+                  <p class="text-sm"></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card card--extra-small text-center">
+              <div class="card__container">
+                <div class="card__header">
+                  <div class="card__img-container">
+                    <!-- ORIG src="./badges/swimming_96px.png"-->
+                    <!--Honor-->
+                    <img
+                      class="card__img mx-auto h-12 w-12"
+                      src="./badges/100_perfect_scores.png"
+                      alt="Profile Image"
+                    />
+                  </div>
+                  <p class="h2 text-primary">100 Perfect Scores</p>
+                  <p class="text-primary-accent">
+                    Got 100 perfect scores on any subject's quizzes
+                  </p>
+                  <!-- <p>Another Subtitle</p> -->
+                  <p class="text-sm"></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card card--extra-small text-center">
+              <div class="card__container">
+                <div class="card__header">
+                  <div class="card__img-container">
+                    <img
+                      class="card__img mx-auto h-12 w-12"
+                      src="./badges/Bi_lingual.png"
+                      alt="Profile Image"
+                    />
+                  </div>
+                  <p class="h2 text-primary">Are you a Linguist?</p>
+                  <p class="text-primary-accent">
+                    Complete atleast 2 language oriented subjects
+                  </p>
+                  <!-- <p>Another Subtitle</p> -->
+                  <p class="text-sm"></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card card--extra-small text-center">
+              <div class="card__container">
+                <div class="card__header">
+                  <div class="card__img-container">
+                    <img
+                      class="card__img mx-auto h-12 w-12"
+                      src="./badges/Question.png"
+                      alt="Profile Image"
+                    />
+                  </div>
+                  <p class="h2 text-primary">The Odd one's out</p>
+                  <p class="text-primary-accent">
+                    Enrolled on a extra-curriculum subject 
+                  </p>
+                  <!-- <p>Another Subtitle</p> -->
+                  <p class="text-sm"></p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="h1 text-center">Unlockables</h2>
+          <div class="card-group">
+            <div class="card card--extra-small text-center">
+              <div class="card__container">
+                <div class="card__header">
+                  <div class="card__img-container">
+                    <img
+                      class="card__img mx-auto h-12 w-12"
+                      src="./badges/Special_icons/default.png"
+                      alt="Profile Image"
+                    />
+                  </div>
+                  <p class="h2 text-primary">Violet</p>
+                  <p class="text-primary-accent">Default GoGamify Theme</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card card--extra-small text-center">
+              <div class="card__container">
+                <div class="card__header">
+                  <div class="card__img-container">
+                    <img
+                      class="card__img mx-auto h-12 w-12"
+                      src="./badges/Special_icons/fuschia.png"
+                      alt="Profile Image"
+                    />
+                  </div>
+                  <p class="h2 text-primary">Fuschia</p>
+                  <p class="text-primary-accent">Fuschia</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card card--extra-small text-center">
+              <div class="card__container">
+                <div class="card__header">
+                  <div class="card__img-container">
+                    <img
+                      class="card__img mx-auto h-12 w-12"
+                      src="./badges/Special_icons/blue.png"
+                      alt="Profile Image"
+                    />
+                  </div>
+                  <p class="h2 text-primary">Blue</p>
+                  <p class="text-primary-accent">Blue</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card card--extra-small text-center">
+              <div class="card__container">
+                <div class="card__header">
+                  <div class="card__img-container">
+                    <img
+                      class="card__img mx-auto h-12 w-12"
+                      src="./badges/Special_icons/cyan.png"
+                      alt="Profile Image"
+                    />
+                  </div>
+                  <p class="h2 text-primary">Cyan</p>
+                  <p class="text-primary-accent">Cyan</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card card--extra-small text-center">
+              <div class="card__container">
+                <div class="card__header">
+                  <div class="card__img-container">
+                    <img
+                      class="card__img mx-auto h-12 w-12"
+                      src="./badges/Special_icons/green.png"
+                      alt="Profile Image"
+                    />
+                  </div>
+                  <p class="h2 text-primary">Green</p>
+                  <p class="text-primary-accent">Green</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card card--extra-small text-center">
+              <div class="card__container">
+                <div class="card__header">
+                  <div class="card__img-container">
+                    <img
+                      class="card__img mx-auto h-12 w-12"
+                      src="./badges/Special_icons/red.png"
+                      alt="Profile Image"
+                    />
+                  </div>
+                  <p class="h2 text-primary">Red</p>
+                  <p class="text-primary-accent">Red</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card card--extra-small text-center">
+              <div class="card__container">
+                <div class="card__header">
+                  <div class="card__img-container">
+                    <img
+                      class="card__img mx-auto h-12 w-12"
+                      src="./badges/Special_icons/orange.png"
+                      alt="Profile Image"
+                    />
+                  </div>
+                  <p class="h2 text-primary">Orange</p>
+                  <p class="text-primary-accent">Orange</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card card--extra-small text-center">
+              <div class="card__container">
+                <div class="card__header">
+                  <div class="card__img-container">
+                    <img
+                      class="card__img mx-auto h-12 w-12"
+                      src="./badges/Special_icons/yellow.png"
+                      alt="Profile Image"
+                    />
+                  </div>
+                  <p class="h2 text-primary">Yellow</p>
+                  <p class="text-primary-accent">Yellow</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card card--extra-small text-center">
+              <div class="card__container">
+                <div class="card__header">
+                  <div class="card__img-container">
+                    <img
+                      class="card__img mx-auto h-12 w-12"
+                      src="./badges/Special_icons/pink.png"
+                      alt="Profile Image"
+                    />
+                  </div>
+                  <p class="h2 text-primary">Pink</p>
+                  <p class="text-primary-accent">Pink</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card card--extra-small text-center">
+              <div class="card__container">
+                <div class="card__header">
+                  <div class="card__img-container">
+                    <img
+                      class="card__img mx-auto h-12 w-12"
+                      src="./badges/Special_icons/rose.png"
+                      alt="Profile Image"
+                    />
+                  </div>
+                  <p class="h2 text-primary">Rose</p>
+                  <p class="text-primary-accent">Rose</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card card--extra-small text-center">
+              <div class="card__container">
+                <div class="card__header">
+                  <div class="card__img-container">
+                    <img
+                      class="card__img mx-auto h-12 w-12"
+                      src="./badges/Bi_lingual.png"
+                      alt="Profile Image"
+                    />
+                  </div>
+                  <p class="h2 text-primary">TBA</p>
+                  <p class="text-primary-accent">For Sunset lovers</p>
+                </div>
+              </div>
+            </div>
+
           </div>
         </section>
 
@@ -533,5 +849,7 @@
         </section>
       </div>
     </main>
+
+  <script type="module" src="/js/onload.js"></script>
   </body>
 </html>
