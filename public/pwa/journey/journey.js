@@ -7,7 +7,7 @@ document.getElementById("btn_show").click = show(id);
 function openComp(){
  document.getElementById("todo").style.display = "none";
  document.getElementById("todo1").style.display = "flex";
- document.getElementById("btn_comp").style.backgroundColor = 'rgb(var(--color-primary)';
+ document.getElementById("btn_comp").style.backgroundColor = '#7c3aed8f';
  document.getElementById("btn_todo").style.backgroundColor = 'rgb(var(--color-primary-muted) / var(--tw-bg-opacity))';
 
 
@@ -15,7 +15,7 @@ function openComp(){
 function openTodo(){
     document.getElementById("todo").style.display = "flex";
     document.getElementById("todo1").style.display = "none";
-    document.getElementById("btn_todo").style.backgroundColor = 'rgb(var(--color-primary)';
+    document.getElementById("btn_todo").style.backgroundColor = '#7c3aed8f';
     document.getElementById("btn_comp").style.backgroundColor = 'rgb(var(--color-primary-muted) / var(--tw-bg-opacity))';
 
 }
