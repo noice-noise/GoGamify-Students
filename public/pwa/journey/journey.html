@@ -5,29 +5,35 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>JOURNEY</title>
+    <title>Journey</title>
 
-    <!-- Main Stylesheets -->
-    <!-- Production -->
     <link rel="stylesheet" type="text/css" href="/tailwind.css" />
-    <!-- Development -->
     <link rel="stylesheet" type="text/css" href="/public/tailwind.css" />
-    <!-- Custom Classes -->
     <link rel="stylesheet" type="text/css" href="custom_journey.css" />
 
     <script src="journey.js"></script>
 
-    <!-- NOTE: You can add and extend for custom stylesheets, but always use "classes" instead of 
-    direct tags in css for our standards -->
-
-    <!-- Web Accessibility -->
-    <link rel="shortcut icon" href="../icons/favicon.ico" type="image/x-icon" />
-    <link rel="apple-touch-icon" sizes="180x180" href="../icons/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="../icons/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="../icons/favicon-16x16.png" />
+    <link rel="shortcut icon" href="/icons/favicon.ico" type="image/x-icon" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/icons/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/icons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/icons/favicon-16x16.png"
+    />
 
     <link rel="manifest" href="../manifest.json" />
-
+    <script src="/js/preload.js"></script>
 </head>
 
 <body class="body">
@@ -169,7 +175,7 @@
                 <!--flexbox container-->
                 <div class="card-group" id="todo">
                     <!--individual card container-->
-                    <div class="card-outline">
+                    <div class="card card-outline">
                         <!--card contents STARTS HERE-->
                         <div class="card-content">
                             <div class="card_subject-box">
@@ -253,7 +259,7 @@
                     </div>
 
                     <!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@2ND CARD@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
-                    <div class="card-outline">
+                    <div class="card card-outline">
                         <!--card contents STARTS HERE-->
                         <div class="card-content">
                             <div class="card_subject-box">
@@ -342,7 +348,7 @@
 
                 <div class="card-group" id="todo1" style="display: none;">
                     <!--individual card container-->
-                    <div class="card-outline">
+                    <div class="card card-outline">
                         <!--card contents STARTS HERE-->
                         <div class="card-content">
                             <div class="card_subject-box">
@@ -431,6 +437,9 @@
             </section>
         </div>
     </main>
+
+    
+    <script type="module" src="/js/onload.js"></script>
 </body>
 
 </html>
