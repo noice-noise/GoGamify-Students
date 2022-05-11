@@ -258,7 +258,7 @@
   }
 
   .main__container {
-    @apply m-auto mt-14 mb-48 p-5 lg:ml-32 lg:mb-0;
+    @apply m-auto mb-48 p-5 lg:mt-14 lg:ml-32 lg:mb-0;
   }
 
   .section {
@@ -305,6 +305,10 @@
 
   .table {
     @apply w-fit scale-x-95;
+  }
+
+  .card {
+    @apply transform-gpu transition-transform duration-150 hover:-translate-y-2 hover:cursor-default;
   }
 
   .card-group {
