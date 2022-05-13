@@ -135,6 +135,8 @@ const profile_preference_post = async (req, res) => {
     {
       preferences: {
         theme: req.body.theme,
+        fontFamily: req.body.fontFamily,
+        fontSize: req.body.fontSize,
       },
     },
     (err, docs) => {

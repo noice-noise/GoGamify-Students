@@ -224,16 +224,16 @@
             <a class="button button--cta" href="#">Update my Account Profile</a>
           </div>
           <div class="py-10">
-            <h2 class="h2 py-3">Appearance</h2>
             <form
               id="appearanceForm"
-              class="form"
+              class="form max-w-md"
               action="/student/profile/preferences"
               method="POST"
             >
+              <h2 class="h2 py-3">Appearance</h2>
               <label for="theme">Theme</label>
               <select id="profileThemeSelect" name="theme" class="form__field">
-                <option hidden selected disabled>Choose GoGamify theme</option>
+                <option hidden selected disabled>Choose theme</option>
                 <option value="theme-default">Default</option>
                 <option value="theme-fuchsia">Fuchsia</option>
                 <option value="theme-blue">Blue</option>
@@ -244,7 +244,36 @@
                 <option value="theme-pink">Pink</option>
                 <option value="theme-rose">Rose</option>
               </select>
-              <button class="button">Save</button>
+              <h2 class="h2 py-3">Module</h2>
+              <label for="fontFamily">Font Family</label>
+              <select
+                id="profileFontFamilySelect"
+                name="fontFamily"
+                class="form__field"
+              >
+                <option hidden selected disabled>Choose font</option>
+                <option class="font-poppins" value="font-poppins">
+                  Poppins
+                </option>
+                <option class="font-serif" value="font-serif">Serif</option>
+                <option class="font-sans" value="font-sans">Sans-serif</option>
+                <option class="font-mono" value="font-mono">Mono</option>
+              </select>
+
+              <label for="fontSize">Font Size</label>
+              <select
+                id="profileFontSizeSelect"
+                name="fontSize"
+                class="form__field"
+              >
+                <option hidden selected disabled>Choose font size</option>
+                <option value="0.75rem">Extra Small</option>
+                <option value="0.875rem">Small</option>
+                <option value="1rem">Normal</option>
+                <option value="1.25rem">Large</option>
+              </select>
+
+              <button class="button">Save Theme</button>
             </form>
           </div>
 
