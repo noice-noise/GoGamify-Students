@@ -4,7 +4,10 @@
     <div>
       <form class="form" action="./save<%= locals.resource ? "?_method=PUT"
           : "" %>" method="POST">
+
         <input type="text" name="_id" value="<%= user._id  %>" hidden />
+
+
         <label for="title">Title</label>
         <input
           class="form__field"
@@ -12,6 +15,7 @@
           name="title"
           value="<% if (locals.resource) { %><%= resource.title %><% } %>"
         />
+
         <label for="subtitle">Subtitle</label>
         <input
           class="form__field"
@@ -19,6 +23,7 @@
           name="subtitle"
           value="<% if (locals.resource) { %><%= resource.subtitle %><% } %>"
         />
+
         <label for="owner" hidden>Owner</label>
         <input
           class="form__field"
@@ -27,6 +32,15 @@
           hidden
           value="<%= user.email  %>"
         />
+
+        <label for="owner">Pages</label>
+        <input
+          class="form__field"
+          type="text"
+          name="owner"
+          disabled
+        />
+
 
         <textarea
           class="row-span-1 hidden bg-gray-100"
@@ -44,7 +58,7 @@
         >
 
         <div class="col-span-4 flex justify-end">
-          <button class="button px-16">Save</button>
+          <button class="button px-16">Publish</button>
         </div>
       </form>
     </div>
