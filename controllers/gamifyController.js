@@ -116,13 +116,14 @@ const gamify_file_get = async (req, res) => {
 };
 
 const options = {
-  // reserve  H1 conversions (right-sde arrows) for specific page titles for semantic meaning
+  // reserve  H1 conversions (right-side arrows) for specific page titles for semantic meaning
+  // so style conversions for title headers starts with H2
   styleMap: [
-    "p[style-name='Heading 1'] => h2:fresh",
-    "p[style-name='Heading 2'] => h3:fresh",
-    "p[style-name='Heading 3'] => h4:fresh",
-    "p[style-name='Heading 4'] => h5:fresh",
-    "p[style-name='Heading 5'] => h6:fresh",
+    "p[style-name='Heading 1'] => h2.h1:fresh",
+    "p[style-name='Heading 2'] => h3.h2:fresh",
+    "p[style-name='Heading 3'] => h4.h3:fresh",
+    "p[style-name='Heading 4'] => h5.h4:fresh",
+    "p[style-name='Heading 5'] => h6.h5:fresh",
     "p[style-name='Heading 6'] => p:fresh",
   ],
   ignoreEmptyParagraphs: true,
@@ -134,7 +135,9 @@ const parseHtml = (file) => {
     .then(function (result) {
       let html = result.value;
       // var messages = result.messages;
+      htmlContents += `<div class="module">`;
       htmlContents += html;
+      htmlContents += `</div>`;
     });
 };
 
@@ -166,6 +169,7 @@ const learning_resource_post = (req, res) => {
   console.log(req.body);
 
   const learningResource = new LearningResource(req.body);
+  // active means that the learning resource can be shown to public
   learningResource.active = req.body.active == "on" ? true : false;
   learningResource
     .save()
