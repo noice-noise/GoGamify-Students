@@ -337,7 +337,11 @@
   }
 
   .form__field {
-    @apply mb-5 rounded-lg border bg-background px-4 py-2 transition-colors duration-150 hover:bg-primary-muted/50 focus:bg-primary-muted/90 active:bg-primary-muted/90;
+    @apply mb-5 rounded-lg border bg-background px-4 py-2 transition-colors duration-150 hover:border-primary/80 focus:border-primary active:border-primary/90;
+  }
+
+  .form__field--disabled {
+    @apply bg-primary-muted/70;
   }
 
   .auto-container {
