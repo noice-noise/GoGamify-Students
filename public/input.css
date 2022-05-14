@@ -220,11 +220,6 @@
     @apply theme-default bg-background font-poppins text-neutral antialiased;
   }
 
-  /* Mammoth JS */
-  .table {
-    @apply w-fit scale-x-95;
-  }
-
   .box {
     @apply rounded-lg border bg-foreground p-5 md:p-6 lg:p-10;
   }
@@ -301,12 +296,6 @@
     @apply font-bold text-primary-accent transition-colors duration-300 hover:text-primary;
   }
 
-  /* Mammoth JS */
-
-  .table {
-    @apply w-fit scale-x-95;
-  }
-
   .card {
     @apply transform-gpu transition-transform duration-150 hover:-translate-y-2 hover:cursor-default;
   }
@@ -357,5 +346,14 @@
 
   .drag-active {
     @apply bg-primary-accent;
+  }
+
+  /* Mammoth JS */
+  .table {
+    @apply w-fit scale-x-95;
+  }
+
+  .module {
+    @apply section;
   }
 }
