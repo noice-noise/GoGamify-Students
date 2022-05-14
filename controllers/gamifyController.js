@@ -109,10 +109,16 @@ const readUploadFolderContents = () => {
 var htmlContents = "";
 
 const gamify_file_get = async (req, res) => {
+  gamifiedObj = {};
   htmlContents = "";
+
   readUploadFolderContents();
   await parseAllHtml();
-  await res.send(JSON.stringify(htmlContents));
+
+  gamifiedObj.htmlContents = htmlContents;
+  gamifiedObj.pages = uploadFolderContents.length;
+
+  await res.send(JSON.stringify(gamifiedObj));
 };
 
 const options = {
@@ -174,9 +180,10 @@ const learning_resource_post = (req, res) => {
   learningResource
     .save()
     .then(() => {
-      res.redirect("/gamify");
+      res.redirect("/home");
     })
     .catch((err) => {
+      console.log("ERROR saving resource", err);
       res.render("404", { title: "Sorry, something went wrong." });
     });
 };
