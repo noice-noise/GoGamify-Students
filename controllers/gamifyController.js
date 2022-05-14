@@ -180,12 +180,13 @@ const learning_resource_post = (req, res) => {
 const learning_resource_get = (req, res) => {
   const id = req.params.id;
   console.log(id);
+  console.log("User: ", req.session.user);
   LearningResource.findById(id)
     .then((result) => {
       res.render("gamify/details", {
         title: "Learning Resource Details",
         resource: result,
-        user: req.user,
+        user: req.session.user,
       });
     })
     .catch((err) => {
