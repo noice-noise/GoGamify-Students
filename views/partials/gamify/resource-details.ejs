@@ -5,8 +5,10 @@
       <form class="form" action="./save<%= locals.resource ? "?_method=PUT"
           : "" %>" method="POST">
 
-        <input type="text" name="_id" value="<%= user._id  %>" hidden />
-
+        <% if (locals.resource) { %>
+          <label for="_id">Resource ID</label>
+          <input class="form__field form__field--disabled" type="text" name="_id" value="<%= resource._id %>" readonly />
+        <% } %>
 
         <label for="title">Title</label>
         <input
@@ -35,10 +37,12 @@
 
         <label for="owner">Pages</label>
         <input
-          class="form__field"
+          id="pages"
+          class="form__field form__field--disabled"
           type="text"
-          name="owner"
-          disabled
+          name="pages"
+          value="<% if (locals.resource) { %><%= resource.pages %><% } %>"
+          readonly
         />
 
 
