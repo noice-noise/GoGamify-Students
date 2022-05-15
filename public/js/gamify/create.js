@@ -10,6 +10,7 @@ const clearBtn = document.getElementById("clearBtn");
 const uploadList = document.getElementById("uploadList");
 const uploadListRefreshBtn = document.getElementById("uploadListRefreshBtn");
 const htmlContent = document.getElementById("htmlContent");
+const pages = document.getElementById("pages");
 
 body.addEventListener("dragover", (event) => {
   event.preventDefault();
@@ -53,7 +54,8 @@ gamifyBtn.addEventListener("click", () => {
       return res.json();
     })
     .then((data) => {
-      appendHTML(data);
+      pages.value = data.pages;
+      appendHTML(data.htmlContents);
       linkValidIFrames();
     })
     .catch((err) => {
