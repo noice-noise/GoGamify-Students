@@ -25,9 +25,14 @@
 .file-container{
     display: flex;
     flex-wrap: wrap;
-    padding: 6rem;
+    /* padding: 6rem;
     row-gap: 2rem;
-    column-gap: 5%;
+    column-gap: 5%; */
+    justify-content: center;
+    width: 100%;
+    padding: 3rem;
+    row-gap: 3rem;
+    column-gap: 3rem;
     border-width: 1px;
     border-radius: 0 1rem 1rem 1rem; 
     --tw-bg-opacity: 1;
@@ -91,6 +96,7 @@
     /* min-height:auto;
     width: auto;
     max-width: 55rem; */
+    height: fit-content;
     border: 1px solid rgb(var(--color-primary-muted) / var(--tw-bg-opacity));
     border-radius: 3rem;
     --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
