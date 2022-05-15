@@ -569,10 +569,22 @@ body {
   }
 }
 
+/* ORIGINAL H3 CSS */
 .h3 {
   font-size: 1.125rem;
   line-height: 1.75rem;
+} 
+
+/* no need
+.h3_mod{
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  --tw-text-opacity: 1;
+  color: rgb(var(--color-primary) / var(--tw-text-opacity));
 }
+*/
 
 @media (min-width: 1024px) {
   .h3 {
@@ -1198,6 +1210,7 @@ body {
   -o-object-position: center;
      object-position: center;
 }
+
 
 .card__container {
   display: flex;
