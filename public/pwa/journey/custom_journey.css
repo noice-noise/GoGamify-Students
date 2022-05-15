@@ -23,6 +23,11 @@
 
 
 .file-container{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 6rem;
+    row-gap: 2rem;
+    column-gap: 5%;
     border-width: 1px;
     border-radius: 0 1rem 1rem 1rem; 
     --tw-bg-opacity: 1;
@@ -36,13 +41,15 @@
   
 /*tab container */
 .tabs {
+    display: flex;
     overflow: hidden;
     margin-top: 1rem;
 }
 
 /* buttons in tab*/
 .tabs button {
-    width: 20%;
+    box-sizing: content-box;
+    width: 15%;
     margin-top: 7px;
     float: left;
     border-radius: 30px 30px 0 0;
@@ -75,36 +82,36 @@
     
 }
 
-.card-group{
-    justify-content: center;
-    padding: 5rem;
-}
 .card-outline {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    align-content: flex-start;
-    min-height:auto;
-    width: 800px;
-    max-width: 55rem;
+    flex-basis: 47%;
+    /* align-items: flex-start; */
+    /* align-content: flex-start; */
+    /* min-height:auto;
+    width: auto;
+    max-width: 55rem; */
     border: 1px solid rgb(var(--color-primary-muted) / var(--tw-bg-opacity));
     border-radius: 3rem;
+    --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
     /* background-color: whitesmoke; */
 }
 .card-content{
     display: flex;
     padding: 3rem 3rem 0 3rem;
-    min-height: 100px;
-    width: 800px;
-    max-width: 55rem;
+    /* min-height: 100px;
+    width: 800px;*/
+    max-width: 55rem; 
 }
 
 .card_subject-box{
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 10rem;
-    height: 10rem;
+    width: 200px;
+    height: 160px;
     justify-content: center;
     align-items: center;
     background-color: red;
@@ -113,16 +120,18 @@
     display: flex;
     flex-direction: column;
     padding-left: 3rem;
-    width: 555px;
-    height: 208px;
+    width: 100%;
+    /* width: 25rem;
+    height: 208px; */
     
 }
+
 .card-progress{
     padding-top:1rem;
 }
 
 .card-footer{
-    padding: 0.5rem 0 0.5rem 0 ;
+    padding: 0.5rem 3rem 0.5rem 3rem ;
     justify-content: flex-end;
     justify-items: end;
 }
@@ -140,15 +149,31 @@
     border-radius: 50%;
     color: rgb(var(--color-primary-accent) / var(--tw-text-opacity));
 }
- .circle button:hover{
-    background-color: rgb(var(--color-primary-accent) / var(--tw-text-opacity));
-} 
-.circle button:active{
-    background-color: rgb(var(--color-primary-accent));
+.circle button:hover{
+    background-color: rgb(var(--color-primary-accent) / var(--tw-bg-opacity));
 
 }
-.circle svg:hover{
+.circle button:focus{
+    background-color: rgb(var(--color-primary-accent));
+}
+
+/* arrow icon colors */
+
+.btn_exp:hover{
     fill: rgb(var(--color-primary-muted) / var(--tw-bg-opacity)) ;
+}
+.btn_exp.focused{
+    fill: rgb(var(--color-primary-muted) / var(--tw-bg-opacity)) ;
+}
+.btn_exp.unfocused:hover{
+    fill: rgb(var(--color-primary-muted) / var(--tw-bg-opacity)) ;
+}
+.btn_exp.unfocused{
+    fill:black;
+}
+
+.svg_less{
+    visibility: hidden;
 }
 
 /*subject box text*/
@@ -212,19 +237,18 @@
      display: block;
   }
 
-
-.checklist{
+.card-more-info{
     border:5px solid rgb(var(--color-primary-muted) / var(--tw-bg-opacity)) ;
     border-radius: 20px;
-    margin:2rem auto 2rem auto;
+    margin:3rem auto 1rem auto;
     width: 90%;
-    height: auto;
     padding-top: 2rem;
     padding-bottom: 2rem ;
+    display: none;
 }
 .info-content{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 
 }
 .info-left{
@@ -242,4 +266,7 @@
     display: flex;
     flex-direction: column;
     height: auto;
+}
+.details{
+    margin-left: 2rem;
 }

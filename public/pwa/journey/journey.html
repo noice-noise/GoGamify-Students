@@ -14,23 +14,9 @@
     <script src="journey.js"></script>
 
     <link rel="shortcut icon" href="/icons/favicon.ico" type="image/x-icon" />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="/icons/apple-touch-icon.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="/icons/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="/icons/favicon-16x16.png"
-    />
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png" />
 
     <link rel="manifest" href="../manifest.json" />
     <script src="/js/preload.js"></script>
@@ -173,182 +159,358 @@
             <!--TABS CONTENT-->
             <section class="file-container">
                 <!--flexbox container-->
-                <div class="card-group" id="todo">
-                    <!--individual card container-->
-                    <div class="card card-outline">
-                        <!--card contents STARTS HERE-->
-                        <div class="card-content">
-                            <div class="card_subject-box">
-                                <p class="text-sub-box">EN</p>
-                            </div>
-                            <div class="card-body">
-                                <div class="card-title">
-                                    <p class="h1 text-primary">English</p>
-                                    <p class="h3 text-primary-accent">Reading and Writing</p>
-                                </div>
-                                <div class="card-progress">
-                                    <div class="meter orange nostripes">
-                                        <span style="width: 50%"></span>
-                                    </div>
-                                    <div class="progress-text">
-                                        <p class="h4">Progress</p>
-                                        <span class="h4 current">10<span class="h4"> / <span class="h4 total">20
-                                                </span></span></span>
-                                    </div>
-                                </div>
-                                <div class="card-footer">
-                                    <div class="circle">
-                                        <button id="btn_show" onclick="show(1)">
-                                            <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
-                                                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="2rem"
-                                                height="2rem" viewBox="0 0 960 560" enable-background="new 0 0 960 560"
-                                                xml:space="preserve">
-                                                <g id="Rounded_Rectangle_33_copy_4_1_">
-                                                    <path
-                                                        d="M480,344.181L268.869,131.889c-15.756-15.859-41.3-15.859-57.054,0c-15.754,15.857-15.754,41.57,0,57.431l237.632,238.937
-                                           c8.395,8.451,19.562,12.254,30.553,11.698c10.993,0.556,22.159-3.247,30.555-11.698l237.631-238.937
-                                           c15.756-15.86,15.756-41.571,0-57.431s-41.299-15.859-57.051,0L480,344.181z" />
-                                                </g>
-                                            </svg>
-                                        </button>
-                                        <p class="showmore" id="txt_show1">
-                                            show more
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
+
+                <!--individual card container-->
+                <div class="card card-outline" id="todo">
+                    <!--card contents STARTS HERE-->
+                    <div class="card-content">
+                        <div class="card_subject-box">
+                            <p class="text-sub-box">EN</p>
                         </div>
-
-                        <div id="more1" class="checklist" style="display: none;">
-                            <div class="card-body" style="padding: 0 1rem 0 1rem; color:rgba(119, 119, 119, 0.993)">
-
-                                <span class="h3">
-                                    English Week 1
-                                </span>
-                                <span>
-                                    Let's start our lesson introduction by viewing the interactive activity.
-                                </span><br>
-                                <div class="info-content">
-                                    <div class="info-left">
-                                        <span> Owner </span>
-                                        <span>School </span>
-                                        <span>Students Enrolled</span>
-                                        <span>Total Pages</span>
-                                        <span>Updated </span>
-                                        <span>Version </span>
-                                    </div>
-                                    <div class="info-colon">
-                                        <span>:</span>
-                                        <span>:</span>
-                                        <span>:</span>
-                                        <span>:</span>
-                                        <span>:</span>
-                                        <span>:</span>
-                                    </div>
-                                    <div class="info-right">
-                                        <span>Ms. Cristina Dela Cruz</span>
-                                        <span>Cebu Institute of Technology University</span>
-                                        <span>12</span>
-                                        <span>20</span>
-                                        <span>May 10, 2022</span>
-                                        <span>1</span>
-                                    </div>
+                        <div class="card-body">
+                            <div class="card-title">
+                                <p class="h1 text-primary">English</p>
+                                <p class="h3 text-primary-accent">Reading and Writing</p>
+                            </div>
+                            <div class="card-progress">
+                                <div class="meter orange nostripes">
+                                    <span style='width: 50%'></span>
+                                </div>
+                                <div class="progress-text">
+                                    <p class="h4">Progress</p>
+                                    <span class="h4 current">10<span class="h4"> / <span class="h4 total">20
+                                            </span></span></span>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@2ND CARD@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
-                    <div class="card card-outline">
-                        <!--card contents STARTS HERE-->
-                        <div class="card-content">
-                            <div class="card_subject-box">
-                                <p class="text-sub-box">FI</p>
-                            </div>
-                            <div class="card-body">
-                                <div class="card-title">
-                                    <p class="h1 text-primary">Filipino</p>
-                                    <p class="h3 text-primary-accent">Wika at Panlipunan</p>
+                    <div id="more1" class="card-more-info" style="display: none;">
+                        <div class="card-body" style="padding: 0 1rem 0 1rem; color:rgba(119, 119, 119, 0.993)">
+
+                            <span class="h3 details">
+                                English Week 1
+                            </span>
+                            <span class="details">
+                                Let's start our lesson introduction by viewing the interactive activity.
+                            </span><br>
+                            <div class="info-content">
+                                <div class="info-left">
+                                    <span> Owner</span>
+                                    <span>School </span>
+                                    <span>Students Enrolled</span>
+                                    <span>Total Pages</span>
+                                    <span>Updated </span>
+                                    <span>Version </span>
                                 </div>
-                                <div class="card-progress">
-                                    <div class="meter yellow nostripes">
-                                        <span style="width: 20%"></span>
-                                    </div>
-                                    <div class="progress-text">
-                                        <p class="h4">Progress</p>
-                                        <span class="h4 current">8<span class="h4"> / <span class="h4 total">40
-                                                </span></span></span>
-                                    </div>
+                                <div class="info-colon">
+                                    <span>:</span>
+                                    <span>:</span>
+                                    <span>:</span>
+                                    <span>:</span>
+                                    <span>:</span>
+                                    <span>:</span>
                                 </div>
-                                <div class="card-footer">
-                                    <div class="circle">
-                                        <button id="btn_show" onclick="show(2)">
-                                            <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
-                                                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="2rem"
-                                                height="2rem" viewBox="0 0 960 560" enable-background="new 0 0 960 560"
-                                                xml:space="preserve">
-                                                <g id="Rounded_Rectangle_33_copy_4_1_">
-                                                    <path
-                                                        d="M480,344.181L268.869,131.889c-15.756-15.859-41.3-15.859-57.054,0c-15.754,15.857-15.754,41.57,0,57.431l237.632,238.937
-                                           c8.395,8.451,19.562,12.254,30.553,11.698c10.993,0.556,22.159-3.247,30.555-11.698l237.631-238.937
-                                           c15.756-15.86,15.756-41.571,0-57.431s-41.299-15.859-57.051,0L480,344.181z" />
-                                                </g>
-                                            </svg>
-                                        </button>
-                                        <p class="showmore" id="txt_show2">
-                                            show more
-                                        </p>
-                                    </div>
+                                <div class="info-right">
+                                    <span>Ms. Cristina Dela Cruz</span>
+                                    <span>Cebu Institute of Technology University</span>
+                                    <span>12</span>
+                                    <span>20</span>
+                                    <span>May 10, 2022</span>
+                                    <span>1</span>
                                 </div>
                             </div>
                         </div>
+                    </div>
 
-                        <div id="more2" class="checklist" style="display: none;">
-                            <div class="card-body" style="padding: 0 1rem 0 1rem; color:rgba(119, 119, 119, 0.993)">
 
-                                <span class="h3">
-                                    Filipino Unang Linggo
-                                </span>
+                    <div class="card-footer">
+                        <div class="circle">
+                            <button id="btn_show" onclick="show(1)">
                                 <span>
-                                    Mabuhay! Basahin at unawain ang mga aralin para sa unang linggo.
-                                </span><br>
-                                <div class="info-content">
-                                    <div class="info-left">
-                                        <span> Owner </span>
-                                        <span>School </span>
-                                        <span>Students Enrolled</span>
-                                        <span>Total Pages</span>
-                                        <span>Updated </span>
-                                        <span>Version </span>
-                                    </div>
-                                    <div class="info-colon">
-                                        <span>:</span>
-                                        <span>:</span>
-                                        <span>:</span>
-                                        <span>:</span>
-                                        <span>:</span>
-                                        <span>:</span>
-                                    </div>
-                                    <div class="info-right">
-                                        <span>Mr.Angelo Garcia</span>
-                                        <span>Cebu Institute of Technology University</span>
-                                        <span>20</span>
-                                        <span>40</span>
-                                        <span>May 10, 2022</span>
-                                        <span>1</span>
-                                    </div>
-                                </div>
-                            </div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="btn_exp" height="32" width="32"
+                                        viewBox="0 0 50 50">
+                                        <path d="M24 30.75 12 18.75 14.15 16.6 24 26.5 33.85 16.65 36 18.8Z"
+                                            class="svg_more" id="icon_more1" />
+                                        <path d="M14.15 30.75 12 28.6 24 16.6 36 28.55 33.85 30.7 24 20.85Z"
+                                            class="svg_less" id="icon_less1">
+                                    </svg>
+                                </span>
+                            </button>
+                            <p class="showmore" id="txt_show1">
+                                show more
+                            </p>
                         </div>
                     </div>
 
                 </div>
 
-                <!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@COMPLETED TASKS@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+                <!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@COPIED STARTs HERE@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
 
-                <div class="card-group" id="todo1" style="display: none;">
+                <div class="card card-outline" id="todo2">
+                    <!--card contents STARTS HERE-->
+                    <div class="card-content">
+                        <div class="card_subject-box">
+                            <p class="text-sub-box">FI</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-title">
+                                <p class="h1 text-primary">Filipino</p>
+                                <p class="h3 text-primary-accent">Wika at Panlipunan</p>
+                            </div>
+                            <div class="card-progress">
+                                <div class="meter yellow nostripes">
+                                    <span style="width: 20%"></span>
+                                </div>
+                                <div class="progress-text">
+                                    <p class="h4">Progress</p>
+                                    <span class="h4 current">8<span class="h4"> / <span class="h4 total">40
+                                            </span></span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="more2" class="card-more-info" style="display: none;">
+                        <div class="card-body" style="padding: 0 1rem 0 1rem; color:rgba(119, 119, 119, 0.993)">
+
+                            <span class="h3">
+                                Filipino Unang Linggo
+                            </span>
+                            <span>
+                                Mabuhay! Basahin at unawain ang mga aralin para sa unang linggo.
+                            </span><br>
+                            <div class="info-content">
+                                <div class="info-left">
+                                    <span> Owner </span>
+                                    <span>School </span>
+                                    <span>Students Enrolled</span>
+                                    <span>Total Pages</span>
+                                    <span>Updated </span>
+                                    <span>Version </span>
+                                </div>
+                                <div class="info-colon">
+                                    <span>:</span>
+                                    <span>:</span>
+                                    <span>:</span>
+                                    <span>:</span>
+                                    <span>:</span>
+                                    <span>:</span>
+                                </div>
+                                <div class="info-right">
+                                    <span>Mr.Angelo Garcia</span>
+                                    <span>Cebu Institute of Technology University</span>
+                                    <span>20</span>
+                                    <span>40</span>
+                                    <span>May 10, 2022</span>
+                                    <span>1</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="card-footer">
+                        <div class="circle">
+                            <button id="btn_show" onclick="show(2)">
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="btn_exp" height="32" width="32"
+                                        viewBox="0 0 50 50">
+                                        <path d="M24 30.75 12 18.75 14.15 16.6 24 26.5 33.85 16.65 36 18.8Z"
+                                            class="svg_more" id="icon_more1" />
+                                        <path d="M14.15 30.75 12 28.6 24 16.6 36 28.55 33.85 30.7 24 20.85Z"
+                                            class="svg_less" id="icon_less1">
+                                    </svg>
+                                </span>
+                            </button>
+                            <p class="showmore" id="txt_show1">
+                                show more
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+                
+                <div class="card card-outline" id="todo3">
+                    <!--card contents STARTS HERE-->
+                    <div class="card-content">
+                        <div class="card_subject-box">
+                            <p class="text-sub-box">AP</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-title">
+                                <p class="h1 text-primary">Araling Panlipunan</p>
+                                <p class="h3 text-primary-accent">Kasaysayan ng Pilipinas</p>
+                            </div>
+                            <div class="card-progress">
+                                <div class="meter yellow nostripes">
+                                    <span style="width: 20%"></span>
+                                </div>
+                                <div class="progress-text">
+                                    <p class="h4">Progress</p>
+                                    <span class="h4 current">8<span class="h4"> / <span class="h4 total">40
+                                            </span></span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="more3" class="card-more-info" style="display: none;">
+                        <div class="card-body" style="padding: 0 1rem 0 1rem; color:rgba(119, 119, 119, 0.993)">
+
+                            <span class="h3">
+                                Filipino Unang Linggo
+                            </span>
+                            <span>
+                                Mabuhay! Basahin at unawain ang mga aralin para sa unang linggo.
+                            </span><br>
+                            <div class="info-content">
+                                <div class="info-left">
+                                    <span> Owner </span>
+                                    <span>School </span>
+                                    <span>Students Enrolled</span>
+                                    <span>Total Pages</span>
+                                    <span>Updated </span>
+                                    <span>Version </span>
+                                </div>
+                                <div class="info-colon">
+                                    <span>:</span>
+                                    <span>:</span>
+                                    <span>:</span>
+                                    <span>:</span>
+                                    <span>:</span>
+                                    <span>:</span>
+                                </div>
+                                <div class="info-right">
+                                    <span>Mr.Angelo Garcia</span>
+                                    <span>Cebu Institute of Technology University</span>
+                                    <span>20</span>
+                                    <span>40</span>
+                                    <span>May 10, 2022</span>
+                                    <span>1</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="card-footer">
+                        <div class="circle">
+                            <button id="btn_show" onclick="show(3)">
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="btn_exp" height="32" width="32"
+                                        viewBox="0 0 50 50">
+                                        <path d="M24 30.75 12 18.75 14.15 16.6 24 26.5 33.85 16.65 36 18.8Z"
+                                            class="svg_more" id="icon_more1" />
+                                        <path d="M14.15 30.75 12 28.6 24 16.6 36 28.55 33.85 30.7 24 20.85Z"
+                                            class="svg_less" id="icon_less1">
+                                    </svg>
+                                </span>
+                            </button>
+                            <p class="showmore" id="txt_show1">
+                                show more
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="card card-outline" id="todo4">
+                    <!--card contents STARTS HERE-->
+                    <div class="card-content">
+                        <div class="card_subject-box">
+                            <p class="text-sub-box">HI</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-title">
+                                <p class="h1 text-primary">HISTORY</p>
+                                <p class="h3 text-primary-accent">Kasaysayan ng Pilipinas</p>
+                            </div>
+                            <div class="card-progress">
+                                <div class="meter yellow nostripes">
+                                    <span style="width: 20%"></span>
+                                </div>
+                                <div class="progress-text">
+                                    <p class="h4">Progress</p>
+                                    <span class="h4 current">8<span class="h4"> / <span class="h4 total">40
+                                            </span></span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="more4" class="card-more-info" style="display: none;">
+                        <div class="card-body" style="padding: 0 1rem 0 1rem; color:rgba(119, 119, 119, 0.993)">
+
+                            <span class="h3">
+                                Filipino Unang Linggo
+                            </span>
+                            <span>
+                                Mabuhay! Basahin at unawain ang mga aralin para sa unang linggo.
+                            </span><br>
+                            <div class="info-content">
+                                <div class="info-left">
+                                    <span> Owner </span>
+                                    <span>School </span>
+                                    <span>Students Enrolled</span>
+                                    <span>Total Pages</span>
+                                    <span>Updated </span>
+                                    <span>Version </span>
+                                </div>
+                                <div class="info-colon">
+                                    <span>:</span>
+                                    <span>:</span>
+                                    <span>:</span>
+                                    <span>:</span>
+                                    <span>:</span>
+                                    <span>:</span>
+                                </div>
+                                <div class="info-right">
+                                    <span>Mr.Angelo Garcia</span>
+                                    <span>Cebu Institute of Technology University</span>
+                                    <span>20</span>
+                                    <span>40</span>
+                                    <span>May 10, 2022</span>
+                                    <span>1</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="card-footer">
+                        <div class="circle">
+                            <button id="btn_show" onclick="show(4)">
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="btn_exp" height="32" width="32"
+                                        viewBox="0 0 50 50">
+                                        <path d="M24 30.75 12 18.75 14.15 16.6 24 26.5 33.85 16.65 36 18.8Z"
+                                            class="svg_more" id="icon_more1" />
+                                        <path d="M14.15 30.75 12 28.6 24 16.6 36 28.55 33.85 30.7 24 20.85Z"
+                                            class="svg_less" id="icon_less1">
+                                    </svg>
+                                </span>
+                            </button>
+                            <p class="showmore" id="txt_show1">
+                                show more
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+
+
+
+
+
+
+                <!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@COMPLETED TASKS@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
                     <!--individual card container-->
-                    <div class="card card-outline">
+                    <div class="card card-outline"  id="todo1" style="display: none;">
                         <!--card contents STARTS HERE-->
                         <div class="card-content">
                             <div class="card_subject-box">
@@ -369,30 +531,10 @@
                                                 </span></span></span>
                                     </div>
                                 </div>
-                                <div class="card-footer">
-                                    <div class="circle">
-                                        <button id="btn_show" onclick="show(3)">
-                                            <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
-                                                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="2rem"
-                                                height="2rem" viewBox="0 0 960 560" enable-background="new 0 0 960 560"
-                                                xml:space="preserve">
-                                                <g id="Rounded_Rectangle_33_copy_4_1_">
-                                                    <path
-                                                        d="M480,344.181L268.869,131.889c-15.756-15.859-41.3-15.859-57.054,0c-15.754,15.857-15.754,41.57,0,57.431l237.632,238.937
-                                           c8.395,8.451,19.562,12.254,30.553,11.698c10.993,0.556,22.159-3.247,30.555-11.698l237.631-238.937
-                                           c15.756-15.86,15.756-41.571,0-57.431s-41.299-15.859-57.051,0L480,344.181z" />
-                                                </g>
-                                            </svg>
-                                        </button>
-                                        <p class="showmore" id="txt_show3">
-                                            show more
-                                        </p>
-                                    </div>
-                                </div>
                             </div>
                         </div>
 
-                        <div id="more3" class="checklist" style="display: none;">
+                        <div id="more10" class="card-more-info" style="display: none;">
                             <div class="card-body" style="padding: 0 1rem 0 1rem; color:rgba(119, 119, 119, 0.993)">
 
                                 <span class="h3">
@@ -429,16 +571,34 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="card-footer">
+                            <div class="circle">
+                                <button id="btn_show" onclick="show(10)">
+                                    <span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="btn_exp" height="32" width="32"
+                                            viewBox="0 0 50 50">
+                                            <path d="M24 30.75 12 18.75 14.15 16.6 24 26.5 33.85 16.65 36 18.8Z"
+                                                class="svg_more" id="icon_more1" />
+                                            <path d="M14.15 30.75 12 28.6 24 16.6 36 28.55 33.85 30.7 24 20.85Z"
+                                                class="svg_less" id="icon_less1">
+                                        </svg>
+                                    </span>
+                                </button>
+                                <p class="showmore" id="txt_show1">
+                                    show more
+                                </p>
+                            </div>
+                        </div>
                     </div>
 
-                </div>
-                
+
 
             </section>
         </div>
     </main>
 
-    
+
     <script type="module" src="/js/onload.js"></script>
 </body>
 
