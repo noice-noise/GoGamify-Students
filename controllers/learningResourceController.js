@@ -13,9 +13,6 @@ const learning_resource = (req, res) => {
 };
 
 const learning_resource_post = (req, res) => {
-  console.log("Saving");
-  console.log(req.body);
-
   const learningResource = new LearningResource(req.body);
   // active means that the learning resource can be shown to public
   learningResource.active = req.body.active == "on" ? true : false;
@@ -32,8 +29,6 @@ const learning_resource_post = (req, res) => {
 
 const learning_resource_get = (req, res) => {
   const id = req.params.id;
-  console.log(id);
-  console.log("User: ", req.session.user);
   LearningResource.findById(id)
     .then((result) => {
       res.render("gamify/details", {
@@ -50,7 +45,6 @@ const learning_resource_get = (req, res) => {
 
 const learning_resource_put = (req, res) => {
   console.log("Updating gogamify resource...");
-  console.log(req.body);
   LearningResource.findByIdAndUpdate(req.body._id, req.body, (err, docs) => {
     if (err) {
       console.log("PUT request error: ", err);
@@ -80,10 +74,23 @@ const learning_resource_delete = (req, res) => {
     });
 };
 
+const learning_resource_data_get = (req, res) => {
+  const id = req.params.id;
+  LearningResource.findById(id)
+    .then((result) => {
+      res.send(JSON.stringify(result));
+    })
+    .catch((err) => {
+      console.log(err);
+      res.render("404", { title: "Sorry, something went wrong." });
+    });
+};
+
 module.exports = {
   learning_resource,
   learning_resource_post,
   learning_resource_get,
   learning_resource_put,
   learning_resource_delete,
+  learning_resource_data_get,
 };

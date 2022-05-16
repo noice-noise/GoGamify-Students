@@ -8,4 +8,6 @@ router.get("/:id", learningResourceController.learning_resource_get);
 router.put("/save", learningResourceController.learning_resource_put);
 router.delete("/:id", learningResourceController.learning_resource_delete);
 
+router.get("/data/:id", learningResourceController.learning_resource_data_get);
+
 module.exports = router;
