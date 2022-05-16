@@ -125,11 +125,11 @@ const options = {
   // reserve  H1 conversions (right-side arrows) for specific page titles for semantic meaning
   // so style conversions for title headers starts with H2
   styleMap: [
-    "p[style-name='Heading 1'] => h2.h1:fresh",
-    "p[style-name='Heading 2'] => h3.h2:fresh",
-    "p[style-name='Heading 3'] => h4.h3:fresh",
-    "p[style-name='Heading 4'] => h5.h4:fresh",
-    "p[style-name='Heading 5'] => h6.h5:fresh",
+    "p[style-name='Heading 1'] => h1.h1:fresh",
+    "p[style-name='Heading 2'] => h2.h2:fresh",
+    "p[style-name='Heading 3'] => h3.h3:fresh",
+    "p[style-name='Heading 4'] => h4.h4:fresh",
+    "p[style-name='Heading 5'] => h5.h5:fresh",
     "p[style-name='Heading 6'] => p:fresh",
   ],
   ignoreEmptyParagraphs: true,
@@ -170,7 +170,6 @@ const gamify_file_delete = async (req, res) => {
   res.send("Uploaded files deleted successfully.");
 };
 
-
 const gamify_file_list_get = async (req, res) => {
   let uploadedItems = [];
   readUploadFolderContents();
@@ -195,7 +194,6 @@ const gamify_file_list_get = async (req, res) => {
   console.log("Uploaded items: ", uploadedItems);
   await res.send(uploadedItems);
 };
-
 
 module.exports = {
   gamify_index,
