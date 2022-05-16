@@ -2,7 +2,7 @@
   <div class="w-full">
     <h3 class="h3 pb-10">Learning Resource</h3>
     <div>
-      <form class="form" action="./save<%= locals.resource ? "?_method=PUT"
+      <form class="form" action="/resource/save<%= locals.resource ? "?_method=PUT"
           : "" %>" method="POST">
 
         <% if (locals.resource) { %>
