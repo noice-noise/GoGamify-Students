@@ -30,6 +30,7 @@ export const initLoader = async () => {
       })
       .then(() => {
         body.classList.toggle("hidden");
+        console.log("Done, localStorage set...");
       })
       .catch((err) => {
         console.log("onload err", err);
