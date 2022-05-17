@@ -1,4 +1,5 @@
 const LearningResource = require("../models/learningResource");
+let isOffline;
 
 const learning_resource = (req, res) => {
   LearningResource.find()
@@ -10,6 +11,36 @@ const learning_resource = (req, res) => {
     .catch((err) => {
       res.render("404", { title: "Sorry, something went wrong." });
     });
+};
+
+const learning_resource_index = (req, res) => {
+  console.log("Learning Resource index...");
+
+  if (isOffline) {
+    console.log("App is currently running offline...");
+    console.log("Cannot retrieve learning resources from DB...");
+    res.render("gamify/index", {
+      title: "All Learning Resources",
+      resources: [],
+      offline: true,
+    });
+  } else {
+    console.log("App is currently running online...");
+    console.log("Retrieving learning resources from DB...");
+    LearningResource.find()
+      .sort({ createdAt: -1 })
+      .then((result) => {
+        console.log("Number of Learning Resources: ", result.length);
+        res.render("app/browse", {
+          title: "All Learning Resources",
+          resources: result,
+          offline: false,
+        });
+      })
+      .catch((err) => {
+        res.render("404", { title: "Sorry, something went wrong." });
+      });
+  }
 };
 
 const learning_resource_post = (req, res) => {
@@ -88,6 +119,7 @@ const learning_resource_data_get = (req, res) => {
 
 module.exports = {
   learning_resource,
+  learning_resource_index,
   learning_resource_post,
   learning_resource_get,
   learning_resource_put,
