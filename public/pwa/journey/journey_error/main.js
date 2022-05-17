@@ -16,7 +16,7 @@ function changeToFrontContent() {
 }
 
 var box = document.getElementById('subject-box');
-var no_subjects = 8;
+var no_subjects = 4;
 
 function generateCards(){
     for(i = 0; i < no_subjects; i++){
