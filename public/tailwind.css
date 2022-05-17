@@ -1737,6 +1737,11 @@ body {
   background-color: rgb(245 243 255 / var(--tw-bg-opacity));
 }
 
+.bg-primary-muted {
+  --tw-bg-opacity: 1;
+  background-color: rgb(var(--color-primary-muted) / var(--tw-bg-opacity));
+}
+
 .bg-danger {
   --tw-bg-opacity: 1;
   background-color: rgb(var(--color-danger) / var(--tw-bg-opacity));
@@ -1755,11 +1760,6 @@ body {
 .bg-gray-200 {
   --tw-bg-opacity: 1;
   background-color: rgb(229 231 235 / var(--tw-bg-opacity));
-}
-
-.bg-primary-muted {
-  --tw-bg-opacity: 1;
-  background-color: rgb(var(--color-primary-muted) / var(--tw-bg-opacity));
 }
 
 .from-violet-700 {
@@ -1993,6 +1993,11 @@ body {
   color: rgb(var(--color-primary-muted) / var(--tw-text-opacity));
 }
 
+.text-neutral {
+  --tw-text-opacity: 1;
+  color: rgb(var(--color-text-neutral) / var(--tw-text-opacity));
+}
+
 .text-gray-700 {
   --tw-text-opacity: 1;
   color: rgb(55 65 81 / var(--tw-text-opacity));
@@ -2006,11 +2011,6 @@ body {
 .text-gray-600 {
   --tw-text-opacity: 1;
   color: rgb(75 85 99 / var(--tw-text-opacity));
-}
-
-.text-neutral {
-  --tw-text-opacity: 1;
-  color: rgb(var(--color-text-neutral) / var(--tw-text-opacity));
 }
 
 .text-foreground {
@@ -2338,11 +2338,6 @@ body {
 .hover\:bg-violet-200:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(221 214 254 / var(--tw-bg-opacity));
-}
-
-.hover\:bg-primary-accent:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(var(--color-primary-accent) / var(--tw-bg-opacity));
 }
 
 .hover\:shadow-lg:hover {
