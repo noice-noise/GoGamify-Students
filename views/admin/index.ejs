@@ -4,47 +4,53 @@
 
   <body class="body">
     <%- include('../partials/header.ejs') %>
-    <div class="auto-container section">
+    <div class="auto-container section mt-20">
       <div class="mt-10 flex w-full flex-col items-center justify-center">
-        <h1 class="h1 text-center">
+        <h1 class="h1 text-center text-5xl">
           GoGamify <span class="text-primary">Admin</span>
         </h1>
 
         <!-- nav -->
-        <div class="mt-10 w-full">
-          <ul
-            class="flex w-full flex-col items-center justify-center py-3 text-center"
-          >
-            <li>
+        <div class="mt-10">
+          <ul class="flex flex-col justify-between py-3">
+            <li class="w-full">
               <a
-                class="button py-3 px-4 text-neutral"
+                class="button w-full py-3 px-4 text-neutral"
                 href="/admin/student-accounts"
                 >Student Profiles</a
               >
             </li>
-            <li>
-              <a class="button py-3 px-4 text-neutral" href="/gamify/"
-                >Resource Collection</a
+            <li class="w-full">
+              <a class="button w-full py-3 px-4 text-neutral" href="/gamify/"
+                >Gamified Collection</a
               >
             </li>
-            <li>
-              <a class="button py-3 px-4 text-neutral" href="/gamify/create"
-                >Gamify Resources</a
+            <li class="w-full">
+              <a
+                class="button w-full py-3 px-4 text-neutral"
+                href="/gamify/create"
+                >Gamification Labs</a
               >
             </li>
-            <li>
-              <a class="button py-3 px-4 text-neutral" href="#">Badges</a>
+            <li class="w-full">
+              <a class="button w-full py-3 px-4 text-neutral" href="#"
+                >Badges</a
+              >
             </li>
-            <li>
-              <a class="button py-3 px-4 text-neutral" href="#">Achievements</a>
+            <li class="w-full">
+              <a class="button w-full py-3 px-4 text-neutral" href="#"
+                >Achievements</a
+              >
             </li>
-            <li>
-              <a class="button py-3 px-4 text-neutral" href="#">Themes</a>
+            <li class="w-full">
+              <a class="button w-full py-3 px-4 text-neutral" href="#"
+                >Themes</a
+              >
             </li>
-            <li>
-              <div class="imposter">
+            <li class="w-full">
+              <div class="imposter w-full">
                 <form action="/auth/logout?_method=DELETE" method="POST">
-                  <button class="button button--muted" type="submit">
+                  <button class="button button--muted w-full" type="submit">
                     Logout
                   </button>
                 </form>
