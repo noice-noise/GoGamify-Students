@@ -219,10 +219,12 @@
         <section class="section">
           <h1 class="h1">Profile</h1>
 
-          <div>
+          <!-- <div>
             <h2 class="h2 py-3">Account</h2>
-            <a class="button button--cta" href="#">Update my Account Profile</a>
-          </div>
+            <a class="button button--cta" href="/auth/register/student"
+              >Update my Account Profile</a
+            >
+          </div> -->
           <div class="py-10">
             <form
               id="appearanceForm"
@@ -267,10 +269,11 @@
                 class="form__field"
               >
                 <option hidden selected disabled>Choose font size</option>
-                <option value="0.75rem">Extra Small</option>
-                <option value="0.875rem">Small</option>
-                <option value="1rem">Normal</option>
-                <option value="1.25rem">Large</option>
+                <option class="text-xs" value="text-xs">Extra Small</option>
+                <option class="text-sm" value="text-sm">Small</option>
+                <option class="text-base" value="text-base">Normal</option>
+                <option class="text-lg" value="text-lg">Large</option>
+                <option class="text-xl" value="text-xl">Extra Large</option>
               </select>
 
               <button class="button">Save Theme</button>

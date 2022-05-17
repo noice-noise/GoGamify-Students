@@ -24,7 +24,7 @@ profileFontFamilySelect.addEventListener("change", (e) => {
 
 profileFontSizeSelect.addEventListener("change", (e) => {
   const targetFontSize = profileFontSizeSelect.value;
-  changeFontSize(targetFontSize);
+  // changeFontSize(targetFontSize);
 });
 
 appearanceForm.addEventListener("submit", async (e) => {
