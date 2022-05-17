@@ -3,6 +3,7 @@ const router = express.Router();
 
 const learningResourceController = require("../controllers/learningResourceController");
 
+router.get("/all", learningResourceController.learning_resource_index);
 router.post("/save", learningResourceController.learning_resource_post);
 router.get("/:id", learningResourceController.learning_resource_get);
 router.put("/save", learningResourceController.learning_resource_put);
