@@ -38,12 +38,9 @@ const studentSchema = new Schema(
       type: String,
     },
     resources: [],
-    badges: {
-      type: String,
-    },
-    achievements: {
-      type: String,
-    },
+    completed: [],
+    badges: [],
+    achievements: [],
   },
   { timestamps: true }
 );
