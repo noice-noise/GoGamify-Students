@@ -44,9 +44,9 @@ const student_index = (req, res) => {
 };
 
 const student_post = async (req, res) => {
-  console.log("USER request: ", req.user);
-  console.log("USER session: ", req.session.user);
-  console.log("USER cookies: ", req.cookies.user);
+  // console.log("USER request: ", req.user);
+  // console.log("USER session: ", req.session.user);
+  // console.log("USER cookies: ", req.cookies.user);
   console.log("Saving student model...");
 
   const student = new Student(req.body);
@@ -172,6 +172,28 @@ const profile_preference_get = async (req, res) => {
     });
 };
 
+const journey_resource_post = async (req, res) => {
+  console.log("Target resource rode:", req.body.code);
+
+  await Student.findByIdAndUpdate(
+    req.session.user.profile,
+    { $push: { resources: { id: req.body.code } } },
+    { safe: true, upsert: true },
+    (err, docs) => {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log(docs);
+        res.redirect("/home");
+      }
+    }
+  )
+    .clone()
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
 module.exports = {
   student_index,
   student_post,
@@ -180,4 +202,5 @@ module.exports = {
   student_delete,
   profile_preference_post,
   profile_preference_get,
+  journey_resource_post,
 };

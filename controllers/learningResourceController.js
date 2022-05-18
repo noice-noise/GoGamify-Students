@@ -117,6 +117,12 @@ const learning_resource_data_get = (req, res) => {
     });
 };
 
+const learning_resource_join = async (req, res) => {
+  await res.render("app/join-code", {
+    title: "Join a Journey | GoGamify",
+  });
+};
+
 module.exports = {
   learning_resource,
   learning_resource_index,
@@ -125,4 +131,5 @@ module.exports = {
   learning_resource_put,
   learning_resource_delete,
   learning_resource_data_get,
+  learning_resource_join,
 };

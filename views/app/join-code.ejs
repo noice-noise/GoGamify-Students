@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head.ejs') %>
+  <body class="bg-gray-50">
+    <%- include('../partials/header.ejs') %>
+    <main
+      class="auto-container flex h-screen w-screen items-center justify-center"
+    >
+      <section class="section max-w-md">
+        <h1 class="h2 mb-4 text-center">Join a Journey</h1>
+        <form
+          class="flex flex-col gap-3"
+          action="/student/journey/"
+          method="post"
+        >
+          <input
+            name="code"
+            class="form__field mb-0"
+            type="text"
+            placeholder="Enter journey a code"
+          />
+          <button class="button button--cta w-full" type="submit">Join</button>
+        </form>
+        <a class="button button--muted w-full" href="/">Back</a>
+      </section>
+    </main>
+    <%- include('../partials/footer.ejs') %>
+  </body>
+</html>
