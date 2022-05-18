@@ -101,9 +101,9 @@ app.use("/admin", ensureAuthenticated, adminRoutes);
 app.use("/auth", authRoutes);
 
 app.use("/home", setAuthCookie, forwardAdmin, forwardFirstLogin, (req, res) => {
-  console.debug("USER request: ", req.user);
-  console.debug("USER session: ", req.session.user);
-  console.debug("USER cookies: ", req.cookies.user);
+  // console.debug("USER request: ", req.user);
+  // console.debug("USER session: ", req.session.user);
+  // console.debug("USER cookies: ", req.cookies.user);
   res.redirect("/pwa/learning-module/module.html");
 });
 
