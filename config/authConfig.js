@@ -9,7 +9,7 @@ module.exports = {
       return next();
     }
 
-    res.redirect("auth/login");
+    res.redirect("/auth/login");
   },
 
   forwardAuthenticated: function checkNotAuthenticated(req, res, next) {
