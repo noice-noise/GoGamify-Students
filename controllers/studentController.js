@@ -1,5 +1,6 @@
 const Student = require("../models/student");
 const User = require("../models/user");
+const LearningResource = require("../models/learningResource");
 
 // check internet connection
 let isOffline;
@@ -13,6 +14,9 @@ require("dns").resolve("www.google.com", function (err) {
   }
 });
 
+/**
+ * Allow access of student_index to admin only.
+ */
 const student_index = (req, res) => {
   console.log("student index");
   if (isOffline) {
@@ -172,24 +176,74 @@ const profile_preference_get = async (req, res) => {
     });
 };
 
-const journey_resource_post = async (req, res) => {
+const student_resources_post = async (req, res) => {
   console.log("Target resource rode:", req.body.code);
 
-  await Student.findByIdAndUpdate(
-    req.session.user.profile,
-    { $push: { resources: { id: req.body.code } } },
-    { safe: true, upsert: true },
-    (err, docs) => {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log(docs);
-        res.redirect("/home");
+  try {
+    const exists =
+      (await LearningResource.find({ _id: req.body.code }).count()) > 0;
+    console.log("exists", exists);
+
+    await Student.findByIdAndUpdate(
+      req.session.user.profile,
+      { $addToSet: { resources: { id: req.body.code } } },
+      { safe: true, upsert: true },
+      (err, docs) => {
+        if (err) {
+          console.log("Error, journey probably doesn't exist.");
+          console.log(err);
+        } else {
+          console.log(docs);
+          res.redirect("/home");
+        }
       }
+    )
+      .clone()
+      .catch((err) => {
+        console.log(err);
+      });
+  } catch (err) {
+    console.log("Journey does not exist.");
+    console.error(err);
+    await res.render("app/join-code", {
+      title: "Join a Journey | GoGamify",
+      messages: { error: "Journey does not exist." },
+    });
+  }
+};
+
+const student_resources_get = async (req, res) => {
+  console.log("Retrieving resources from DB...");
+  await Student.findById(req.session.user.profile, (err, doc) => {
+    if (err) {
+      console.log("Error while accessing the document.");
+      console.log(err);
+    } else {
+      console.log("Document", doc);
+      console.log("resources", doc.resources);
+      res.send(JSON.stringify(doc.resources));
     }
-  )
+  })
     .clone()
     .catch((err) => {
+      console.log("Retrieval failed.");
+      console.log(err);
+    });
+};
+
+const student_resources_delete = async (req, res) => {
+  console.log("Retrieving resource to delete from DB...");
+  await Student.findByIdAndDelete(req.session.user.profile, (err, doc) => {
+    if (err) {
+      console.log("Error while accessing the document.");
+      console.log(err);
+    } else {
+      console.log("Document", doc);
+    }
+  })
+    .clone()
+    .catch((err) => {
+      console.log("Retrieval failed.");
       console.log(err);
     });
 };
@@ -202,5 +256,7 @@ module.exports = {
   student_delete,
   profile_preference_post,
   profile_preference_get,
-  journey_resource_post,
+  student_resources_get,
+  student_resources_post,
+  student_resources_delete,
 };

@@ -8,9 +8,16 @@
     >
       <section class="section max-w-md">
         <h1 class="h2 mb-4 text-center">Join a Journey</h1>
+
+        <% if (messages.error) { %>
+        <div class="form__field mt-2 bg-danger text-foreground">
+          <%= messages.error %>
+        </div>
+        <% } %>
+
         <form
           class="flex flex-col gap-3"
-          action="/student/journey/"
+          action="/student/p/resources"
           method="post"
         >
           <input
@@ -24,6 +31,11 @@
         <a class="button button--muted w-full" href="/">Back</a>
       </section>
     </main>
-    <%- include('../partials/footer.ejs') %>
+    <%- include('../partials/footer.ejs') %> <% if (messages.error) { %>
+    <script>
+      // replaces the document to create a new one
+      window.location.replace();
+    </script>
+    <% } %>
   </body>
 </html>
