@@ -8,21 +8,20 @@ const initScript = async () => {
   );
   console.log(preferences);
 
-  if (preferences.fontFamily) {
+  if (preferences && preferences.fontFamily) {
     console.log("Font pref is ", preferences.fontFamily);
     appendClasses(preferences.fontFamily, preferences.fontSize);
-    fetchModule();
   } else {
     console.log("No fontFamily prefs");
   }
+
+  await fetchModule();
 };
 
 const appendClasses = (fontFamily, fontSize) => {
-  console.log("Changing fontFamily to ", fontFamily);
   // TailwindCSS classes
   moduleRoot.classList.add(fontFamily);
   moduleRoot.classList.add(fontSize);
-  // moduleRoot.classList.add(`text-[${fontSize}]`);
 };
 
 const fetchModule = async () => {
