@@ -25,6 +25,11 @@ const register_post = async (req, res) => {
     password: (await hashedPassword).toString(),
     profile: req.body.profile,
     role: req.body.role,
+    preferences: {
+      theme: "theme-default",
+      fontFamily: "font-poppins",
+      fontSize: "text-base",
+    },
   });
 
   await user
