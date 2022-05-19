@@ -1384,16 +1384,16 @@ body {
   margin-top: 5rem;
 }
 
-.ml-10 {
-  margin-left: 2.5rem;
+.mb-4 {
+  margin-bottom: 1rem;
 }
 
 .mb-0 {
   margin-bottom: 0px;
 }
 
-.mb-4 {
-  margin-bottom: 1rem;
+.ml-10 {
+  margin-left: 2.5rem;
 }
 
 .block {
@@ -1853,6 +1853,11 @@ body {
   padding-bottom: 1.5rem;
 }
 
+.px-6 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
 .px-10 {
   padding-left: 2.5rem;
   padding-right: 2.5rem;
@@ -1861,11 +1866,6 @@ body {
 .px-16 {
   padding-left: 4rem;
   padding-right: 4rem;
-}
-
-.px-6 {
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
 }
 
 .pt-5 {
@@ -1886,10 +1886,6 @@ body {
 
 .pb-10 {
   padding-bottom: 2.5rem;
-}
-
-.pb-0 {
-  padding-bottom: 0px;
 }
 
 .text-center {
@@ -2033,6 +2029,11 @@ body {
 .text-foreground {
   --tw-text-opacity: 1;
   color: rgb(var(--color-foreground) / var(--tw-text-opacity));
+}
+
+.text-red-300 {
+  --tw-text-opacity: 1;
+  color: rgb(252 165 165 / var(--tw-text-opacity));
 }
 
 .underline {
