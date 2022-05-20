@@ -38,6 +38,12 @@ const studentSchema = new Schema(
       type: String,
     },
     resources: [],
+    currentPage: {
+      type: String,
+    },
+    currentPageNumber: {
+      type: Number,
+    },
     completed: [],
     badges: [],
     achievements: [],

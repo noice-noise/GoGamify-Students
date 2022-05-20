@@ -26,7 +26,7 @@ const appendClasses = (fontFamily, fontSize) => {
 
 const fetchModule = async () => {
   console.log("Fetching module...");
-  await fetch("/resource/data/628200516138420680487cc6", {
+  await fetch("/student/p/currentPage", {
     method: "GET",
   })
     .then((res) => {
