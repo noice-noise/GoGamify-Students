@@ -180,28 +180,28 @@ const student_resources_post = async (req, res) => {
   console.log("Target resource rode:", req.body.code);
 
   try {
-    const exists =
-      (await LearningResource.find({ _id: req.body.code }).count()) > 0;
-    console.log("exists", exists);
-
-    await Student.findByIdAndUpdate(
-      req.session.user.profile,
-      { $addToSet: { resources: { id: req.body.code } } },
-      { safe: true, upsert: true },
-      (err, docs) => {
-        if (err) {
-          console.log("Error, journey probably doesn't exist.");
-          console.log(err);
-        } else {
-          console.log(docs);
-          res.redirect("/home");
-        }
+    await LearningResource.findOne({ _id: req.body.code }).then(
+      async (resource) => {
+        await Student.findByIdAndUpdate(
+          req.session.user.profile,
+          { $addToSet: { resources: resource } },
+          { safe: true, upsert: true },
+          (err, docs) => {
+            if (err) {
+              console.log("Error, journey probably doesn't exist.");
+              console.log(err);
+            } else {
+              console.log(docs);
+              res.redirect("/home");
+            }
+          }
+        )
+          .clone()
+          .catch((err) => {
+            console.log(err);
+          });
       }
-    )
-      .clone()
-      .catch((err) => {
-        console.log(err);
-      });
+    );
   } catch (err) {
     console.log("Journey does not exist.");
     console.error(err);
@@ -248,6 +248,40 @@ const student_resources_delete = async (req, res) => {
     });
 };
 
+const student_current_page = async (req, res) => {
+  console.log("Retrieving resources from DB...");
+  await Student.findById(req.session.user.profile, (err, doc) => {
+    if (err) {
+      console.log("Error while accessing the document.");
+      console.log(err);
+    } else {
+      if (doc.currentPage === undefined) {
+        console.log(
+          "Current page is empty, sending the first user resource instead..."
+        );
+
+        const browseButton = `<section class="section flex flex-col justify-center items-center">
+        <a class="button button--cta px-10 py-8" href="/resource/all">Browse Journeys</a>
+        <a class="button button--muted px-10 py-8" href="/resource/join">Join using code</a>
+        </section>`;
+
+        res.send(
+          doc.resources[0] === undefined
+            ? { body: browseButton }
+            : JSON.stringify(doc.resources[0])
+        );
+      } else {
+        res.send(JSON.stringify(doc.currentPage));
+      }
+    }
+  })
+    .clone()
+    .catch((err) => {
+      console.log("Retrieval failed.");
+      console.log(err);
+    });
+};
+
 module.exports = {
   student_index,
   student_post,
@@ -259,4 +293,5 @@ module.exports = {
   student_resources_get,
   student_resources_post,
   student_resources_delete,
+  student_current_page,
 };
