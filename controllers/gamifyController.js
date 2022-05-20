@@ -141,6 +141,7 @@ const parseHtml = (file) => {
     .then(function (result) {
       let html = result.value;
       // var messages = result.messages;
+      htmlContents += `<!-- module -->`; // serves as separator string for module isolation
       htmlContents += `<div class="module">`;
       htmlContents += html;
       htmlContents += `</div>`;

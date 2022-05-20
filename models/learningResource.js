@@ -20,6 +20,7 @@ const learningResourceSchema = new Schema(
       type: Object,
       required: true,
     },
+    modules: [],
     pages: { type: Number },
     badges: [],
     achievements: [],

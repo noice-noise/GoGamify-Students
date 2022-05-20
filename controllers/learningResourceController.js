@@ -45,8 +45,15 @@ const learning_resource_index = (req, res) => {
 
 const learning_resource_post = (req, res) => {
   const learningResource = new LearningResource(req.body);
+
   // active means that the learning resource can be shown to public
   learningResource.active = req.body.active == "on" ? true : false;
+
+  let htmlContent = learningResource.body;
+  let modules = htmlContent.split(`<!-- module -->`); // split modules into an array
+  modules = modules.filter((p) => p); // remove empty elements
+  learningResource.modules = modules;
+
   learningResource
     .save()
     .then(() => {
