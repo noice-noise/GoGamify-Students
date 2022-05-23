@@ -260,14 +260,14 @@ const student_current_page = async (req, res) => {
           "Current page is empty, sending the first user resource instead..."
         );
 
-        const browseButton = `<section class="section flex flex-col justify-center items-center">
+        const promptBrowse = `<section class="section flex flex-col justify-center items-center">
         <a class="button button--cta px-10 py-8" href="/resource/all">Browse Journeys</a>
         <a class="button button--muted px-10 py-8" href="/resource/join">Join using code</a>
         </section>`;
 
         res.send(
           doc.resources[0] === undefined
-            ? { body: browseButton }
+            ? { body: promptBrowse }
             : JSON.stringify(doc.resources[0])
         );
       } else {
