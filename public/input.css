@@ -360,4 +360,31 @@
   .module {
     @apply section;
   }
+
+  .module h1 {
+    @apply h1 mb-4;
+  }
+
+  .module h2 {
+    @apply h2 mb-4;
+  }
+
+  .module h3 {
+    @apply h3 mb-4 text-lg font-bold lg:text-2xl;
+  }
+
+  .module h4 {
+    @apply h4 mb-4 font-bold;
+  }
+
+  .module h5 {
+    @apply mb-4 font-bold;
+  }
+
+  .module h6 {
+    @apply mb-4;
+  }
+  .module p {
+    @apply my-4;
+  }
 }
