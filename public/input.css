@@ -387,4 +387,8 @@
   .module p {
     @apply my-4;
   }
+
+  .module a {
+    @apply link;
+  }
 }
