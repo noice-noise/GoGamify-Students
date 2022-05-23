@@ -44,6 +44,9 @@ const studentSchema = new Schema(
     currentPageNumber: {
       type: Number,
     },
+    currentPageIndex: {
+      type: Number,
+    },
     completed: [],
     badges: [],
     achievements: [],

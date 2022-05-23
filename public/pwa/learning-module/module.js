@@ -34,7 +34,7 @@ const fetchModule = async () => {
     })
     .then((data) => {
       console.log("data", data);
-      appendContent(data.body);
+      appendContent(data);
     });
 };
 
