@@ -10,6 +10,7 @@ module.exports = {
         "primary-accent": withOpacityValue("--color-primary-accent"),
         "primary-muted": withOpacityValue("--color-primary-muted"),
         neutral: withOpacityValue("--color-text-neutral"),
+        muted: withOpacityValue("--color-text-muted"),
         foreground: withOpacityValue("--color-foreground"),
         background: withOpacityValue("--color-background"),
         success: withOpacityValue("--color-success"),
