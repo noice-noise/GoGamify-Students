@@ -48,8 +48,8 @@ const studentSchema = new Schema(
       type: Number,
     },
     completed: [],
-    badges: [],
-    achievements: [],
+    collections: [],
+    stats: {},
   },
   { timestamps: true }
 );
