@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head.ejs') %>
+  <body class="bg-gray-50">
+    <%- include('../partials/header.ejs') %>
+    <main
+      class="auto-container flex h-screen w-screen items-center justify-center"
+    >
+      <section class="section max-w-md">
+        <h1 class="h2 mb-4 text-center">Earn a collectible</h1>
+
+        <% if (messages.error) { %>
+        <div class="form__field mt-2 bg-danger text-foreground">
+          <%= messages.error %>
+        </div>
+        <% } %>
+
+        <form
+          class="flex flex-col gap-3"
+          action="/student/p/resources"
+          method="post"
+        >
+          <input
+            name="code"
+            class="form__field mb-0"
+            type="text"
+            placeholder="Enter collectible a code"
+          />
+          <button class="button button--cta w-full" type="submit">Earn</button>
+        </form>
+        <a class="button button--muted w-full" href="/home">Back</a>
+      </section>
+    </main>
+    <%- include('../partials/footer.ejs') %> <% if (messages.error) { %>
+    <script>
+      // replaces the document to create a new one
+      window.location.replace();
+    </script>
+    <% } %>
+  </body>
+</html>
