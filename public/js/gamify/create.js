@@ -57,6 +57,7 @@ gamifyBtn.addEventListener("click", () => {
       pages.value = data.pages;
       appendHTML(data.htmlContents);
       linkValidIFrames();
+      htmlContent.textContent = contentPreview.innerHTML;
     })
     .catch((err) => {
       console.log(err);
@@ -74,7 +75,6 @@ uploadListRefreshBtn.addEventListener("click", (e) => {
 
 const appendHTML = (html) => {
   contentPreview.innerHTML = html;
-  htmlContent.textContent = html;
 };
 
 const uploadFile = () => {

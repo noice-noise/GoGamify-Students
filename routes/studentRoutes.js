@@ -13,6 +13,8 @@ router.get("/p/resources", studentController.student_resources_get);
 router.delete("/p/resources/:id", studentController.student_resources_delete);
 
 router.get("/p/currentPage", studentController.student_current_page);
+router.post("/p/currentPage/next", studentController.student_page_next);
+router.post("/p/currentPage/prev", studentController.student_page_prev);
 
 router.post("/profile/preferences", studentController.profile_preference_post);
 router.get("/profile/preferences", studentController.profile_preference_get);

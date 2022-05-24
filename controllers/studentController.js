@@ -255,23 +255,61 @@ const student_current_page = async (req, res) => {
       console.log("Error while accessing the document.");
       console.log(err);
     } else {
-      if (doc.currentPage === undefined) {
+      if (!doc.currentPage) {
         console.log(
           "Current page is empty, sending the first user resource instead..."
         );
 
-        const browseButton = `<section class="section flex flex-col justify-center items-center">
+        /**
+         * If user resources are empty, send a template prompt to browse/join journey
+         */
+        if (!doc.resources || doc.resources.length === 0) {
+          const promptBrowse = `<section class="section flex flex-col justify-center items-center">
         <a class="button button--cta px-10 py-8" href="/resource/all">Browse Journeys</a>
         <a class="button button--muted px-10 py-8" href="/resource/join">Join using code</a>
         </section>`;
+          console.log("No user resources available...");
+          console.log("Sending browse journey prompt instead...");
+          res.send(JSON.stringify(promptBrowse));
+        } else {
+          const firstModule = doc.resources[0].modules[0];
 
-        res.send(
-          doc.resources[0] === undefined
-            ? { body: browseButton }
-            : JSON.stringify(doc.resources[0])
-        );
+          /**
+           * Initialize first module as the current page and page number,
+           * then send as a response
+           */
+          Student.findByIdAndUpdate(
+            req.session.user.profile,
+            {
+              currentPage: firstModule,
+              currentPageNumber: 0,
+              currentPageIndex: 0,
+            },
+            (err, docs) => {
+              if (err) {
+                console.log("Error occurred");
+                console.log(err);
+              } else {
+                // console.log(docs);
+                res.send(JSON.stringify(firstModule));
+              }
+            }
+          )
+            .clone()
+            .catch((err) => {
+              console.log(err);
+            });
+        }
       } else {
-        res.send(JSON.stringify(doc.currentPage));
+        console.log("Current page number:", doc.currentPageNumber);
+        console.log("Current page set, sending...");
+        const targetResourceIndex = doc.currentPageIndex;
+        const targetModulesIndex = doc.currentPageNumber;
+        res.send(
+          JSON.stringify(
+            doc.resources[targetResourceIndex].modules[targetModulesIndex]
+          )
+        );
       }
     }
   })
@@ -280,6 +318,48 @@ const student_current_page = async (req, res) => {
       console.log("Retrieval failed.");
       console.log(err);
     });
+};
+
+const student_page_next = async (req, res) => {
+  await Student.findByIdAndUpdate(
+    req.session.user.profile,
+    {
+      $inc: { currentPageNumber: 1 },
+    },
+    (err, docs) => {
+      if (err) {
+        console.log("Error occurred");
+        console.log(err);
+      } else {
+        console.log("Page number increment success.");
+        console.log("Current page number:", docs.currentPageNumber);
+        res.redirect("/home");
+      }
+    }
+  ).catch((err) => {
+    console.log(err);
+  });
+};
+
+const student_page_prev = async (req, res) => {
+  await Student.findByIdAndUpdate(
+    req.session.user.profile,
+    {
+      $inc: { currentPageNumber: -1 },
+    },
+    (err, docs) => {
+      if (err) {
+        console.log("Error occurred");
+        console.log(err);
+      } else {
+        console.log("Page number decrement success.");
+        console.log("Current page number:", docs.currentPageNumber);
+        res.redirect("/home");
+      }
+    }
+  ).catch((err) => {
+    console.log(err);
+  });
 };
 
 module.exports = {
@@ -294,4 +374,6 @@ module.exports = {
   student_resources_post,
   student_resources_delete,
   student_current_page,
+  student_page_next,
+  student_page_prev,
 };
