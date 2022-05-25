@@ -1,6 +1,8 @@
 const Student = require("../models/student");
 const User = require("../models/user");
 const LearningResource = require("../models/learningResource");
+const path = require("path");
+const fs = require("fs");
 
 // check internet connection
 let isOffline;
@@ -319,6 +321,24 @@ const student_page_prev = async (req, res) => {
   });
 };
 
+const profile_get = async (req, res) => {
+  await Student.findById(req.session.user.profile, (err, doc) => {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log("Successful");
+      console.log("doc", doc);
+      console.log("docType", typeof doc);
+      console.log(doc);
+      res.send(JSON.stringify(doc));
+    }
+  })
+    .clone()
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
 const profile_preference_post = async (req, res) => {
   await User.findByIdAndUpdate(
     req.session.user._id,
@@ -362,6 +382,49 @@ const profile_preference_get = async (req, res) => {
     });
 };
 
+const community_school_get = async (req, res) => {
+  await Student.findById(req.session.user.profile, (err, doc) => {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log("Successful.");
+      const userSchool = doc.school;
+      console.log("User school:", userSchool);
+
+      Student.find({ school: userSchool }, (err, doc) => {
+        if (err) {
+          console.log(err);
+        } else {
+          return doc;
+        }
+      })
+        .clone()
+        .then((schoolmates) => {
+          const schoolData = path.join(__dirname, "..", "data/schools.json");
+
+          fs.readFile(schoolData, (err, data) => {
+            if (err) {
+              console.log("Error reading schools data...");
+              console.log(err);
+            }
+
+            const result = JSON.parse(data);
+            result[userSchool]?.schoolmates.push(...schoolmates);
+            console.log("SCHOOL", result);
+            res.send(JSON.stringify(result[userSchool]));
+          });
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  })
+    .clone()
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
 module.exports = {
   student_index,
   student_post,
@@ -374,6 +437,8 @@ module.exports = {
   student_current_page,
   student_page_next,
   student_page_prev,
+  profile_get,
   profile_preference_post,
   profile_preference_get,
+  community_school_get,
 };

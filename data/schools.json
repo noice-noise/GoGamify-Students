@@ -1,0 +1,41 @@
+{
+  "Cebu Institute of Technology - University": {
+    "name": "Cebu Institute of Technology - University",
+    "info": "The Cebu Institute of Technology – University (CIT-University, or less often CIT-U, and colloquially CIT)  is a private non-sectarian academic institution in Cebu City, Philippines. The university provides basic  and higher education with a foundation in general and technological education. The university was known simply as Cebu Institute of Technology until 2010 when it has attained university status.",
+    "teachers": [
+      {
+        "name": "Ms.Cristina Dela Cruz",
+        "subject": ["Aralin Panlipunan", "Filipino"],
+        "gradeLevel": "1",
+        "email": "cristinadelacruz@gmail.com"
+      },
+      {
+        "name": "Mr.Angelo Garcia",
+        "subject": ["Math", "Physics"],
+        "gradeLevel": "2",
+        "email": "angelogarcia@gmail.com"
+      }
+    ],
+    "schoolmates": []
+  },
+
+  "Abbey Park Academy Corp.": {
+    "name": "Abbey Park Academy Corp.",
+    "info": "Lorem ipsum",
+    "teachers": [
+      {
+        "name": "Ms.Cristina Dela Cruz",
+        "subject": "Aralin Panlipunan",
+        "gradeLevel": "1",
+        "email": "cristinadelacruz@gmail.com"
+      },
+      {
+        "name": "Mr.Angelo Garcia",
+        "subject": "Math",
+        "gradeLevel": "2",
+        "email": "angelogarcia@gmail.com"
+      }
+    ],
+    "schoolmates": []
+  }
+}
