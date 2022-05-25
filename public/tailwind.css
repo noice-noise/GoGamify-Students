@@ -1474,12 +1474,8 @@ body {
   margin-top: -3.5rem;
 }
 
-.mb-20 {
-  margin-bottom: 5rem;
-}
-
-.mb-2 {
-  margin-bottom: 0.5rem;
+.mt-0 {
+  margin-top: 0px;
 }
 
 .mt-10 {
@@ -1504,10 +1500,6 @@ body {
 
 .ml-10 {
   margin-left: 2.5rem;
-}
-
-.mt-0 {
-  margin-top: 0px;
 }
 
 .block {
@@ -1564,10 +1556,6 @@ body {
 
 .h-12 {
   height: 3rem;
-}
-
-.h-56 {
-  height: 14rem;
 }
 
 .h-full {
@@ -1632,10 +1620,6 @@ body {
 
 .w-12 {
   width: 3rem;
-}
-
-.w-56 {
-  width: 14rem;
 }
 
 .w-60 {
@@ -1921,6 +1905,11 @@ body {
   padding-bottom: 1rem;
 }
 
+.px-10 {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+
 .py-3 {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
@@ -1954,11 +1943,6 @@ body {
 .px-5 {
   padding-left: 1.25rem;
   padding-right: 1.25rem;
-}
-
-.px-10 {
-  padding-left: 2.5rem;
-  padding-right: 2.5rem;
 }
 
 .px-16 {
