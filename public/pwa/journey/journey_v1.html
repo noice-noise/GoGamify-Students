@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Journey</title>
+
+    <link rel="stylesheet" type="text/css" href="/tailwind.css" />
+    <link rel="stylesheet" type="text/css" href="/public/tailwind.css" />
+    <link rel="stylesheet" type="text/css" href="journey_v1.css" />
+
+    <script src="journey.js"></script>
+
+    <link rel="shortcut icon" href="/icons/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png" />
+
+    <link rel="manifest" href="../manifest.json" />
+    <script src="/js/preload.js"></script>
+</head>
+
+<body class="body">
+    <!-- GoGamify Header -->
+    <header>
+        <div class="header__container">
+            <span class="header__span">GoGamify</span>
+        </div>
+    </header>
+    <!-- end - GoGamify Header -->
+
+    <!-- nav -->
+    <nav id="main-nav">
+        <div class="nav__container">
+            <ul class="nav__list">
+                <li class="nav__list__item">
+                    <a class="button nav__button nav__button--active group" href="../journey/journey.html">
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                class="icon icon-tabler icon-tabler-route button__icon button__icon--active" width="24"
+                                height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <desc>
+                                    Download more icon variants from
+                                    https://tabler-icons.io/i/route
+                                </desc>
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                <circle cx="6" cy="19" r="2"></circle>
+                                <circle cx="18" cy="5" r="2"></circle>
+                                <path d="M12 19h4.5a3.5 3.5 0 0 0 0 -7h-8a3.5 3.5 0 0 1 0 -7h3.5"></path>
+                            </svg>
+                        </span>
+                        <span class="button__span__label">Journey</span>
+                    </a>
+                </li>
+                <li class="nav__list__item">
+                    <a class="button nav__button group" href="../community/community.html">
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                class="icon icon-tabler icon-tabler-building-community button__icon" width="24"
+                                height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <desc>
+                                    Download more icon variants from
+                                    https://tabler-icons.io/i/building-community
+                                </desc>
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                <path d="M8 9l5 5v7h-5v-4m0 4h-5v-7l5 -5m1 1v-6a1 1 0 0 1 1 -1h10a1 1 0 0 1 1 1v17h-8">
+                                </path>
+                                <line x1="13" y1="7" x2="13" y2="7.01"></line>
+                                <line x1="17" y1="7" x2="17" y2="7.01"></line>
+                                <line x1="17" y1="11" x2="17" y2="11.01"></line>
+                                <line x1="17" y1="15" x2="17" y2="15.01"></line>
+                            </svg>
+                        </span>
+                        <span class="button__span__label">Community</span>
+                    </a>
+                </li>
+                <li class="nav__list__item">
+                    <a class="button nav__button group" href="../learning-module/module.html">
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                class="icon icon-tabler icon-tabler-file-star button__icon" width="24" height="24"
+                                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <desc>
+                                    Download more icon variants from
+                                    https://tabler-icons.io/i/file-star
+                                </desc>
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                <path d="M14 3v4a1 1 0 0 0 1 1h4"></path>
+                                <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z"></path>
+                                <path
+                                    d="M11.8 16.817l-2.172 1.138a0.392 .392 0 0 1 -.568 -.41l.415 -2.411l-1.757 -1.707a0.389 .389 0 0 1 .217 -.665l2.428 -.352l1.086 -2.193a0.392 .392 0 0 1 .702 0l1.086 2.193l2.428 .352a0.39 .39 0 0 1 .217 .665l-1.757 1.707l.414 2.41a0.39 .39 0 0 1 -.567 .411l-2.172 -1.138z">
+                                </path>
+                            </svg>
+                        </span>
+                        <span class="button__span__label">Module</span>
+                    </a>
+                </li>
+                <li class="nav__list__item">
+                    <a class="button nav__button group" href="../collections/collections.html">
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                class="icon icon-tabler icon-tabler-trophy button__icon" width="24" height="24"
+                                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <desc>
+                                    Download more icon variants from
+                                    https://tabler-icons.io/i/trophy
+                                </desc>
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                <line x1="8" y1="21" x2="16" y2="21"></line>
+                                <line x1="12" y1="17" x2="12" y2="21"></line>
+                                <line x1="7" y1="4" x2="17" y2="4"></line>
+                                <path d="M17 4v8a5 5 0 0 1 -10 0v-8"></path>
+                                <circle cx="5" cy="9" r="2"></circle>
+                                <circle cx="19" cy="9" r="2"></circle>
+                            </svg>
+                        </span>
+                        <span class="button__span__label">Collections</span>
+                    </a>
+                </li>
+                <li class="nav__list__item">
+                    <a class="button nav__button group" href="../profile/profile.html">
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                class="icon icon-tabler icon-tabler-user button__icon" width="24" height="24"
+                                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <desc>
+                                    Download more icon variants from
+                                    https://tabler-icons.io/i/user
+                                </desc>
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                                <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
+                            </svg>
+                        </span>
+                        <span class="button__span__label">Profile</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- end of nav -->
+
+    <main id="main">
+        <div class="main__container">
+            <!--PAGE TITLE-->
+            <div class="journey-header">
+                <h class="h1 journey_title">JOURNEY</h>
+                <a class="card button-browse" id="btn_browse" href="/resource/all">
+                    <span class="browse-holder ">
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 511 511"  height="32" width="32"
+                            xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <g>
+                                <path
+                                    d="m485.729,236.892c-0.21-0.313-0.437-0.618-0.699-0.904l-.718-.783c-1.699-1.99-3.467-3.92-5.3-5.786l-96.189-105.006c-0.201-0.253-0.42-0.497-0.659-0.728-9.578-9.302-21.964-14.748-35.186-15.565-5.499-9.814-15.961-16.12-27.478-16.12-17.369,0-31.5,14.131-31.5,31.5v40 8 24.5h-65v-24.5-8-40c0-17.369-14.131-31.5-31.5-31.5-11.514,0-21.98,6.307-27.481,16.12-13.221,0.817-25.607,6.263-35.185,15.565-0.237,0.23-0.456,0.472-0.655,0.725l-96.192,105.009c-1.833,1.866-3.601,3.795-5.3,5.786l-.718,.783c-0.262,0.286-0.489,0.591-0.699,0.904-15.783,19.241-25.27,43.837-25.27,70.608 0,61.481 50.019,111.5 111.5,111.5s111.5-50.019 111.5-111.5c0-2.859-0.109-5.694-0.322-8.5h65.643c-0.213,2.806-0.322,5.641-0.322,8.5 0,61.481 50.019,111.5 111.5,111.5s111.501-50.019 111.501-111.5c0-26.771-9.487-51.367-25.271-70.608zm-182.729-113.392c0-9.098 7.402-16.5 16.5-16.5 3.445,0 6.709,1.079 9.415,2.958-10.059,2.743-18.985,8.249-25.915,15.651v-2.109zm-95,0v2.11c-6.93-7.403-15.856-12.908-25.915-15.651 2.706-1.879 5.97-2.958 9.415-2.958 9.098-0.001 16.5,7.401 16.5,16.499zm-96.5,280.5c-53.21,0-96.5-43.29-96.5-96.5 0-23.702 8.594-45.431 22.823-62.246l5.227-5.706c17.494-17.62 41.719-28.548 68.45-28.548 53.21,0 96.5,43.29 96.5,96.5s-43.29,96.5-96.5,96.5zm0-208c-11.548,0-22.691,1.765-33.174,5.039l61.278-66.894c0.012-0.013 0.024-0.026 0.036-0.039 7.554-7.166 17.428-11.106 27.86-11.106 22.332,0 40.5,18.168 40.5,40.5v8 24.5h-16.5c-0.172,0-0.342,0.006-0.511,0.017-2.181-0.209-4.427,0.533-6.077,2.218-2.898,2.959-2.849,7.708 0.111,10.606 11.432,11.196 18.88,25.313 21.697,40.7-19.601-32.082-54.951-53.541-95.22-53.541zm176.5,88h-65v-20.5c0-19.088-5.781-37.238-16.524-52.5h98.048c-10.743,15.262-16.524,33.411-16.524,52.5v20.5zm37.977-75.159c2.191-2.146 2.855-5.409 1.677-8.241-1.178-2.831-3.958-4.642-7.028-4.617l-1.176,.017h-16.45v-24.5-8c0-22.332 18.168-40.5 40.5-40.5 10.432,0 20.306,3.94 27.86,11.105 0.012,0.013 0.024,0.026 0.036,0.039l61.278,66.894c-10.483-3.273-21.626-5.038-33.174-5.038-40.269,0-75.619,21.459-95.219,53.542 2.816-15.387 10.265-29.505 21.696-40.701zm73.523,195.159c-53.21,0-96.5-43.29-96.5-96.5s43.29-96.5 96.5-96.5c26.731,0 50.956,10.928 68.449,28.547l5.227,5.706c14.23,16.816 22.824,38.545 22.824,62.247 0,53.21-43.29,96.5-96.5,96.5z" />
+                                <path
+                                    d="m111.5,228c-43.836,0-79.5,35.664-79.5,79.5s35.664,79.5 79.5,79.5 79.5-35.664 79.5-79.5-35.664-79.5-79.5-79.5zm0,144c-35.565,0-64.5-28.935-64.5-64.5s28.935-64.5 64.5-64.5 64.5,28.935 64.5,64.5-28.935,64.5-64.5,64.5z" />
+                                <path
+                                    d="m399.5,228c-43.836,0-79.5,35.664-79.5,79.5s35.664,79.5 79.5,79.5 79.5-35.664 79.5-79.5-35.664-79.5-79.5-79.5zm0,144c-35.565,0-64.5-28.935-64.5-64.5s28.935-64.5 64.5-64.5 64.5,28.935 64.5,64.5-28.935,64.5-64.5,64.5z" />
+                                <path
+                                    d="m399.5,260c-4.142,0-7.5,3.358-7.5,7.5s3.358,7.5 7.5,7.5c17.92,0 32.5,14.58 32.5,32.5 0,4.142 3.358,7.5 7.5,7.5s7.5-3.358 7.5-7.5c0-26.191-21.309-47.5-47.5-47.5z" />
+                                <path
+                                    d="m111.5,260c-4.142,0-7.5,3.358-7.5,7.5s3.358,7.5 7.5,7.5c17.92,0 32.5,14.58 32.5,32.5 0,4.142 3.358,7.5 7.5,7.5s7.5-3.358 7.5-7.5c0-26.191-21.309-47.5-47.5-47.5z" />
+                            </g>
+                        </svg>  
+                        <span class="label">Explore</span>                 
+                    </span>
+                    
+                </a>
+            </div>
+
+            <!--TABS-->
+            <div class="tabs">
+                <button id="btn_todo" onclick="openTodo()">To-do Tasks</button>
+                <button id="btn_comp" onclick="openComp()">Completed Tasks</button>
+            </div>
+            <!--TABS CONTENT-->
+            <div class="file-container">
+            </div>
+        </div>
+    </main>
+
+
+    <script type="module" src="/js/onload.js"></script>
+    <!-- <script src="/models/learningResource.js"></script> -->
+    <script src="journey_v1.js"></script>
+</body>
+
+</html>
