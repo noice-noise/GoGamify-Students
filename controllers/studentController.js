@@ -1,6 +1,8 @@
 const Student = require("../models/student");
 const User = require("../models/user");
 const LearningResource = require("../models/learningResource");
+const path = require("path");
+const fs = require("fs");
 
 // check internet connection
 let isOffline;
@@ -130,49 +132,6 @@ const student_delete = async (req, res) => {
     })
     .catch((err) => {
       res.render("404", { title: "Sorry, something went wrong." });
-    });
-};
-
-const profile_preference_post = async (req, res) => {
-  await User.findByIdAndUpdate(
-    req.session.user._id,
-    {
-      preferences: {
-        theme: req.body.theme,
-        fontFamily: req.body.fontFamily,
-        fontSize: req.body.fontSize,
-      },
-    },
-    (err, docs) => {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log(docs);
-        res.send({ message: "Preference changes saved" });
-      }
-    }
-  )
-    .clone()
-    .catch((err) => {
-      console.log(err);
-    });
-};
-
-const profile_preference_get = async (req, res) => {
-  await User.findById(req.session.user._id, (err, doc) => {
-    if (err) {
-      console.log(err);
-    } else {
-      console.log("Successful");
-      console.log("doc", doc);
-      console.log("docType", typeof doc);
-      console.log(doc.preferences);
-      res.send(JSON.stringify(doc.preferences));
-    }
-  })
-    .clone()
-    .catch((err) => {
-      console.log(err);
     });
 };
 
@@ -362,18 +321,124 @@ const student_page_prev = async (req, res) => {
   });
 };
 
+const profile_get = async (req, res) => {
+  await Student.findById(req.session.user.profile, (err, doc) => {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log("Successful");
+      console.log("doc", doc);
+      console.log("docType", typeof doc);
+      console.log(doc);
+      res.send(JSON.stringify(doc));
+    }
+  })
+    .clone()
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+const profile_preference_post = async (req, res) => {
+  await User.findByIdAndUpdate(
+    req.session.user._id,
+    {
+      preferences: {
+        theme: req.body.theme,
+        fontFamily: req.body.fontFamily,
+        fontSize: req.body.fontSize,
+      },
+    },
+    (err, docs) => {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log(docs);
+        res.send({ message: "Preference changes saved" });
+      }
+    }
+  )
+    .clone()
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+const profile_preference_get = async (req, res) => {
+  await User.findById(req.session.user._id, (err, doc) => {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log("Successful");
+      console.log("doc", doc);
+      console.log("docType", typeof doc);
+      console.log(doc.preferences);
+      res.send(JSON.stringify(doc.preferences));
+    }
+  })
+    .clone()
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+const community_school_get = async (req, res) => {
+  await Student.findById(req.session.user.profile, (err, doc) => {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log("Successful.");
+      const userSchool = doc.school;
+      console.log("User school:", userSchool);
+
+      Student.find({ school: userSchool }, (err, doc) => {
+        if (err) {
+          console.log(err);
+        } else {
+          return doc;
+        }
+      })
+        .clone()
+        .then((schoolmates) => {
+          const schoolData = path.join(__dirname, "..", "data/schools.json");
+
+          fs.readFile(schoolData, (err, data) => {
+            if (err) {
+              console.log("Error reading schools data...");
+              console.log(err);
+            }
+
+            const result = JSON.parse(data);
+            result[userSchool]?.schoolmates.push(...schoolmates);
+            console.log("SCHOOL", result);
+            res.send(JSON.stringify(result[userSchool]));
+          });
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  })
+    .clone()
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
 module.exports = {
   student_index,
   student_post,
   student_get,
   student_put,
   student_delete,
-  profile_preference_post,
-  profile_preference_get,
   student_resources_get,
   student_resources_post,
   student_resources_delete,
   student_current_page,
   student_page_next,
   student_page_prev,
+  profile_get,
+  profile_preference_post,
+  profile_preference_get,
+  community_school_get,
 };

@@ -18,6 +18,7 @@ const authRoutes = require("./routes/authRoute");
 const gamifyRoutes = require("./routes/gamifyRoutes");
 const learningResourceRoutes = require("./routes/learningResourceRoutes");
 const pwaRoutes = require("./routes/pwaRoutes");
+const collectionRoutes = require("./routes/collectionRoutes");
 
 const app = express();
 
@@ -117,7 +118,10 @@ app.use("/get-started", (req, res) => {
 app.use("/pwa", pwaRoutes);
 app.use("/gamify", gamifyRoutes);
 app.use("/resource", learningResourceRoutes);
-app.use("/student", ensureAuthenticated, studentRoutes);
+// app.use("/student", ensureAuthenticated, studentRoutes);
+// app.use("/collection", ensureAuthenticated, collectionRoutes);
+app.use("/student", studentRoutes);
+app.use("/collection", collectionRoutes);
 
 app.use((req, res) => {
   res.status(404).render("404", { title: "Page not found." });
