@@ -133,49 +133,6 @@ const student_delete = async (req, res) => {
     });
 };
 
-const profile_preference_post = async (req, res) => {
-  await User.findByIdAndUpdate(
-    req.session.user._id,
-    {
-      preferences: {
-        theme: req.body.theme,
-        fontFamily: req.body.fontFamily,
-        fontSize: req.body.fontSize,
-      },
-    },
-    (err, docs) => {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log(docs);
-        res.send({ message: "Preference changes saved" });
-      }
-    }
-  )
-    .clone()
-    .catch((err) => {
-      console.log(err);
-    });
-};
-
-const profile_preference_get = async (req, res) => {
-  await User.findById(req.session.user._id, (err, doc) => {
-    if (err) {
-      console.log(err);
-    } else {
-      console.log("Successful");
-      console.log("doc", doc);
-      console.log("docType", typeof doc);
-      console.log(doc.preferences);
-      res.send(JSON.stringify(doc.preferences));
-    }
-  })
-    .clone()
-    .catch((err) => {
-      console.log(err);
-    });
-};
-
 const student_resources_post = async (req, res) => {
   console.log("Target resource rode:", req.body.code);
 
@@ -362,18 +319,61 @@ const student_page_prev = async (req, res) => {
   });
 };
 
+const profile_preference_post = async (req, res) => {
+  await User.findByIdAndUpdate(
+    req.session.user._id,
+    {
+      preferences: {
+        theme: req.body.theme,
+        fontFamily: req.body.fontFamily,
+        fontSize: req.body.fontSize,
+      },
+    },
+    (err, docs) => {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log(docs);
+        res.send({ message: "Preference changes saved" });
+      }
+    }
+  )
+    .clone()
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+const profile_preference_get = async (req, res) => {
+  await User.findById(req.session.user._id, (err, doc) => {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log("Successful");
+      console.log("doc", doc);
+      console.log("docType", typeof doc);
+      console.log(doc.preferences);
+      res.send(JSON.stringify(doc.preferences));
+    }
+  })
+    .clone()
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
 module.exports = {
   student_index,
   student_post,
   student_get,
   student_put,
   student_delete,
-  profile_preference_post,
-  profile_preference_get,
   student_resources_get,
   student_resources_post,
   student_resources_delete,
   student_current_page,
   student_page_next,
   student_page_prev,
+  profile_preference_post,
+  profile_preference_get,
 };
