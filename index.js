@@ -118,8 +118,8 @@ app.use("/get-started", (req, res) => {
 app.use("/pwa", pwaRoutes);
 app.use("/gamify", gamifyRoutes);
 app.use("/resource", learningResourceRoutes);
-// app.use("/student", ensureAuthenticated, studentRoutes);
-// app.use("/collection", ensureAuthenticated, collectionRoutes);
+app.use("/student", ensureAuthenticated, studentRoutes);
+app.use("/collection", ensureAuthenticated, collectionRoutes);
 app.use("/student", studentRoutes);
 app.use("/collection", collectionRoutes);
 
