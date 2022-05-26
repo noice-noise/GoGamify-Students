@@ -342,7 +342,24 @@ const student_page_next = async (req, res) => {
                     console.log("Error, journey probably doesn't exist.");
                     console.log(err);
                   } else {
-                    res.redirect("/pwa/journey/completed");
+                    Student.findByIdAndUpdate(
+                      req.session.user.profile,
+                      { $addToSet: { completed: targetResource } },
+                      { safe: true, upsert: true },
+                      (err, docs) => {
+                        if (err) {
+                          console.log("Error, journey probably doesn't exist.");
+                          console.log(err);
+                        } else {
+                          console.log(docs);
+                          res.redirect("/pwa/journey/completed");
+                        }
+                      }
+                    )
+                      .clone()
+                      .catch((err) => {
+                        console.log(err);
+                      });
                   }
                 }
               )
