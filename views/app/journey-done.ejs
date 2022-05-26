@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head.ejs') %>
+  <body class="bg-gray-50">
+    <%- include('../partials/header.ejs') %>
+    <main class="auto-container flex items-center justify-center">
+      <section class="section flex w-full flex-col items-center justify-center">
+        <div class="text-center">
+          <img
+            class="mx-auto mb-10 h-48 w-48"
+            src="/assets/undraw_winners_re_wr1l.svg"
+            alt="Yehey"
+          />
+          <h1 class="h1">Learning Journey Completed!</h1>
+          <h2 class="h2">You've done an awesome job!</h2>
+          <p class="my-2">Not all heroes wear capes.</p>
+        </div>
+        <div class="mt-5 flex flex-col items-center justify-center">
+          <a class="button button--cta w-full px-3 py-2" href="/resource/all"
+            >Browse Journeys</a
+          >
+          <a class="button button--muted w-full px-3 py-2" href="/resource/join"
+            >Join using code</a
+          >
+          <a class="button button--muted w-full px-3 py-2" href="/home">Home</a>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
