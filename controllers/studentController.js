@@ -224,8 +224,11 @@ const student_current_page = async (req, res) => {
          */
         if (!doc.resources || doc.resources.length === 0) {
           const promptBrowse = `<section class="section flex flex-col justify-center items-center">
-        <a class="button button--cta px-10 py-8" href="/resource/all">Browse Journeys</a>
-        <a class="button button--muted px-10 py-8" href="/resource/join">Join using code</a>
+
+          <h2 class="h2 text-center mb-5">No chosen journey yet.</h2>
+        <a class="button button--cta px-3 w-full max-w-sm py-2" href="/pwa/journey">My Journeys</a>
+        <a class="button button--cta px-3 w-full max-w-sm py-2" href="/resource/all">Browse All Journeys</a>
+        <a class="button button--muted px-3 w-full max-w-sm py-2" href="/resource/join">Join using code</a>
         </section>`;
           console.log("No user resources available...");
           console.log("Sending browse journey prompt instead...");
@@ -280,45 +283,134 @@ const student_current_page = async (req, res) => {
 };
 
 const student_page_next = async (req, res) => {
-  await Student.findByIdAndUpdate(
-    req.session.user.profile,
-    {
-      $inc: { currentPageNumber: 1 },
-    },
-    (err, docs) => {
-      if (err) {
-        console.log("Error occurred");
-        console.log(err);
+  console.log("Retrieving resources from DB...");
+  await Student.findById(req.session.user.profile, (err, doc) => {
+    if (err) {
+      console.log("Error while accessing the document.");
+      console.log(err);
+    } else {
+      console.log("current page number: ", doc.currentPageNumber);
+      console.log(
+        "current page limit: ",
+        doc.resources[doc.currentPageIndex].pages
+      );
+
+      const targetPageNumber = doc.currentPageNumber + 1;
+      const currentPageLimit = doc.resources[doc.currentPageIndex].pages;
+
+      if (targetPageNumber < currentPageLimit) {
+        Student.findByIdAndUpdate(
+          req.session.user.profile,
+          {
+            $inc: { currentPageNumber: 1 },
+          },
+          (err, docs) => {
+            if (err) {
+              console.log("Error occurred");
+              console.log(err);
+            } else {
+              console.log("Page number INCREMENT success.");
+              console.log("Current page number:", docs.currentPageNumber);
+              res.redirect("/home");
+            }
+          }
+        ).catch((err) => {
+          console.log(err);
+        });
       } else {
-        console.log("Page number increment success.");
-        console.log("Current page number:", docs.currentPageNumber);
-        res.redirect("/home");
+        const targetResource = doc.resources[doc.currentPageIndex];
+
+        console.log("Removing doc to resources array: ", targetResource._id);
+
+        Student.findByIdAndUpdate(
+          req.session.user.profile,
+          { $pull: { resources: targetResource } },
+          (err, docs) => {
+            if (err) {
+              console.log("Error, journey probably doesn't exist.");
+              console.log(err);
+            } else {
+              Student.findByIdAndUpdate(
+                req.session.user.profile,
+                {
+                  currentPage: null,
+                  currentPageNumber: 0,
+                  currentPageIndex: null,
+                },
+                (err, docs) => {
+                  if (err) {
+                    console.log("Error, journey probably doesn't exist.");
+                    console.log(err);
+                  } else {
+                    res.redirect("/pwa/journey/completed");
+                  }
+                }
+              )
+                .clone()
+                .catch((err) => {
+                  console.log(err);
+                });
+            }
+          }
+        )
+          .clone()
+          .catch((err) => {
+            console.log(err);
+          });
       }
     }
-  ).catch((err) => {
-    console.log(err);
-  });
+  })
+    .clone()
+    .catch((err) => {
+      console.log("Retrieval failed.");
+      console.log(err);
+    });
 };
 
 const student_page_prev = async (req, res) => {
-  await Student.findByIdAndUpdate(
-    req.session.user.profile,
-    {
-      $inc: { currentPageNumber: -1 },
-    },
-    (err, docs) => {
-      if (err) {
-        console.log("Error occurred");
-        console.log(err);
+  console.log("Retrieving resources from DB...");
+  await Student.findById(req.session.user.profile, (err, doc) => {
+    if (err) {
+      console.log("Error while accessing the document.");
+      console.log(err);
+    } else {
+      console.log("current page number: ", doc.currentPageNumber);
+      console.log(
+        "current page limit: ",
+        doc.resources[doc.currentPageIndex].pages
+      );
+
+      const targetPageNumber = doc.currentPageNumber - 1;
+
+      if (targetPageNumber < 0) {
+        res.redirect("/pwa/module");
       } else {
-        console.log("Page number decrement success.");
-        console.log("Current page number:", docs.currentPageNumber);
-        res.redirect("/home");
+        Student.findByIdAndUpdate(
+          req.session.user.profile,
+          {
+            $inc: { currentPageNumber: -1 },
+          },
+          (err, docs) => {
+            if (err) {
+              console.log("Error occurred");
+              console.log(err);
+            } else {
+              console.log("Page number DECREMENT success.");
+              console.log("Current page number:", docs.currentPageNumber);
+              res.redirect("/home");
+            }
+          }
+        ).catch((err) => {
+          console.log(err);
+        });
       }
     }
-  ).catch((err) => {
-    console.log(err);
-  });
+  })
+    .clone()
+    .catch((err) => {
+      console.log("Retrieval failed.");
+      console.log(err);
+    });
 };
 
 const profile_get = async (req, res) => {
