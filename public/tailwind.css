@@ -1454,6 +1454,11 @@ body {
   margin-bottom: 1.25rem;
 }
 
+.my-2 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
 .mb-10 {
   margin-bottom: 2.5rem;
 }
@@ -1584,6 +1589,10 @@ body {
   height: 32rem;
 }
 
+.h-32 {
+  height: 8rem;
+}
+
 .w-48 {
   width: 12rem;
 }
@@ -1640,6 +1649,10 @@ body {
 
 .w-\[375px\] {
   width: 375px;
+}
+
+.w-32 {
+  width: 8rem;
 }
 
 .max-w-sm {
@@ -1948,6 +1961,21 @@ body {
 .px-16 {
   padding-left: 4rem;
   padding-right: 4rem;
+}
+
+.py-8 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.px-3 {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
 .pt-5 {
