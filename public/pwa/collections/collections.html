@@ -225,102 +225,18 @@
           />
 
           <h1 class="back-username text-neutral">class :back-username</h1>
-
           <div class="card-group">
             <h1 class="font-bold text-primary">Current theme:</h1>
             <h1 style="display: inline" class="back-theme text-neutral">
-              class: back-theme
+              class: back-theme must obtain from onload.js
             </h1>
-          </div>
-          <div class="card-group">
-            <h1 class="font-bold text-primary">Average GPA:</h1>
-            <h1 style="display: inline" class="back-gpa text-neutral">
-              class: back-gpa
-            </h1>
-          </div>
-          <div class="card-group">
-            <h1 class="font-bold text-primary">My Journey Completed:</h1>
-            <h1 style="display: inline" class="back-jrn text-neutral">
-              class: back-jrn
-            </h1>
-          </div>
-          <!-- Separate card grp for recently obtained -->
-          <div class="card-group">
-            <h1 class="font-bold text-primary">
-              Recently Obtained Achievements:
-            </h1>
-
-            <div class="card card--extra-small text-center">
-              <div class="card__container">
-                <div class="card__header">
-                  <div class="card__img-container">
-                    <img
-                      class="card__img mx-auto h-12 w-12"
-                      src="./badges/English_begin.png"
-                      alt="Profile Image"
-                    />
-                  </div>
-                  <p class="h2 text-primary">Global Language</p>
-                  <p class="text-primary-accent">
-                    Begin your first class in English
-                  </p>
-                  <!-- <p>Another Subtitle</p> -->
-                  <p class="text-sm"></p>
-                </div>
-              </div>
-            </div>
-
-            <div class="card card--extra-small text-center">
-              <div class="card__container">
-                <div class="card__header">
-                  <div class="card__img-container">
-                    <img
-                      class="card__img mx-auto h-12 w-12"
-                      src="./badges/Begginer.png"
-                      alt="Profile Image"
-                    />
-                  </div>
-                  <p class="h2 text-primary">Baby's Little Steps</p>
-                  <p class="text-primary-accent">
-                    Read 1 Learning Module on any subject
-                  </p>
-                  <!-- <p>Another Subtitle</p> -->
-                  <p class="text-sm"></p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="card-group">
-            <h1 class="font-bold text-primary">Recently Obtained Badges:</h1>
-
-            <div class="card card--extra-small text-center">
-              <div class="card__container">
-                <div class="card__header">
-                  <div class="card__img-container">
-                    <!-- ORIG src="./badges/swimming_96px.png"-->
-                    <!--Honor-->
-                    <img
-                      class="card__img mx-auto h-12 w-12"
-                      src="./badges/Honor.png"
-                      alt="Profile Image"
-                    />
-                  </div>
-                  <p class="h2 text-primary">High Achiever</p>
-                  <p class="text-primary-accent">
-                    Never miss or abandon any enrolled learning modules
-                  </p>
-                  <!-- <p>Another Subtitle</p> -->
-                  <p class="text-sm"></p>
-                </div>
-              </div>
-            </div>
-          </div>
+          </div>  
         </section>
-
+        <!--ACHIEVEMENTS-->
         <section class="section">
           <h2 class="h1">Achievements</h2>
-          <div class="card-group">
+          <div class="card-group" id="achievement">
+            <!--First achievement card-->
             <div class="card card--extra-small text-center">
               <div class="card__container">
                 <div class="card__header">
@@ -335,16 +251,37 @@
                   <p class="text-primary-accent">
                     Read 1 Learning Module on any subject
                   </p>
-                  <!-- <p>Another Subtitle</p> -->
                   <p class="text-sm">
-                    <!-- Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!--TEMP START-->
+            <!-- <div class="card card--extra-small text-center">
+              <div class="card__container">
+                <div class="card__header">
+                  <div class="card__img-container">
+                    <img
+                      class="card__img mx-auto h-12 w-12"
+                      src="./badges/Begginer.png"
+                      alt="Profile Image"
+                    />
+                  </div>
+                  <p class="h2 text-primary">Baby's Little Steps</p>
+                  <p class="text-primary-accent">
+                    Read 1 Learning Module on any subject
+                  </p>
+                  <p>Another Subtitle</p> 
+                  <p class="text-sm">
+                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Laborum assumenda labore vero provident tenetur numquam id
                     iure cupiditate culpa nesciunt, eius distinctio. Eligendi
-                    eum necessitatibus nostrum illum pariatur maxime quam? -->
+                    eum necessitatibus nostrum illum pariatur maxime quam?
                   </p>
                 </div>
 
-                <!-- <div class="card__body">
+                <div class="card__body">
                   <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Mollitia vel molestiae nobis unde omnis, illum reiciendis
@@ -358,12 +295,13 @@
                   <a class="link" href="#">Update</a>
                   <a class="link" href="#">Delete</a>
                   <a class="link" href="#">Share?</a>
-                </div> -->
+                </div>
               </div>
-            </div>
+            </div>  -->
+            <!--TEMP END-->
 
-            <!--This is the card div-->
-            <div class="card card--extra-small text-center">
+            <!--CARD start-->
+            <!-- <div class="card card--extra-small text-center">
               <div class="card__container">
                 <div class="card__header">
                   <div class="card__img-container">
@@ -377,7 +315,6 @@
                   <p class="text-primary-accent">
                     Begin your first class in English
                   </p>
-                  <!-- <p>Another Subtitle</p> -->
                   <p class="text-sm"></p>
                 </div>
               </div>
@@ -397,7 +334,6 @@
                   <p class="text-primary-accent">
                     Begin your first class in Mathematics
                   </p>
-                  <!-- <p>Another Subtitle</p> -->
                   <p class="text-sm"></p>
                 </div>
               </div>
@@ -417,7 +353,6 @@
                   <p class="text-primary-accent">
                     Begin your first class in Science
                   </p>
-                  <!-- <p>Another Subtitle</p> -->
                   <p class="text-sm"></p>
                 </div>
               </div>
@@ -437,7 +372,6 @@
                   <p class="text-primary-accent">
                     Begin your first class in Araling Panlipunan
                   </p>
-                  <!-- <p>Another Subtitle</p> -->
                   <p class="text-sm"></p>
                 </div>
               </div>
@@ -457,7 +391,6 @@
                   <p class="text-primary-accent">
                     Begin your first class in Reading
                   </p>
-                  <!-- <p>Another Subtitle</p> -->
                   <p class="text-sm"></p>
                 </div>
               </div>
@@ -476,8 +409,7 @@
                   <p class="h2 text-primary">Adarnang malaya</p>
                   <p class="text-primary-accent">
                     Simulan ang unang aralin sa Filipinong wikain
-                  </p>
-                  <!-- <p>Another Subtitle</p> -->
+                  </p>              
                   <p class="text-sm"></p>
                 </div>
               </div>
@@ -495,14 +427,14 @@
                   </div>
                   <p class="h2 text-primary">More achievements to be added</p>
                   <p class="text-primary-accent">to be added soon</p>
-                  <!-- <p>Another Subtitle</p> -->
                   <p class="text-sm"></p>
                 </div>
               </div>
-            </div>
+            </div> -->
+            <!--CARD end-->
           </div>
         </section>
-
+        <!--BADGES-->
         <section class="section">
           <!-- card-group put every cards inside this -->
           <h2 class="h1">Badges</h2>
@@ -634,7 +566,7 @@
             </div>
           </div>
         </section>
-
+        <!--UNLOCKABLES-->
         <section class="section">
           <h2 class="h1 text-center">Unlockables</h2>
           <div class="card-group">
@@ -954,5 +886,6 @@
     </main>
 
     <script type="module" src="/js/onload.js"></script>
+    <script src="./collections.js"></script>
   </body>
 </html>
