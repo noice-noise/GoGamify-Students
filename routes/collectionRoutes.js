@@ -13,14 +13,18 @@ const { ensureAuthenticated } = require("../config/authConfig");
  */
 
 router.get("/", collectionController.collectible_index);
-router.get("/browse", collectionController.collectible_browse);
+router.get(
+  "/browse",
+  ensureAuthenticated,
+  collectionController.collectible_browse
+);
 router.get("/create", collectionController.collectible_create);
 router.get("/earn", ensureAuthenticated, collectionController.collectible_earn);
 
 router.get("/data/all", collectionController.collectible);
 router.get("/data/:id", collectionController.collectible_data_get);
 
-router.get("/all", collectionController.collectible_index);
+router.get("/all", ensureAuthenticated, collectionController.collectible_index);
 router.post("/save", collectionController.collectible_post);
 router.put("/save", collectionController.collectible_put);
 router.get("/:id", collectionController.collectible_get);

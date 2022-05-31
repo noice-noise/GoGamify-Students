@@ -12,6 +12,9 @@
           <div class="flex flex-col items-center justify-center gap-3">
             <h1 class="h1 text-4xl">Gamified Collectibles</h1>
             <h2 class="text-center">Made by community for the community</h2>
+            <a href="/collection/earn" class="button button--cta py-5 px-6"
+              >Earn Collectible using code</a
+            >
           </div>
 
           <div
@@ -22,14 +25,14 @@
 
             <div class="single delete group hover:cursor-pointer">
               <form
-                action="/student/p/collection"
+                action="/student/p/collections"
                 method="post"
                 class="h-70 relative inline-block h-full w-60 transform-gpu rounded-lg border px-4 py-5 shadow-sm transition-all duration-150 group-hover:scale-105 group-hover:shadow-lg"
               >
                 <input
                   type="text"
                   value="<%= collectible._id %>"
-                  name="code"
+                  name="id"
                   hidden
                 />
                 <div
@@ -41,7 +44,6 @@
                   class="absolute top-3 right-3 hidden ease-in-out group-hover:flex group-hover:gap-1"
                 >
                   <button
-                    hidden
                     class="rounded-full bg-violet-50 p-3 text-gray-600 hover:cursor-pointer hover:bg-violet-200"
                     type="submit"
                   >

@@ -17,18 +17,20 @@
 
         <form
           class="flex flex-col gap-3"
-          action="/student/p/resources"
+          action="/student/p/collections"
           method="post"
         >
           <input
-            name="code"
+            name="id"
             class="form__field mb-0"
             type="text"
             placeholder="Enter collectible a code"
           />
           <button class="button button--cta w-full" type="submit">Earn</button>
         </form>
-        <a class="button button--muted w-full" href="/home">Back</a>
+        <a class="button button--muted w-full" href="/collection/browse"
+          >Back</a
+        >
       </section>
     </main>
     <%- include('../partials/footer.ejs') %> <% if (messages.error) { %>
