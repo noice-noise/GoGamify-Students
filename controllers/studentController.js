@@ -336,9 +336,12 @@ const student_current_page_get = async (req, res) => {
         </section>`;
           console.log("No user resources available...");
           console.log("Sending browse journey prompt instead...");
-          res.send(JSON.stringify(promptBrowse));
+          console.log("SENDING JSON1");
+          const jsonData = { body: promptBrowse };
+          res.send(jsonData);
         } else {
           const firstModule = doc.resources[0].modules[0];
+          const currentResource = doc.resources[0];
 
           /**
            * Initialize first module as the current page and page number,
@@ -357,7 +360,11 @@ const student_current_page_get = async (req, res) => {
                 console.log(err);
               } else {
                 // console.log(docs);
-                res.send(JSON.stringify(firstModule));
+                console.log("SENDING JSON2");
+                const targetHeader = currentResource;
+                targetHeader.currentPageNumber = doc.currentPageNumber;
+                const jsonData = { header: targetHeader, body: firstModule };
+                res.send(JSON.stringify(jsonData));
               }
             }
           )
@@ -371,11 +378,18 @@ const student_current_page_get = async (req, res) => {
         console.log("Current page set, sending...");
         const targetResourceIndex = doc.currentPageIndex;
         const targetModulesIndex = doc.currentPageNumber;
-        res.send(
-          JSON.stringify(
-            doc.resources[targetResourceIndex].modules[targetModulesIndex]
-          )
-        );
+        const targetModule =
+          doc.resources[targetResourceIndex].modules[targetModulesIndex];
+
+        console.log("SENDING JSON3");
+        const targetHeader = doc.resources[targetResourceIndex];
+        targetHeader.currentPageNumber = doc.currentPageNumber;
+
+        const jsonData = {
+          header: targetHeader,
+          body: targetModule,
+        };
+        res.send(JSON.stringify(jsonData));
       }
     }
   })

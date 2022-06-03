@@ -1,6 +1,9 @@
 console.log("Module script executed.");
 
 const moduleRoot = document.getElementById("moduleRoot");
+const title = document.getElementById("title");
+const subtitle = document.getElementById("subtitle");
+const pageInfo = document.getElementById("pageInfo");
 
 const initScript = async () => {
   const preferences = await JSON.parse(
@@ -34,8 +37,20 @@ const fetchModule = async () => {
     })
     .then((data) => {
       console.log("data", data);
-      appendContent(data);
+      appendHeader(data.header);
+      appendContent(data.body);
+    })
+    .catch((err) => {
+      console.log(err);
     });
+};
+
+const appendHeader = (data) => {
+  title.textContent = data?.title;
+  subtitle.textContent = data?.subtitle;
+  pageInfo.textContent = data
+    ? `${data.currentPageNumber + 1}/${data.pages}`
+    : "";
 };
 
 const appendContent = (data) => {
