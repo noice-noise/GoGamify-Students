@@ -211,9 +211,25 @@
     <!-- end of nav -->
 
     <main id="main">
-      <div id="moduleRoot" class="main__container resize overflow-x-hidden">
+      <div
+        class="main__container mt-20 mb-0 flex items-center justify-between px-10 py-2 text-sm text-muted"
+      >
+        <div>
+          <p class="flex gap-5">
+            <span class="font-bold" id="title"></span>
+            <span id="subtitle"></span>
+          </p>
+        </div>
+        <div>
+          <p id="pageInfo"></p>
+        </div>
+      </div>
+      <div
+        id="moduleRoot"
+        class="main__container my-0 resize overflow-x-hidden py-0"
+      >
         <!-- edit contents below -->
-        <section id="" class="section"></section>
+        <section class="section"></section>
 
         <!-- edit contents above -->
       </div>

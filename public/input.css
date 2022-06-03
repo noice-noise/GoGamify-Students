@@ -358,7 +358,7 @@
   }
 
   .module {
-    @apply section;
+    @apply section mt-0;
   }
 
   .module h1 {

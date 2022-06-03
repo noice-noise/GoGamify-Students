@@ -1297,6 +1297,10 @@ body {
   }
 }
 
+.module {
+  margin-top: 0px;
+}
+
 .module h1 {
   font-size: 1.875rem;
   line-height: 2.25rem;
@@ -1444,6 +1448,11 @@ body {
   margin-right: auto;
 }
 
+.my-0 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
 .my-3 {
   margin-top: 0.75rem;
   margin-bottom: 0.75rem;
@@ -1479,16 +1488,20 @@ body {
   margin-top: -3.5rem;
 }
 
+.mb-0 {
+  margin-bottom: 0px;
+}
+
+.mt-20 {
+  margin-top: 5rem;
+}
+
 .mt-0 {
   margin-top: 0px;
 }
 
 .mt-10 {
   margin-top: 2.5rem;
-}
-
-.mt-20 {
-  margin-top: 5rem;
 }
 
 .mb-4 {
@@ -1499,12 +1512,12 @@ body {
   margin-top: 0.5rem;
 }
 
-.mb-0 {
-  margin-bottom: 0px;
-}
-
 .ml-10 {
   margin-left: 2.5rem;
+}
+
+.mt-32 {
+  margin-top: 8rem;
 }
 
 .block {
@@ -1739,6 +1752,10 @@ body {
   flex-wrap: wrap;
 }
 
+.items-end {
+  align-items: flex-end;
+}
+
 .items-center {
   align-items: center;
 }
@@ -1910,9 +1927,24 @@ body {
   padding-bottom: 1rem;
 }
 
+.px-3 {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
 .px-10 {
   padding-left: 2.5rem;
   padding-right: 2.5rem;
+}
+
+.py-0 {
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 
 .py-3 {
@@ -1943,16 +1975,6 @@ body {
 .px-6 {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
-}
-
-.px-3 {
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
-}
-
-.py-2 {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
 }
 
 .px-5 {

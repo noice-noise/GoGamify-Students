@@ -1,6 +1,7 @@
 const Student = require("../models/student");
 const User = require("../models/user");
 const LearningResource = require("../models/learningResource");
+const Collectible = require("../models/collectible");
 const path = require("path");
 const fs = require("fs");
 
@@ -136,7 +137,7 @@ const student_delete = async (req, res) => {
 };
 
 const student_resources_post = async (req, res) => {
-  console.log("Target resource rode:", req.body.code);
+  console.log("Target resource code:", req.body.code);
 
   try {
     await LearningResource.findOne({ _id: req.body.code }).then(
@@ -147,11 +148,53 @@ const student_resources_post = async (req, res) => {
           { safe: true, upsert: true },
           (err, docs) => {
             if (err) {
-              console.log("Error, journey probably doesn't exist.");
+              console.log("Error, getting document data.");
               console.log(err);
             } else {
               console.log(docs);
-              res.redirect("/home");
+
+              Student.findById(req.session.user.profile, (err, doc) => {
+                if (err) {
+                  console.log("Error while accessing the document.");
+                  console.log(err);
+                } else {
+                  const indexOfExisting = findResource(resource, doc.resources);
+
+                  const targetIndex =
+                    indexOfExisting === -1
+                      ? doc.resources.length - 1
+                      : indexOfExisting;
+
+                  const targetModule = doc.resources[targetIndex].modules[0];
+
+                  Student.findByIdAndUpdate(
+                    req.session.user.profile,
+                    {
+                      currentPage: targetModule,
+                      currentPageNumber: 0,
+                      currentPageIndex: targetIndex,
+                    },
+                    (err, docs) => {
+                      if (err) {
+                        console.log("Error occurred");
+                        console.log(err);
+                      } else {
+                        // res.send(JSON.stringify(targetModule));
+                        res.redirect("/home");
+                      }
+                    }
+                  )
+                    .clone()
+                    .catch((err) => {
+                      console.log(err);
+                    });
+                }
+              })
+                .clone()
+                .catch((err) => {
+                  console.log("Retrieval failed.");
+                  console.log(err);
+                });
             }
           }
         )
@@ -170,6 +213,18 @@ const student_resources_post = async (req, res) => {
     });
   }
 };
+
+function findResource(obj, list) {
+  var i;
+  for (i = 0; i < list.length; i++) {
+    // toString allows proper comparing of resource IDs
+    if (list[i]._id.toString() == obj._id.toString()) {
+      return i;
+    }
+  }
+
+  return -1;
+}
 
 const student_resources_get = async (req, res) => {
   console.log("Retrieving resources from DB...");
@@ -191,13 +246,60 @@ const student_resources_get = async (req, res) => {
 };
 
 const student_resources_delete = async (req, res) => {
-  console.log("Retrieving resource to delete from DB...");
-  await Student.findByIdAndDelete(req.session.user.profile, (err, doc) => {
+  // TODO implement resource delete, this is only an option, primary way is to just complete the resource then it will be moved in Completed array, instead of entirely deleting which is much more intended.
+};
+
+const student_collections_post = async (req, res) => {
+  console.log("Target collectible id:", req.body.id);
+
+  try {
+    await Collectible.findOne({ _id: req.body.id }).then(
+      async (collectible) => {
+        if (!collectible) {
+          throw new Error("Invalid collectible.");
+        }
+
+        await Student.findByIdAndUpdate(
+          req.session.user.profile,
+          { $addToSet: { collections: collectible } },
+          { safe: true, upsert: true },
+          (err, docs) => {
+            if (err) {
+              console.log("Error, collectible doesn't exist.");
+              console.log(err);
+            } else {
+              console.log(docs);
+              res.redirect("/pwa/collections");
+            }
+          }
+        )
+          .clone()
+          .catch((err) => {
+            console.log(err);
+          });
+      }
+    );
+  } catch (err) {
+    console.log("Error, collectible doesn't exist.");
+    console.error(err);
+    await res.render("app/earn-collectible", {
+      title: "Earn a Collectible | GoGamify",
+      messages: { error: "Collectible does not exist." },
+    });
+  }
+};
+
+const student_collections_get = async (req, res) => {
+  console.log("Retrieving collections from DB...");
+
+  await Student.findById(req.session.user.profile, (err, doc) => {
     if (err) {
       console.log("Error while accessing the document.");
       console.log(err);
     } else {
       console.log("Document", doc);
+      console.log("collections", doc.collections);
+      res.send(JSON.stringify(doc.collections));
     }
   })
     .clone()
@@ -207,7 +309,9 @@ const student_resources_delete = async (req, res) => {
     });
 };
 
-const student_current_page = async (req, res) => {
+const student_collections_delete = async (req, res) => {};
+
+const student_current_page_get = async (req, res) => {
   console.log("Retrieving resources from DB...");
   await Student.findById(req.session.user.profile, (err, doc) => {
     if (err) {
@@ -232,9 +336,12 @@ const student_current_page = async (req, res) => {
         </section>`;
           console.log("No user resources available...");
           console.log("Sending browse journey prompt instead...");
-          res.send(JSON.stringify(promptBrowse));
+          console.log("SENDING JSON1");
+          const jsonData = { body: promptBrowse };
+          res.send(jsonData);
         } else {
           const firstModule = doc.resources[0].modules[0];
+          const currentResource = doc.resources[0];
 
           /**
            * Initialize first module as the current page and page number,
@@ -253,7 +360,11 @@ const student_current_page = async (req, res) => {
                 console.log(err);
               } else {
                 // console.log(docs);
-                res.send(JSON.stringify(firstModule));
+                console.log("SENDING JSON2");
+                const targetHeader = currentResource;
+                targetHeader.currentPageNumber = doc.currentPageNumber;
+                const jsonData = { header: targetHeader, body: firstModule };
+                res.send(JSON.stringify(jsonData));
               }
             }
           )
@@ -267,11 +378,18 @@ const student_current_page = async (req, res) => {
         console.log("Current page set, sending...");
         const targetResourceIndex = doc.currentPageIndex;
         const targetModulesIndex = doc.currentPageNumber;
-        res.send(
-          JSON.stringify(
-            doc.resources[targetResourceIndex].modules[targetModulesIndex]
-          )
-        );
+        const targetModule =
+          doc.resources[targetResourceIndex].modules[targetModulesIndex];
+
+        console.log("SENDING JSON3");
+        const targetHeader = doc.resources[targetResourceIndex];
+        targetHeader.currentPageNumber = doc.currentPageNumber;
+
+        const jsonData = {
+          header: targetHeader,
+          body: targetModule,
+        };
+        res.send(JSON.stringify(jsonData));
       }
     }
   })
@@ -280,6 +398,55 @@ const student_current_page = async (req, res) => {
       console.log("Retrieval failed.");
       console.log(err);
     });
+};
+
+const student_current_page_post = async (req, res) => {
+  console.log("Current page post request....");
+
+  await LearningResource.findOne({ _id: req.body._id }).then(
+    async (resource) => {
+      Student.findById(req.session.user.profile, (err, doc) => {
+        if (err) {
+          console.log("Error while accessing the document.");
+          console.log(err);
+        } else {
+          const indexOfExisting = findResource(resource, doc.resources);
+
+          const targetIndex =
+            indexOfExisting === -1 ? doc.resources.length - 1 : indexOfExisting;
+
+          const targetModule = doc.resources[targetIndex].modules[0];
+
+          Student.findByIdAndUpdate(
+            req.session.user.profile,
+            {
+              currentPage: targetModule,
+              currentPageNumber: 0,
+              currentPageIndex: targetIndex,
+            },
+            (err, docs) => {
+              if (err) {
+                console.log("Error occurred");
+                console.log(err);
+              } else {
+                // res.send(JSON.stringify(targetModule));
+                res.redirect("/home");
+              }
+            }
+          )
+            .clone()
+            .catch((err) => {
+              console.log(err);
+            });
+        }
+      })
+        .clone()
+        .catch((err) => {
+          console.log("Retrieval failed.");
+          console.log(err);
+        });
+    }
+  );
 };
 
 const student_page_next = async (req, res) => {
@@ -327,7 +494,7 @@ const student_page_next = async (req, res) => {
           { $pull: { resources: targetResource } },
           (err, docs) => {
             if (err) {
-              console.log("Error, journey probably doesn't exist.");
+              console.log("Error, getting document data.");
               console.log(err);
             } else {
               Student.findByIdAndUpdate(
@@ -339,7 +506,7 @@ const student_page_next = async (req, res) => {
                 },
                 (err, docs) => {
                   if (err) {
-                    console.log("Error, journey probably doesn't exist.");
+                    console.log("Error, getting document data.");
                     console.log(err);
                   } else {
                     Student.findByIdAndUpdate(
@@ -348,7 +515,7 @@ const student_page_next = async (req, res) => {
                       { safe: true, upsert: true },
                       (err, docs) => {
                         if (err) {
-                          console.log("Error, journey probably doesn't exist.");
+                          console.log("Error, getting document data.");
                           console.log(err);
                         } else {
                           console.log(docs);
@@ -543,9 +710,13 @@ module.exports = {
   student_resources_get,
   student_resources_post,
   student_resources_delete,
-  student_current_page,
+  student_current_page_get,
+  student_current_page_post,
   student_page_next,
   student_page_prev,
+  student_collections_post,
+  student_collections_get,
+  student_collections_delete,
   profile_get,
   profile_preference_post,
   profile_preference_get,
