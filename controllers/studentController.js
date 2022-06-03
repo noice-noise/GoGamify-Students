@@ -152,7 +152,49 @@ const student_resources_post = async (req, res) => {
               console.log(err);
             } else {
               console.log(docs);
-              res.redirect("/home");
+
+              Student.findById(req.session.user.profile, (err, doc) => {
+                if (err) {
+                  console.log("Error while accessing the document.");
+                  console.log(err);
+                } else {
+                  const indexOfExisting = findResource(resource, doc.resources);
+
+                  const targetIndex =
+                    indexOfExisting === -1
+                      ? doc.resources.length - 1
+                      : indexOfExisting;
+
+                  const targetModule = doc.resources[targetIndex].modules[0];
+
+                  Student.findByIdAndUpdate(
+                    req.session.user.profile,
+                    {
+                      currentPage: targetModule,
+                      currentPageNumber: 0,
+                      currentPageIndex: targetIndex,
+                    },
+                    (err, docs) => {
+                      if (err) {
+                        console.log("Error occurred");
+                        console.log(err);
+                      } else {
+                        // res.send(JSON.stringify(targetModule));
+                        res.redirect("/home");
+                      }
+                    }
+                  )
+                    .clone()
+                    .catch((err) => {
+                      console.log(err);
+                    });
+                }
+              })
+                .clone()
+                .catch((err) => {
+                  console.log("Retrieval failed.");
+                  console.log(err);
+                });
             }
           }
         )
@@ -171,6 +213,18 @@ const student_resources_post = async (req, res) => {
     });
   }
 };
+
+function findResource(obj, list) {
+  var i;
+  for (i = 0; i < list.length; i++) {
+    // toString allows proper comparing of resource IDs
+    if (list[i]._id.toString() == obj._id.toString()) {
+      return i;
+    }
+  }
+
+  return -1;
+}
 
 const student_resources_get = async (req, res) => {
   console.log("Retrieving resources from DB...");
@@ -257,7 +311,7 @@ const student_collections_get = async (req, res) => {
 
 const student_collections_delete = async (req, res) => {};
 
-const student_current_page = async (req, res) => {
+const student_current_page_get = async (req, res) => {
   console.log("Retrieving resources from DB...");
   await Student.findById(req.session.user.profile, (err, doc) => {
     if (err) {
@@ -330,6 +384,55 @@ const student_current_page = async (req, res) => {
       console.log("Retrieval failed.");
       console.log(err);
     });
+};
+
+const student_current_page_post = async (req, res) => {
+  console.log("Current page post request....");
+
+  await LearningResource.findOne({ _id: req.body._id }).then(
+    async (resource) => {
+      Student.findById(req.session.user.profile, (err, doc) => {
+        if (err) {
+          console.log("Error while accessing the document.");
+          console.log(err);
+        } else {
+          const indexOfExisting = findResource(resource, doc.resources);
+
+          const targetIndex =
+            indexOfExisting === -1 ? doc.resources.length - 1 : indexOfExisting;
+
+          const targetModule = doc.resources[targetIndex].modules[0];
+
+          Student.findByIdAndUpdate(
+            req.session.user.profile,
+            {
+              currentPage: targetModule,
+              currentPageNumber: 0,
+              currentPageIndex: targetIndex,
+            },
+            (err, docs) => {
+              if (err) {
+                console.log("Error occurred");
+                console.log(err);
+              } else {
+                // res.send(JSON.stringify(targetModule));
+                res.redirect("/home");
+              }
+            }
+          )
+            .clone()
+            .catch((err) => {
+              console.log(err);
+            });
+        }
+      })
+        .clone()
+        .catch((err) => {
+          console.log("Retrieval failed.");
+          console.log(err);
+        });
+    }
+  );
 };
 
 const student_page_next = async (req, res) => {
@@ -593,7 +696,8 @@ module.exports = {
   student_resources_get,
   student_resources_post,
   student_resources_delete,
-  student_current_page,
+  student_current_page_get,
+  student_current_page_post,
   student_page_next,
   student_page_prev,
   student_collections_post,
