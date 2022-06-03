@@ -35,7 +35,11 @@ const fetchModule = async () => {
     .then((data) => {
       console.log("data", data);
       appendContent(data);
-    });
+    })
+    .catch(error => {
+      console.log(error)
+  });
+
 };
 
 const appendContent = (data) => {
