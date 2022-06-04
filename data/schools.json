@@ -5,7 +5,7 @@
     "teachers": [
       {
         "name": "Ms.Cristina Dela Cruz",
-        "subject": ["Aralin Panlipunan", "Filipino"],
+        "subject": ["Aralin Panlipunan", "Filipino", "Mathematics"],
         "gradeLevel": "1",
         "email": "cristinadelacruz@gmail.com"
       },
@@ -25,7 +25,27 @@
     "teachers": [
       {
         "name": "Ms.Cristina Dela Cruz",
-        "subject": "Aralin Panlipunan",
+        "subject": ["Aralin Panlipunan"],
+        "gradeLevel": "1",
+        "email": "cristinadelacruz@gmail.com"
+      },
+      {
+        "name": "Mr.Angelo Garcia",
+        "subject": ["Math"],
+        "gradeLevel": "2",
+        "email": "angelogarcia@gmail.com"
+      }
+    ],
+    "schoolmates": []
+  },
+
+  "Abraham's Children Montessori": {
+    "name": "Abbey Park Academy Corp.",
+    "info": "Lorem ipsum",
+    "teachers": [
+      {
+        "name": "Ms.Cristina Dela Cruz",
+        "subject": ["Aralin Panlipunan"],
         "gradeLevel": "1",
         "email": "cristinadelacruz@gmail.com"
       },
