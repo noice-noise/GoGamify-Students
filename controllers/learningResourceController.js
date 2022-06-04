@@ -1,4 +1,5 @@
 const LearningResource = require("../models/learningResource");
+const Student = require("../models/student");
 let isOffline;
 
 const learning_resource = (req, res) => {
@@ -65,19 +66,43 @@ const learning_resource_post = (req, res) => {
     });
 };
 
-const learning_resource_get = (req, res) => {
+const learning_resource_get = async (req, res) => {
   const id = req.params.id;
-  LearningResource.findById(id)
+  await LearningResource.findById(id)
     .then((result) => {
-      res.render("gamify/details", {
-        title: "Learning Resource Details",
-        resource: result,
-        user: req.session.user,
-      });
+      if (req.session.user?.profile.toLowerCase() == "na") {
+        return res.render("gamify/details", {
+          title: "Learning Resource Details",
+          resource: result,
+          user: {
+            familyName: "Community",
+            middleName: "X",
+            firstName: "GoGamify",
+          },
+        });
+      } else {
+        Student.findById(req.session.user.profile, (err, doc) => {
+          if (err) {
+            console.log("Error while accessing the document.");
+            console.log(err);
+          } else {
+            res.render("gamify/details", {
+              title: "Learning Resource Details",
+              resource: result,
+              user: doc,
+            });
+          }
+        })
+          .clone()
+          .catch((err) => {
+            console.log("Retrieval failed.");
+            console.log(err);
+          });
+      }
     })
     .catch((err) => {
       console.log(err);
-      res.render("404", { title: "Sorry, something went wrong." });
+      // res.render("404", { title: "Sorry, something went wrong." });
     });
 };
 

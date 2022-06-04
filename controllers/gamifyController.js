@@ -3,6 +3,7 @@ const mammoth = require("mammoth");
 const fs = require("fs");
 
 const LearningResource = require("../models/learningResource");
+const Student = require("../models/student");
 let isOffline;
 
 // check internet connection
@@ -46,12 +47,41 @@ const gamify_index = (req, res) => {
   }
 };
 
-const gamify_create_get = (req, res) => {
+const gamify_create_get = async (req, res) => {
   console.log("Gamify create...");
-  res.render("gamify/create", {
-    title: "Gamify Create",
-    user: req.session.user,
-  });
+
+  console.log("Retrieving user profile from DB...");
+
+  await Student.findById(req.session.user.profile, (err, doc) => {
+    if (err) {
+      console.log("Error while accessing the document.");
+      console.log(err);
+    } else {
+      return res.render("gamify/create", {
+        title: "Gamify Create",
+        user: doc,
+      });
+    }
+  })
+    .clone()
+    .catch((err) => {
+      console.log("Retrieval failed.");
+      console.log(err);
+    });
+
+  /**
+   * Handle error if admin or unknown user creates the resource
+   */
+  if (req.session.user.profile.toLowerCase() == "na") {
+    return res.render("gamify/create", {
+      title: "Gamify Create",
+      user: {
+        familyName: "Community",
+        middleName: "X",
+        firstName: "GoGamify",
+      },
+    });
+  }
 };
 
 const gamify_file_post = (req, res) => {
