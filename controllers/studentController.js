@@ -68,11 +68,11 @@ const student_post = async (req, res) => {
             console.log("Error updating user: ", err);
           } else {
             console.log("User Updated: ", docs);
+            res.clearCookie("user");
+            res.redirect("/home");
           }
         }
       );
-
-      res.redirect("/pwa/learning-module/module.html");
     })
     .catch((err) => {
       res.status(500).send({
