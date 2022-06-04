@@ -1,282 +1,222 @@
-//This is just dummy data. Once the app can retrieve data to be used here from the DB, please
-// do the necessary modifications.
-const teacherList = [
-  {
-    subject: "English",
-    teacherName: "Ms.Cristina Dela Cruz",
-    email: "cristinadelacruz@gmail.com",
-  },
-  {
-    subject: "Filipino",
-    teacherName: "Mr.Angelo Garcia",
-    email: "angelogarcia@gmail.com",
-  },
-  {
-    subject: "Mother Tongue",
-    teacherName: "Mr.Juan Carlos Reyes",
-    email: "juancarlosreyes@gmail.com",
-  },
-  {
-    subject: "Mathematics",
-    teacherName: "Mrs.Maria Erica Ramos",
-    email: "mariaericaramos@gmail.com",
-  },
-  {
-    subject: "Aralin Panlipunan",
-    teacherName: "Ms.Anna Santos",
-    email: "annasantos@gmail.com",
-  },
-  {
-    subject: "Values Education",
-    teacherName: "Ms.Anna Santos",
-    email: "annasantos@gmail.com",
-  },
-  {
-    subject: "MAPEH",
-    teacherName: "Mr.Ricardo Sanchez",
-    email: "ricardosanchez@gmail.com",
-  },
-]
+const schoolTitle = document.getElementById("schoolTitle");
+const schoolInfo = document.getElementById("schoolInfo");
+let currentPage;
 
-const studentList = [
-  "Joe Charles Allen",
-  "James Robert Anderson",
-  "Thomas Brent Arnold",
-  "Frank Beard",
-  "Kenneth Michael Beeson",
-  "Jerry Wayne Bliss",
-  "Johnny Card",
-  "Eduard Allen Dixon",
-  "Jepoy Dizon",
-  "Jose Moreno",
-]
-const studentListAll = [
-  {
-    name: "Joe Charles Allen",
-    gender: "m",
-  },
-  {
-    name: "Ariana Grande",
-    gender: "f",
-  },
-  {
-    name: "James Robert Anderson",
-    gender: "m",
-  },
-  {
-    name: "Thomas Brent Arnold",
-    gender: "m",
-  },
-  {
-    name: "Frank Beard",
-    gender: "m",
-  },
-  {
-    name: "Kenneth Michael Beeson",
-    gender: "m",
-  },
-  {
-    name: "Jerry Wayne Bliss",
-    gender: "m",
-  },
-  {
-    name: "Johnny Card",
-    gender: "m",
-  },
-  {
-    name: "Eduard Allen Dixon",
-    gender: "m",
-  },
-  {
-    name: "Jepoy Dizon",
-    gender: "m",
-  },
-  {
-    name: "Jose Moreno",
-    gender: "m",
-  },
-  {
-    name: "Jacquelyn Allison",
-    gender: "f",
-  },
-  {
-    name: "Betty Marie Armstrong",
-    gender: "f",
-  },
-  {
-    name: "Kathryn Bartels",
-    gender: "f",
-  },
-  {
-    name: "Alyssa Catarozoli",
-    gender: "f",
-  },
-  {
-    name: "Brianna Demotto",
-    gender: "f",
-  },
-  {
-    name: "Sarah Dakwar",
-    gender: "f",
-  },
-  {
-    name: "Alexandria Fons",
-    gender: "f",
-  },
-  {
-    name: "Camille Marcos",
-    gender: "f",
-  },
-  {
-    name: "Kylie Marie Trevor",
-    gender: "f",
-  },
-  {
-    name: "Kimberly Zuckerburg",
-    gender: "f",
-  },
-  {
-    name: "Bingbong Robredo",
-    gender: "m",
-  },
-]
+let teacherList = [];
+let studentList = [];
+let studentListAll = [];
+let teachersListArr = [];
+
+async function fetchCommunityData() {
+  await fetch("/student/community", {
+    method: "GET",
+  })
+    .then((res) => {
+      return res.json();
+    })
+    .then((data) => {
+      console.log(data);
+      teachersListArr = data.teachers;
+      teacherList = data.teachers;
+      studentListAll = data.schoolmates;
+      schoolTitle.textContent = data.name;
+      appendSchoolContent(data.info);
+    });
+}
+
+fetchCommunityData();
+
+const appendSchoolContent = (content) => {
+  schoolInfo.textContent = content;
+};
 
 function enclose(val) {
-  var data = "'" + val + "'"
-  return data
+  var data = "'" + val + "'";
+  return data;
 }
 // Get the element with id="defaultOpen" and click on it
-function openCity(evt, cityName) {
-  var i, sidemenu, sidelink, gradeLevel, grade, level, container
-  sidemenu = document.getElementsByClassName("sidemenu")
+function openTab(evt, gradeTab) {
+  console.log("Appending teachers data...");
+  var i, sidemenu, sidelink, gradeLevel, grade, level, container;
+  sidemenu = document.getElementsByClassName("sidemenu");
   for (i = 0; i < sidemenu.length; i++) {
-    sidemenu[i].style.display = "none"
+    sidemenu[i].style.display = "none";
   }
-  sidelink = document.getElementsByClassName("sidelink")
+  sidelink = document.getElementsByClassName("sidelink");
   for (i = 0; i < sidelink.length; i++) {
-    sidelink[i].className = sidelink[i].className.replace(" active", "")
+    sidelink[i].className = sidelink[i].className.replace(" active", "");
   }
 
-  document.getElementById(cityName).style.display = "block"
-  evt.currentTarget.className += " active"
-  evt.currentTarget.disabled = true
-  for (var x = 1; x <= 10; x++) {
-    if (String(x) !== evt.currentTarget.value) {
-      var val = "bt" + String(x)
-      document.getElementById(val).disabled = false
-    }
-  }
+  document.getElementById(gradeTab).style.display = "block";
+  evt.currentTarget.className += " active";
+  // NOTE: remove this one cause buttons in Teachers, and Schoolmates conflicts with this codeblock.
+  // Better to remove disabling of buttons when clicked  for now.
+  // evt.currentTarget.disabled = true;
+  // for (var x = 1; x <= 10; x++) {
+  //   if (String(x) !== evt.currentTarget.value) {
+  //     var val = "bt" + String(x);
+  //     document.getElementById(val).disabled = false;
+  //   }
+  // }
 
   if (
-    cityName === "Grade1" ||
-    cityName === "Grade2" ||
-    cityName === "Grade3" ||
-    cityName === "Grade4" ||
-    cityName === "Grade5" ||
-    cityName === "Grade6" ||
-    cityName === "Grade7" ||
-    cityName === "Grade8" ||
-    cityName === "Grade9" ||
-    cityName === "Grade10"
+    gradeTab === "Grade1" ||
+    gradeTab === "Grade2" ||
+    gradeTab === "Grade3" ||
+    gradeTab === "Grade4" ||
+    gradeTab === "Grade5" ||
+    gradeTab === "Grade6" ||
+    gradeTab === "Grade7" ||
+    gradeTab === "Grade8" ||
+    gradeTab === "Grade9" ||
+    gradeTab === "Grade10"
   ) {
-    container = document.getElementById(cityName.toLowerCase())
-    gradeLevel = cityName
-    grade = cityName
-    level = grade.substr(5, 6)
-    gradeLevel = gradeLevel.substr(0, 5) + " " + level
+    container = document.getElementById(gradeTab.toLowerCase());
+    container.innerHTML = ""; // reset container elements to avoid duplication
+    gradeLevel = gradeTab;
+    grade = gradeTab;
+    level = grade.substr(5, 6);
+    gradeLevel = gradeLevel.substr(0, 5) + " " + level;
   }
+
   teacherList.forEach((result) => {
-    // Create card element
-    const card = document.createElement("div")
-    card.classList = "card-body"
-    // Construct card content
-    //temporary image holder. Please do the necessary modifications once
-    // db data is retrieved
-    const content = `
+    console.log("result.gradeLevel: ", result.gradeLevel);
+    console.log("level: ", gradeTab);
+    if (level == result.gradeLevel) {
+      // Create card element
+      const card = document.createElement("div");
+      card.classList = "card-body";
+      // Construct card content
+      //temporary image holder.
+
+      let subject = Object.values(result.subject).join(", ");
+      const content = `
       <div class="card card--small">
         <div class="card__container">
           <div class="card__header">
             <div class="card__img-container">
               <img
-                class="card__img h-20 w-20"
+                class="card__img h-20 w-20 mx-auto mb-3"
                 src="https://www.shareicon.net/data/256x256/2016/09/15/829453_user_512x512.png" 
                 alt="Profile Image"
               />
             </div>
-            <p class="h2 text-primary">${result.subject}</p>
-            <p class="text-primary-accent">${result.teacherName}</p>
+            <p class="h2 text-primary">${result.name}</p>
+            <p class="text-primary-accent">${subject}</p>
             <p class="h4">${gradeLevel} Teacher</p>
             <p class="text-sm">
             Contact Email: ${result.email}
             </p>
           </div>
         </div>
-      `
-    // Append newyly created card element to the container
-    container.innerHTML += content
-  })
+      `;
+
+      container.innerHTML += content;
+    }
+  });
+
+  if (container) {
+    container.innerHTML +=
+      container.children.length === 0
+        ? "No teachers registered at this grade level yet."
+        : "";
+  }
+
+  console.log("Current page", currentPage);
+  if (currentPage === "Schoolmates") {
+    openSchoolmatesList(evt, gradeTab);
+  }
+
+  console.log(" Teachers data appended...");
 }
 
-function openClassList(evt, sectionName) {
+function openSchoolmatesList(evt, gradeTab) {
+  gradeLevel = gradeTab[0] + (gradeTab[1] === "0" ? "0" : "");
+
+  console.log("Schoolmates!", gradeTab);
   var i,
     sidemenu,
     sidelink,
     classlistcontainer,
     classlistgirlscontainer,
     maleCtr = 0,
-    femaleCtr = 0
-  sidemenu = document.getElementsByClassName("sidemenu")
+    femaleCtr = 0;
+  sidemenu = document.getElementsByClassName("sidemenu");
   for (i = 0; i < sidemenu.length; i++) {
-    sidemenu[i].style.display = "none"
+    sidemenu[i].style.display = "none";
   }
-  sidelink = document.getElementsByClassName("sidelink")
+  sidelink = document.getElementsByClassName("sidelink");
   for (i = 0; i < sidelink.length; i++) {
-    sidelink[i].className = sidelink[i].className.replace(" active", "")
+    sidelink[i].className = sidelink[i].className.replace(" active", "");
   }
-  document.getElementById(sectionName).style.display = "block"
-  evt.currentTarget.className += " active"
+  document.getElementById(gradeTab).style.display = "block";
+  evt.currentTarget.className += " active";
 
-  classlistcontainer = document.getElementById(sectionName.toLowerCase())
+  classlistcontainer = document.getElementById(
+    gradeTab.toLowerCase() + "schoolmates"
+  );
 
-  let femalecontainer = sectionName.toLowerCase() + "female"
-  classlistgirlscontainer = document.getElementById(femalecontainer)
+  let femalecontainer = gradeTab.toLowerCase() + "schoolmates" + "female";
+  console.log("femailCont", femalecontainer);
+  classlistgirlscontainer = document.getElementById(femalecontainer);
+
+  classlistcontainer.innerHTML = ""; // reset before generating
+  classlistgirlscontainer.innerHTML = ""; // reset before generating
 
   studentListAll.forEach((result) => {
-    // Create card element
-    const card = document.createElement("div")
-    card.classList = "card-body"
-    // Construct card content
-    //temporary image holder. Please do the necessary modifications once
-    // db data is retrieved
-    if (result.gender === "m") {
-      const content = `<p class="h3">${maleCtr + 1}. ${result.name}</p>
+    if (result.gradeLevel == gradeLevel) {
+      // Create card element
+      const card = document.createElement("div");
+      card.classList = "card-body";
+      // Construct card content
+      //temporary image holder. Please do the necessary modifications once
+      // db data is retrieved
+      if (result.gender.toLowerCase() == "male") {
+        const content = `<p>${maleCtr + 1}. ${result.firstName} ${
+          result.familyName
+        }</p>
       <br/> 
-      `
-      // Append newyly created card element to the container
-      classlistcontainer.innerHTML += content
-      maleCtr++
-    } else {
-      const contentFemale = `<p class="h3">${femaleCtr + 1}. ${result.name}</p>
+      `;
+        // Append newyly created card element to the container
+        classlistcontainer.innerHTML += content;
+        maleCtr++;
+      } else {
+        const contentFemale = `<p>${femaleCtr + 1}. ${result.firstName} ${
+          result.familyName
+        }</p>
       <br/> 
-      `
-      classlistgirlscontainer.innerHTML += contentFemale
-      femaleCtr++
+      `;
+        classlistgirlscontainer.innerHTML += contentFemale;
+        femaleCtr++;
+      }
     }
-  })
+  });
+
+  // add placeholder text if class list is empty
+  classlistcontainer.innerHTML +=
+    classlistcontainer.children.length === 0
+      ? "No registered boy schoolmates."
+      : "";
+  classlistgirlscontainer.innerHTML +=
+    classlistgirlscontainer.children.length === 0
+      ? "No registered girl schoolmates."
+      : "";
 }
+
 function openPage(pageName, elmnt, color) {
-  var i, tabcontent, tablinks
-  tabcontent = document.getElementsByClassName("tabcontent")
+  currentPage = pageName;
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
   for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none"
+    tabcontent[i].style.display = "none";
   }
-  tablinks = document.getElementsByClassName("tablink")
+  tablinks = document.getElementsByClassName("tablink");
   for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].style.backgroundColor = ""
+    tablinks[i].style.backgroundColor = "";
   }
-  document.getElementById(pageName).style.display = "block"
-  elmnt.style.backgroundColor = color
+  document.getElementById(pageName).style.display = "block";
+  elmnt.style.backgroundColor = color;
 }
 
 // Get the element with id="defaultOpen" and click on it
-document.getElementById("defaultOpen").click()
+document.getElementById("defaultOpen").click();
