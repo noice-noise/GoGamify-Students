@@ -102,9 +102,6 @@ app.use("/admin", ensureAuthenticated, adminRoutes);
 app.use("/auth", authRoutes);
 
 app.use("/home", setAuthCookie, forwardAdmin, forwardFirstLogin, (req, res) => {
-  // console.debug("USER request: ", req.user);
-  // console.debug("USER session: ", req.session.user);
-  // console.debug("USER cookies: ", req.cookies.user);
   res.redirect("/pwa/learning-module/module.html");
 });
 
@@ -121,7 +118,6 @@ app.use("/resource", learningResourceRoutes);
 app.use("/student", ensureAuthenticated, studentRoutes);
 app.use("/collection", ensureAuthenticated, collectionRoutes);
 app.use("/student", studentRoutes);
-app.use("/collection", collectionRoutes);
 
 app.use((req, res) => {
   res.status(404).render("404", { title: "Page not found." });
