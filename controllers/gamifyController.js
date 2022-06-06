@@ -234,8 +234,4 @@ module.exports = {
   gamify_file_get,
   gamify_file_delete,
   gamify_file_list_get,
-  // learning_resource_post,
-  // learning_resource_get,
-  // learning_resource_put,
-  // learning_resource_delete,
 };
