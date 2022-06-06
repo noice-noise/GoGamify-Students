@@ -15,7 +15,7 @@ const learningResourceSchema = new Schema(
       type: String,
       required: true,
     },
-    students: [Number],
+    students: [],
     body: {
       type: Object,
       required: true,

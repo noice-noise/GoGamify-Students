@@ -140,70 +140,86 @@ const student_resources_post = async (req, res) => {
   console.log("Target resource code:", req.body.code);
 
   try {
-    await LearningResource.findOne({ _id: req.body.code }).then(
-      async (resource) => {
-        await Student.findByIdAndUpdate(
-          req.session.user.profile,
-          { $addToSet: { resources: resource } },
-          { safe: true, upsert: true },
-          (err, docs) => {
-            if (err) {
-              console.log("Error, getting document data.");
-              console.log(err);
-            } else {
-              console.log(docs);
+    await LearningResource.findByIdAndUpdate(
+      req.body.code,
+      { $addToSet: { students: req.session.user.profile } },
+      { safe: true, upsert: true },
+      (err, resource) => {
+        console.log("Resources!: ", resource.title);
+        if (err) {
+          console.log(err);
+        } else {
+          console.log("Adding to student resources...");
+          Student.findByIdAndUpdate(
+            req.session.user.profile,
+            { $addToSet: { resources: resource } },
+            { safe: true, upsert: true },
+            (err, docs) => {
+              if (err) {
+                console.log("Error, getting document data.");
+                console.log(err);
+              } else {
+                console.log(docs);
 
-              Student.findById(req.session.user.profile, (err, doc) => {
-                if (err) {
-                  console.log("Error while accessing the document.");
-                  console.log(err);
-                } else {
-                  const indexOfExisting = findResource(resource, doc.resources);
+                Student.findById(req.session.user.profile, (err, doc) => {
+                  if (err) {
+                    console.log("Error while accessing the document.");
+                    console.log(err);
+                  } else {
+                    const indexOfExisting = findResource(
+                      resource,
+                      doc.resources
+                    );
 
-                  const targetIndex =
-                    indexOfExisting === -1
-                      ? doc.resources.length - 1
-                      : indexOfExisting;
+                    const targetIndex =
+                      indexOfExisting === -1
+                        ? doc.resources.length - 1
+                        : indexOfExisting;
 
-                  const targetModule = doc.resources[targetIndex].modules[0];
+                    const targetModule = doc.resources[targetIndex].modules[0];
 
-                  Student.findByIdAndUpdate(
-                    req.session.user.profile,
-                    {
-                      currentPage: targetModule,
-                      currentPageNumber: 0,
-                      currentPageIndex: targetIndex,
-                    },
-                    (err, docs) => {
-                      if (err) {
-                        console.log("Error occurred");
-                        console.log(err);
-                      } else {
-                        // res.send(JSON.stringify(targetModule));
-                        res.redirect("/home");
+                    Student.findByIdAndUpdate(
+                      req.session.user.profile,
+                      {
+                        currentPage: targetModule,
+                        currentPageNumber: 0,
+                        currentPageIndex: targetIndex,
+                      },
+                      (err, docs) => {
+                        if (err) {
+                          console.log("Error occurred");
+                          console.log(err);
+                        } else {
+                          // res.send(JSON.stringify(targetModule));
+                          res.redirect("/home");
+                        }
                       }
-                    }
-                  )
-                    .clone()
-                    .catch((err) => {
-                      console.log(err);
-                    });
-                }
-              })
-                .clone()
-                .catch((err) => {
-                  console.log("Retrieval failed.");
-                  console.log(err);
-                });
+                    )
+                      .clone()
+                      .catch((err) => {
+                        console.log(err);
+                      });
+                  }
+                })
+                  .clone()
+                  .catch((err) => {
+                    console.log("Retrieval failed.");
+                    console.log(err);
+                  });
+              }
             }
-          }
-        )
-          .clone()
-          .catch((err) => {
-            console.log(err);
-          });
+          )
+            .clone()
+            .catch((err) => {
+              console.log(err);
+            });
+        }
       }
-    );
+    )
+      .clone()
+      .catch((err) => {
+        console.log(err);
+      });
   } catch (err) {
     console.log("Journey does not exist.");
     console.error(err);
@@ -331,7 +347,7 @@ const student_current_page_get = async (req, res) => {
 
           <h2 class="h2 text-center mb-5">No chosen journey yet.</h2>
         <a class="button button--cta px-3 w-full max-w-sm py-2" href="/pwa/journey">My Journeys</a>
-        <a class="button button--cta px-3 w-full max-w-sm py-2" href="/resource/all">Browse All Journeys</a>
+        <a class="button button--cta px-3 w-full max-w-sm py-2" href="/pwa/journey/browse">Explore All Journeys</a>
         <a class="button button--muted px-3 w-full max-w-sm py-2" href="/resource/join">Join using code</a>
         </section>`;
           console.log("No user resources available...");
