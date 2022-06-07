@@ -7,15 +7,15 @@
 
     <main>
       <div class="auto-container">
-        <%- include('../partials/top-block-back.ejs', { label:`Go Back to
-        Account Type Selection`, route:`/auth/register`}) %>
+        <div class="w-full pt-10"><%- include('../partials/logout.ejs') %></div>
+
         <div class="section">
           <div class="p-2">
             <div class="mb-10 text-center">
-              <h1 class="h1 text-primary">Register</h1>
+              <h1 class="h1 text-primary">Teacher Profile</h1>
             </div>
 
-            <%- include('../partials/account-credential.ejs') %>
+            <%- include('../partials/teacher-form.ejs') %>
           </div>
         </div>
       </div>

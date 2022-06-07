@@ -4,7 +4,7 @@
 
   <body class="body">
     <%- include('../partials/header.ejs') %>
-    <div class="h-screen w-screen p-5 lg:py-20">
+    <div class="auto-container p-5 lg:py-20">
       <h1 class="h1 py-10 text-center">What role do you have at school?</h1>
 
       <div
@@ -12,7 +12,7 @@
       >
         <a
           class="card button group max-w-sm p-0 shadow-sm hover:cursor-pointer hover:shadow-lg focus:p-2 active:p-2"
-          href="/auth/register/account"
+          href="/auth/register/account/student"
         >
           <div class="card__container">
             <div class="card__header w-full">
@@ -316,7 +316,7 @@
 
         <a
           class="card button group max-w-sm p-0 shadow-sm hover:cursor-pointer hover:shadow-lg focus:p-2 active:p-2"
-          href="/auth/register/teacher"
+          href="/auth/register/account/teacher"
         >
           <div class="card__container">
             <div class="card__header w-full">
@@ -468,14 +468,12 @@
         </a>
       </div>
 
-      <div
-        class="mx-auto flex flex-col items-center justify-center gap-2 pt-28"
-      >
-        <a class="button" href="/resource/all">Continue as Guest ></a>
-        <%- include('../partials/block-back.ejs', {label:"Back to Login",
-        route:"/auth/login"}) %>
+      <div class="mx-auto flex items-center justify-between gap-32 pt-20">
+        <a class="button button--muted" href="/auth/login">< Back to Login</a>
+        <a class="button button--muted" href="/resource/all"
+          >Continue as Guest ></a
+        >
       </div>
-      <%- include('../partials/footer.ejs') %>
     </div>
   </body>
 </html>
