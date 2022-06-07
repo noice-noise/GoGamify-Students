@@ -748,8 +748,10 @@ body {
 }
 
 .button--cta {
-  --tw-bg-opacity: 1;
-  background-color: rgb(var(--color-primary) / var(--tw-bg-opacity));
+  background-image: linear-gradient(to right, var(--tw-gradient-stops));
+  --tw-gradient-from: rgb(var(--color-primary));
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(var(--color-primary) / 0));
+  --tw-gradient-to: rgb(var(--color-primary-accent));
   padding-left: 1.25rem;
   padding-right: 1.25rem;
   --tw-text-opacity: 1;
@@ -1818,6 +1820,14 @@ body {
   gap: 0.5rem;
 }
 
+.gap-20 {
+  gap: 5rem;
+}
+
+.gap-32 {
+  gap: 8rem;
+}
+
 .overflow-y-auto {
   overflow-y: auto;
 }
@@ -2073,6 +2083,10 @@ body {
 
 .pb-10 {
   padding-bottom: 2.5rem;
+}
+
+.pt-20 {
+  padding-top: 5rem;
 }
 
 .text-center {

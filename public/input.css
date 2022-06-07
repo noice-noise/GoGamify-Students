@@ -233,7 +233,7 @@
   }
 
   .button--cta {
-    @apply bg-primary px-5 text-background ring-primary hover:text-primary-muted focus:text-primary-muted active:bg-primary-muted active:text-primary-accent;
+    @apply bg-gradient-to-r from-primary to-primary-accent px-5 text-background ring-primary hover:text-primary-muted focus:text-primary-muted active:bg-primary-muted active:text-primary-accent;
   }
 
   .button--muted {
