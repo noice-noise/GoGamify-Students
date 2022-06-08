@@ -15,15 +15,14 @@ const learningResourceSchema = new Schema(
       type: String,
       required: true,
     },
-    students: [],
     body: {
       type: Object,
       required: true,
     },
+    students: [],
     modules: [],
     pages: { type: Number },
-    badges: [],
-    achievements: [],
+    collectibles: [],
   },
   { timestamps: true }
 );
