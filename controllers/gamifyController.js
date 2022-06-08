@@ -4,6 +4,7 @@ const fs = require("fs");
 
 const LearningResource = require("../models/learningResource");
 const Student = require("../models/student");
+const Teacher = require("../models/student");
 let isOffline;
 
 // check internet connection
@@ -52,27 +53,11 @@ const gamify_create_get = async (req, res) => {
 
   console.log("Retrieving user profile from DB...");
 
-  await Student.findById(req.session.user.profile, (err, doc) => {
-    if (err) {
-      console.log("Error while accessing the document.");
-      console.log(err);
-    } else {
-      return res.render("gamify/create", {
-        title: "Gamify Create",
-        user: doc,
-      });
-    }
-  })
-    .clone()
-    .catch((err) => {
-      console.log("Retrieval failed.");
-      console.log(err);
-    });
-
   /**
    * Handle error if admin or unknown user creates the resource
    */
   if (req.session.user.profile.toLowerCase() == "na") {
+    console.log("Profile not available, sending public user credentials...");
     return res.render("gamify/create", {
       title: "Gamify Create",
       user: {
@@ -81,6 +66,42 @@ const gamify_create_get = async (req, res) => {
         firstName: "GoGamify",
       },
     });
+  } else if (req.session.user.profile.toLowerCase() == "student") {
+    console.log("Student profile...");
+    await Student.findById(req.session.user.profile, (err, doc) => {
+      if (err) {
+        console.log("Error while accessing the document.");
+        console.log(err);
+      } else {
+        return res.render("gamify/create", {
+          title: "Gamify Create",
+          user: doc,
+        });
+      }
+    })
+      .clone()
+      .catch((err) => {
+        console.log("Retrieval failed.");
+        console.log(err);
+      });
+  } else if (req.session.user.profile.toLowerCase() == "teacher") {
+    console.log("Teacher profile...");
+    await Teacher.findById(req.session.user.profile, (err, doc) => {
+      if (err) {
+        console.log("Error while accessing the document.");
+        console.log(err);
+      } else {
+        return res.render("gamify/create", {
+          title: "Gamify Create",
+          user: doc,
+        });
+      }
+    })
+      .clone()
+      .catch((err) => {
+        console.log("Retrieval failed.");
+        console.log(err);
+      });
   }
 };
 
