@@ -27,10 +27,6 @@ const studentSchema = new Schema(
       type: String,
       required: true,
     },
-    gradeLevel: {
-      type: String,
-      required: true,
-    },
     about: {
       type: String,
     },
