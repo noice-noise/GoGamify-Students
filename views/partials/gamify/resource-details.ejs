@@ -16,6 +16,7 @@
           type="text"
           name="title"
           value="<% if (locals.resource) { %><%= resource.title %><% } %>"
+          required
         />
 
         <label for="subtitle">Subtitle</label>
@@ -24,15 +25,17 @@
           type="text"
           name="subtitle"
           value="<% if (locals.resource) { %><%= resource.subtitle %><% } %>"
+          required
         />
 
-        <label for="owner" hidden>Owner</label>
+        <label for="owner" readonly>Owner</label>
         <input
-          class="form__field"
+          class="form__field form__field--disabled"
           type="text"
           name="owner"
-          hidden
+          readonly
           value="<%= user.firstName + " " + user.middleName[0] + ". " + user.familyName  %>"
+          required
         />
 
         <label for="owner">Pages</label>
@@ -43,6 +46,7 @@
           name="pages"
           value="<% if (locals.resource) { %><%= resource.pages %><% } %>"
           readonly
+          required
         />
 
 
@@ -52,6 +56,7 @@
           id="htmlContent"
           cols="10"
           rows="10"
+          required
         >
         
       <% if (locals.resource) { %>
@@ -62,7 +67,7 @@
         >
 
         <div class="col-span-4 flex justify-end">
-          <button class="button px-16">Publish</button>
+          <button class="button px-16 button--cta">Publish</button>
         </div>
       </form>
     </div>
