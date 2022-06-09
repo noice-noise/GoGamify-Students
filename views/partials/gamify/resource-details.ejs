@@ -2,9 +2,14 @@
   <div class="w-full">
     <h3 class="h3 pb-10">Learning Resource</h3>
     <div>
-      <form class="form" action="./save<%= locals.resource ? "?_method=PUT"
+      <form class="form" action="/resource/save<%= locals.resource ? "?_method=PUT"
           : "" %>" method="POST">
-        <input type="text" name="_id" value="<%= user._id  %>" hidden />
+
+        <% if (locals.resource) { %>
+          <label for="_id">Resource ID</label>
+          <input class="form__field form__field--disabled" type="text" name="_id" value="<%= resource._id %>" readonly />
+        <% } %>
+
         <label for="title">Title</label>
         <input
           class="form__field"
@@ -12,13 +17,15 @@
           name="title"
           value="<% if (locals.resource) { %><%= resource.title %><% } %>"
         />
-        <label for="subtitle">Description</label>
+
+        <label for="subtitle">Subtitle</label>
         <input
           class="form__field"
           type="text"
           name="subtitle"
           value="<% if (locals.resource) { %><%= resource.subtitle %><% } %>"
         />
+
         <label for="owner" hidden>Owner</label>
         <input
           class="form__field"
@@ -27,6 +34,17 @@
           hidden
           value="<%= user.email  %>"
         />
+
+        <label for="owner">Pages</label>
+        <input
+          id="pages"
+          class="form__field form__field--disabled"
+          type="text"
+          name="pages"
+          value="<% if (locals.resource) { %><%= resource.pages %><% } %>"
+          readonly
+        />
+
 
         <textarea
           class="row-span-1 hidden bg-gray-100"
@@ -44,7 +62,7 @@
         >
 
         <div class="col-span-4 flex justify-end">
-          <button class="button px-16">Save</button>
+          <button class="button px-16">Publish</button>
         </div>
       </form>
     </div>
@@ -52,8 +70,8 @@
 
   <!-- App Views -->
   <% if (!locals.resource) { %>
-  <div class="h-[32rem] w-[375px] rounded-xl pb-10">
-    <h3 class="h3 pb-10">Students' App Preview</h3>
+  <div class="h-[32rem] w-[375px] rounded-xl ml-10 mb-10">
+    <h3 class="h3">App Preview</h3>
     <div
       class="h-full w-full scale-90 resize overflow-x-hidden rounded-xl bg-gray-200 py-6 px-6"
       id="contentArea"

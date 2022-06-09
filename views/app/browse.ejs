@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head.ejs') %>
+  <body>
+    <%- include('../partials/header.ejs') %>
+    <div class="auto-container">
+      <%- include('../partials/top-block-back.ejs', { label:`Back`, route:`/`})
+      %>
+      <section class="section flex flex-col items-center justify-center">
+        <h1 class="h1 text-5xl">Gamified Learning Resources</h1>
+
+        <!-- Learning Resources -->
+        <div class="mt-10">
+          <div class="">
+            <h2 class="text-center">Made by community for the community</h2>
+          </div>
+
+          <div
+            class="sm: mt-10 flex flex-col flex-wrap items-center justify-center gap-3 border-t py-6 sm:flex-row"
+          >
+            <% if (resources.length > 0) { %> <% resources.forEach(resource => {
+            %>
+
+            <div class="single delete group hover:cursor-pointer">
+              <div
+                href="/resource/<%= resource._id %>"
+                class="h-70 relative inline-block h-full w-60 transform-gpu rounded-lg border px-4 py-5 shadow-sm transition-all duration-150 group-hover:scale-105 group-hover:shadow-lg"
+              >
+                <div
+                  class="flex h-20 w-full items-center justify-center rounded-lg bg-primary-muted"
+                >
+                  Image
+                </div>
+                <div
+                  class="absolute top-3 right-3 hidden ease-in-out group-hover:flex group-hover:gap-1"
+                >
+                  <a
+                    class="rounded-full bg-violet-50 p-3 text-gray-600 hover:cursor-pointer hover:bg-violet-200"
+                    href="#"
+                  >
+                    <span>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="icon icon-tabler icon-tabler-eye"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        stroke-width="2"
+                        stroke="currentColor"
+                        fill="none"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <desc>
+                          Download more icon variants from
+                          https://tabler-icons.io/i/eye
+                        </desc>
+                        <path
+                          stroke="none"
+                          d="M0 0h24v24H0z"
+                          fill="none"
+                        ></path>
+                        <circle cx="12" cy="12" r="2"></circle>
+                        <path
+                          d="M22 12c-2.667 4.667 -6 7 -10 7s-7.333 -2.333 -10 -7c2.667 -4.667 6 -7 10 -7s7.333 2.333 10 7"
+                        ></path></svg
+                    ></span>
+                  </a>
+                </div>
+
+                <div class="mt-5">
+                  <h3 class="font-bold text-primary"><%= resource.title%></h3>
+                  <p class="text-primary"><%= resource.subtitle %></p>
+                </div>
+              </div>
+            </div>
+            <% }) %> <% } else { %>
+            <p class="py-6 text-center">No Learning Resources Gamified yet.</p>
+            <% } %>
+          </div>
+        </div>
+      </section>
+
+      <%- include('../partials/footer.ejs') %>
+      <script src="/js/gamify/index.js"></script>
+    </div>
+  </body>
+</html>

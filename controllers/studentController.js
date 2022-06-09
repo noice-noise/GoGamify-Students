@@ -1,4 +1,3 @@
-const { builtinModules } = require("module");
 const Student = require("../models/student");
 const User = require("../models/user");
 
@@ -45,6 +44,9 @@ const student_index = (req, res) => {
 };
 
 const student_post = async (req, res) => {
+  console.log("USER request: ", req.user);
+  console.log("USER session: ", req.session.user);
+  console.log("USER cookies: ", req.cookies.user);
   console.log("Saving student model...");
 
   const student = new Student(req.body);
@@ -52,18 +54,18 @@ const student_post = async (req, res) => {
     .save()
     .then((data) => {
       User.findByIdAndUpdate(
-        req.user._id,
+        req.session.user._id,
         { profile: data._id },
         (err, docs) => {
           if (err) {
-            console.log(err);
+            console.log("Error updating user: ", err);
           } else {
-            console.log(docs);
+            console.log("User Updated: ", docs);
           }
         }
       );
 
-      res.redirect("/home");
+      res.redirect("/pwa/learning-module/module.html");
     })
     .catch((err) => {
       res.status(500).send({
@@ -129,10 +131,12 @@ const student_delete = async (req, res) => {
 
 const profile_preference_post = async (req, res) => {
   await User.findByIdAndUpdate(
-    req.user._id,
+    req.session.user._id,
     {
       preferences: {
         theme: req.body.theme,
+        fontFamily: req.body.fontFamily,
+        fontSize: req.body.fontSize,
       },
     },
     (err, docs) => {
@@ -140,8 +144,7 @@ const profile_preference_post = async (req, res) => {
         console.log(err);
       } else {
         console.log(docs);
-        // TODO align response with Profile appearance form
-        res.send("Preference changes saved");
+        res.send({ message: "Preference changes saved" });
       }
     }
   )
@@ -152,15 +155,15 @@ const profile_preference_post = async (req, res) => {
 };
 
 const profile_preference_get = async (req, res) => {
-  await User.findById(req.user._id, (err, doc) => {
+  await User.findById(req.session.user._id, (err, doc) => {
     if (err) {
       console.log(err);
     } else {
       console.log("Successful");
       console.log("doc", doc);
+      console.log("docType", typeof doc);
       console.log(doc.preferences);
-      // console.log(JSON.parse(doc.preferences));
-      res.send(doc.preferences);
+      res.send(JSON.stringify(doc.preferences));
     }
   })
     .clone()

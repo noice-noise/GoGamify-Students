@@ -213,35 +213,94 @@
     <main class="main">
       <div class="main__container">
         <section class="section">
-          <h1 class="h1">My Collections</h1>
+          <h1 style="margin-bottom: 2%;"class="h1">Achievement Tracker </h1>
 
-          <img
-            class="profile"
-            src="default_male.jpg"
-            alt="profile"
-            height="120"
-            width="120"
-          />
-          <!-- <br />
-          <div class="achievement_block">
-            <img src="default_male.jpg" alt="profile" height="50" width="50" />
-          </div> -->
+          <img class="profile" src="default_male.jpg"
+            alt="profile" height="100" width="100"/>
+            
+          <h1 class="text-neutral back-username"> class :back-username</h1>
 
-          <!--SEMANTICS-->
-          <!-- <header>
-        <h1>Username's Achievements</h1>
-    </header>
-    <br>
-    <section class="profile">
-        <img src="default_male.jpg" alt="profile"
-        height="120" width="120">
-    </section>
-    <aside>
-        <article> You won't last 5 minutes playing this game</article>
-        <br>
-        <article> You won't last 5 minutes playing this game</article>
-    </aside>-->
-          <!--/SEMANTICS-->
+          <div class="card-group">
+            <h1 class="text-primary font-bold">Current theme:</h1>
+            <h1 style="display: inline;" class="text-neutral back-theme">class: back-theme</h1>
+          </div>
+          <div class="card-group">
+            <h1 class="text-primary font-bold"> Average GPA:</h1>
+            <h1 style="display: inline;"class="text-neutral back-gpa"> class: back-gpa</h1>
+          </div>
+          <div class="card-group">
+            <h1 class="text-primary font-bold"> My Journey Completed:</h1>
+            <h1 style="display: inline;"class="text-neutral back-jrn"> class: back-jrn</h1>
+          </div>
+          <!-- Separate card grp for recently obtained -->
+          <div class="card-group">
+            <h1 class="text-primary font-bold"> Recently Obtained Achievements: </h1>
+
+            <div class="card card--extra-small text-center">
+              <div class="card__container">
+                <div class="card__header">
+                  <div class="card__img-container">
+                    <img
+                      class="card__img mx-auto h-12 w-12"
+                      src="./badges/English_begin.png"
+                      alt="Profile Image"
+                    />
+                  </div>
+                  <p class="h2 text-primary">Global Language</p>
+                  <p class="text-primary-accent">
+                    Begin your first class in English
+                  </p>
+                  <!-- <p>Another Subtitle</p> -->
+                  <p class="text-sm"></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card card--extra-small text-center">
+              <div class="card__container">
+                <div class="card__header">
+                  <div class="card__img-container">
+                    <img
+                      class="card__img mx-auto h-12 w-12"
+                      src="./badges/Begginer.png"
+                      alt="Profile Image"
+                    />
+                  </div>
+                  <p class="h2 text-primary">Baby's Little Steps</p>
+                  <p class="text-primary-accent">
+                    Read 1 Learning Module on any subject
+                  </p>
+                  <!-- <p>Another Subtitle</p> -->
+                  <p class="text-sm"></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-group">
+            <h1 class="text-primary font-bold"> Recently Obtained Badges:</h1>
+      
+            <div style="margin-left: 3%;" class="card card--extra-small text-center">
+              <div class="card__container">
+                <div class="card__header">
+                  <div class="card__img-container">
+                    <img
+                      class="card__img mx-auto h-12 w-12"
+                      src="./badges/Honor.png"
+                      alt="Profile Image"
+                    />
+                  </div>
+                  <p class="h2 text-primary">First Perfect Score</p>
+                  <p class="text-primary-accent">
+                    Got a first perfect Score on any subject's quizzes
+                  </p>
+                  <p class="text-sm"></p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          
         </section>
 
         <section class="section">
@@ -409,6 +468,26 @@
               </div>
             </div>
 
+            <div class="card card--extra-small text-center">
+              <div class="card__container">
+                <div class="card__header">
+                  <div class="card__img-container">
+                    <img
+                      class="card__img mx-auto h-12 w-12"
+                      src="./badges/filipino_begin.png"
+                      alt="Profile Image"
+                    />
+                  </div>
+                  <p class="h2 text-primary">More achievements to be added</p>
+                  <p class="text-primary-accent">
+                    to be added soon
+                  </p>
+                  <!-- <p>Another Subtitle</p> -->
+                  <p class="text-sm"></p>
+                </div>
+              </div>
+            </div>
+
           </div>
         </section>
 
@@ -518,6 +597,26 @@
                   <p class="h2 text-primary">The Odd one's out</p>
                   <p class="text-primary-accent">
                     Enrolled on a extra-curriculum subject 
+                  </p>
+                  <!-- <p>Another Subtitle</p> -->
+                  <p class="text-sm"></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="card card--extra-small text-center">
+              <div class="card__container">
+                <div class="card__header">
+                  <div class="card__img-container">
+                    <img
+                      class="card__img mx-auto h-12 w-12"
+                      src="./badges/Question.png"
+                      alt="Profile Image"
+                    />
+                  </div>
+                  <p class="h2 text-primary">More badges to be added</p>
+                  <p class="text-primary-accent">
+                    to be added soon
                   </p>
                   <!-- <p>Another Subtitle</p> -->
                   <p class="text-sm"></p>
@@ -711,7 +810,8 @@
         </section>
 
         <!-- A DEMO ON CARDS -->
-        <section class="section">
+
+        <!-- <section class="section">
           <div class="card-group">
             <div class="card card--extra-small">
               <div class="card__container">
@@ -841,7 +941,9 @@
               </div>
             </div>
           </div>
-        </section>
+        </section> -->
+        <!-- End of demo card -->
+    
       </div>
     </main>
   </body>

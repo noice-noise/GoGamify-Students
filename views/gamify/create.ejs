@@ -3,16 +3,16 @@
   <%- include('../partials/head.ejs') %>
 
   <body>
+    <%- include('../partials/header.ejs') %>
     <div class="auto-container">
+      <%- include('../partials/top-block-back.ejs', { label:`Back`,
+      route:`/home`}) %>
       <!-- CONTENT -->
       <div class="section flex w-full flex-col gap-5">
         <div class="mt-5">
-          <h2 class="h1">Gamification Labs</h2>
+          <h1 class="h1 text-center text-5xl">Gamification Labs</h1>
         </div>
         <div>
-          <!-- <h2 class="mb-5 text-center text-3xl">
-          GoGamify: Gamification Web Platform 
-        </h2> -->
           <div class="flex flex-col items-center justify-between">
             <div
               id="dropArea"
@@ -36,10 +36,10 @@
               <button id="browseBtn" class="button">Browse File</button>
               <input hidden type="file" name="file-upload" id="browseInput" />
             </div>
-            <div class="max-w-sm px-5">
-              <div>
-                <div class="flex items-center justify-between">
-                  <h3 class="text-lg">Upload List</h3>
+            <div class="my-5 w-full rounded-lg border p-5 px-10">
+              <div class="w-full">
+                <div class="flex w-full items-center justify-between">
+                  <h3 class="text-lg font-bold">Upload List</h3>
                   <button
                     class="button button--muted"
                     id="uploadListRefreshBtn"
@@ -47,11 +47,10 @@
                     Refresh
                   </button>
                 </div>
-                <ul
-                  id="uploadList"
-                  class="flex flex-col gap-5 divide-y py-5"
-                ></ul>
-                <div class="mt-5 flex items-center justify-center gap-5">
+                <ul id="uploadList" class="flex flex-col gap-5 py-5"></ul>
+                <div
+                  class="mt-5 flex items-center justify-center gap-5 border-t pt-5"
+                >
                   <button id="clearBtn" class="button button--muted">
                     Clear Queue
                   </button>

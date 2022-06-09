@@ -2,30 +2,19 @@
 <html lang="en">
   <%- include('../partials/head.ejs') %>
   <body>
-    <div class="container mx-auto">
+    <%- include('../partials/header.ejs') %>
+    <div class="auto-container">
+      <%- include('../partials/top-block-back.ejs', { label:`Back`,
+      route:`/home`}) %>
       <section class="section flex flex-col items-center justify-center">
-        <h1
-          class="my-3 mb-5 from-violet-700 to-purple-400 text-6xl font-bold text-gray-900"
-        >
-          Gamify Learning
-        </h1>
-
-        <!-- Nav -->
-        <div>
-          <a class="btn" href="gamify/create">Start gamifying</a>
-        </div>
+        <h1 class="h1 text-5xl">Gamify Learning</h1>
 
         <!-- Learning Resources -->
         <div class="mt-10">
-          <div class="flex justify-between">
-            <h2>All Resources</h2>
-            <ul class="flex justify-between">
-              <li><a class="btn" href="#">Test</a></li>
-              <li><a class="btn" href="#">Test</a></li>
-              <li><a class="btn" href="#">Test</a></li>
-              <li><a class="btn" href="#">Test</a></li>
-              <li><a class="btn" href="#">Test</a></li>
-            </ul>
+          <div class="">
+            <h2 class="text-center">
+              Gamified Learning Resources from the Community
+            </h2>
           </div>
 
           <div
@@ -36,7 +25,7 @@
 
             <div class="single delete group">
               <div
-                href="/gamify/<%= resource._id %>"
+                href="/resource/<%= resource._id %>"
                 class="h-70 relative inline-block h-full w-60 transform-gpu rounded-lg border px-4 py-5 shadow-sm transition-all duration-150 group-hover:scale-105 group-hover:shadow-lg"
               >
                 <div
@@ -49,7 +38,7 @@
                 >
                   <a
                     class="rounded-full bg-violet-50 p-3 text-gray-600 hover:cursor-pointer hover:bg-violet-200"
-                    href="/gamify/<%= resource._id %>"
+                    href="/resource/<%= resource._id %>"
                   >
                     <span>
                       <svg
@@ -97,6 +86,7 @@
         </div>
       </section>
 
+      <%- include('../partials/footer.ejs') %>
       <script src="/js/gamify/index.js"></script>
     </div>
   </body>

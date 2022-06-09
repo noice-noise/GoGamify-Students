@@ -9,7 +9,7 @@ router.get("/:id", studentController.student_get);
 router.put("/update/:id", studentController.student_put);
 router.delete("/:id", studentController.student_delete);
 
-router.post("/profile/theme", studentController.profile_preference_post);
-router.get("/profile/theme", studentController.profile_preference_get);
+router.post("/profile/preferences", studentController.profile_preference_post);
+router.get("/profile/preferences", studentController.profile_preference_get);
 
 module.exports = router;

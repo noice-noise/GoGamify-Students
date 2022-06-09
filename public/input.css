@@ -220,11 +220,6 @@
     @apply theme-default bg-background font-poppins text-neutral antialiased;
   }
 
-  /* Mammoth JS */
-  .table {
-    @apply w-fit scale-x-95;
-  }
-
   .box {
     @apply rounded-lg border bg-foreground p-5 md:p-6 lg:p-10;
   }
@@ -258,7 +253,7 @@
   }
 
   .main__container {
-    @apply m-auto mt-14 mb-48 p-5 lg:ml-32 lg:mb-0;
+    @apply m-auto mb-48 p-5 lg:mt-14 lg:ml-32 lg:mb-0;
   }
 
   .section {
@@ -301,10 +296,8 @@
     @apply font-bold text-primary-accent transition-colors duration-300 hover:text-primary;
   }
 
-  /* Mammoth JS */
-
-  .table {
-    @apply w-fit scale-x-95;
+  .card {
+    @apply transform-gpu transition-transform duration-150 hover:-translate-y-2 hover:cursor-default;
   }
 
   .card-group {
@@ -344,7 +337,11 @@
   }
 
   .form__field {
-    @apply mb-5 rounded-lg border bg-background px-4 py-2 transition-colors duration-150 hover:bg-primary-muted/50 focus:bg-primary-muted/90 active:bg-primary-muted/90;
+    @apply mb-5 rounded-lg border bg-background px-4 py-2 transition-colors duration-150 hover:border-primary/80 focus:border-primary active:border-primary/90;
+  }
+
+  .form__field--disabled {
+    @apply bg-primary-muted/70;
   }
 
   .auto-container {
@@ -353,5 +350,14 @@
 
   .drag-active {
     @apply bg-primary-accent;
+  }
+
+  /* Mammoth JS */
+  .table {
+    @apply w-fit scale-x-95;
+  }
+
+  .module {
+    @apply section;
   }
 }

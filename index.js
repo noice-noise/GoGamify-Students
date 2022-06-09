@@ -16,6 +16,7 @@ const adminRoutes = require("./routes/adminRoutes");
 const studentRoutes = require("./routes/studentRoutes");
 const authRoutes = require("./routes/authRoute");
 const gamifyRoutes = require("./routes/gamifyRoutes");
+const learningResourceRoutes = require("./routes/learningResourceRoutes");
 const pwaRoutes = require("./routes/pwaRoutes");
 
 const app = express();
@@ -87,11 +88,6 @@ app.use(
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
-    // cookie: {
-    //   secure: true,
-    //   httpOnly: true,
-    //   maxAge: 1000 * 60 * 60 * 24,
-    // },
   })
 );
 app.use(passport.initialize());
@@ -105,18 +101,22 @@ app.use("/admin", ensureAuthenticated, adminRoutes);
 app.use("/auth", authRoutes);
 
 app.use("/home", setAuthCookie, forwardAdmin, forwardFirstLogin, (req, res) => {
+  console.debug("USER request: ", req.user);
+  console.debug("USER session: ", req.session.user);
+  console.debug("USER cookies: ", req.cookies.user);
   res.redirect("/pwa/learning-module/module.html");
 });
 
 app.use("/get-started", (req, res) => {
   res.render("app/get-started", {
     title: "Update Profile | GoGamify",
-    user: req.user,
+    user: req.session.user,
   });
 });
 
 app.use("/pwa", pwaRoutes);
 app.use("/gamify", gamifyRoutes);
+app.use("/resource", learningResourceRoutes);
 app.use("/student", ensureAuthenticated, studentRoutes);
 
 app.use((req, res) => {

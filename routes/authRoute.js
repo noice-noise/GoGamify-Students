@@ -3,7 +3,7 @@ const passport = require("passport");
 const router = express.Router();
 
 const authController = require("../controllers/authController");
-const { forwardAuthenticated } = require("../config/authConfig");
+const { forwardAuthenticated, setAuthCookie } = require("../config/authConfig");
 
 router.get("/login", forwardAuthenticated, authController.login);
 router.delete("/logout", authController.logout);
@@ -14,7 +14,8 @@ router.post(
     successRedirect: "/home",
     failureRedirect: "/auth/login",
     failureFlash: true,
-  })
+  }),
+  setAuthCookie
 );
 
 router.post("/register", authController.register_post);

@@ -6,38 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Module</title>
 
-    <!-- Main Stylesheets -->
-    <!-- Production -->
     <link rel="stylesheet" type="text/css" href="/tailwind.css" />
-    <!-- Development -->
     <link rel="stylesheet" type="text/css" href="/public/tailwind.css" />
-    <!-- Custom Classes -->
-    <!-- <link rel="stylesheet" type="text/css" href="./RENAMEME-style.css" /> -->
 
-    <!-- NOTE: You can add and extend for custom stylesheets, but always use "classes" instead of 
-    direct tags in css for our standards -->
-
-    <!-- Web Accessibility -->
-    <link rel="shortcut icon" href="../icons/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="/icons/favicon.ico" type="image/x-icon" />
     <link
       rel="apple-touch-icon"
       sizes="180x180"
-      href="../icons/apple-touch-icon.png"
+      href="/icons/apple-touch-icon.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="../icons/favicon-32x32.png"
+      href="/icons/favicon-32x32.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="16x16"
-      href="../icons/favicon-16x16.png"
+      href="/icons/favicon-16x16.png"
     />
 
     <link rel="manifest" href="../manifest.json" />
+    <script src="/js/preload.js"></script>
   </head>
   <body class="body">
     <!-- GoGamify Header -->
@@ -219,15 +211,43 @@
     <!-- end of nav -->
 
     <main id="main">
-      <div class="main__container">
+      <div id="moduleRoot" class="main__container">
         <!-- edit contents below -->
-        <section class="section">
-          <h1 class="h1">Week 1: Differential Equations</h1>
-          <p>Wala nang intro intro, quiz dayon!</p>
+        <section id="" class="section">
+          <div>
+            <img
+              class="h-56 w-56"
+              src="/assets/undraw_hey_email_liaa.svg"
+              alt="Saying Hey"
+            />
+          </div>
+          <h1 class="h1 mb-2">English Week 1</h1>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint unde
+            necessitatibus corporis laboriosam ducimus dolores similique. Saepe
+            officia pariatur, ab, recusandae dolore nisi omnis cupiditate
+            repellat eligendi commodi ut quo? Lorem ipsum dolor sit amet
+            consectetur adipisicing elit. Tenetur enim nostrum cum facere
+            quisquam fuga pariatur aperiam maiores, dignissimos voluptatem ipsum
+            aut porro dolores aliquam velit quaerat, asperiores unde? Quaerat!
+          </p>
+          <br />
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint unde
+            necessitatibus corporis laboriosam ducimus dolores similique. Saepe
+            officia pariatur, ab, recusandae dolore nisi omnis cupiditate
+            repellat eligendi commodi ut quo? Lorem ipsum dolor sit amet
+            consectetur adipisicing elit. Tenetur enim nostrum cum facere
+            quisquam fuga pariatur aperiam maiores, dignissimos voluptatem ipsum
+            aut porro dolores aliquam velit quaerat, asperiores unde? Quaerat!
+          </p>
         </section>
 
         <!-- edit contents above -->
       </div>
     </main>
+
+    <script type="module" src="/js/onload.js"></script>
+    <script src="./module.js"></script>
   </body>
 </html>

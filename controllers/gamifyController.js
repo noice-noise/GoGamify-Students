@@ -48,7 +48,10 @@ const gamify_index = (req, res) => {
 
 const gamify_create_get = (req, res) => {
   console.log("Gamify create...");
-  res.render("gamify/create", { title: "Gamify Create", user: req.user });
+  res.render("gamify/create", {
+    title: "Gamify Create",
+    user: req.session.user,
+  });
 };
 
 const gamify_file_post = (req, res) => {
@@ -106,20 +109,27 @@ const readUploadFolderContents = () => {
 var htmlContents = "";
 
 const gamify_file_get = async (req, res) => {
+  gamifiedObj = {};
   htmlContents = "";
+
   readUploadFolderContents();
   await parseAllHtml();
-  await res.send(JSON.stringify(htmlContents));
+
+  gamifiedObj.htmlContents = htmlContents;
+  gamifiedObj.pages = uploadFolderContents.length;
+
+  await res.send(JSON.stringify(gamifiedObj));
 };
 
 const options = {
-  // reserve  H1 conversions (right-sde arrows) for specific page titles for semantic meaning
+  // reserve  H1 conversions (right-side arrows) for specific page titles for semantic meaning
+  // so style conversions for title headers starts with H2
   styleMap: [
-    "p[style-name='Heading 1'] => h2:fresh",
-    "p[style-name='Heading 2'] => h3:fresh",
-    "p[style-name='Heading 3'] => h4:fresh",
-    "p[style-name='Heading 4'] => h5:fresh",
-    "p[style-name='Heading 5'] => h6:fresh",
+    "p[style-name='Heading 1'] => h1.h1:fresh",
+    "p[style-name='Heading 2'] => h2.h2:fresh",
+    "p[style-name='Heading 3'] => h3.h3:fresh",
+    "p[style-name='Heading 4'] => h4.h4:fresh",
+    "p[style-name='Heading 5'] => h5.h5:fresh",
     "p[style-name='Heading 6'] => p:fresh",
   ],
   ignoreEmptyParagraphs: true,
@@ -131,7 +141,9 @@ const parseHtml = (file) => {
     .then(function (result) {
       let html = result.value;
       // var messages = result.messages;
+      htmlContents += `<div class="module">`;
       htmlContents += html;
+      htmlContents += `</div>`;
     });
 };
 
@@ -158,71 +170,6 @@ const gamify_file_delete = async (req, res) => {
   res.send("Uploaded files deleted successfully.");
 };
 
-const learning_resource_post = (req, res) => {
-  console.log("Saving");
-  console.log(req.body);
-
-  const learningResource = new LearningResource(req.body);
-  learningResource.active = req.body.active == "on" ? true : false;
-  learningResource
-    .save()
-    .then(() => {
-      res.redirect("/gamify");
-    })
-    .catch((err) => {
-      res.render("404", { title: "Sorry, something went wrong." });
-    });
-};
-
-const learning_resource_get = (req, res) => {
-  const id = req.params.id;
-  console.log(id);
-  LearningResource.findById(id)
-    .then((result) => {
-      res.render("gamify/details", {
-        title: "Learning Resource Details",
-        resource: result,
-        user: req.user,
-      });
-    })
-    .catch((err) => {
-      console.log(err);
-      res.render("404", { title: "Sorry, something went wrong." });
-    });
-};
-
-const learning_resource_put = (req, res) => {
-  console.log("Updating gogamify resource...");
-  console.log(req.body);
-  LearningResource.findByIdAndUpdate(req.body._id, req.body, (err, docs) => {
-    if (err) {
-      console.log("PUT request error: ", err);
-    } else {
-      console.log("PUT success: ", docs);
-      res.redirect("/gamify");
-    }
-  })
-    .then((result) => {
-      console.log("Yess!!");
-      res.json({ redirect: "/gamify" });
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-};
-
-const learning_resource_delete = (req, res) => {
-  const id = req.params.id;
-
-  LearningResource.findByIdAndDelete(id)
-    .then((result) => {
-      res.json({ redirect: "/gamify" });
-    })
-    .catch((err) => {
-      res.render("404", { title: "Sorry, something went wrong." });
-    });
-};
-
 const gamify_file_list_get = async (req, res) => {
   let uploadedItems = [];
   readUploadFolderContents();
@@ -232,7 +179,6 @@ const gamify_file_list_get = async (req, res) => {
     fileInfo.name = file;
     fileInfo.extension = path.extname(fileDIR);
 
-    // console.log("P: ", p);
     fs.stat(fileDIR, (err, data) => {
       if (err) {
         console.error(err);
@@ -255,9 +201,9 @@ module.exports = {
   gamify_file_post,
   gamify_file_get,
   gamify_file_delete,
-  learning_resource_post,
-  learning_resource_get,
-  learning_resource_put,
-  learning_resource_delete,
   gamify_file_list_get,
+  // learning_resource_post,
+  // learning_resource_get,
+  // learning_resource_put,
+  // learning_resource_delete,
 };

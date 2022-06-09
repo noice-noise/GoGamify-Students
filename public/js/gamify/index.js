@@ -5,7 +5,7 @@ deleteBtn.forEach((btn) => {
   btn.addEventListener("click", (e) => {
     e.preventDefault();
     console.log("dataset", btn.dataset.doc);
-    const endpoint = `/gamify/${btn.dataset.doc}`;
+    const endpoint = `/resource/${btn.dataset.doc}`;
 
     fetch(endpoint, {
       method: "DELETE",

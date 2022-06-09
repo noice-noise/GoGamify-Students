@@ -1,5 +1,5 @@
 const admin_index = (req, res) => {
-  res.render("admin/index", { title: "Admin", user: req.user });
+  res.render("admin/index", { title: "Admin", user: req.session.user });
 };
 
 module.exports = {

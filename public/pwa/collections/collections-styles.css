@@ -10,16 +10,44 @@
 } */
 
 .hans-card h2 {
+  border: 2px dotted green;
+}
+
+/*This class will inline elements based on where Hans(me) puts them*/
+.hans_inline {
+  display: inline;
+}
+
+.back-username {
+  font-style: italic;
+  display: inline;
+  margin-left: 3%;
+}
+
+.back-theme {
+  margin-left: 6%;
+  font-style: italic;
+}
+
+.back-gpa {
+  font-style: italic;
+  margin-left: 7%;
+}
+
+.back-jrn {
+  font-style: italic;
+  margin-left: 2%;
 }
 
 .profile {
-  border: 5px solid rgb(26, 128, 0);
-  border-radius: 50%;
-  margin-left: auto;
+  border: 5px solid rgb(var(--color-primary) / var(--tw-text-opacity));
+  border-radius: 20%;
+  margin-left: 2%;
   margin-right: auto;
-  display: block;
+  display: inline-block;
   text-align: center;
 }
+
 /* 
 body{
     border: 3px solid purple;

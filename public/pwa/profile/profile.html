@@ -4,40 +4,32 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Module</title>
+    <title>Profile</title>
 
-    <!-- Main Stylesheets -->
-    <!-- Production -->
     <link rel="stylesheet" type="text/css" href="/tailwind.css" />
-    <!-- Development -->
     <link rel="stylesheet" type="text/css" href="/public/tailwind.css" />
-    <!-- Custom Classes -->
-    <!-- <link rel="stylesheet" type="text/css" href="./RENAMEME-style.css" /> -->
 
-    <!-- NOTE: You can add and extend for custom stylesheets, but always use "classes" instead of 
-    direct tags in css for our standards -->
-
-    <!-- Web Accessibility -->
-    <link rel="shortcut icon" href="../icons/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="/icons/favicon.ico" type="image/x-icon" />
     <link
       rel="apple-touch-icon"
       sizes="180x180"
-      href="../icons/apple-touch-icon.png"
+      href="/icons/apple-touch-icon.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="../icons/favicon-32x32.png"
+      href="/icons/favicon-32x32.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="16x16"
-      href="../icons/favicon-16x16.png"
+      href="/icons/favicon-16x16.png"
     />
 
     <link rel="manifest" href="../manifest.json" />
+    <script src="/js/preload.js"></script>
   </head>
   <body class="body">
     <!-- GoGamify Header -->
@@ -227,21 +219,23 @@
         <section class="section">
           <h1 class="h1">Profile</h1>
 
-          <div>
+          <!-- <div>
             <h2 class="h2 py-3">Account</h2>
-            <a class="button button--cta" href="#">Update my Account Profile</a>
-          </div>
+            <a class="button button--cta" href="/auth/register/student"
+              >Update my Account Profile</a
+            >
+          </div> -->
           <div class="py-10">
-            <h2 class="h2 py-3">Appearance</h2>
             <form
               id="appearanceForm"
-              class="form"
-              action="/student/profile/theme"
+              class="form max-w-md"
+              action="/student/profile/preferences"
               method="POST"
             >
+              <h2 class="h2 py-3">Appearance</h2>
               <label for="theme">Theme</label>
               <select id="profileThemeSelect" name="theme" class="form__field">
-                <option hidden selected disabled>Choose GoGamify theme</option>
+                <option hidden selected disabled>Choose theme</option>
                 <option value="theme-default">Default</option>
                 <option value="theme-fuchsia">Fuchsia</option>
                 <option value="theme-blue">Blue</option>
@@ -252,7 +246,37 @@
                 <option value="theme-pink">Pink</option>
                 <option value="theme-rose">Rose</option>
               </select>
-              <button class="button">Save</button>
+              <h2 class="h2 py-3">Module</h2>
+              <label for="fontFamily">Font Family</label>
+              <select
+                id="profileFontFamilySelect"
+                name="fontFamily"
+                class="form__field"
+              >
+                <option hidden selected disabled>Choose font</option>
+                <option class="font-poppins" value="font-poppins">
+                  Poppins
+                </option>
+                <option class="font-serif" value="font-serif">Serif</option>
+                <option class="font-sans" value="font-sans">Sans-serif</option>
+                <option class="font-mono" value="font-mono">Mono</option>
+              </select>
+
+              <label for="fontSize">Font Size</label>
+              <select
+                id="profileFontSizeSelect"
+                name="fontSize"
+                class="form__field"
+              >
+                <option hidden selected disabled>Choose font size</option>
+                <option class="text-xs" value="text-xs">Extra Small</option>
+                <option class="text-sm" value="text-sm">Small</option>
+                <option class="text-base" value="text-base">Normal</option>
+                <option class="text-lg" value="text-lg">Large</option>
+                <option class="text-xl" value="text-xl">Extra Large</option>
+              </select>
+
+              <button class="button">Save Theme</button>
             </form>
           </div>
 
@@ -266,7 +290,7 @@
         <!-- edit contents above -->
       </div>
     </main>
-
+    <script type="module" src="/js/onload.js"></script>
     <script src="./profile.js"></script>
   </body>
 </html>
