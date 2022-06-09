@@ -1,4 +1,5 @@
 const Student = require("../models/student");
+const Teacher = require("../models/teacher");
 const User = require("../models/user");
 const LearningResource = require("../models/learningResource");
 const Collectible = require("../models/collectible");
@@ -692,19 +693,40 @@ const community_school_get = async (req, res) => {
       })
         .clone()
         .then((schoolmates) => {
-          const schoolData = path.join(__dirname, "..", "data/schools.json");
+          let schoolTeachers;
 
-          fs.readFile(schoolData, (err, data) => {
+          Teacher.find({ school: userSchool }, (err, doc) => {
             if (err) {
-              console.log("Error reading schools data...");
               console.log(err);
+            } else {
+              return doc;
             }
+          })
+            .clone()
+            .then((teachers) => {
+              console.log("Teachers", teachers);
+              schoolTeachers = teachers;
 
-            const result = JSON.parse(data);
-            result[userSchool]?.schoolmates.push(...schoolmates);
-            console.log("SCHOOL", result);
-            res.send(JSON.stringify(result[userSchool]));
-          });
+              const schoolData = path.join(
+                __dirname,
+                "..",
+                "data/schools.json"
+              );
+
+              fs.readFile(schoolData, (err, data) => {
+                if (err) {
+                  console.log("Error reading schools data...");
+                  console.log(err);
+                }
+
+                const result = JSON.parse(data);
+                result[userSchool]?.schoolmates.push(...schoolmates);
+                result[userSchool].teachers = schoolTeachers;
+                console.log("User Community: ", result);
+
+                res.send(JSON.stringify(result[userSchool]));
+              });
+            });
         })
         .catch((err) => {
           console.log(err);
