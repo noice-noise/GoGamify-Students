@@ -58,7 +58,31 @@ const learning_resource_post = (req, res) => {
 
   learningResource
     .save()
-    .then(() => {
+    .then((resource) => {
+      console.log("Created resource: ", resource.title);
+      if (req.session.user.role.toLowerCase() == "teacher") {
+        Teacher.findByIdAndUpdate(
+          req.session.user.profile,
+          { $addToSet: { resources: resource._id } },
+          { safe: true, upsert: true },
+
+          (err, doc) => {
+            if (err) {
+              console.log("Error while accessing the document.");
+              console.log(err);
+            } else {
+              console.log("resource id", resource._id);
+              console.log("teacher resources: ", doc.resources);
+            }
+          }
+        )
+          .clone()
+          .catch((err) => {
+            console.log("Retrieval failed.");
+            console.log(err);
+          });
+      }
+
       res.redirect("/home");
     })
     .catch((err) => {
