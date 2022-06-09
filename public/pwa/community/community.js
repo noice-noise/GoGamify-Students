@@ -89,7 +89,7 @@ function openTab(evt, gradeTab) {
       // Construct card content
       //temporary image holder.
 
-      let subject = Object.values(result.subject).join(", ");
+      // let subject = Object.values(result.subject).join(", ");
       const content = `
       <div class="card card--small">
         <div class="card__container">
@@ -101,11 +101,11 @@ function openTab(evt, gradeTab) {
                 alt="Profile Image"
               />
             </div>
-            <p class="h2 text-primary">${result.name}</p>
-            <p class="text-primary-accent">${subject}</p>
+            <p class="h2 text-primary">${result.firstName} ${result.middleName[0]}. ${result.familyName}</p>
+            <p class="text-primary-accent">${result.subjects}</p>
             <p class="h4">${gradeLevel} Teacher</p>
             <p class="text-sm">
-            Contact Email: ${result.email}
+            ${result.resources.length} gamified modules
             </p>
           </div>
         </div>
