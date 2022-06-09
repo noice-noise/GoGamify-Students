@@ -15,6 +15,10 @@ const learningResourceSchema = new Schema(
       type: String,
       required: true,
     },
+    ownerId: {
+      type: String,
+      required: true,
+    },
     body: {
       type: Object,
       required: true,
