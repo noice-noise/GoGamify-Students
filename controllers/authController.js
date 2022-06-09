@@ -16,6 +16,8 @@ const register = async (req, res) => {
 };
 
 const register_post = async (req, res) => {
+  res.clearCookie("user"); // to assure that user cookies are cleared
+
   console.log(req.body);
   console.log(req.body.password);
   const hashedPassword = bcrypt.hash(req.body.password, 10);
