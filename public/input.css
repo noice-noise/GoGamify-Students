@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700;800&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -179,11 +181,11 @@
 }
 
 @layer base {
-  @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700;800&display=swap");
-
   html {
     max-width: 100%;
     overflow-x: hidden;
+    font-family: "Poppins", system-ui, sans-serif;
+    scroll-behavior: smooth;
   }
 
   body {
@@ -217,7 +219,7 @@
   }
 
   .body {
-    @apply theme-default bg-background font-poppins text-neutral antialiased;
+    @apply theme-default bg-background text-neutral antialiased;
   }
 
   .box {
