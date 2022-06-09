@@ -38,7 +38,17 @@
           required
         />
 
-        <label for="owner">Pages</label>
+        <label for="ownerId" hidden>Owner</label>
+        <input
+          class="form__field form__field--disabled"
+          type="text"
+          name="ownerId"
+          hidden
+          value="<%= user._id  %>"
+          required
+        />
+
+        <label for="pages">Pages</label>
         <input
           id="pages"
           class="form__field form__field--disabled"
@@ -67,7 +77,7 @@
         >
 
         <div class="col-span-4 flex justify-end">
-          <button class="button px-16 button--cta">Publish</button>
+          <button id="publishBtn" class="button px-16 button--cta">Publish</button>
         </div>
       </form>
     </div>

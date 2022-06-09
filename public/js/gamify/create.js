@@ -11,6 +11,7 @@ const uploadList = document.getElementById("uploadList");
 const uploadListRefreshBtn = document.getElementById("uploadListRefreshBtn");
 const htmlContent = document.getElementById("htmlContent");
 const pages = document.getElementById("pages");
+const publishBtn = document.getElementById("publishBtn");
 
 body.addEventListener("dragover", (event) => {
   event.preventDefault();
@@ -58,6 +59,7 @@ gamifyBtn.addEventListener("click", () => {
       appendHTML(data.htmlContents);
       linkValidIFrames();
       htmlContent.textContent = contentPreview.innerHTML;
+      handlePublishBtn();
     })
     .catch((err) => {
       console.log(err);
@@ -67,6 +69,7 @@ gamifyBtn.addEventListener("click", () => {
 clearBtn.addEventListener("click", (event) => {
   deleteFile();
   getAndShowUploadedFiles();
+  handlePublishBtn();
 });
 
 uploadListRefreshBtn.addEventListener("click", (e) => {
@@ -190,4 +193,24 @@ function getYoutubeVideoId(url) {
   return match && match[2].length === 11 ? match[2] : null;
 }
 
+const handlePublishBtn = () => {
+  console.log("Handling publish...");
+  if (uploadList.children.length > 0) {
+    publishBtn.disabled = false;
+    publishBtn.classList.remove("button--muted");
+    publishBtn.classList.add("button--cta");
+  } else {
+    publishBtn.disabled = true;
+    publishBtn.classList.remove("button--cta");
+    publishBtn.classList.add("button--muted");
+  }
+};
+
+const initPublishBtn = () => {
+  publishBtn.disabled = true;
+  publishBtn.classList.remove("button--cta");
+  publishBtn.classList.add("button--muted");
+};
+
+initPublishBtn();
 getAndShowUploadedFiles();
