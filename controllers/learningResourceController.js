@@ -1,5 +1,6 @@
 const LearningResource = require("../models/learningResource");
 const Student = require("../models/student");
+const Teacher = require("../models/teacher");
 let isOffline;
 
 const learning_resource = (req, res) => {
@@ -68,19 +69,10 @@ const learning_resource_post = (req, res) => {
 
 const learning_resource_get = async (req, res) => {
   const id = req.params.id;
+  const userRole = req.session.user?.role.toLowerCase();
   await LearningResource.findById(id)
     .then((result) => {
-      if (req.session.user?.profile.toLowerCase() == "na") {
-        return res.render("gamify/details", {
-          title: "Learning Resource Details",
-          resource: result,
-          user: {
-            familyName: "Community",
-            middleName: "X",
-            firstName: "GoGamify",
-          },
-        });
-      } else {
+      if (userRole == "student") {
         Student.findById(req.session.user.profile, (err, doc) => {
           if (err) {
             console.log("Error while accessing the document.");
@@ -98,6 +90,34 @@ const learning_resource_get = async (req, res) => {
             console.log("Retrieval failed.");
             console.log(err);
           });
+      } else if (userRole == "teacher") {
+        Teacher.findById(req.session.user.profile, (err, doc) => {
+          if (err) {
+            console.log("Error while accessing the document.");
+            console.log(err);
+          } else {
+            res.render("gamify/details", {
+              title: "Learning Resource Details",
+              resource: result,
+              user: doc,
+            });
+          }
+        })
+          .clone()
+          .catch((err) => {
+            console.log("Retrieval failed.");
+            console.log(err);
+          });
+      } else {
+        return res.render("gamify/details", {
+          title: "Learning Resource Details",
+          resource: result,
+          user: {
+            familyName: "Community",
+            middleName: "X",
+            firstName: "GoGamify",
+          },
+        });
       }
     })
     .catch((err) => {

@@ -4,7 +4,7 @@ const fs = require("fs");
 
 const LearningResource = require("../models/learningResource");
 const Student = require("../models/student");
-const Teacher = require("../models/student");
+const Teacher = require("../models/teacher");
 let isOffline;
 
 // check internet connection
@@ -32,10 +32,13 @@ const gamify_index = (req, res) => {
   } else {
     console.log("App is currently running online...");
     console.log("Retrieving learning resources from DB...");
-    LearningResource.find()
+    LearningResource.find({ ownerId: req.session.user.profile })
       .sort({ createdAt: -1 })
       .then((result) => {
         console.log("Number of Learning Resources: ", result.length);
+        // const validResult = getOwnerCreatedResourcesFrom(result);
+
+        // console.log("valid", validResult);
         res.render("gamify/index", {
           title: "All Learning Resources",
           resources: result,
@@ -43,20 +46,50 @@ const gamify_index = (req, res) => {
         });
       })
       .catch((err) => {
+        console.log(err);
         res.render("404", { title: "Sorry, something went wrong." });
       });
   }
 };
 
+async function getOwnerCreatedResourcesFrom(userProfile, list) {
+  await Teacher.findById(userProfle, (err, doc) => {
+    if (err) {
+      console.log("Error while accessing the document.");
+      console.log(err);
+    } else {
+      console.log("USER DOC", doc);
+      var i;
+      for (i = 0; i < list.length; i++) {
+        // toString allows proper comparing of resource IDs
+        let ownerStr =
+          doc.firstName + " " + doc.middleName[0] + ". " + doc.familyName;
+        if (list[i].owner == ownerStr) {
+          return i;
+        }
+      }
+    }
+  })
+    .clone()
+    .catch((err) => {
+      console.log("Retrieval failed.");
+      console.log(err);
+      return -1;
+    });
+}
+
 const gamify_create_get = async (req, res) => {
   console.log("Gamify create...");
-
+  console.log("session profile", req.session.user.role.toLowerCase());
   console.log("Retrieving user profile from DB...");
 
   /**
    * Handle error if admin or unknown user creates the resource
    */
-  if (req.session.user.profile.toLowerCase() == "na") {
+  if (
+    req.session.user.role.toLowerCase() == "na" ||
+    req.session.user.role.toLowerCase() == "admin"
+  ) {
     console.log("Profile not available, sending public user credentials...");
     return res.render("gamify/create", {
       title: "Gamify Create",
@@ -66,7 +99,7 @@ const gamify_create_get = async (req, res) => {
         firstName: "GoGamify",
       },
     });
-  } else if (req.session.user.profile.toLowerCase() == "student") {
+  } else if (req.session.user.role.toLowerCase() == "student") {
     console.log("Student profile...");
     await Student.findById(req.session.user.profile, (err, doc) => {
       if (err) {
@@ -84,13 +117,14 @@ const gamify_create_get = async (req, res) => {
         console.log("Retrieval failed.");
         console.log(err);
       });
-  } else if (req.session.user.profile.toLowerCase() == "teacher") {
+  } else if (req.session.user.role.toLowerCase() == "teacher") {
     console.log("Teacher profile...");
     await Teacher.findById(req.session.user.profile, (err, doc) => {
       if (err) {
         console.log("Error while accessing the document.");
         console.log(err);
       } else {
+        console.log("doc target", doc);
         return res.render("gamify/create", {
           title: "Gamify Create",
           user: doc,
@@ -102,6 +136,9 @@ const gamify_create_get = async (req, res) => {
         console.log("Retrieval failed.");
         console.log(err);
       });
+  } else {
+    console.log("An error occured.");
+    res.redirect("/home");
   }
 };
 
