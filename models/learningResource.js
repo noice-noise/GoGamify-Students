@@ -26,7 +26,9 @@ const learningResourceSchema = new Schema(
     students: [],
     modules: [],
     pages: { type: Number },
-    collectibles: [],
+    collectibles: {
+      type: Array,
+    },
   },
   { timestamps: true }
 );
