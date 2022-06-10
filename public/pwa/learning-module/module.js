@@ -7,7 +7,7 @@ const pageInfo = document.getElementById("pageInfo");
 const backBtn = document.getElementById("backBtn");
 const nextBtn = document.getElementById("nextBtn");
 
-let module;
+let moduleContent = {};
 
 backBtn.addEventListener("click", (e) => {});
 
@@ -43,7 +43,7 @@ const fetchModule = async () => {
     })
     .then((data) => {
       console.log("data", data);
-      module = data;
+      moduleContent = data;
       appendHeader(data.header);
       appendContent(data.body);
       handlePageNav();
@@ -55,18 +55,22 @@ const fetchModule = async () => {
 
 const handlePageNav = () => {
   console.log("handlepagenav");
-  if (!module) {
+  if (!moduleContent) {
     console.log("Error, module not defined.");
+    return;
   }
 
-  if (module.header.currentPageNumber <= 0) {
+  if (moduleContent.header.currentPageNumber <= 0) {
     console.log("hide back");
     backBtn.classList.add("hidden");
   } else {
     backBtn.classList.remove("hidden");
   }
 
-  if (module.header.currentPageNumber == module.header.pages - 1) {
+  if (
+    moduleContent.header.currentPageNumber ==
+    moduleContent.header.pages - 1
+  ) {
     console.log("show completed");
     nextBtn.textContent = "Complete Journey";
   } else {
