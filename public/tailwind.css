@@ -1303,37 +1303,6 @@ body{
   margin-top: 0px;
 }
 
-.\!module{
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 1.25rem;
-  margin-bottom: 1.25rem;
-  border-radius: 1rem;
-  border-width: 1px;
-  --tw-bg-opacity: 1;
-  background-color: rgb(var(--color-foreground) / var(--tw-bg-opacity));
-  padding: 1.25rem;
-  --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
-@media (min-width: 768px){
-  .\!module{
-    padding: 2rem;
-  }
-}
-
-@media (min-width: 1024px){
-  .\!module{
-    padding: 2.5rem;
-  }
-}
-
-.\!module{
-  margin-top: 0px;
-}
-
 .module h1{
   font-size: 1.875rem;
   line-height: 2.25rem;
@@ -1354,26 +1323,6 @@ body{
   margin-bottom: 1rem;
 }
 
-.\!module h1{
-  font-size: 1.875rem;
-  line-height: 2.25rem;
-  font-weight: 700;
-  letter-spacing: -0.025em;
-  --tw-text-opacity: 1;
-  color: rgb(var(--color-primary) / var(--tw-text-opacity));
-}
-
-@media (min-width: 768px){
-  .\!module h1{
-    font-size: 2.25rem;
-    line-height: 2.5rem;
-  }
-}
-
-.\!module h1{
-  margin-bottom: 1rem;
-}
-
 .module h2{
   font-size: 1.25rem;
   line-height: 1.75rem;
@@ -1391,23 +1340,6 @@ body{
   margin-bottom: 1rem;
 }
 
-.\!module h2{
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-  font-weight: 700;
-}
-
-@media (min-width: 1024px){
-  .\!module h2{
-    font-size: 1.875rem;
-    line-height: 2.25rem;
-  }
-}
-
-.\!module h2{
-  margin-bottom: 1rem;
-}
-
 .module h3{
   font-size: 1.125rem;
   line-height: 1.75rem;
@@ -1429,32 +1361,6 @@ body{
 
 @media (min-width: 1024px){
   .module h3{
-    font-size: 1.5rem;
-    line-height: 2rem;
-  }
-}
-
-.\!module h3{
-  font-size: 1.125rem;
-  line-height: 1.75rem;
-}
-
-@media (min-width: 1024px){
-  .\!module h3{
-    font-size: 1.5rem;
-    line-height: 2rem;
-  }
-}
-
-.\!module h3{
-  margin-bottom: 1rem;
-  font-size: 1.125rem;
-  line-height: 1.75rem;
-  font-weight: 700;
-}
-
-@media (min-width: 1024px){
-  .\!module h3{
     font-size: 1.5rem;
     line-height: 2rem;
   }
@@ -1477,29 +1383,7 @@ body{
   font-weight: 700;
 }
 
-.\!module h4{
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-}
-
-@media (min-width: 1024px){
-  .\!module h4{
-    font-size: 1rem;
-    line-height: 1.5rem;
-  }
-}
-
-.\!module h4{
-  margin-bottom: 1rem;
-  font-weight: 700;
-}
-
 .module h5{
-  margin-bottom: 1rem;
-  font-weight: 700;
-}
-
-.\!module h5{
   margin-bottom: 1rem;
   font-weight: 700;
 }
@@ -1508,16 +1392,7 @@ body{
   margin-bottom: 1rem;
 }
 
-.\!module h6{
-  margin-bottom: 1rem;
-}
-
 .module p{
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-}
-
-.\!module p{
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
@@ -1534,22 +1409,6 @@ body{
 }
 
 .module a:hover{
-  --tw-text-opacity: 1;
-  color: rgb(var(--color-primary) / var(--tw-text-opacity));
-}
-
-.\!module a{
-  font-weight: 700;
-  --tw-text-opacity: 1;
-  color: rgb(var(--color-primary-accent) / var(--tw-text-opacity));
-  transition-property: color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 300ms;
-}
-
-.\!module a:hover{
   --tw-text-opacity: 1;
   color: rgb(var(--color-primary) / var(--tw-text-opacity));
 }
@@ -1833,6 +1692,14 @@ body{
 
 .max-w-md{
   max-width: 28rem;
+}
+
+.max-w-lg{
+  max-width: 32rem;
+}
+
+.max-w-xl{
+  max-width: 36rem;
 }
 
 .scale-110{
