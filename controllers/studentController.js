@@ -99,30 +99,9 @@ const student_get = async (req, res) => {
 };
 
 const student_put = (req, res) => {
-  // router.put("/students/:id", function (req, res, next) {
-  //   Student.findOneAndUpdate({ _id: req.params.id }, req.body).then(function (
-  //     student
-  //   ) {
-  //     Student.findOne({ _id: req.params.id }).then(function (student) {
-  //       res.send(student);
-  //     });
-  //   });
-  // });
-  // console.log("put!!");
-  // student.findByIdAndUpdate(req.params.id, {
-  //   title: req.body.title,
-  //   subtitle: req.body.subtitle,
-  //   owner: req.body.owner,
-  //   active: req.body.active,
-  //   body: req.body.body,
-  // })
-  //   .then((result) => {
-  //     res.send("Resource Updated!");
-  //   })
-  //   .catch((err) => {
-  //     console.error(err.message);
-  //     res.send(400).send("Server Error");
-  //   });
+  /**
+   * TODO implement updating of profile
+   */
 };
 
 const student_delete = async (req, res) => {
@@ -250,7 +229,7 @@ const student_resources_get = async (req, res) => {
       console.log("Error while accessing the document.");
       console.log(err);
     } else {
-      console.log("Document", doc);
+      // console.log("Document", doc);
       console.log("resources", doc.resources);
       res.send(JSON.stringify(doc.resources));
     }
@@ -314,8 +293,9 @@ const student_collections_get = async (req, res) => {
       console.log("Error while accessing the document.");
       console.log(err);
     } else {
-      console.log("Document", doc);
-      console.log("collections", doc.collections);
+      // console.log("Document", doc);
+      // console.log("collections", doc.collections);
+      handleCollections(doc);
       res.send(JSON.stringify(doc.collections));
     }
   })
@@ -324,6 +304,19 @@ const student_collections_get = async (req, res) => {
       console.log("Retrieval failed.");
       console.log(err);
     });
+};
+
+const handleCollections = (user) => {
+  console.log("collections", user.resources.length);
+  console.log("collections", user.completed.length);
+  // console.log("collections:", user);
+  if (user.completed.length > 1) {
+    console.log("greater 1");
+  }
+
+  if (user.completed.length > 3) {
+    console.log("more than 3");
+  }
 };
 
 const student_collections_delete = async (req, res) => {};
@@ -620,9 +613,9 @@ const profile_get = async (req, res) => {
       console.log(err);
     } else {
       console.log("Successful");
-      console.log("doc", doc);
-      console.log("docType", typeof doc);
-      console.log(doc);
+      // console.log("doc", doc);
+      // console.log("docType", typeof doc);
+      // console.log(doc);
       res.send(JSON.stringify(doc));
     }
   })
@@ -663,8 +656,8 @@ const profile_preference_get = async (req, res) => {
       console.log(err);
     } else {
       console.log("Successful");
-      console.log("doc", doc);
-      console.log("docType", typeof doc);
+      // console.log("doc", doc);
+      // console.log("docType", typeof doc);
       console.log(doc.preferences);
       res.send(JSON.stringify(doc.preferences));
     }
