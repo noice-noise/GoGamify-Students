@@ -44,7 +44,7 @@ html {
   -o-tab-size: 4;
      tab-size: 4;
   /* 3 */
-  font-family: "Poppins", Helvetica, Arial, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
   /* 4 */
 }
 
@@ -2090,7 +2090,7 @@ body{
 }
 
 .font-sans{
-  font-family: "Poppins", Helvetica, Arial, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
 }
 
 .font-mono{

@@ -3,7 +3,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['"Poppins"', "Helvetica", "Arial", "sans-serif"],
+        sans: ["Helvetica", "Arial", "sans-serif"],
       },
       colors: {
         primary: withOpacityValue("--color-primary"),
