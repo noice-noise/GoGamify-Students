@@ -1,60 +1,67 @@
 function openTodo(){
-     document.querySelector(".file-container").innerHTML= "";
+    document.querySelector(".file-container").innerHTML= "";
     fetch('/student/p/resources', { method: 'GET' })
     .then(res => res.json())
     .then(data => {
+        Status = false;
         console.log(data);
-        generateCards(data);
+        generateCards(data, Status);
         data.forEach((element,i) =>{
             btnclick(i);
+            generateColors(data[i]._id,i);
         })
     })
     .catch(error => {
         console.log(error)
     });
-    document.getElementById("btn_todo").style.backgroundColor = 'rgb(var(--color-primary-accent)';
+    document.getElementById("btn_todo").style.backgroundColor = 'rgb(var(--color-primary-accent)/var(--tw-text-opacity))';
     document.getElementById("btn_comp").style.backgroundColor = 'rgb(var(--color-primary-muted) / var(--tw-bg-opacity))';
     document.getElementById("btn_todo").style.zIndex = "1";
     document.getElementById("btn_comp").style.zIndex = "0";
 }
 
 function openComp(){
+    console.log("COMPLETED BUTTTON: clicked!")
     document.querySelector(".file-container").innerHTML= "";
-   fetch('/student/p/resources', { method: 'GET' })
+   fetch('/student/p/completed', { method: 'GET' })
    .then(res => res.json())
    .then(data => {
+       Status = true;
        console.log(data);
-    //    generateCards(data);
-    //    data.forEach((element,i) =>{
-    //        btnclick(i);
-    //    })
+       generateCards(data, Status);
+       data.forEach((element,i) =>{
+           btnclick(i);
+           generateColors(data[i]._id,i);
+       })
    })
    .catch(error => {
        console.log(error)
    });
-   document.getElementById("btn_comp").style.backgroundColor = 'rgb(var(--color-primary-accent)';
+   document.getElementById("btn_comp").style.backgroundColor = 'rgb(var(--color-primary-accent)/var(--tw-text-opacity))';
    document.getElementById("btn_todo").style.backgroundColor = 'rgb(var(--color-primary-muted) / var(--tw-bg-opacity))';
    document.getElementById("btn_todo").style.zIndex = "0";
    document.getElementById("btn_comp").style.zIndex = "1";
 }
 
+//default
 fetch('/student/p/resources', { method: 'GET' })
     .then(res => res.json())
     .then(data => {
+        let Status = false
         console.log(data);
-        generateCards(data);
+        generateCards(data, Status);
         data.forEach((element,i) =>{
             btnclick(i);
-            // openComp(data[i]._id);
+            generateColors(data[i]._id,i);
         })
+
     })
     .catch(error => {
         console.log(error)
     });
 
-    function generateCards(data) {
-
-    data.forEach((element, i) => {
+    function generateCards(data, Status) {
+        data.forEach((element, i) => {
         const container = document.querySelector(".file-container");
         //create
 
@@ -65,7 +72,7 @@ fetch('/student/p/resources', { method: 'GET' })
         const cardContent = `                
         <div class="card-main-container" id = "main${i}">
 
-        <div class="subject-box">
+        <div id="subject-color${card.id}" class="subject-box">
             <p class="h1 text-box">${getInitials(data[i].title)}</p>
         </div>
         <div class="card-body">
@@ -73,14 +80,14 @@ fetch('/student/p/resources', { method: 'GET' })
             <p class="h4 sub-title">${data[i].subtitle}</p>
             <div id="main-sub-content${i}" style="display:block;">
                 
-                <div class="meter yellow">
-                    <span style="width:${progressMeter(1, data[i].pages)}%;"></span>
+                <div id = "metercolor${card.id}" class="meter yellow">
+                    <span id ="meterCurrentPage${card.id}" style="width:0%;"></span>
                 </div>
                 <div class="progress-text">
                     <p class="h6">Progress</p>
                     <div>
 
-                        <span class="h6" id="current${card.id}">${currentPage(card.id, i)}</span>
+                        <span class="h6" id="current${card.id}">${currentPage(card.id,i,data[i].pages, Status)}</span>
                         <span class="h6"> / </span>
                         <span class="h6 total" id="total">${data[i].pages}</span>
 
@@ -88,11 +95,11 @@ fetch('/student/p/resources', { method: 'GET' })
                 </div>
             </div>
 
-            <div id="more-sub-content${i}" style="display:none;">
+            <div id="more-sub-content${i}" class ="sub-content" style="display:none;">
 
                 <p class="h6">Owner : ${data[i].owner}</p>
                 <p class="h6">Total Pages : ${data[i].pages}</p>
-                <p class="h6">Students Enrolled : ${data[i].students.length}</p>
+                <p class="h6">Collectibles : ${data[i].collectibles.length}</p>
             </div>
 
         </div>
@@ -140,8 +147,7 @@ fetch('/student/p/resources', { method: 'GET' })
 
         </div>
 
-    </div>
-            
+    </div>            
             `;
 
         card.innerHTML += cardContent;
@@ -149,36 +155,16 @@ fetch('/student/p/resources', { method: 'GET' })
     });
 }
 
+
 function btnclick(id){
     document.getElementById("btn_more"+id).addEventListener("click", function() {
         openMore(id);
     }, false);
-
-}
-function bla(){
-    fetch('/pwa/journey/completed', { method: 'GET' })
-    .then(res =>{
-        if(res.ok){
-            console.log('SUCCESS')
-            return res.json();
-        }else{
-            console.log('unSUCCESSful')
-        }
-        return res.json();
-    })
-    .then((data) => {
-        console.log("data", data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
 }
 
-bla();
+function currentPage(ID, i, total, status) {
 
-function currentPage( id, i) {
-
-    fetch('/student/p/currentPage', { method: 'GET' })
+    fetch('/student/p/resourcesCurrentPages', { method: 'GET' })
     .then(res =>{
         if(res.ok){
             console.log('SUCCESS')
@@ -189,10 +175,14 @@ function currentPage( id, i) {
     })
     .then(data => {
         console.log(data);
-        if(id == data.header._id){
-            console.log(data);
-            appendCurrent(data.header.currentPageNumber+1, id);
+        if (status == false){
+            if(ID ==data[i].id){
+                console.log(data);
+                appendCurrent(data[i].currentPageNumber+1, ID, total);
+            }
         }
+        else
+            appendCurrent(total, ID, total,status);
 
     })
     .catch(error => {
@@ -200,9 +190,26 @@ function currentPage( id, i) {
     });
 }
 
-function appendCurrent(index, id) {
-    document.getElementById("current" + id).innerHTML = index;
-    // console.log(index);
+function appendCurrent(page, id, total,status) {
+    //progress number
+    document.getElementById("current" + id).innerHTML = page;
+    //progress meter
+    let current = (page / total) * 100;
+    document.getElementById("meterCurrentPage"+id).style.width = current +"%";
+    
+    //colors
+    if(current > 50){
+        document.getElementById("metercolor"+id).className = "meter orange";
+    }
+    // border raduis    
+    if(current == 100){
+        document.getElementById("meterCurrentPage"+id).style.borderTopRightRadius = "20px";
+        document.getElementById("meterCurrentPage"+id).style.borderBottomRightRadius = "20px";
+    }
+    //completed color
+    if (current == 100 && status == true){
+        document.getElementById("metercolor"+id).className = "meter green";
+    }
 }
 
 let getInitials = function (string) {
@@ -210,7 +217,12 @@ let getInitials = function (string) {
         initials = names[0].substring(0, 1).toUpperCase();
 
     if (names.length > 1) {
-        initials += names[1].substring(0, 1).toUpperCase();
+        if(names[1].substring(0, 1) == "-"){
+            initials += names[3].substring(0, 1).toUpperCase();
+        }
+        else
+            initials += names[1].substring(0, 1).toUpperCase();
+        
     }
     else if (names.length == 1) {
         initials += names[0].charAt(1).toUpperCase();
@@ -218,16 +230,6 @@ let getInitials = function (string) {
     }
     return initials;
 };
-
-
-function progressMeter(current, total) {
-    console.log("read");
-    let meter = (current / total) * 100;
-    console.log(meter);
-    return meter;
-}
-
-
 
 function openMore(i){
     let div_info = document.getElementById("more-sub-content"+i);
@@ -256,8 +258,39 @@ function openMore(i){
     }
 }
 
-// function openComp(id){
-//     console.log("COMP btn: CLICKED!");
-//     console.log(id);
-//     // document.getElementById(card.id).style.display = "none";
-// }
+const mycolors=["red", "violet","green","yellow","aquamarine","blue","purple","greenyellow","pink"]
+const orange = ["#FB923C","#EF4444"];
+
+
+function generateColors(id,i){
+    //gradient palette source:https://digitalsynopsis.com/design/beautiful-color-ui-gradients-backgrounds/
+    const roseanna = ["#ffc3a0", "#ffafbd"];
+    const sexyblue = ["#6dd5ed", "#2193b0"];
+    const frost = [" #004e92", "#000428"];
+    const purplelove = ["#cc2b5e","#753a88"];
+    const pigglet = ["#ffdde1","#ee9ca7"];
+    const mauve = ["#734b6d","#42275a"];
+    const lostmemory = ["#ffb88c","#de6262"];
+    const socialive = ["#06beb6","#48b1bf"];
+    const cherry = ["#f45c43", "#eb3349"];
+    const lush = ["#a8e063","#56ab2f"];
+    const kashmir = ["#516395","#614385"];
+    const dusk = ["#ffd89b","#19547b"]
+
+    let color = [
+        roseanna, sexyblue, frost, purplelove, pigglet, mauve, lostmemory, socialive, cherry, lush,kashmir ,dusk
+    ];
+    let randomNumber =  Math.floor(Math.random() * 4);
+    console.log(randomNumber);
+
+
+    document.getElementById("subject-color"+id).style.backgroundImage = "linear-gradient(to bottom right,"+ color[i] +")";
+
+       
+
+    // console.log(color);
+    // return color;
+}
+
+
+
