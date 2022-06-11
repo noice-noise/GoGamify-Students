@@ -47,7 +47,7 @@ function getUserCredentials2() {
             //REMINDER: MAKE BADGES FROM ADMIN.
             graphic = data[index].graphic;
             title = data[index].title;
-            sub = data[index].subtitle;
+            sub = data[index].subtitle; //subtitle may be the description
             type = data[index].type;
 
             var box = new Achievement_Box(graphic,title,sub,type);
