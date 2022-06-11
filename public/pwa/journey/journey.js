@@ -1,115 +1,208 @@
+function openTodo(){
+     document.querySelector(".file-container").innerHTML= "";
+    fetch('/student/p/resources', { method: 'GET' })
+    .then(res => res.json())
+    .then(data => {
+        console.log(data);
+        generateCards(data);
+        data.forEach((element,i) =>{
+            btnclick(i);
+        })
+    })
+    .catch(error => {
+        console.log(error)
+    });
+    document.getElementById("btn_todo").style.backgroundColor = 'rgb(var(--color-primary-accent)';
+    document.getElementById("btn_comp").style.backgroundColor = 'rgb(var(--color-primary-muted) / var(--tw-bg-opacity))';
+    document.getElementById("btn_todo").style.zIndex = "1";
+    document.getElementById("btn_comp").style.zIndex = "0";
+}
+
+function openComp(){
+    document.querySelector(".file-container").innerHTML= "";
+   fetch('/student/p/resources', { method: 'GET' })
+   .then(res => res.json())
+   .then(data => {
+       console.log(data);
+    //    generateCards(data);
+    //    data.forEach((element,i) =>{
+    //        btnclick(i);
+    //    })
+   })
+   .catch(error => {
+       console.log(error)
+   });
+   document.getElementById("btn_comp").style.backgroundColor = 'rgb(var(--color-primary-accent)';
+   document.getElementById("btn_todo").style.backgroundColor = 'rgb(var(--color-primary-muted) / var(--tw-bg-opacity))';
+   document.getElementById("btn_todo").style.zIndex = "0";
+   document.getElementById("btn_comp").style.zIndex = "1";
+}
+
 fetch('/student/p/resources', { method: 'GET' })
     .then(res => res.json())
     .then(data => {
         console.log(data);
         generateCards(data);
+        data.forEach((element,i) =>{
+            btnclick(i);
+            // openComp(data[i]._id);
+        })
     })
     .catch(error => {
         console.log(error)
     });
 
-function generateCards(data) {
+    function generateCards(data) {
 
     data.forEach((element, i) => {
-
         const container = document.querySelector(".file-container");
         //create
 
         const card = document.createElement('div');
-        card.classList = 'card-main-container';
+        card.classList = 'card content';
         card.id = data[i]._id;
         console.log(card.id);
         const cardContent = `                
-            <div class="subject-box">
-                <p class="h1 text-box">${getInitials(data[i].title)}</p>
-            </div>
-            <div class = "card-body">
-                <p class="h3">${data[i].title}</p>
-                <p class="h4 sub-title">${data[i].subtitle}</p>
-                <div>
-                    <div class="meter yellow">
-                        <span style="width:${progressMeter(1, data[i].pages)}%;"></span>
-                    </div>
-                    <div class="progress-text">
-                        <p class="h6">Progress</p>
-                        <div>
-                            <!--progress width length basis-->
-                            <span class="h6" id="current${card.id}">${currentPage(data[i].modules, card.id, i)}</span>
-                            <span class="h6"> / </span>
-                            <span class="h6 total" id="total">${data[i].pages}</span>
-                        </div>
+        <div class="card-main-container" id = "main${i}">
+
+        <div class="subject-box">
+            <p class="h1 text-box">${getInitials(data[i].title)}</p>
+        </div>
+        <div class="card-body">
+            <p class="h3">${data[i].title}</p>
+            <p class="h4 sub-title">${data[i].subtitle}</p>
+            <div id="main-sub-content${i}" style="display:block;">
+                
+                <div class="meter yellow">
+                    <span style="width:${progressMeter(1, data[i].pages)}%;"></span>
+                </div>
+                <div class="progress-text">
+                    <p class="h6">Progress</p>
+                    <div>
+
+                        <span class="h6" id="current${card.id}">${currentPage(card.id, i)}</span>
+                        <span class="h6"> / </span>
+                        <span class="h6 total" id="total">${data[i].pages}</span>
+
                     </div>
                 </div>
             </div>
-            <a class="icon">
-                <svg xmlns="http://www.w3.org/2000/svg" class="btn_exp" height="32" width="32"
-                viewBox="0 0 50 50">
-                <path d="M24 30.75 12 18.75 14.15 16.6 24 26.5 33.85 16.65 36 18.8Z"
-                    class="svg_more" id="icon_more1" />
-                <path d="M14.15 30.75 12 28.6 24 16.6 36 28.55 33.85 30.7 24 20.85Z"
-                    class="svg_less" id="icon_less1">
-            </svg>
-            </a>
-            <form class="flex flex-col gap-3" action="/student/p/currentPage" method="post">
-            <input
-            hidden
-                name="_id"
-                value= "${card.id}"
-                type="text"
-            />
-            <button class="button button--muted" type="submit">View</button>
-            </form>
-            
+
+            <div id="more-sub-content${i}" style="display:none;">
+
+                <p class="h6">Owner : ${data[i].owner}</p>
+                <p class="h6">Total Pages : ${data[i].pages}</p>
+                <p class="h6">Students Enrolled : ${data[i].students.length}</p>
+            </div>
+
+        </div>
+
+        <div class="btn-div">
+
+            <div class="btn-main">
+                <div class="btn-view">
+
+                    <form action="/student/p/currentPage" method="post">
+                        <input hidden name="_id" value="${card.id}" type="text" />
+
+                        <button class="icon-eye" type="submit">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="rgb(var(--color-primary-accent) / var(--tw-bg-opacity))"
+                                fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <circle cx="12" cy="12" r="2" />
+                                <path
+                                    d="M22 12c-2.667 4.667 -6 7 -10 7s-7.333 -2.333 -10 -7c2.667 -4.667 6 -7 10 -7s7.333 2.333 10 7" />
+                            </svg>
+                        </button>
+                    </form>
+
+                </div>
+            </div>
+
+            <div class="btn-effect">
+                <button id="btn_more${i}">
+                    <svg id="icon_more${i}" xmlns="http://www.w3.org/2000/svg" class="btn-more" width="32"
+                        height="32" viewBox="0 0 22 24" stroke-width="1.5" stroke="whitesmoke"
+                        fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <polyline points="9 6 15 12 9 18" />
+                    </svg>
+                    <svg id="icon_less${i}" xmlns="http://www.w3.org/2000/svg" class="btn-less" width="32"
+                        height="32" viewBox="0 0 26 24" stroke-width="1.5" stroke="whitesmoke"
+                        fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <polyline points="15 6 9 12 15 18" />
+                    </svg>
+                </button>
+            </div>
+
+        </div>
+
+    </div>
             
             `;
 
         card.innerHTML += cardContent;
         container.appendChild(card);
     });
-
 }
 
-function currentPage(data, id, index) {
-    // fetch('/student/p/resources', {
-    // method:'POST',
-    // body: data[]
+function btnclick(id){
+    document.getElementById("btn_more"+id).addEventListener("click", function() {
+        openMore(id);
+    }, false);
 
-    // })
-    // .then(res =>res.json())
-    // .then(console.log);
-    console.log(id);
-    let current = null;
-    let x = 0;
-    fetch("/student/p/currentPage", {
-        method: "GET",
-    })
-        .then((res) => {
+}
+function bla(){
+    fetch('/pwa/journey/completed', { method: 'GET' })
+    .then(res =>{
+        if(res.ok){
+            console.log('SUCCESS')
             return res.json();
-        })
-        .then((currentData) => {
-            data.forEach((element, i) => {
-                if (currentData == element) {
-                    appendCurrent(i + 1, id);
+        }else{
+            console.log('unSUCCESSful')
+        }
+        return res.json();
+    })
+    .then((data) => {
+        console.log("data", data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+}
 
+bla();
 
-                }
-            });
-            // console.log(JSON.stringify(data[0]));
-        });
+function currentPage( id, i) {
 
-    // let x = 0;
-    // console.log(data, '/n', id);
-    // data.forEach((element, i) => {
-    //     console.log("data: "+current);
-    //     console.log("element: "+element);
-    //     console.log(i + 1);
-    //     x = i + 1;
-    // });
-    // return x;
+    fetch('/student/p/currentPage', { method: 'GET' })
+    .then(res =>{
+        if(res.ok){
+            console.log('SUCCESS')
+            return res.json();
+        }else{
+            console.log('unSUCCESSful')
+        }
+    })
+    .then(data => {
+        console.log(data);
+        if(id == data.header._id){
+            console.log(data);
+            appendCurrent(data.header.currentPageNumber+1, id);
+        }
+
+    })
+    .catch(error => {
+        console.log(error)
+    });
 }
 
 function appendCurrent(index, id) {
     document.getElementById("current" + id).innerHTML = index;
+    // console.log(index);
 }
 
 let getInitials = function (string) {
@@ -136,6 +229,35 @@ function progressMeter(current, total) {
 
 
 
+function openMore(i){
+    let div_info = document.getElementById("more-sub-content"+i);
+    let div_main = document.getElementById("main-sub-content"+i);
+    let main_cont = document.getElementById("main"+i);
+    let icon_more = document.getElementById("icon_more"+i);
+    let icon_less = document.getElementById("icon_less"+i);
 
+    if(div_main.style.display == 'block'){
+        div_main.style.display = "none";
+        div_info.style.display = "block";
+        main_cont.classList.add('effects');
+        main_cont.classList.remove('effect');
+        icon_more.style.display = "none";
+        icon_less.style.display = "inline-block";
 
+    }
+    else{
+        div_main.style.display = "block";
+        div_info.style.display = "none";
+        main_cont.classList.remove('effects');
+        main_cont.classList.add('effect');
+        icon_less.style.display = "none";
+        icon_more.style.display = "inline-block";
 
+    }
+}
+
+// function openComp(id){
+//     console.log("COMP btn: CLICKED!");
+//     console.log(id);
+//     // document.getElementById(card.id).style.display = "none";
+// }
