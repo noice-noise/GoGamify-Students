@@ -351,6 +351,24 @@ const student_resources_pages_get = async (req, res) => {
     });
 };
 
+const student_completed = async (req, res) => {
+  console.log("Retrieving resources from DB...");
+  await Student.findById(req.session.user.profile, (err, doc) => {
+    if (err) {
+      console.log("Error while accessing the document.");
+      console.log(err);
+    } else {
+      console.log("resourcesCurrentPages", doc.completed);
+      res.send(JSON.stringify(doc.completed));
+    }
+  })
+    .clone()
+    .catch((err) => {
+      console.log("Retrieval failed.");
+      console.log(err);
+    });
+};
+
 const student_collections_post = async (req, res) => {
   console.log("Target collectible id:", req.body.id);
 
@@ -1058,6 +1076,7 @@ module.exports = {
   student_resources_post,
   student_resources_delete,
   student_resources_pages_get,
+  student_completed,
   student_current_page_get,
   student_current_page_post,
   student_page_next,

@@ -12,6 +12,8 @@ router.get(
   studentController.student_resources_pages_get
 );
 
+router.get("/p/completed", studentController.student_completed);
+
 router.get("/p/currentPage", studentController.student_current_page_get);
 router.post("/p/currentPage", studentController.student_current_page_post);
 router.post("/p/currentPage/next", studentController.student_page_next);
