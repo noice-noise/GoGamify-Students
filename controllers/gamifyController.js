@@ -58,7 +58,7 @@ async function getOwnerCreatedResourcesFrom(userProfile, list) {
       console.log("Error while accessing the document.");
       console.log(err);
     } else {
-      console.log("USER DOC", doc);
+      // console.log("USER DOC", doc);
       var i;
       for (i = 0; i < list.length; i++) {
         // toString allows proper comparing of resource IDs
@@ -124,7 +124,7 @@ const gamify_create_get = async (req, res) => {
         console.log("Error while accessing the document.");
         console.log(err);
       } else {
-        console.log("doc target", doc);
+        // console.log("doc target", doc);
         return res.render("gamify/create", {
           title: "Gamify Create",
           user: doc,

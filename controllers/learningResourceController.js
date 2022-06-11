@@ -51,10 +51,14 @@ const learning_resource_post = (req, res) => {
   // active means that the learning resource can be shown to public
   learningResource.active = req.body.active == "on" ? true : false;
 
+  const collectibles = req.body.collectibles;
+  console.log("collectibles", collectibles);
+
   let htmlContent = learningResource.body;
   let modules = htmlContent.split(`<!-- module -->`); // split modules into an array
   modules = modules.filter((p) => p); // remove empty elements
   learningResource.modules = modules;
+  learningResource.collectibles = [...req.body.collectibles.split(",")];
 
   learningResource
     .save()
@@ -73,6 +77,7 @@ const learning_resource_post = (req, res) => {
             } else {
               console.log("resource id", resource._id);
               console.log("teacher resources: ", doc.resources);
+              res.redirect("/home");
             }
           }
         )
@@ -82,8 +87,6 @@ const learning_resource_post = (req, res) => {
             console.log(err);
           });
       }
-
-      res.redirect("/home");
     })
     .catch((err) => {
       console.log("ERROR saving resource", err);

@@ -99,30 +99,9 @@ const student_get = async (req, res) => {
 };
 
 const student_put = (req, res) => {
-  // router.put("/students/:id", function (req, res, next) {
-  //   Student.findOneAndUpdate({ _id: req.params.id }, req.body).then(function (
-  //     student
-  //   ) {
-  //     Student.findOne({ _id: req.params.id }).then(function (student) {
-  //       res.send(student);
-  //     });
-  //   });
-  // });
-  // console.log("put!!");
-  // student.findByIdAndUpdate(req.params.id, {
-  //   title: req.body.title,
-  //   subtitle: req.body.subtitle,
-  //   owner: req.body.owner,
-  //   active: req.body.active,
-  //   body: req.body.body,
-  // })
-  //   .then((result) => {
-  //     res.send("Resource Updated!");
-  //   })
-  //   .catch((err) => {
-  //     console.error(err.message);
-  //     res.send(400).send("Server Error");
-  //   });
+  /**
+   * TODO implement updating of profile
+   */
 };
 
 const student_delete = async (req, res) => {
@@ -141,19 +120,30 @@ const student_resources_post = async (req, res) => {
   console.log("Target resource code:", req.body.code);
 
   try {
-    await LearningResource.findByIdAndUpdate(
+    /**
+     * store student ID in the learning resource
+     */
+    await LearningResource.findById(
       req.body.code,
-      { $addToSet: { students: req.session.user.profile } },
-      { safe: true, upsert: true },
+      // { $addToSet: { students: req.session.user.profile } },
+      // { safe: true, upsert: true },
       (err, resource) => {
         console.log("Resources!: ", resource.title);
         if (err) {
           console.log(err);
         } else {
           console.log("Adding to student resources...");
+
+          /**
+           * Store learning resource ID to student.resources property
+           */
           Student.findByIdAndUpdate(
             req.session.user.profile,
-            { $addToSet: { resources: resource } },
+            {
+              $addToSet: {
+                resources: resource,
+              },
+            },
             { safe: true, upsert: true },
             (err, docs) => {
               if (err) {
@@ -162,6 +152,9 @@ const student_resources_post = async (req, res) => {
               } else {
                 console.log(docs);
 
+                /**
+                 * Get student document in preparation for update
+                 */
                 Student.findById(req.session.user.profile, (err, doc) => {
                   if (err) {
                     console.log("Error while accessing the document.");
@@ -179,6 +172,15 @@ const student_resources_post = async (req, res) => {
 
                     const targetModule = doc.resources[targetIndex].modules[0];
 
+                    console.log("resources", doc.resources);
+                    console.log(
+                      "resourcesCurrentPages",
+                      doc.resourcesCurrentPages
+                    );
+
+                    /**
+                     * Update student.current* props to select the newly added resource
+                     */
                     Student.findByIdAndUpdate(
                       req.session.user.profile,
                       {
@@ -191,8 +193,75 @@ const student_resources_post = async (req, res) => {
                           console.log("Error occurred");
                           console.log(err);
                         } else {
-                          // res.send(JSON.stringify(targetModule));
-                          res.redirect("/home");
+                          console.log(
+                            "Updating resourcesCurrentPages with target:",
+                            resource._id,
+                            resource.title
+                          );
+                          Student.updateOne(
+                            {
+                              _id: req.session.user.profile,
+                              "resourcesCurrentPages.id": resource._id,
+                            },
+
+                            {
+                              $set: {
+                                "resourcesCurrentPages.$.id": resource._id,
+                                "resourcesCurrentPages.$.currentPageNumber":
+                                  doc.currentPageNumber,
+                              },
+                            },
+                            {
+                              safe: true,
+                              upsert: true,
+                            },
+                            (err, docs) => {
+                              if (err) {
+                                console.log("Error occurred");
+                                console.log(err);
+                              } else {
+                                console.log("Success!");
+                                res.redirect("/home");
+                              }
+                            }
+                          )
+                            .clone()
+                            .catch((err) => {
+                              console.log(err);
+                              console.log(
+                                "Error, resource non-existing, creating the object instead...."
+                              );
+                              Student.findByIdAndUpdate(
+                                req.session.user.profile,
+                                {
+                                  $addToSet: {
+                                    resourcesCurrentPages: {
+                                      id: resource._id,
+                                      currentPageNumber: doc.currentPageNumber,
+                                    },
+                                  },
+                                },
+                                {
+                                  safe: true,
+                                  upsert: true,
+                                },
+                                (err, docs) => {
+                                  if (err) {
+                                    console.log("Error occurred");
+                                    console.log(err);
+                                  } else {
+                                    // res.send(JSON.stringify(targetModule));
+                                    res.redirect("/home");
+                                  }
+                                }
+                              )
+                                .clone()
+                                .catch((err) => {
+                                  console.log(err);
+                                });
+                            });
+
+                          // res.redirect("/home");
                         }
                       }
                     )
@@ -250,8 +319,6 @@ const student_resources_get = async (req, res) => {
       console.log("Error while accessing the document.");
       console.log(err);
     } else {
-      console.log("Document", doc);
-      console.log("resources", doc.resources);
       res.send(JSON.stringify(doc.resources));
     }
   })
@@ -264,6 +331,42 @@ const student_resources_get = async (req, res) => {
 
 const student_resources_delete = async (req, res) => {
   // TODO implement resource delete, this is only an option, primary way is to just complete the resource then it will be moved in Completed array, instead of entirely deleting which is much more intended.
+};
+
+const student_resources_pages_get = async (req, res) => {
+  console.log("Retrieving resources from DB...");
+  await Student.findById(req.session.user.profile, (err, doc) => {
+    if (err) {
+      console.log("Error while accessing the document.");
+      console.log(err);
+    } else {
+      console.log("resourcesCurrentPages", doc.resourcesCurrentPages);
+      res.send(JSON.stringify(doc.resourcesCurrentPages));
+    }
+  })
+    .clone()
+    .catch((err) => {
+      console.log("Retrieval failed.");
+      console.log(err);
+    });
+};
+
+const student_completed = async (req, res) => {
+  console.log("Retrieving resources from DB...");
+  await Student.findById(req.session.user.profile, (err, doc) => {
+    if (err) {
+      console.log("Error while accessing the document.");
+      console.log(err);
+    } else {
+      console.log("resourcesCurrentPages", doc.completed);
+      res.send(JSON.stringify(doc.completed));
+    }
+  })
+    .clone()
+    .catch((err) => {
+      console.log("Retrieval failed.");
+      console.log(err);
+    });
 };
 
 const student_collections_post = async (req, res) => {
@@ -314,8 +417,9 @@ const student_collections_get = async (req, res) => {
       console.log("Error while accessing the document.");
       console.log(err);
     } else {
-      console.log("Document", doc);
-      console.log("collections", doc.collections);
+      // console.log("Document", doc);
+      // console.log("collections", doc.collections);
+      handleCollections(doc);
       res.send(JSON.stringify(doc.collections));
     }
   })
@@ -324,6 +428,19 @@ const student_collections_get = async (req, res) => {
       console.log("Retrieval failed.");
       console.log(err);
     });
+};
+
+const handleCollections = (user) => {
+  console.log("collections", user.resources.length);
+  console.log("collections", user.completed.length);
+  // console.log("collections:", user);
+  if (user.completed.length > 1) {
+    console.log("greater 1");
+  }
+
+  if (user.completed.length > 3) {
+    console.log("more than 3");
+  }
 };
 
 const student_collections_delete = async (req, res) => {};
@@ -353,12 +470,21 @@ const student_current_page_get = async (req, res) => {
         </section>`;
           console.log("No user resources available...");
           console.log("Sending browse journey prompt instead...");
-          console.log("SENDING JSON1");
           const jsonData = { body: promptBrowse };
           res.send(jsonData);
         } else {
           const firstModule = doc.resources[0].modules[0];
           const currentResource = doc.resources[0];
+
+          const currentPageNumberOfResource = findResourceCurrentPageNumber(
+            currentResource,
+            doc.resourcesCurrentPages
+          );
+
+          const targetPageNumber =
+            currentPageNumberOfResource == -1 ? 0 : currentPageNumberOfResource;
+
+          console.log("targetResourceCurrentPage", targetPageNumber);
 
           /**
            * Initialize first module as the current page and page number,
@@ -368,7 +494,7 @@ const student_current_page_get = async (req, res) => {
             req.session.user.profile,
             {
               currentPage: firstModule,
-              currentPageNumber: 0,
+              currentPageNumber: targetPageNumber,
               currentPageIndex: 0,
             },
             (err, docs) => {
@@ -377,9 +503,8 @@ const student_current_page_get = async (req, res) => {
                 console.log(err);
               } else {
                 // console.log(docs);
-                console.log("SENDING JSON2");
                 const targetHeader = currentResource;
-                targetHeader.currentPageNumber = doc.currentPageNumber;
+                targetHeader.currentPageNumber = targetPageNumber;
                 const jsonData = { header: targetHeader, body: firstModule };
                 res.send(JSON.stringify(jsonData));
               }
@@ -398,7 +523,6 @@ const student_current_page_get = async (req, res) => {
         const targetModule =
           doc.resources[targetResourceIndex].modules[targetModulesIndex];
 
-        console.log("SENDING JSON3");
         const targetHeader = doc.resources[targetResourceIndex];
         targetHeader.currentPageNumber = doc.currentPageNumber;
 
@@ -428,26 +552,100 @@ const student_current_page_post = async (req, res) => {
           console.log(err);
         } else {
           const indexOfExisting = findResource(resource, doc.resources);
-
           const targetIndex =
             indexOfExisting === -1 ? doc.resources.length - 1 : indexOfExisting;
 
+          const currentPageNumberOfResource = findResourceCurrentPageNumber(
+            resource,
+            doc.resourcesCurrentPages
+          );
+
+          const targetPageNumber =
+            currentPageNumberOfResource == -1 ? 0 : currentPageNumberOfResource;
+
+          console.log("targetResourceCurrentPage", targetPageNumber);
+
+          const outgoingResource = doc.resources[doc.currentPageIndex];
           const targetModule = doc.resources[targetIndex].modules[0];
 
           Student.findByIdAndUpdate(
             req.session.user.profile,
             {
               currentPage: targetModule,
-              currentPageNumber: 0,
+              currentPageNumber: targetPageNumber,
               currentPageIndex: targetIndex,
             },
             (err, docs) => {
               if (err) {
                 console.log("Error occurred");
                 console.log(err);
+                const setFilter = `resourcesCurrentPages.${targetIndex}`;
               } else {
-                // res.send(JSON.stringify(targetModule));
-                res.redirect("/home");
+                console.log(
+                  "Updating resourcesCurrentPages with target!:",
+                  outgoingResource._id,
+                  outgoingResource.title
+                );
+                Student.updateOne(
+                  {
+                    _id: req.session.user.profile,
+                    "resourcesCurrentPages.id": outgoingResource._id,
+                  },
+                  {
+                    $set: {
+                      "resourcesCurrentPages.$.id": outgoingResource._id,
+                      "resourcesCurrentPages.$.currentPageNumber":
+                        doc.currentPageNumber,
+                    },
+                  },
+                  {
+                    safe: true,
+                    upsert: true,
+                  },
+                  (err, docs) => {
+                    if (err) {
+                      console.log("Error occurred");
+                      console.log(err);
+                    } else {
+                      console.log("Success!");
+                      res.redirect("/home");
+                    }
+                  }
+                )
+                  .clone()
+                  .catch((err) => {
+                    console.log(err);
+                    console.log(
+                      "Error, resource non-existing, creating the object instead...."
+                    );
+                    Student.findByIdAndUpdate(
+                      req.session.user.profile,
+                      {
+                        $addToSet: {
+                          resourcesCurrentPages: {
+                            id: outgoingResource._id,
+                            currentPageNumber: doc.currentPageNumber,
+                          },
+                        },
+                      },
+                      {
+                        safe: true,
+                        upsert: true,
+                      },
+                      (err, docs) => {
+                        if (err) {
+                          console.log("Error occurred");
+                          console.log(err);
+                        } else {
+                          res.redirect("/home");
+                        }
+                      }
+                    )
+                      .clone()
+                      .catch((err) => {
+                        console.log(err);
+                      });
+                  });
               }
             }
           )
@@ -466,6 +664,26 @@ const student_current_page_post = async (req, res) => {
   );
 };
 
+const findResourceCurrentPageNumber = (resource, resourcesCurrentPages) => {
+  console.log("findResourceCurrentPage", resource.title);
+  console.log("findResourceCurrentPage", resourcesCurrentPages);
+
+  for (let i = 0; i < resourcesCurrentPages.length; i++) {
+    console.log(
+      "comparing",
+      resourcesCurrentPages[i].id.toString(),
+      resource._id.toString()
+    );
+    // toString allows proper comparing of resource IDs
+    if (resourcesCurrentPages[i].id.toString() == resource._id.toString()) {
+      console.log("MATCHED!");
+      return resourcesCurrentPages[i].currentPageNumber;
+    }
+  }
+
+  return -1;
+};
+
 const student_page_next = async (req, res) => {
   console.log("Retrieving resources from DB...");
   await Student.findById(req.session.user.profile, (err, doc) => {
@@ -481,6 +699,7 @@ const student_page_next = async (req, res) => {
 
       const targetPageNumber = doc.currentPageNumber + 1;
       const currentPageLimit = doc.resources[doc.currentPageIndex].pages;
+      const currentResource = doc.resources[doc.currentPageIndex];
 
       if (targetPageNumber < currentPageLimit) {
         Student.findByIdAndUpdate(
@@ -495,7 +714,44 @@ const student_page_next = async (req, res) => {
             } else {
               console.log("Page number INCREMENT success.");
               console.log("Current page number:", docs.currentPageNumber);
-              res.redirect("/home");
+
+              console.log(
+                "Saving resource page state...",
+                currentResource._id,
+                currentResource.title,
+                targetPageNumber
+              );
+              Student.updateOne(
+                {
+                  _id: req.session.user.profile,
+                  "resourcesCurrentPages.id": currentResource._id,
+                },
+
+                {
+                  $set: {
+                    "resourcesCurrentPages.$.id": currentResource._id,
+                    "resourcesCurrentPages.$.currentPageNumber":
+                      targetPageNumber,
+                  },
+                },
+                {
+                  safe: true,
+                  upsert: true,
+                },
+                (err, docs) => {
+                  if (err) {
+                    console.log("Error occurred");
+                    console.log(err);
+                  } else {
+                    // console.log(docs);
+                    res.redirect("/home");
+                  }
+                }
+              )
+                .clone()
+                .catch((err) => {
+                  console.log(err);
+                });
             }
           }
         ).catch((err) => {
@@ -508,7 +764,9 @@ const student_page_next = async (req, res) => {
 
         Student.findByIdAndUpdate(
           req.session.user.profile,
-          { $pull: { resources: targetResource } },
+          {
+            $pull: { resources: targetResource },
+          },
           (err, docs) => {
             if (err) {
               console.log("Error, getting document data.");
@@ -526,6 +784,37 @@ const student_page_next = async (req, res) => {
                     console.log("Error, getting document data.");
                     console.log(err);
                   } else {
+                    console.log(
+                      "Removing resource in current page tracker array..."
+                    );
+                    Student.findByIdAndUpdate(
+                      req.session.user.profile,
+                      {
+                        $pull: {
+                          resourcesCurrentPages: {
+                            id: targetResource._id,
+                          },
+                        },
+                      },
+                      {
+                        safe: true,
+                        upsert: true,
+                      },
+                      (err, docs) => {
+                        if (err) {
+                          console.log("Error occurred");
+                          console.log(err);
+                        } else {
+                          // res.send(JSON.stringify(targetModule));
+                          // res.redirect("/home");
+                        }
+                      }
+                    )
+                      .clone()
+                      .catch((err) => {
+                        console.log(err);
+                      });
+
                     Student.findByIdAndUpdate(
                       req.session.user.profile,
                       { $addToSet: { completed: targetResource } },
@@ -535,7 +824,7 @@ const student_page_next = async (req, res) => {
                           console.log("Error, getting document data.");
                           console.log(err);
                         } else {
-                          console.log(docs);
+                          // console.log(docs);
                           res.redirect("/pwa/journey/completed");
                         }
                       }
@@ -582,6 +871,7 @@ const student_page_prev = async (req, res) => {
       );
 
       const targetPageNumber = doc.currentPageNumber - 1;
+      const currentResource = doc.resources[doc.currentPageIndex];
 
       if (targetPageNumber < 0) {
         res.redirect("/pwa/module");
@@ -598,7 +888,44 @@ const student_page_prev = async (req, res) => {
             } else {
               console.log("Page number DECREMENT success.");
               console.log("Current page number:", docs.currentPageNumber);
-              res.redirect("/home");
+
+              console.log(
+                "Saving resource page state...",
+                currentResource._id,
+                currentResource.title,
+                targetPageNumber
+              );
+
+              Student.updateOne(
+                {
+                  _id: req.session.user.profile,
+                  "resourcesCurrentPages.id": currentResource._id,
+                },
+
+                {
+                  $set: {
+                    "resourcesCurrentPages.$.id": currentResource._id,
+                    "resourcesCurrentPages.$.currentPageNumber":
+                      targetPageNumber,
+                  },
+                },
+                {
+                  safe: true,
+                  upsert: true,
+                },
+                (err, docs) => {
+                  if (err) {
+                    console.log("Error occurred");
+                    console.log(err);
+                  } else {
+                    res.redirect("/home");
+                  }
+                }
+              )
+                .clone()
+                .catch((err) => {
+                  console.log(err);
+                });
             }
           }
         ).catch((err) => {
@@ -620,9 +947,9 @@ const profile_get = async (req, res) => {
       console.log(err);
     } else {
       console.log("Successful");
-      console.log("doc", doc);
-      console.log("docType", typeof doc);
-      console.log(doc);
+      // console.log("doc", doc);
+      // console.log("docType", typeof doc);
+      // console.log(doc);
       res.send(JSON.stringify(doc));
     }
   })
@@ -663,8 +990,8 @@ const profile_preference_get = async (req, res) => {
       console.log(err);
     } else {
       console.log("Successful");
-      console.log("doc", doc);
-      console.log("docType", typeof doc);
+      // console.log("doc", doc);
+      // console.log("docType", typeof doc);
       console.log(doc.preferences);
       res.send(JSON.stringify(doc.preferences));
     }
@@ -748,6 +1075,8 @@ module.exports = {
   student_resources_get,
   student_resources_post,
   student_resources_delete,
+  student_resources_pages_get,
+  student_completed,
   student_current_page_get,
   student_current_page_post,
   student_page_next,

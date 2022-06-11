@@ -34,6 +34,7 @@ const studentSchema = new Schema(
       type: String,
     },
     resources: [],
+    resourcesCurrentPages: [],
     currentPage: {
       type: String,
     },

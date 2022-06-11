@@ -110,7 +110,7 @@ const collectible_put = (req, res) => {
     if (err) {
       console.log("PUT request error: ", err);
     } else {
-      console.log("PUT success: ", docs);
+      // console.log("PUT success: ", docs);
       res.redirect("/collection");
     }
   })
