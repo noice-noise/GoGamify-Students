@@ -21,7 +21,6 @@ function openTodo(){
 }
 
 function openComp(){
-    console.log("COMPLETED BUTTTON: clicked!")
     document.querySelector(".file-container").innerHTML= "";
    fetch('/student/p/completed', { method: 'GET' })
    .then(res => res.json())
@@ -68,7 +67,6 @@ fetch('/student/p/resources', { method: 'GET' })
         const card = document.createElement('div');
         card.classList = 'card content';
         card.id = data[i]._id;
-        console.log(card.id);
         const cardContent = `                
         <div class="card-main-container" id = "main${i}">
 
@@ -167,17 +165,15 @@ function currentPage(ID, i, total, status) {
     fetch('/student/p/resourcesCurrentPages', { method: 'GET' })
     .then(res =>{
         if(res.ok){
-            console.log('SUCCESS')
+            console.log('individual resource fetch: SUCCESS')
             return res.json();
         }else{
-            console.log('unSUCCESSful')
+            console.log('individual resource fetch: UNSUCCESSFUL')
         }
     })
     .then(data => {
-        console.log(data);
         if (status == false){
             if(ID ==data[i].id){
-                console.log(data);
                 appendCurrent(data[i].currentPageNumber+1, ID, total);
             }
         }
@@ -226,7 +222,6 @@ let getInitials = function (string) {
     }
     else if (names.length == 1) {
         initials += names[0].charAt(1).toUpperCase();
-        console.log(initials);
     }
     return initials;
 };
@@ -280,16 +275,8 @@ function generateColors(id,i){
     let color = [
         roseanna, sexyblue, frost, purplelove, pigglet, mauve, lostmemory, socialive, cherry, lush,kashmir ,dusk
     ];
-    let randomNumber =  Math.floor(Math.random() * 4);
-    console.log(randomNumber);
-
-
+    // let randomNumber =  Math.floor(Math.random() * 4);
     document.getElementById("subject-color"+id).style.backgroundImage = "linear-gradient(to bottom right,"+ color[i] +")";
-
-       
-
-    // console.log(color);
-    // return color;
 }
 
 
