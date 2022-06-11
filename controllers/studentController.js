@@ -436,12 +436,21 @@ const student_current_page_get = async (req, res) => {
         </section>`;
           console.log("No user resources available...");
           console.log("Sending browse journey prompt instead...");
-          console.log("SENDING JSON1");
           const jsonData = { body: promptBrowse };
           res.send(jsonData);
         } else {
           const firstModule = doc.resources[0].modules[0];
           const currentResource = doc.resources[0];
+
+          const currentPageNumberOfResource = findResourceCurrentPageNumber(
+            currentResource,
+            doc.resourcesCurrentPages
+          );
+
+          const targetPageNumber =
+            currentPageNumberOfResource == -1 ? 0 : currentPageNumberOfResource;
+
+          console.log("targetResourceCurrentPage", targetPageNumber);
 
           /**
            * Initialize first module as the current page and page number,
@@ -451,7 +460,7 @@ const student_current_page_get = async (req, res) => {
             req.session.user.profile,
             {
               currentPage: firstModule,
-              currentPageNumber: 0,
+              currentPageNumber: targetPageNumber,
               currentPageIndex: 0,
             },
             (err, docs) => {
@@ -460,9 +469,8 @@ const student_current_page_get = async (req, res) => {
                 console.log(err);
               } else {
                 // console.log(docs);
-                console.log("SENDING JSON2");
                 const targetHeader = currentResource;
-                targetHeader.currentPageNumber = doc.currentPageNumber;
+                targetHeader.currentPageNumber = targetPageNumber;
                 const jsonData = { header: targetHeader, body: firstModule };
                 res.send(JSON.stringify(jsonData));
               }
@@ -481,7 +489,6 @@ const student_current_page_get = async (req, res) => {
         const targetModule =
           doc.resources[targetResourceIndex].modules[targetModulesIndex];
 
-        console.log("SENDING JSON3");
         const targetHeader = doc.resources[targetResourceIndex];
         targetHeader.currentPageNumber = doc.currentPageNumber;
 
@@ -511,25 +518,28 @@ const student_current_page_post = async (req, res) => {
           console.log(err);
         } else {
           const indexOfExisting = findResource(resource, doc.resources);
-
-          console.log("currentResourceIndex", doc.currentPageNumber);
-          console.log("currentResourceIndex", doc.currentPageIndex);
-          console.log("currentResourceIndex", doc.resourcesCurrentPages);
-
-          const outgoingResource = doc.resources[doc.currentPageIndex];
-
           const targetIndex =
             indexOfExisting === -1 ? doc.resources.length - 1 : indexOfExisting;
 
+          const currentPageNumberOfResource = findResourceCurrentPageNumber(
+            resource,
+            doc.resourcesCurrentPages
+          );
+
+          const targetPageNumber =
+            currentPageNumberOfResource == -1 ? 0 : currentPageNumberOfResource;
+
+          console.log("targetResourceCurrentPage", targetPageNumber);
+
+          const outgoingResource = doc.resources[doc.currentPageIndex];
           const targetModule = doc.resources[targetIndex].modules[0];
 
           Student.findByIdAndUpdate(
             req.session.user.profile,
             {
               currentPage: targetModule,
-              currentPageNumber: 0,
+              currentPageNumber: targetPageNumber,
               currentPageIndex: targetIndex,
-              // $set: { "resourcesCurrentPages.1": 0 },
             },
             (err, docs) => {
               if (err) {
@@ -563,7 +573,6 @@ const student_current_page_post = async (req, res) => {
                       console.log("Error occurred");
                       console.log(err);
                     } else {
-                      // res.send(JSON.stringify(targetModule));
                       console.log("Success!");
                       res.redirect("/home");
                     }
@@ -594,7 +603,6 @@ const student_current_page_post = async (req, res) => {
                           console.log("Error occurred");
                           console.log(err);
                         } else {
-                          // res.send(JSON.stringify(targetModule));
                           res.redirect("/home");
                         }
                       }
@@ -622,6 +630,26 @@ const student_current_page_post = async (req, res) => {
   );
 };
 
+const findResourceCurrentPageNumber = (resource, resourcesCurrentPages) => {
+  console.log("findResourceCurrentPage", resource.title);
+  console.log("findResourceCurrentPage", resourcesCurrentPages);
+
+  for (let i = 0; i < resourcesCurrentPages.length; i++) {
+    console.log(
+      "comparing",
+      resourcesCurrentPages[i].id.toString(),
+      resource._id.toString()
+    );
+    // toString allows proper comparing of resource IDs
+    if (resourcesCurrentPages[i].id.toString() == resource._id.toString()) {
+      console.log("MATCHED!");
+      return resourcesCurrentPages[i].currentPageNumber;
+    }
+  }
+
+  return -1;
+};
+
 const student_page_next = async (req, res) => {
   console.log("Retrieving resources from DB...");
   await Student.findById(req.session.user.profile, (err, doc) => {
@@ -637,6 +665,7 @@ const student_page_next = async (req, res) => {
 
       const targetPageNumber = doc.currentPageNumber + 1;
       const currentPageLimit = doc.resources[doc.currentPageIndex].pages;
+      const currentResource = doc.resources[doc.currentPageIndex];
 
       if (targetPageNumber < currentPageLimit) {
         Student.findByIdAndUpdate(
@@ -651,7 +680,44 @@ const student_page_next = async (req, res) => {
             } else {
               console.log("Page number INCREMENT success.");
               console.log("Current page number:", docs.currentPageNumber);
-              res.redirect("/home");
+
+              console.log(
+                "Saving resource page state...",
+                currentResource._id,
+                currentResource.title,
+                targetPageNumber
+              );
+              Student.updateOne(
+                {
+                  _id: req.session.user.profile,
+                  "resourcesCurrentPages.id": currentResource._id,
+                },
+
+                {
+                  $set: {
+                    "resourcesCurrentPages.$.id": currentResource._id,
+                    "resourcesCurrentPages.$.currentPageNumber":
+                      targetPageNumber,
+                  },
+                },
+                {
+                  safe: true,
+                  upsert: true,
+                },
+                (err, docs) => {
+                  if (err) {
+                    console.log("Error occurred");
+                    console.log(err);
+                  } else {
+                    // console.log(docs);
+                    res.redirect("/home");
+                  }
+                }
+              )
+                .clone()
+                .catch((err) => {
+                  console.log(err);
+                });
             }
           }
         ).catch((err) => {
@@ -771,6 +837,7 @@ const student_page_prev = async (req, res) => {
       );
 
       const targetPageNumber = doc.currentPageNumber - 1;
+      const currentResource = doc.resources[doc.currentPageIndex];
 
       if (targetPageNumber < 0) {
         res.redirect("/pwa/module");
@@ -787,7 +854,44 @@ const student_page_prev = async (req, res) => {
             } else {
               console.log("Page number DECREMENT success.");
               console.log("Current page number:", docs.currentPageNumber);
-              res.redirect("/home");
+
+              console.log(
+                "Saving resource page state...",
+                currentResource._id,
+                currentResource.title,
+                targetPageNumber
+              );
+
+              Student.updateOne(
+                {
+                  _id: req.session.user.profile,
+                  "resourcesCurrentPages.id": currentResource._id,
+                },
+
+                {
+                  $set: {
+                    "resourcesCurrentPages.$.id": currentResource._id,
+                    "resourcesCurrentPages.$.currentPageNumber":
+                      targetPageNumber,
+                  },
+                },
+                {
+                  safe: true,
+                  upsert: true,
+                },
+                (err, docs) => {
+                  if (err) {
+                    console.log("Error occurred");
+                    console.log(err);
+                  } else {
+                    res.redirect("/home");
+                  }
+                }
+              )
+                .clone()
+                .catch((err) => {
+                  console.log(err);
+                });
             }
           }
         ).catch((err) => {
