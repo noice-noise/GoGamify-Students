@@ -789,6 +789,7 @@ const student_page_next = async (req, res) => {
                     console.log(
                       "Removing resource in current page tracker array..."
                     );
+
                     Student.findByIdAndUpdate(
                       req.session.user.profile,
                       {
@@ -813,25 +814,47 @@ const student_page_next = async (req, res) => {
                       }
                     )
                       .clone()
-                      .catch((err) => {
-                        console.log(err);
-                      });
+                      .then(() => {
+                        console.log(
+                          "Earning collectibles: ",
+                          targetResource.collectibles
+                        );
 
-                    Student.findByIdAndUpdate(
-                      req.session.user.profile,
-                      { $addToSet: { completed: targetResource } },
-                      { safe: true, upsert: true },
-                      (err, docs) => {
-                        if (err) {
-                          console.log("Error, getting document data.");
-                          console.log(err);
-                        } else {
-                          // console.log(docs);
-                          res.redirect("/pwa/journey/completed");
-                        }
-                      }
-                    )
-                      .clone()
+                        const earnedCollectibles = Collectible.find()
+                          .where("_id")
+                          .in(targetResource.collectibles)
+                          .exec();
+
+                        console.log("earnedCollectibles!", earnedCollectibles);
+                        return earnedCollectibles;
+                      })
+                      .then((earnedCollectibles) => {
+                        Student.findByIdAndUpdate(
+                          req.session.user.profile,
+                          {
+                            $addToSet: {
+                              completed: targetResource,
+                              collections: {
+                                $each: [...earnedCollectibles],
+                              },
+                            },
+                          },
+                          { safe: true, upsert: true },
+                          (err, docs) => {
+                            if (err) {
+                              console.log("Error, getting document data.");
+                              console.log(err);
+                            } else {
+                              // console.log(docs);
+                              res.redirect("/pwa/journey/completed");
+                            }
+                          }
+                        )
+                          .clone()
+                          .catch((err) => {
+                            console.log(err);
+                          });
+                      })
                       .catch((err) => {
                         console.log(err);
                       });
@@ -1121,6 +1144,9 @@ const student_stats_assess = async (req, res) => {
         console.log("No earned collectible for resources.");
       }
 
+      // TODO in the future: remove adding all student collectibles to allow for a less frequent and dynamic popups
+      targetCollectibleIds.push(...doc.collections);
+
       console.log("targetCollectibleIds", targetCollectibleIds);
       return targetCollectibleIds;
     })
@@ -1141,8 +1167,35 @@ const student_stats_assess = async (req, res) => {
       assessment.body = [];
       assessment.messages = data;
       res.send(JSON.stringify(assessment));
+      return data;
     })
-
+    .then((earnedCollectibles) => {
+      Student.findByIdAndUpdate(
+        req.session.user.profile,
+        {
+          $addToSet: {
+            collections: {
+              $each: [...earnedCollectibles],
+            },
+          },
+        },
+        { safe: true, upsert: true },
+        (err, docs) => {
+          if (err) {
+            console.log("Error, getting document data.");
+            console.log(err);
+          } else {
+            console.log(
+              "Successfully added earned collectibles to user document."
+            );
+          }
+        }
+      )
+        .clone()
+        .catch((err) => {
+          console.log(err);
+        });
+    })
     .catch((err) => {
       console.log("Retrieval failed.");
       console.log(err);
