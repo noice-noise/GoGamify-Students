@@ -36,9 +36,6 @@ const gamify_index = (req, res) => {
       .sort({ createdAt: -1 })
       .then((result) => {
         console.log("Number of Learning Resources: ", result.length);
-        // const validResult = getOwnerCreatedResourcesFrom(result);
-
-        // console.log("valid", validResult);
         res.render("gamify/index", {
           title: "All Learning Resources",
           resources: result,
@@ -51,32 +48,6 @@ const gamify_index = (req, res) => {
       });
   }
 };
-
-async function getOwnerCreatedResourcesFrom(userProfile, list) {
-  await Teacher.findById(userProfle, (err, doc) => {
-    if (err) {
-      console.log("Error while accessing the document.");
-      console.log(err);
-    } else {
-      // console.log("USER DOC", doc);
-      var i;
-      for (i = 0; i < list.length; i++) {
-        // toString allows proper comparing of resource IDs
-        let ownerStr =
-          doc.firstName + " " + doc.middleName[0] + ". " + doc.familyName;
-        if (list[i].owner == ownerStr) {
-          return i;
-        }
-      }
-    }
-  })
-    .clone()
-    .catch((err) => {
-      console.log("Retrieval failed.");
-      console.log(err);
-      return -1;
-    });
-}
 
 const gamify_create_get = async (req, res) => {
   console.log("Gamify create...");
