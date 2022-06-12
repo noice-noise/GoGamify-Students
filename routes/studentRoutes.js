@@ -27,11 +27,12 @@ router.delete(
 );
 
 router.get("/profile/", studentController.profile_get);
-
 router.post("/profile/preferences", studentController.profile_preference_post);
 router.get("/profile/preferences", studentController.profile_preference_get);
 
 router.get("/community", studentController.community_school_get);
+
+router.get("/stats/assess", studentController.student_stats_assess);
 
 router.post("/register", studentController.student_post);
 router.get("/:id", studentController.student_get);

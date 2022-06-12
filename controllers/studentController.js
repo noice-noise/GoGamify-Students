@@ -208,7 +208,9 @@ const student_resources_post = async (req, res) => {
                               $set: {
                                 "resourcesCurrentPages.$.id": resource._id,
                                 "resourcesCurrentPages.$.currentPageNumber":
-                                  doc.currentPageNumber,
+                                  !doc.currentPageNumber
+                                    ? 0
+                                    : doc.currentPageNumber,
                               },
                             },
                             {
@@ -237,7 +239,7 @@ const student_resources_post = async (req, res) => {
                                   $addToSet: {
                                     resourcesCurrentPages: {
                                       id: resource._id,
-                                      currentPageNumber: doc.currentPageNumber,
+                                      currentPageNumber: 0,
                                     },
                                   },
                                 },
@@ -358,7 +360,7 @@ const student_completed = async (req, res) => {
       console.log("Error while accessing the document.");
       console.log(err);
     } else {
-      console.log("resourcesCurrentPages", doc.completed);
+      console.log("Number of completed resources:", doc.completed);
       res.send(JSON.stringify(doc.completed));
     }
   })
@@ -787,6 +789,7 @@ const student_page_next = async (req, res) => {
                     console.log(
                       "Removing resource in current page tracker array..."
                     );
+
                     Student.findByIdAndUpdate(
                       req.session.user.profile,
                       {
@@ -811,25 +814,47 @@ const student_page_next = async (req, res) => {
                       }
                     )
                       .clone()
-                      .catch((err) => {
-                        console.log(err);
-                      });
+                      .then(() => {
+                        console.log(
+                          "Earning collectibles: ",
+                          targetResource.collectibles
+                        );
 
-                    Student.findByIdAndUpdate(
-                      req.session.user.profile,
-                      { $addToSet: { completed: targetResource } },
-                      { safe: true, upsert: true },
-                      (err, docs) => {
-                        if (err) {
-                          console.log("Error, getting document data.");
-                          console.log(err);
-                        } else {
-                          // console.log(docs);
-                          res.redirect("/pwa/journey/completed");
-                        }
-                      }
-                    )
-                      .clone()
+                        const earnedCollectibles = Collectible.find()
+                          .where("_id")
+                          .in(targetResource.collectibles)
+                          .exec();
+
+                        console.log("earnedCollectibles!", earnedCollectibles);
+                        return earnedCollectibles;
+                      })
+                      .then((earnedCollectibles) => {
+                        Student.findByIdAndUpdate(
+                          req.session.user.profile,
+                          {
+                            $addToSet: {
+                              completed: targetResource,
+                              collections: {
+                                $each: [...earnedCollectibles],
+                              },
+                            },
+                          },
+                          { safe: true, upsert: true },
+                          (err, docs) => {
+                            if (err) {
+                              console.log("Error, getting document data.");
+                              console.log(err);
+                            } else {
+                              // console.log(docs);
+                              res.redirect("/pwa/journey/completed");
+                            }
+                          }
+                        )
+                          .clone()
+                          .catch((err) => {
+                            console.log(err);
+                          });
+                      })
                       .catch((err) => {
                         console.log(err);
                       });
@@ -1066,6 +1091,117 @@ const community_school_get = async (req, res) => {
     });
 };
 
+const student_stats_assess = async (req, res) => {
+  console.log("Retrieving user document from DB...");
+  await Student.findById(req.session.user.profile, (err, doc) => {
+    if (err) {
+      console.log("Error while accessing the document.");
+      console.log(err);
+    } else {
+      return doc;
+    }
+  })
+    .clone()
+    .then((doc) => {
+      const resources = doc.resources;
+      const completed = doc.completed;
+
+      console.log("resources.length", resources.length);
+      console.log("completed.length", completed.length);
+
+      const dbReference = {
+        completed: {
+          1: {
+            id: "62a4a1b3f56bf2a8970c8f1a",
+          },
+          3: {
+            id: "62a4a23bf56bf2a8970c8f20",
+          },
+        },
+        resources: {
+          1: {
+            id: "62a4a2eff56bf2a8970c8f32",
+          },
+          3: {
+            id: "62a4a304f56bf2a8970c8f38",
+          },
+        },
+      };
+
+      let targetCollectibleIds = [];
+
+      if (completed.length >= 100) {
+      } else if (completed.length >= 1) {
+        targetCollectibleIds.push(dbReference.completed[1].id);
+      } else {
+        console.log("No earned collectible for completed.");
+      }
+
+      if (resources.length >= 100) {
+      } else if (resources.length >= 1) {
+        targetCollectibleIds.push(dbReference.resources[1].id);
+      } else {
+        console.log("No earned collectible for resources.");
+      }
+
+      // TODO in the future: remove adding all student collectibles to allow for a less frequent and dynamic popups
+      targetCollectibleIds.push(...doc.collections);
+
+      console.log("targetCollectibleIds", targetCollectibleIds);
+      return targetCollectibleIds;
+    })
+    .then((targetCollectibleIds) => {
+      // Source: https://newbedev.com/mongodb-mongoose-findmany-find-all-documents-with-ids-listed-in-array
+      const earnedCollectibles = Collectible.find()
+        .where("_id")
+        .in(targetCollectibleIds)
+        .exec();
+
+      console.log("earnedCollectibles!", earnedCollectibles);
+      return earnedCollectibles;
+    })
+    .then((data) => {
+      console.log("Stats", data);
+
+      const assessment = {};
+      assessment.body = [];
+      assessment.messages = data;
+      res.send(JSON.stringify(assessment));
+      return data;
+    })
+    .then((earnedCollectibles) => {
+      Student.findByIdAndUpdate(
+        req.session.user.profile,
+        {
+          $addToSet: {
+            collections: {
+              $each: [...earnedCollectibles],
+            },
+          },
+        },
+        { safe: true, upsert: true },
+        (err, docs) => {
+          if (err) {
+            console.log("Error, getting document data.");
+            console.log(err);
+          } else {
+            console.log(
+              "Successfully added earned collectibles to user document."
+            );
+          }
+        }
+      )
+        .clone()
+        .catch((err) => {
+          console.log(err);
+        });
+    })
+    .catch((err) => {
+      console.log("Retrieval failed.");
+      console.log(err);
+    });
+};
+
 module.exports = {
   student_index,
   student_post,
@@ -1088,4 +1224,5 @@ module.exports = {
   profile_preference_post,
   profile_preference_get,
   community_school_get,
+  student_stats_assess,
 };

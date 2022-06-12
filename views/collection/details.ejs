@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%- include('../partials/header-special.ejs') %>
-  <body class="bg-gray-50">
+  <%- include('../partials/head.ejs') %> <%-
+  include('../partials/header-special.ejs') %>
+  <body>
     <main class="auto-container">
-      <a class="button button--muted" href="/home">< Back</a>
+      <a class="button button--muted" href="/collection/">< Back</a>
       <section class="section flex justify-center">
         <%- include('../partials/collection/collectible-details.ejs') %>
       </section>
