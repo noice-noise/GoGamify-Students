@@ -136,6 +136,15 @@
     color:rgb(var(--color-nuetral)/var(--tw-text-opacity))!important ; 
    
 }
+.card-status{
+    display:inline-block;
+    text-align: center;
+    width:1.5rem ;
+    height: 1.5em;    
+    border: 1px solid #94a3b8;
+    background-color: #94a3b8;
+    border-radius: 25px;
+}
 
 .journey_title{
       color: rgb(var(--color-primary));
@@ -146,6 +155,7 @@
     height: fit-content;
     overflow: hidden;
     border-radius: 1.5rem;
+    padding-left: 1rem;
     /* display: block; */
 }
 
@@ -186,6 +196,20 @@
         grid-template-columns: repeat(2,1fr);
     }
 }
+@media  screen and (max-width:800px) {
+    #btn_todo{
+        padding-left:1rem;
+        padding-right: 1rem;
+        font-size: smaller;
+
+    }
+    #btn_comp{
+        padding-left:0.5rem;  
+        padding-right:0.5rem;  
+        font-size: smaller;
+
+    }
+}
 @media  screen and (min-width:1240px) {
     .file-container{
         padding: 3rem 3rem 3rem 3rem;
@@ -214,6 +238,7 @@
     overflow: visible;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
     justify-content:center;
+    box-shadow: rgba(255, 140, 0, 0.671)  -5px 5px, rgba(240, 46, 170, 0.3) -10px 10px, rgba(240, 46, 170, 0.2) -15px 15px, rgba(240, 46, 170, 0.1) -20px 20px, rgba(240, 46, 170, 0.05) -25px 25px;
     /* box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px; */
     
 }
@@ -277,27 +302,6 @@
       font-size:0.8rem ;
       color: rgb(var(--color-text-muted)/ var(--tw-bg-opacity));
   }
-
-
-  @media screen and (max-width:900px) {
-    .content{
-        overflow: visible;
-    }
-    .subject-box {
-        margin: -3rem 1rem 1rem 1rem;
-        
-    }
-    .card-main-container{
-        flex-direction: column;
-        margin-left:0;
-       
-    }
-    .card-body{
-        margin: 1rem;
-        text-align: center;
-        width: auto;
-    }
-}
 
   .btn-div{
     display: flex;
@@ -393,6 +397,38 @@
 .sub-content{
     word-break: break-all;
     margin-top: 0.3rem;
+}
+
+
+@media screen and (max-width:1024px) {
+    .content{
+        overflow: hidden;
+        padding-top: 1.8rem;
+        padding-left: 0;
+    }
+    .subject-box {
+        margin: -3rem 1rem 1rem 1rem;
+        
+    }
+    .card-main-container{
+        flex-direction: column;
+        margin-left:0;
+       
+    }
+    .card-body{
+        margin: 1rem;
+        text-align: center;
+        width: auto;
+    }
+    .btn-div{
+        flex-direction: row;
+    }
+    .btn-view{
+        visibility: hidden;
+        height: 2rem;
+        width: 2rem;
+        border-radius: 0% 100% 20% 0% ;
+      }     
 }
 
 
