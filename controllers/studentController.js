@@ -1069,7 +1069,7 @@ const community_school_get = async (req, res) => {
 };
 
 const student_stats_assess = async (req, res) => {
-  console.log("Retrieving resources from DB...");
+  console.log("Retrieving user document from DB...");
   await Student.findById(req.session.user.profile, (err, doc) => {
     if (err) {
       console.log("Error while accessing the document.");
@@ -1104,8 +1104,6 @@ const student_stats_assess = async (req, res) => {
           },
         },
       };
-
-      console.log("dbref", dbReference.completed[3].id);
 
       let targetCollectibleIds = [];
 
