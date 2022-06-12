@@ -1161,7 +1161,7 @@ const student_stats_assess = async (req, res) => {
       return earnedCollectibles;
     })
     .then((data) => {
-      console.log("Statszxc!", data);
+      console.log("Stats", data);
 
       const assessment = {};
       assessment.body = [];
