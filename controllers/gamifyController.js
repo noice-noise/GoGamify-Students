@@ -32,20 +32,37 @@ const gamify_index = (req, res) => {
   } else {
     console.log("App is currently running online...");
     console.log("Retrieving learning resources from DB...");
-    LearningResource.find({ ownerId: req.session.user.profile })
-      .sort({ createdAt: -1 })
-      .then((result) => {
-        console.log("Number of Learning Resources: ", result.length);
-        res.render("gamify/index", {
-          title: "All Learning Resources",
-          resources: result,
-          offline: false,
+    if (req.session.user.role.toLowerCase() == "admin") {
+      LearningResource.find()
+        .sort({ createdAt: -1 })
+        .then((result) => {
+          console.log("Number of Learning Resources: ", result.length);
+          res.render("gamify/index", {
+            title: "All Learning Resources",
+            resources: result,
+            offline: false,
+          });
+        })
+        .catch((err) => {
+          console.log(err);
+          res.render("404", { title: "Sorry, something went wrong." });
         });
-      })
-      .catch((err) => {
-        console.log(err);
-        res.render("404", { title: "Sorry, something went wrong." });
-      });
+    } else {
+      LearningResource.find({ ownerId: req.session.user.profile })
+        .sort({ createdAt: -1 })
+        .then((result) => {
+          console.log("Number of Learning Resources: ", result.length);
+          res.render("gamify/index", {
+            title: "All Learning Resources",
+            resources: result,
+            offline: false,
+          });
+        })
+        .catch((err) => {
+          console.log(err);
+          res.render("404", { title: "Sorry, something went wrong." });
+        });
+    }
   }
 };
 
