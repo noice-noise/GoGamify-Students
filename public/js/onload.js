@@ -71,7 +71,7 @@ const handlePopupModals = (messages) => {
       <img class="w-32 h-32 mx-auto" src="/assets/undraw_well_done_i2wr.svg" alt="Congrats!" />
       </div>
         <p class="h4">You've earned some collectibles!</p>
-        <ul id="messageList" class="text-center h-56 overflow-y-scroll flex flex-col justify-start items-center"></ul>
+        <ul id="messageList" class="text-center w-full h-56 overflow-y-auto flex flex-col justify-start items-center"></ul>
 
         <button id="popupButton" class="mt-5 button button--cta px-10">Awesome</button>
 
