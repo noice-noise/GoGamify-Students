@@ -1441,10 +1441,6 @@ body{
   right: 0.75rem;
 }
 
-.z-20{
-  z-index: 20;
-}
-
 .z-50{
   z-index: 50;
 }
@@ -1590,6 +1586,14 @@ body{
   height: 8rem;
 }
 
+.h-56{
+  height: 14rem;
+}
+
+.h-10{
+  height: 2.5rem;
+}
+
 .h-16{
   height: 4rem;
 }
@@ -1624,18 +1628,6 @@ body{
   height: 32rem;
 }
 
-.h-10{
-  height: 2.5rem;
-}
-
-.h-96{
-  height: 24rem;
-}
-
-.max-h-\[3rem\]{
-  max-height: 3rem;
-}
-
 .w-48{
   width: 12rem;
 }
@@ -1658,6 +1650,10 @@ body{
 
 .w-32{
   width: 8rem;
+}
+
+.w-10{
+  width: 2.5rem;
 }
 
 .w-16{
@@ -1712,10 +1708,6 @@ body{
 
 .w-\[375px\]{
   width: 375px;
-}
-
-.w-10{
-  width: 2.5rem;
 }
 
 .max-w-lg{
@@ -1866,6 +1858,10 @@ body{
 
 .overflow-x-hidden{
   overflow-x: hidden;
+}
+
+.overflow-y-scroll{
+  overflow-y: scroll;
 }
 
 .rounded-full{
@@ -2033,9 +2029,9 @@ body{
   padding-right: 9rem;
 }
 
-.py-20{
-  padding-top: 5rem;
-  padding-bottom: 5rem;
+.py-10{
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
 }
 
 .px-10{
@@ -2068,11 +2064,6 @@ body{
   padding-bottom: 0.75rem;
 }
 
-.py-10{
-  padding-top: 2.5rem;
-  padding-bottom: 2.5rem;
-}
-
 .py-6{
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
@@ -2101,16 +2092,6 @@ body{
 .px-16{
   padding-left: 4rem;
   padding-right: 4rem;
-}
-
-.py-96{
-  padding-top: 24rem;
-  padding-bottom: 24rem;
-}
-
-.py-16{
-  padding-top: 4rem;
-  padding-bottom: 4rem;
 }
 
 .pb-5{
