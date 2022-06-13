@@ -18,7 +18,7 @@
           </div>
 
           <div
-            class="sm: mt-10 flex flex-col flex-wrap items-center justify-center gap-3 border-t py-6 sm:flex-row"
+            class="sm: mt-10 flex flex-col flex-wrap items-start justify-center gap-5 border-t py-6 sm:flex-row"
           >
             <% if (collection.length > 0) { %> <%
             collection.forEach((collectible) => { %>
@@ -36,7 +36,7 @@
                   hidden
                 />
                 <div
-                  class="flex h-20 w-full items-center justify-center rounded-lg bg-primary-muted"
+                  class="flex h-20 w-full items-center justify-center rounded-lg"
                 >
                   <img
                     src="/pwa/collections/badges/<%= collectible.graphic %>"
@@ -47,7 +47,7 @@
                   class="absolute top-3 right-3 hidden ease-in-out group-hover:flex group-hover:gap-1"
                 >
                   <button
-                    class="rounded-full bg-violet-50 p-3 text-gray-600 hover:cursor-pointer hover:bg-violet-200"
+                    class="flex items-center justify-center gap-2 rounded-full bg-violet-50 py-2 px-4 text-gray-600 hover:cursor-pointer hover:bg-violet-200"
                     type="submit"
                   >
                     <span>
@@ -78,6 +78,7 @@
                         <circle cx="19" cy="9" r="2"></circle>
                       </svg>
                     </span>
+                    <span class="text-xs">Earn</span>
                   </button>
                 </div>
 
@@ -85,7 +86,9 @@
                   <h3 class="font-bold text-primary">
                     <%= collectible.title%>
                   </h3>
-                  <p class="text-primary"><%= collectible.subtitle %></p>
+                  <p class="text-sm text-primary">
+                    <%= collectible.subtitle %>
+                  </p>
                 </div>
               </form>
             </div>

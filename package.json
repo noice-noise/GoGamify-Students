@@ -22,7 +22,8 @@
     "minify-src": "npx tailwindcss -i ./src/css/input.css -o ./src/css/style.css -m",
     "watch-public": "npx tailwindcss -i ./public/input.css -o ./public/tailwind.css -w",
     "watch-template": "npx tailwindcss -i ./public/template/input-template.css -o ./public/template/template.css -w",
-    "dev": "concurrently --kill-others \"npm run watch-public\" \"nodemon app\""
+    "dev": "concurrently --kill-others \"npm run watch-public\" \"nodemon app\"",
+    "heroku-restart": "heroku restart -a gogamify-education"
   },
   "author": "The GoGamify Team",
   "license": "ISC",

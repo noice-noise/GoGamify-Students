@@ -1852,16 +1852,16 @@ body{
   gap: 8rem;
 }
 
+.gap-2{
+  gap: 0.5rem;
+}
+
 .overflow-y-auto{
   overflow-y: auto;
 }
 
 .overflow-x-hidden{
   overflow-x: hidden;
-}
-
-.overflow-y-scroll{
-  overflow-y: scroll;
 }
 
 .rounded-full{
@@ -1968,6 +1968,10 @@ body{
   background-image: linear-gradient(to top right, var(--tw-gradient-stops));
 }
 
+.bg-gradient-to-b{
+  background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
+}
+
 .bg-gradient-to-r{
   background-image: linear-gradient(to right, var(--tw-gradient-stops));
 }
@@ -1982,12 +1986,20 @@ body{
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgb(var(--color-primary) / 0));
 }
 
+.via-primary-accent{
+  --tw-gradient-stops: var(--tw-gradient-from), rgb(var(--color-primary-accent)), var(--tw-gradient-to, rgb(var(--color-primary-accent) / 0));
+}
+
 .to-purple-400{
   --tw-gradient-to: #c084fc;
 }
 
 .to-primary-accent{
   --tw-gradient-to: rgb(var(--color-primary-accent));
+}
+
+.to-primary{
+  --tw-gradient-to: rgb(var(--color-primary));
 }
 
 .fill-violet-700{
@@ -2157,14 +2169,14 @@ body{
   line-height: 1;
 }
 
-.text-xs{
-  font-size: 0.75rem;
-  line-height: 1rem;
-}
-
 .text-base{
   font-size: 1rem;
   line-height: 1.5rem;
+}
+
+.text-xs{
+  font-size: 0.75rem;
+  line-height: 1rem;
 }
 
 .text-xl{
@@ -2180,6 +2192,11 @@ body{
 .text-4xl{
   font-size: 2.25rem;
   line-height: 2.5rem;
+}
+
+.text-2xl{
+  font-size: 1.5rem;
+  line-height: 2rem;
 }
 
 .font-bold{
@@ -2266,6 +2283,12 @@ body{
 
 .accent-violet-500{
   accent-color: #8b5cf6;
+}
+
+.shadow{
+  --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 .shadow-sm{
@@ -2596,6 +2619,10 @@ body{
 }
 
 @media (min-width: 640px){
+  .sm\:mt-10{
+    margin-top: 2.5rem;
+  }
+
   .sm\:flex-row{
     flex-direction: row;
   }
