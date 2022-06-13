@@ -22,12 +22,33 @@ class Achievement_Box {
     }
 }
 
+function checkChildren(){
+    const section_card1 = document.getElementById('ach_section');
+    const section_card2 = document.getElementById('bdg_section');
+    const section_card3 = document.getElementById('thm_section');
+
+    checkLength(achievement_section, "No achievements earned yet", section_card1);
+    checkLength(badges_section, "No badges earned yet", section_card2);
+    checkLength(theme_section, "No themes earned yet", section_card3);
+
+    function checkLength(subsection, msg, parent_section){
+        if(subsection.childNodes.length == 1){
+            var empty_card = document.createElement('div');
+            var empty_msg = document.createElement('h1');
+            empty_msg.classList.add('text-neutral');
+            empty_msg.innerHTML = msg;
+            empty_card.appendChild(empty_msg);
+            parent_section.appendChild(empty_card);
+        }
+    }
+
+}
+
 function getUserCredentials() {
     fetch(user_url,{
         method: "get"
     }).then(res => res.json())
     .then((data) =>{
-        //console.log(data);//It works
         fullname2 = data['firstName']+" "+data['middleName']+" "+data['familyName']
         username.textContent = fullname2;
     }).catch(error =>{
@@ -35,15 +56,12 @@ function getUserCredentials() {
     })
 }
 
-//Coded on June 1: Get Request
 function getUserCredentials2() {
     fetch(student_url,{
         method: "get"
     }).then(res => res.json())
     .then((data) =>{
-        //FOR LOOP: GOODLUCK TO ME
         for (var index in data){
-            //console.log(data[index].title);   ok ma access ra ang variables
             //REMINDER: MAKE BADGES FROM ADMIN.
             graphic = data[index].graphic;
             title = data[index].title;
@@ -59,6 +77,7 @@ function getUserCredentials2() {
                 gen_badge_final(theme_section, box);
             }
         }
+        checkChildren();
     }).catch(error =>{
         console.log(error)
     })
