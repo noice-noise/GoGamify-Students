@@ -134,6 +134,11 @@ const assessCollection = async () => {
           window.localStorage.setItem("collectionsUpdated", true);
           window.location.reload();
         } else {
+          console.log("Hoy", data.messages);
+          if (data.messages.length == 0) {
+            return;
+          }
+
           console.log("stat data", data);
           handlePopupModals(data.messages);
         }
