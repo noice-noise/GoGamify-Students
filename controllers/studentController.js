@@ -820,15 +820,26 @@ const student_page_next = async (req, res) => {
                           targetResource.collectibles
                         );
 
-                        const earnedCollectibles = Collectible.find()
-                          .where("_id")
-                          .in(targetResource.collectibles)
-                          .exec();
+                        let earnedCollectibles = Array.from(
+                          targetResource.collectibles
+                        );
 
+                        if (earnedCollectibles.length == 0) {
+                          return [];
+                        }
+
+                        earnedCollectibles.filter((p) => p); // remove empty elements
                         console.log("earnedCollectibles!", earnedCollectibles);
+
                         return earnedCollectibles;
                       })
                       .then((earnedCollectibles) => {
+                        if (
+                          !earnedCollectibles ||
+                          earnedCollectibles.length == 0
+                        ) {
+                          return;
+                        }
                         Student.findByIdAndUpdate(
                           req.session.user.profile,
                           {
