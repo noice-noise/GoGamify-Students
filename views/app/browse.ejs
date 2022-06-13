@@ -18,7 +18,7 @@
           </div>
 
           <div
-            class="sm: mt-10 flex flex-col flex-wrap items-center justify-center gap-3 border-t py-6 sm:flex-row"
+            class="flex flex-col flex-wrap items-start justify-center gap-5 border-t py-6 sm:mt-10 sm:flex-row"
           >
             <% if (resources.length > 0) { %> <% resources.forEach(resource => {
             %>
@@ -36,9 +36,9 @@
                   hidden
                 />
                 <div
-                  class="flex h-20 w-full items-center justify-center rounded-lg bg-primary-muted"
+                  class="flex h-20 w-full items-center justify-center rounded-lg bg-gradient-to-b from-primary via-primary-accent to-primary text-2xl font-bold text-foreground"
                 >
-                  Image
+                  <%= resource.title.substring(0,2).toUpperCase() %>
                 </div>
                 <div
                   class="absolute top-3 right-3 hidden ease-in-out group-hover:flex group-hover:gap-1"

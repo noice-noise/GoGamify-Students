@@ -18,7 +18,7 @@
           </div>
 
           <div
-            class="sm: mt-10 flex flex-col flex-wrap items-center justify-center gap-3 border-t py-6 sm:flex-row"
+            class="sm: mt-10 flex flex-col flex-wrap items-start justify-center gap-5 border-t py-6 sm:flex-row"
           >
             <% if (collection.length > 0) { %> <%
             collection.forEach((collectible) => { %>
@@ -36,7 +36,7 @@
                   hidden
                 />
                 <div
-                  class="flex h-20 w-full items-center justify-center rounded-lg bg-primary-muted"
+                  class="flex h-20 w-full items-center justify-center rounded-lg"
                 >
                   <img
                     src="/pwa/collections/badges/<%= collectible.graphic %>"
