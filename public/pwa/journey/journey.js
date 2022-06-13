@@ -305,18 +305,19 @@ function appendCurrent(page, id, total,status) {
 function getInitials (string) {
     let names = string.split(' ');
     let initials = names[0].substring(0, 1).toUpperCase();
-
-    if (names.length > 1) {
-        if(names[1].substring(0, 1) == "-"){
-            initials += names[3].substring(0, 1).toUpperCase();
-        }
-        else
-            initials += names[1].substring(0, 1).toUpperCase();
+    initials += names[0].charAt(1).toUpperCase();
+    //for initials with two names
+    // if (names.length > 1) {
+    //     if(names[1].substring(0, 1) == "-"){
+    //         initials += names[3].substring(0, 1).toUpperCase();
+    //     }
+    //     else
+    //         initials += names[1].substring(0, 1).toUpperCase();
         
-    }
-    else if (names.length == 1) {
-        initials += names[0].charAt(1).toUpperCase();
-    }
+    // }
+    // else if (names.length == 1) {
+    //     initials += names[0].charAt(1).toUpperCase();
+    // }
     return initials;
 };
 
