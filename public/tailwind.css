@@ -1852,6 +1852,10 @@ body{
   gap: 8rem;
 }
 
+.gap-2{
+  gap: 0.5rem;
+}
+
 .overflow-y-auto{
   overflow-y: auto;
 }
