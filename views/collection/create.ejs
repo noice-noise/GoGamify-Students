@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head.ejs') %>
+
+  <body>
+    <%- include('../partials/header-special.ejs') %>
+    <div class="auto-container">
+      <%- include('../partials/top-block-back.ejs', { label:`Back`,
+      route:`/home`}) %>
+      <!-- CONTENT -->
+      <div class="section flex w-full flex-col gap-5">
+        <div class="mt-5">
+          <h1 class="h1 text-center text-5xl">Gamified Collectible Labs</h1>
+        </div>
+
+        <%- include('../partials/collection/collectible-details.ejs') %>
+      </div>
+    </div>
+    <!-- Footer -->
+    <%- include('../partials/footer.ejs') %>
+    <script type="text/javascript" src="/js/gamify/create.js"></script>
+  </body>
+</html>

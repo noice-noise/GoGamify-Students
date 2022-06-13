@@ -11,12 +11,66 @@ const uploadList = document.getElementById("uploadList");
 const uploadListRefreshBtn = document.getElementById("uploadListRefreshBtn");
 const htmlContent = document.getElementById("htmlContent");
 const pages = document.getElementById("pages");
+const publishBtn = document.getElementById("publishBtn");
+const collectibleCount = document.getElementById("collectibleCount");
+const collectibleContainer = document.getElementById("collectibleContainer");
+const learningResourceForm = document.getElementById("learningResourceForm");
+
+let file;
+let collectiblesData;
+
+collectibleCount.addEventListener("change", (e) => {
+  console.log("val", e.target.value);
+  collectibleContainer.innerHTML = ""; // remove all existing selectors
+  generateCollectibleSelectors(e.target.value);
+});
+
+const fetchCollectibles = () => {
+  fetch("/collection/data/all", {
+    method: "GET",
+  })
+    .then((res) => {
+      return res.json();
+    })
+    .then((data) => {
+      console.log("collectibles", data);
+      collectiblesData = data;
+    });
+};
+
+const generateCollectibleSelectors = (count) => {
+  for (let i = 0; i < count; i++) {
+    const template = `<select
+          class='form__field w-full'
+        >
+          <option class='' value='' disabled selected hidden>
+            Select No. ${i + 1} Collectible
+          </option>
+        </select>`;
+
+    let parser = new DOMParser();
+    let selector = parser.parseFromString(template, "text/html");
+
+    appendOptions(selector.body, collectiblesData);
+    collectibleContainer.innerHTML += selector.body.outerHTML;
+  }
+};
+
+const appendOptions = (targetCollectibleSelector, collectibles) => {
+  collectibles.forEach((collectible) => {
+    let option = document.createElement("option");
+    option.value = collectible._id;
+    option.textContent = `${collectible.title} (${collectible.type
+      .charAt(0)
+      .toUpperCase()}${collectible.type.substring(1)})`;
+
+    targetCollectibleSelector.querySelector("select").appendChild(option);
+  });
+};
 
 body.addEventListener("dragover", (event) => {
   event.preventDefault();
 });
-
-let file;
 
 browseBtn.onclick = () => {
   browseInput.click();
@@ -57,6 +111,8 @@ gamifyBtn.addEventListener("click", () => {
       pages.value = data.pages;
       appendHTML(data.htmlContents);
       linkValidIFrames();
+      htmlContent.textContent = contentPreview.innerHTML;
+      handlePublishBtn();
     })
     .catch((err) => {
       console.log(err);
@@ -66,6 +122,7 @@ gamifyBtn.addEventListener("click", () => {
 clearBtn.addEventListener("click", (event) => {
   deleteFile();
   getAndShowUploadedFiles();
+  handlePublishBtn();
 });
 
 uploadListRefreshBtn.addEventListener("click", (e) => {
@@ -74,7 +131,6 @@ uploadListRefreshBtn.addEventListener("click", (e) => {
 
 const appendHTML = (html) => {
   contentPreview.innerHTML = html;
-  htmlContent.textContent = html;
 };
 
 const uploadFile = () => {
@@ -157,13 +213,13 @@ const getAndShowUploadedFiles = () => {
 const linkValidIFrames = () => {
   // all tags in mobile preview
   const aTagList = contentPreview.querySelectorAll("a");
-  console.log("aTagList", aTagList);
+  // console.log("aTagList", aTagList);
 
   aTagList.forEach((element) => {
     try {
       const domain = new URL(element.textContent);
       if (domain.hostname == "www.youtube.com") {
-        console.log(domain.hostname);
+        // console.log(domain.hostname);
         addYoutubeIFrame(element);
       }
     } catch (err) {
@@ -190,4 +246,61 @@ function getYoutubeVideoId(url) {
   return match && match[2].length === 11 ? match[2] : null;
 }
 
+learningResourceForm.addEventListener("submit", async (e) => {
+  console.log("HPY");
+  e.preventDefault();
+  console.log(e.target.value);
+
+  const endpoint = e.target.action;
+  const formData = new FormData(e.target);
+  const values = new URLSearchParams(formData);
+
+  const allSelectors = collectibleContainer.querySelectorAll("select");
+  console.log("allSelectors", allSelectors);
+
+  let embeddedCollectibles = new Set();
+  allSelectors.forEach((select) => {
+    if (select.value) {
+      console.log("data added");
+      embeddedCollectibles.add(select.value);
+    }
+  });
+
+  let collectibleArr = Array.from(embeddedCollectibles);
+  values.append("collectibles", [...collectibleArr]);
+
+  await fetch(endpoint, {
+    method: "POST",
+    body: values,
+  })
+    .then((res) => {
+      window.location.replace("/home");
+    })
+    .catch((err) => {
+      console.log(err);
+      alert("An error occurred.");
+    });
+});
+
+const handlePublishBtn = () => {
+  console.log("Handling publish...");
+  if (uploadList.children.length > 0) {
+    publishBtn.disabled = false;
+    publishBtn.classList.remove("button--muted");
+    publishBtn.classList.add("button--cta");
+  } else {
+    publishBtn.disabled = true;
+    publishBtn.classList.remove("button--cta");
+    publishBtn.classList.add("button--muted");
+  }
+};
+
+const initPublishBtn = () => {
+  publishBtn.disabled = true;
+  publishBtn.classList.remove("button--cta");
+  publishBtn.classList.add("button--muted");
+};
+
+initPublishBtn();
 getAndShowUploadedFiles();
+fetchCollectibles();

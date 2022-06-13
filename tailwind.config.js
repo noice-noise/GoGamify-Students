@@ -3,13 +3,14 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        poppins: ["'Poppins'", "Helvetica", "Arial", "sans-serif"],
+        sans: ["Helvetica", "Arial", "sans-serif"],
       },
       colors: {
         primary: withOpacityValue("--color-primary"),
         "primary-accent": withOpacityValue("--color-primary-accent"),
         "primary-muted": withOpacityValue("--color-primary-muted"),
         neutral: withOpacityValue("--color-text-neutral"),
+        muted: withOpacityValue("--color-text-muted"),
         foreground: withOpacityValue("--color-foreground"),
         background: withOpacityValue("--color-background"),
         success: withOpacityValue("--color-success"),

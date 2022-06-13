@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head.ejs') %>
+  <body>
+    <%- include('../partials/header.ejs') %>
+    <div class="auto-container">
+      <%- include('../partials/top-block-back.ejs', { label:`Back`, route:`/`})
+      %>
+      <section class="section flex flex-col items-center justify-center">
+        <!-- Learning Resources -->
+        <div class="mt-10">
+          <div class="flex flex-col items-center justify-center gap-3">
+            <h1 class="h1 text-4xl">Gamified Collectibles</h1>
+            <h2 class="text-center">Made by community for the community</h2>
+            <a href="/collection/earn" class="button button--cta py-5 px-6"
+              >Earn Collectible using code</a
+            >
+          </div>
+
+          <div
+            class="sm: mt-10 flex flex-col flex-wrap items-start justify-center gap-5 border-t py-6 sm:flex-row"
+          >
+            <% if (collection.length > 0) { %> <%
+            collection.forEach((collectible) => { %>
+
+            <div class="single delete group hover:cursor-pointer">
+              <form
+                action="/student/p/collections"
+                method="post"
+                class="h-70 relative inline-block h-full w-60 transform-gpu rounded-lg border px-4 py-5 shadow-sm transition-all duration-150 group-hover:scale-105 group-hover:shadow-lg"
+              >
+                <input
+                  type="text"
+                  value="<%= collectible._id %>"
+                  name="id"
+                  hidden
+                />
+                <div
+                  class="flex h-20 w-full items-center justify-center rounded-lg"
+                >
+                  <img
+                    src="/pwa/collections/badges/<%= collectible.graphic %>"
+                    alt="Collectible Image"
+                  />
+                </div>
+                <div
+                  class="absolute top-3 right-3 hidden ease-in-out group-hover:flex group-hover:gap-1"
+                >
+                  <button
+                    class="flex items-center justify-center gap-2 rounded-full bg-violet-50 py-2 px-4 text-gray-600 hover:cursor-pointer hover:bg-violet-200"
+                    type="submit"
+                  >
+                    <span>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="icon icon-tabler icon-tabler-trophy h-5 w-5"
+                        viewBox="0 0 24 24"
+                        stroke-width="2"
+                        stroke="currentColor"
+                        fill="none"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <desc>
+                          Download more icon variants from
+                          https://tabler-icons.io/i/trophy
+                        </desc>
+                        <path
+                          stroke="none"
+                          d="M0 0h24v24H0z"
+                          fill="none"
+                        ></path>
+                        <line x1="8" y1="21" x2="16" y2="21"></line>
+                        <line x1="12" y1="17" x2="12" y2="21"></line>
+                        <line x1="7" y1="4" x2="17" y2="4"></line>
+                        <path d="M17 4v8a5 5 0 0 1 -10 0v-8"></path>
+                        <circle cx="5" cy="9" r="2"></circle>
+                        <circle cx="19" cy="9" r="2"></circle>
+                      </svg>
+                    </span>
+                    <span class="text-xs">Earn</span>
+                  </button>
+                </div>
+
+                <div class="mt-5">
+                  <h3 class="font-bold text-primary">
+                    <%= collectible.title%>
+                  </h3>
+                  <p class="text-sm text-primary">
+                    <%= collectible.subtitle %>
+                  </p>
+                </div>
+              </form>
+            </div>
+            <% }) %> <% } else { %>
+            <p class="py-6 text-center">No Learning Resources Gamified yet.</p>
+            <% } %>
+          </div>
+        </div>
+      </section>
+
+      <%- include('../partials/footer.ejs') %>
+      <script src="/js/gamify/index.js"></script>
+    </div>
+  </body>
+</html>

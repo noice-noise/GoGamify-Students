@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700;800&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -179,11 +181,11 @@
 }
 
 @layer base {
-  @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700;800&display=swap");
-
   html {
     max-width: 100%;
     overflow-x: hidden;
+    font-family: "Poppins", system-ui, sans-serif;
+    scroll-behavior: smooth;
   }
 
   body {
@@ -217,7 +219,7 @@
   }
 
   .body {
-    @apply theme-default bg-background font-poppins text-neutral antialiased;
+    @apply theme-default bg-background text-neutral antialiased;
   }
 
   .box {
@@ -233,7 +235,7 @@
   }
 
   .button--cta {
-    @apply bg-primary px-5 text-background ring-primary hover:text-primary-muted focus:text-primary-muted active:bg-primary-muted active:text-primary-accent;
+    @apply bg-gradient-to-r from-primary to-primary-accent px-5 text-background ring-primary hover:text-primary-muted focus:text-primary-muted active:bg-primary-muted active:text-primary-accent;
   }
 
   .button--muted {
@@ -358,6 +360,37 @@
   }
 
   .module {
-    @apply section;
+    @apply section mt-0;
+  }
+
+  .module h1 {
+    @apply h1 mb-4;
+  }
+
+  .module h2 {
+    @apply h2 mb-4;
+  }
+
+  .module h3 {
+    @apply h3 mb-4 text-lg font-bold lg:text-2xl;
+  }
+
+  .module h4 {
+    @apply h4 mb-4 font-bold;
+  }
+
+  .module h5 {
+    @apply mb-4 font-bold;
+  }
+
+  .module h6 {
+    @apply mb-4;
+  }
+  .module p {
+    @apply my-4;
+  }
+
+  .module a {
+    @apply link;
   }
 }

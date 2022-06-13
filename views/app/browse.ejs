@@ -7,36 +7,45 @@
       <%- include('../partials/top-block-back.ejs', { label:`Back`, route:`/`})
       %>
       <section class="section flex flex-col items-center justify-center">
-        <h1 class="h1 text-5xl">Gamified Learning Resources</h1>
-
         <!-- Learning Resources -->
         <div class="mt-10">
-          <div class="">
+          <div class="flex flex-col items-center justify-center gap-3">
+            <h1 class="h1 text-4xl">Gamified Learning Resources</h1>
             <h2 class="text-center">Made by community for the community</h2>
+            <a href="/resource/join" class="button button--cta py-5 px-6"
+              >Join Journey using code</a
+            >
           </div>
 
           <div
-            class="sm: mt-10 flex flex-col flex-wrap items-center justify-center gap-3 border-t py-6 sm:flex-row"
+            class="flex flex-col flex-wrap items-start justify-center gap-5 border-t py-6 sm:mt-10 sm:flex-row"
           >
             <% if (resources.length > 0) { %> <% resources.forEach(resource => {
             %>
 
             <div class="single delete group hover:cursor-pointer">
-              <div
-                href="/resource/<%= resource._id %>"
+              <form
+                action="/student/p/resources"
+                method="post"
                 class="h-70 relative inline-block h-full w-60 transform-gpu rounded-lg border px-4 py-5 shadow-sm transition-all duration-150 group-hover:scale-105 group-hover:shadow-lg"
               >
+                <input
+                  type="text"
+                  value="<%= resource._id %>"
+                  name="code"
+                  hidden
+                />
                 <div
-                  class="flex h-20 w-full items-center justify-center rounded-lg bg-primary-muted"
+                  class="flex h-20 w-full items-center justify-center rounded-lg bg-gradient-to-b from-primary via-primary-accent to-primary text-2xl font-bold text-foreground"
                 >
-                  Image
+                  <%= resource.title.substring(0,2).toUpperCase() %>
                 </div>
                 <div
                   class="absolute top-3 right-3 hidden ease-in-out group-hover:flex group-hover:gap-1"
                 >
-                  <a
-                    class="rounded-full bg-violet-50 p-3 text-gray-600 hover:cursor-pointer hover:bg-violet-200"
-                    href="#"
+                  <button
+                    class="flex items-center justify-center gap-2 rounded-full bg-violet-50 py-2 px-4 text-gray-600 hover:cursor-pointer hover:bg-violet-200"
+                    type="submit"
                   >
                     <span>
                       <svg
@@ -65,14 +74,15 @@
                           d="M22 12c-2.667 4.667 -6 7 -10 7s-7.333 -2.333 -10 -7c2.667 -4.667 6 -7 10 -7s7.333 2.333 10 7"
                         ></path></svg
                     ></span>
-                  </a>
+                    <span class="text-xs">Join</span>
+                  </button>
                 </div>
 
                 <div class="mt-5">
                   <h3 class="font-bold text-primary"><%= resource.title%></h3>
                   <p class="text-primary"><%= resource.subtitle %></p>
                 </div>
-              </div>
+              </form>
             </div>
             <% }) %> <% } else { %>
             <p class="py-6 text-center">No Learning Resources Gamified yet.</p>

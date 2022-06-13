@@ -1,0 +1,85 @@
+<section class="flex w-full justify-between">
+  <div class="w-full">
+    <h3 class="h3 ">Collectible</h3>
+    <div class="text-muted pt-2 pb-10">
+          <p>NOTE:</p>
+    <p>1. Collectible <strong>type</strong> is uneditable once published</p>
+    <p>2. Graphic Filename should have a <strong>file extension</strong> (e.g., .png, .svg)</p>
+    </div>
+    <div>
+      <form class="form" action="/collection/save<%= locals.collectible ? "?_method=PUT"
+          : "" %>" method="POST">
+
+        <% if (locals.collectible) { %>
+          <label for="_id">Collectible ID</label>
+          <input class="form__field form__field--disabled" type="text" name="_id" value="<%= collectible._id %>" readonly />
+        <% } %>
+
+        <label for="title">Title</label>
+        <input
+          class="form__field"
+          type="text"
+          name="title"
+          value="<% if (locals.collectible) { %><%= collectible.title %><% } %>"
+          required
+        />
+
+        
+        <label for="subtitle">Subtitle</label>
+        <input
+          class="form__field"
+          type="text"
+          name="subtitle"
+          value="<% if (locals.collectible) { %><%= collectible.subtitle %><% } %>"
+          required
+        />
+
+        <label for="type">Type</label>
+        <select class="form__field" 
+        name="type" id="type" 
+        value="<% if (locals.collectible) { %><%= collectible.type %><% } %>"
+        <% if (locals.collectible) { %><%% disabled %><% } %>
+        required>
+
+          <option selected value="badge">Badge</option>
+          <option value="achievement">Achievement</option>
+          <option value="theme">Theme</option>
+
+        </select>
+
+        <label for="owner" hidden>Owner</label>
+        <input
+          class="form__field"
+          type="text"
+          name="owner"
+          hidden
+          value="<%= user.email  %>"
+        />
+
+        <label for="description">Description</label>
+        <input
+          class="form__field"
+          type="text"
+          name="description"
+          value="<% if (locals.collectible) { %><%= collectible.description %><% } %>"
+          required
+        />
+        
+        <label for="graphic">Graphic FileName</label>
+        <input
+          class="form__field"
+          type="text"
+          name="graphic"
+          placeholder="badge-moduleCompletion-10.png"
+          value="<% if (locals.collectible) { %><%= collectible.graphic %><% } %>"
+          required
+        />
+
+        <div class="col-span-4 flex justify-end">
+          <button class="button px-16">Publish</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</section>

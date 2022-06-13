@@ -14,10 +14,12 @@ const cookieParser = require("cookie-parser");
 
 const adminRoutes = require("./routes/adminRoutes");
 const studentRoutes = require("./routes/studentRoutes");
+const teacherRoutes = require("./routes/teacherRoutes");
 const authRoutes = require("./routes/authRoute");
 const gamifyRoutes = require("./routes/gamifyRoutes");
 const learningResourceRoutes = require("./routes/learningResourceRoutes");
 const pwaRoutes = require("./routes/pwaRoutes");
+const collectionRoutes = require("./routes/collectionRoutes");
 
 const app = express();
 
@@ -31,6 +33,7 @@ const {
   forwardFirstLogin,
   forwardAdmin,
   setAuthCookie,
+  forwardTeacher,
 } = require("./config/authConfig");
 
 passportConfig(passport);
@@ -100,12 +103,17 @@ app.use(methodOverride("_method"));
 app.use("/admin", ensureAuthenticated, adminRoutes);
 app.use("/auth", authRoutes);
 
-app.use("/home", setAuthCookie, forwardAdmin, forwardFirstLogin, (req, res) => {
-  console.debug("USER request: ", req.user);
-  console.debug("USER session: ", req.session.user);
-  console.debug("USER cookies: ", req.cookies.user);
-  res.redirect("/pwa/learning-module/module.html");
-});
+app.use(
+  "/home",
+  setAuthCookie,
+  forwardAdmin,
+  forwardFirstLogin,
+  forwardTeacher,
+  (req, res) => {
+    console.log("Forwarding to Student app...");
+    res.redirect("/pwa/module");
+  }
+);
 
 app.use("/get-started", (req, res) => {
   res.render("app/get-started", {
@@ -118,6 +126,9 @@ app.use("/pwa", pwaRoutes);
 app.use("/gamify", gamifyRoutes);
 app.use("/resource", learningResourceRoutes);
 app.use("/student", ensureAuthenticated, studentRoutes);
+app.use("/teacher", ensureAuthenticated, teacherRoutes);
+app.use("/collection", ensureAuthenticated, collectionRoutes);
+app.use("/student", studentRoutes);
 
 app.use((req, res) => {
   res.status(404).render("404", { title: "Page not found." });

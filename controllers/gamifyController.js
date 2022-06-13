@@ -3,6 +3,8 @@ const mammoth = require("mammoth");
 const fs = require("fs");
 
 const LearningResource = require("../models/learningResource");
+const Student = require("../models/student");
+const Teacher = require("../models/teacher");
 let isOffline;
 
 // check internet connection
@@ -30,28 +32,102 @@ const gamify_index = (req, res) => {
   } else {
     console.log("App is currently running online...");
     console.log("Retrieving learning resources from DB...");
-    LearningResource.find()
-      .sort({ createdAt: -1 })
-      .then((result) => {
-        console.log("Number of Learning Resources: ", result.length);
-        res.render("gamify/index", {
-          title: "All Learning Resources",
-          resources: result,
-          offline: false,
+    if (req.session.user.role.toLowerCase() == "admin") {
+      LearningResource.find()
+        .sort({ createdAt: -1 })
+        .then((result) => {
+          console.log("Number of Learning Resources: ", result.length);
+          res.render("gamify/index", {
+            title: "All Learning Resources",
+            resources: result,
+            offline: false,
+          });
+        })
+        .catch((err) => {
+          console.log(err);
+          res.render("404", { title: "Sorry, something went wrong." });
         });
-      })
-      .catch((err) => {
-        res.render("404", { title: "Sorry, something went wrong." });
-      });
+    } else {
+      LearningResource.find({ ownerId: req.session.user.profile })
+        .sort({ createdAt: -1 })
+        .then((result) => {
+          console.log("Number of Learning Resources: ", result.length);
+          res.render("gamify/index", {
+            title: "All Learning Resources",
+            resources: result,
+            offline: false,
+          });
+        })
+        .catch((err) => {
+          console.log(err);
+          res.render("404", { title: "Sorry, something went wrong." });
+        });
+    }
   }
 };
 
-const gamify_create_get = (req, res) => {
+const gamify_create_get = async (req, res) => {
   console.log("Gamify create...");
-  res.render("gamify/create", {
-    title: "Gamify Create",
-    user: req.session.user,
-  });
+  console.log("session profile", req.session.user.role.toLowerCase());
+  console.log("Retrieving user profile from DB...");
+
+  /**
+   * Handle error if admin or unknown user creates the resource
+   */
+  if (
+    req.session.user.role.toLowerCase() == "na" ||
+    req.session.user.role.toLowerCase() == "admin"
+  ) {
+    console.log("Profile not available, sending public user credentials...");
+    return res.render("gamify/create", {
+      title: "Gamify Create",
+      user: {
+        familyName: "Community",
+        middleName: "X",
+        firstName: "GoGamify",
+      },
+    });
+  } else if (req.session.user.role.toLowerCase() == "student") {
+    console.log("Student profile...");
+    await Student.findById(req.session.user.profile, (err, doc) => {
+      if (err) {
+        console.log("Error while accessing the document.");
+        console.log(err);
+      } else {
+        return res.render("gamify/create", {
+          title: "Gamify Create",
+          user: doc,
+        });
+      }
+    })
+      .clone()
+      .catch((err) => {
+        console.log("Retrieval failed.");
+        console.log(err);
+      });
+  } else if (req.session.user.role.toLowerCase() == "teacher") {
+    console.log("Teacher profile...");
+    await Teacher.findById(req.session.user.profile, (err, doc) => {
+      if (err) {
+        console.log("Error while accessing the document.");
+        console.log(err);
+      } else {
+        // console.log("doc target", doc);
+        return res.render("gamify/create", {
+          title: "Gamify Create",
+          user: doc,
+        });
+      }
+    })
+      .clone()
+      .catch((err) => {
+        console.log("Retrieval failed.");
+        console.log(err);
+      });
+  } else {
+    console.log("An error occured.");
+    res.redirect("/home");
+  }
 };
 
 const gamify_file_post = (req, res) => {
@@ -125,12 +201,13 @@ const options = {
   // reserve  H1 conversions (right-side arrows) for specific page titles for semantic meaning
   // so style conversions for title headers starts with H2
   styleMap: [
-    "p[style-name='Heading 1'] => h1.h1:fresh",
-    "p[style-name='Heading 2'] => h2.h2:fresh",
-    "p[style-name='Heading 3'] => h3.h3:fresh",
-    "p[style-name='Heading 4'] => h4.h4:fresh",
-    "p[style-name='Heading 5'] => h5.h5:fresh",
-    "p[style-name='Heading 6'] => p:fresh",
+    "p[style-name='Heading 1'] => h1:fresh",
+    "p[style-name='Heading 2'] => h2:fresh",
+    "p[style-name='Heading 3'] => h3:fresh",
+    "p[style-name='Heading 4'] => h4:fresh",
+    "p[style-name='Heading 5'] => h5:fresh",
+    "p[style-name='Heading 6'] => h6.:fresh",
+    "p => p:fresh",
   ],
   ignoreEmptyParagraphs: true,
 };
@@ -141,6 +218,7 @@ const parseHtml = (file) => {
     .then(function (result) {
       let html = result.value;
       // var messages = result.messages;
+      htmlContents += `<!-- module -->`; // serves as separator string for module isolation
       htmlContents += `<div class="module">`;
       htmlContents += html;
       htmlContents += `</div>`;
@@ -202,8 +280,4 @@ module.exports = {
   gamify_file_get,
   gamify_file_delete,
   gamify_file_list_get,
-  // learning_resource_post,
-  // learning_resource_get,
-  // learning_resource_put,
-  // learning_resource_delete,
 };

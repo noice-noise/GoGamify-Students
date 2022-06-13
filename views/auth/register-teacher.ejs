@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head.ejs') %>
+
+  <body class="body">
+    <%- include('../partials/header.ejs') %>
+
+    <main>
+      <div class="auto-container">
+        <div class="w-full pt-10"><%- include('../partials/logout.ejs') %></div>
+
+        <div class="section">
+          <div class="p-2">
+            <div class="mb-10 text-center">
+              <h1 class="h1 text-primary">Teacher Profile</h1>
+            </div>
+
+            <%- include('../partials/teacher-form.ejs') %>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <%- include('../partials/footer.ejs') %>
+  </body>
+</html>

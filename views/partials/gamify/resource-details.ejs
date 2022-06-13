@@ -1,8 +1,9 @@
 <section class="flex w-full justify-between">
   <div class="w-full">
     <h3 class="h3 pb-10">Learning Resource</h3>
+
     <div>
-      <form class="form" action="/resource/save<%= locals.resource ? "?_method=PUT"
+      <form id="learningResourceForm" class="form" action="/resource/save<%= locals.resource ? "?_method=PUT"
           : "" %>" method="POST">
 
         <% if (locals.resource) { %>
@@ -16,6 +17,7 @@
           type="text"
           name="title"
           value="<% if (locals.resource) { %><%= resource.title %><% } %>"
+          required
         />
 
         <label for="subtitle">Subtitle</label>
@@ -24,18 +26,30 @@
           type="text"
           name="subtitle"
           value="<% if (locals.resource) { %><%= resource.subtitle %><% } %>"
+          required
         />
 
-        <label for="owner" hidden>Owner</label>
+        <label for="owner" readonly>Owner</label>
         <input
-          class="form__field"
+          class="form__field form__field--disabled"
           type="text"
           name="owner"
-          hidden
-          value="<%= user.email  %>"
+          readonly
+          value="<%= user.firstName + " " + user.middleName[0] + ". " + user.familyName  %>"
+          required
         />
 
-        <label for="owner">Pages</label>
+        <label for="ownerId" hidden>Owner</label>
+        <input
+          class="form__field form__field--disabled"
+          type="text"
+          name="ownerId"
+          hidden
+          value="<%= user._id  %>"
+          required
+        />
+
+        <label for="pages">Pages</label>
         <input
           id="pages"
           class="form__field form__field--disabled"
@@ -43,8 +57,32 @@
           name="pages"
           value="<% if (locals.resource) { %><%= resource.pages %><% } %>"
           readonly
+          required
         />
+        <% if (!locals.resource) { %>
 
+        <label for="collectibles">Collectibles</label>
+        <select id="collectibleCount" class="form__field js-collectible-selector"  >
+          <option class="" value="" disabled selected hidden>None</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+          <% } else { %>
+                    <label for="collectibles">Collectibles ID</label>
+        <input
+          class="form__field form__field--disabled"
+          type="text"
+          name="collectibles"
+          value="<% if (locals.resource) { %><%= resource.collectibles.join(", ") %><% } %>"
+          readonly
+          required
+        />
+          <% } %>
+
+        <div id="collectibleContainer"></div>
 
         <textarea
           class="row-span-1 hidden bg-gray-100"
@@ -52,6 +90,7 @@
           id="htmlContent"
           cols="10"
           rows="10"
+          required
         >
         
       <% if (locals.resource) { %>
@@ -61,8 +100,11 @@
       </textarea
         >
 
+          <% if (locals.resource) { %>
+           <p class="text-muted text-sm px-10">Note: Some resource fields are restricted for editing. It's not a bug, but a feature 😉 <br /> — Love from The GoGamify Team /p>
+          <% } %>
         <div class="col-span-4 flex justify-end">
-          <button class="button px-16">Publish</button>
+          <button id="publishBtn" class="button px-16 button--cta">Publish</button>
         </div>
       </form>
     </div>

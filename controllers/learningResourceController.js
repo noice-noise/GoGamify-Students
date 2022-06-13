@@ -1,4 +1,6 @@
 const LearningResource = require("../models/learningResource");
+const Student = require("../models/student");
+const Teacher = require("../models/teacher");
 let isOffline;
 
 const learning_resource = (req, res) => {
@@ -45,12 +47,46 @@ const learning_resource_index = (req, res) => {
 
 const learning_resource_post = (req, res) => {
   const learningResource = new LearningResource(req.body);
+
   // active means that the learning resource can be shown to public
   learningResource.active = req.body.active == "on" ? true : false;
+
+  const collectibles = req.body.collectibles;
+  console.log("collectibles", collectibles);
+
+  let htmlContent = learningResource.body;
+  let modules = htmlContent.split(`<!-- module -->`); // split modules into an array
+  modules = modules.filter((p) => p); // remove empty elements
+  learningResource.modules = modules;
+  learningResource.collectibles = [...req.body.collectibles.split(",")];
+
   learningResource
     .save()
-    .then(() => {
-      res.redirect("/home");
+    .then((resource) => {
+      console.log("Created resource: ", resource.title);
+      if (req.session.user.role.toLowerCase() == "teacher") {
+        Teacher.findByIdAndUpdate(
+          req.session.user.profile,
+          { $addToSet: { resources: resource._id } },
+          { safe: true, upsert: true },
+
+          (err, doc) => {
+            if (err) {
+              console.log("Error while accessing the document.");
+              console.log(err);
+            } else {
+              console.log("resource id", resource._id);
+              console.log("teacher resources: ", doc.resources);
+              res.redirect("/home");
+            }
+          }
+        )
+          .clone()
+          .catch((err) => {
+            console.log("Retrieval failed.");
+            console.log(err);
+          });
+      }
     })
     .catch((err) => {
       console.log("ERROR saving resource", err);
@@ -58,19 +94,62 @@ const learning_resource_post = (req, res) => {
     });
 };
 
-const learning_resource_get = (req, res) => {
+const learning_resource_get = async (req, res) => {
   const id = req.params.id;
-  LearningResource.findById(id)
+  const userRole = req.session.user?.role.toLowerCase();
+  await LearningResource.findById(id)
     .then((result) => {
-      res.render("gamify/details", {
-        title: "Learning Resource Details",
-        resource: result,
-        user: req.session.user,
-      });
+      if (userRole == "student") {
+        Student.findById(req.session.user.profile, (err, doc) => {
+          if (err) {
+            console.log("Error while accessing the document.");
+            console.log(err);
+          } else {
+            res.render("gamify/details", {
+              title: "Learning Resource Details",
+              resource: result,
+              user: doc,
+            });
+          }
+        })
+          .clone()
+          .catch((err) => {
+            console.log("Retrieval failed.");
+            console.log(err);
+          });
+      } else if (userRole == "teacher") {
+        Teacher.findById(req.session.user.profile, (err, doc) => {
+          if (err) {
+            console.log("Error while accessing the document.");
+            console.log(err);
+          } else {
+            res.render("gamify/details", {
+              title: "Learning Resource Details",
+              resource: result,
+              user: doc,
+            });
+          }
+        })
+          .clone()
+          .catch((err) => {
+            console.log("Retrieval failed.");
+            console.log(err);
+          });
+      } else {
+        return res.render("gamify/details", {
+          title: "Learning Resource Details",
+          resource: result,
+          user: {
+            familyName: "Community",
+            middleName: "X",
+            firstName: "GoGamify",
+          },
+        });
+      }
     })
     .catch((err) => {
       console.log(err);
-      res.render("404", { title: "Sorry, something went wrong." });
+      // res.render("404", { title: "Sorry, something went wrong." });
     });
 };
 
@@ -117,6 +196,12 @@ const learning_resource_data_get = (req, res) => {
     });
 };
 
+const learning_resource_join = async (req, res) => {
+  await res.render("app/join-code", {
+    title: "Join a Journey | GoGamify",
+  });
+};
+
 module.exports = {
   learning_resource,
   learning_resource_index,
@@ -125,4 +210,5 @@ module.exports = {
   learning_resource_put,
   learning_resource_delete,
   learning_resource_data_get,
+  learning_resource_join,
 };

@@ -1,6 +1,15 @@
 console.log("Module script executed.");
 
 const moduleRoot = document.getElementById("moduleRoot");
+const title = document.getElementById("title");
+const subtitle = document.getElementById("subtitle");
+const pageInfo = document.getElementById("pageInfo");
+const backBtn = document.getElementById("backBtn");
+const nextBtn = document.getElementById("nextBtn");
+
+let moduleContent = {};
+
+backBtn.addEventListener("click", (e) => {});
 
 const initScript = async () => {
   const preferences = await JSON.parse(
@@ -8,26 +17,25 @@ const initScript = async () => {
   );
   console.log(preferences);
 
-  if (preferences.fontFamily) {
+  if (preferences && preferences.fontFamily) {
     console.log("Font pref is ", preferences.fontFamily);
     appendClasses(preferences.fontFamily, preferences.fontSize);
-    fetchModule();
   } else {
     console.log("No fontFamily prefs");
   }
+
+  await fetchModule();
 };
 
 const appendClasses = (fontFamily, fontSize) => {
-  console.log("Changing fontFamily to ", fontFamily);
   // TailwindCSS classes
   moduleRoot.classList.add(fontFamily);
   moduleRoot.classList.add(fontSize);
-  // moduleRoot.classList.add(`text-[${fontSize}]`);
 };
 
 const fetchModule = async () => {
   console.log("Fetching module...");
-  await fetch("/resource/data/628200516138420680487cc6", {
+  await fetch("/student/p/currentPage", {
     method: "GET",
   })
     .then((res) => {
@@ -35,8 +43,47 @@ const fetchModule = async () => {
     })
     .then((data) => {
       console.log("data", data);
+      moduleContent = data;
+      appendHeader(data.header);
       appendContent(data.body);
+      handlePageNav();
+    })
+    .catch((err) => {
+      console.log(err);
     });
+};
+
+const handlePageNav = () => {
+  console.log("handlepagenav");
+  if (!moduleContent) {
+    console.log("Error, module not defined.");
+    return;
+  }
+
+  if (moduleContent.header.currentPageNumber <= 0) {
+    console.log("hide back");
+    backBtn.classList.add("hidden");
+  } else {
+    backBtn.classList.remove("hidden");
+  }
+
+  if (
+    moduleContent.header.currentPageNumber ==
+    moduleContent.header.pages - 1
+  ) {
+    console.log("show completed");
+    nextBtn.textContent = "Complete Journey";
+  } else {
+    nextBtn.textContent = "Next";
+  }
+};
+
+const appendHeader = (data) => {
+  title.textContent = data?.title;
+  subtitle.textContent = data?.subtitle;
+  pageInfo.textContent = data
+    ? `${data.currentPageNumber + 1}/${data.pages}`
+    : "";
 };
 
 const appendContent = (data) => {

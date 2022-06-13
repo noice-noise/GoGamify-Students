@@ -16,6 +16,8 @@ const register = async (req, res) => {
 };
 
 const register_post = async (req, res) => {
+  res.clearCookie("user"); // to assure that user cookies are cleared
+
   console.log(req.body);
   console.log(req.body.password);
   const hashedPassword = bcrypt.hash(req.body.password, 10);
@@ -25,6 +27,11 @@ const register_post = async (req, res) => {
     password: (await hashedPassword).toString(),
     profile: req.body.profile,
     role: req.body.role,
+    preferences: {
+      theme: "theme-default",
+      fontFamily: "font-poppins",
+      fontSize: "text-base",
+    },
   });
 
   await user
@@ -39,8 +46,18 @@ const register_post = async (req, res) => {
     });
 };
 
-const register_account = (req, res) => {
-  res.render("auth/register-account", { title: "Student Register | GoGamify" });
+const register_account_student = (req, res) => {
+  res.render("auth/register-account", {
+    title: "Student Register | GoGamify",
+    role: "student",
+  });
+};
+
+const register_account_teacher = (req, res) => {
+  res.render("auth/register-account", {
+    title: "Student Register | GoGamify",
+    role: "teacher",
+  });
 };
 
 const register_student = (req, res) => {
@@ -48,18 +65,6 @@ const register_student = (req, res) => {
 };
 
 const register_student_post = async (req, res) => {
-  // console.log("user...", req.user);
-  // console.log("form...", req.body);
-  // const user = req.user;
-  // user.profile = req.body;
-
-  // await User.findOneAndUpdate(req.user, user).then((res) => {
-  //   console.log("Priofffleee:", res);
-  //   res.profile = req.body;
-  // });
-
-  // console.log("after user...", req.user);
-  // console.log("after user...", user);
   res.redirect("/home");
 };
 
@@ -70,12 +75,18 @@ const logout = (req, res) => {
   res.redirect("/auth/login");
 };
 
+const register_teacher = (req, res) => {
+  res.render("auth/register-teacher", { title: "Teacher Register | GoGamify" });
+};
+
 module.exports = {
   login,
   logout,
   register,
   register_post,
-  register_account,
+  register_account_student,
   register_student,
   register_student_post,
+  register_account_teacher,
+  register_teacher,
 };

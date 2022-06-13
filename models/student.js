@@ -27,10 +27,6 @@ const studentSchema = new Schema(
       type: String,
       required: true,
     },
-    gradeLevel: {
-      type: String,
-      required: true,
-    },
     about: {
       type: String,
     },
@@ -38,12 +34,19 @@ const studentSchema = new Schema(
       type: String,
     },
     resources: [],
-    badges: {
+    resourcesCurrentPages: [],
+    currentPage: {
       type: String,
     },
-    achievements: {
-      type: String,
+    currentPageNumber: {
+      type: Number,
     },
+    currentPageIndex: {
+      type: Number,
+    },
+    completed: [],
+    collections: [],
+    stats: {},
   },
   { timestamps: true }
 );

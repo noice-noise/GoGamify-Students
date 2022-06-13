@@ -9,7 +9,7 @@ module.exports = {
       return next();
     }
 
-    res.redirect("auth/login");
+    res.redirect("/auth/login");
   },
 
   forwardAuthenticated: function checkNotAuthenticated(req, res, next) {
@@ -26,11 +26,9 @@ module.exports = {
   },
 
   forwardFirstLogin: function checkFirstLogin(req, res, next) {
-    console.log("First login");
-
-    console.log("USER request: ", req.user);
-    console.log("USER session: ", req.session.user);
-    console.log("USER cookies: ", req.cookies.user);
+    // console.log("USER request: ", req.user);
+    // console.log("USER session: ", req.session.user);
+    // console.log("USER cookies: ", req.cookies.user);
     if (
       req.session.user !== undefined &&
       (req.session.user?.profile === undefined ||
@@ -47,7 +45,20 @@ module.exports = {
 
   forwardAdmin: function checkAdminRole(req, res, next) {
     if (req.session.user?.role === "admin" || req.cookies?.user === "admin") {
+      console.log("Forwarding to Admin app...");
       return res.redirect("/admin");
+    }
+
+    return next();
+  },
+
+  forwardTeacher: function checkTeacherRole(req, res, next) {
+    if (
+      req.session.user?.role === "teacher" ||
+      req.cookies?.user === "teacher"
+    ) {
+      console.log("Forwarding to Teacher app...");
+      return res.redirect("/teacher");
     }
 
     return next();
