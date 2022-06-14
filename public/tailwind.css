@@ -1726,6 +1726,10 @@ body{
   max-width: 28rem;
 }
 
+.max-w-xs{
+  max-width: 20rem;
+}
+
 .scale-110{
   --tw-scale-x: 1.1;
   --tw-scale-y: 1.1;
@@ -2197,6 +2201,11 @@ body{
 .text-2xl{
   font-size: 1.5rem;
   line-height: 2rem;
+}
+
+.text-3xl{
+  font-size: 1.875rem;
+  line-height: 2.25rem;
 }
 
 .font-bold{
