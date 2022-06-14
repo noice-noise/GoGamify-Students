@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head.ejs') %>
+  <body>
+    <%- include('../partials/header.ejs') %>
+    <div class="auto-container">
+      <%- include('../partials/top-block-back.ejs', { label:`Back`,
+      route:`/home`}) %>
+      <section class="section flex flex-col items-center justify-center">
+        <!-- Learning Resources -->
+        <div class="">
+          <div
+            class="flex items-center justify-between gap-32 py-6 sm:flex-row"
+          >
+            <div class="block">
+              <div class="mb-4">
+                <p class="text-3xl font-bold text-primary">
+                  <%= resource.title %>
+                </p>
+                <p class="text-primary"><%= resource.subtitle %></p>
+              </div>
+
+              <label class="block">Owner:</label>
+              <input
+                readonly
+                class="form__field w-full"
+                type="text"
+                value="<%= resource.owner %>"
+              />
+
+              <label class="block">Date Published</label>
+              <input readonly class="form__field w-full" type="text" value="<%=
+              new Date(resource.createdAt).getMonth()+1 + "-" + new
+              Date(resource.createdAt).getDay() + "-" + new
+              Date(resource.createdAt).getFullYear() %>" />
+
+              <label class="block">Total Pages:</label>
+              <input
+                readonly
+                class="form__field w-full"
+                type="text"
+                value="<%= resource.pages %>"
+              />
+
+              <label class="block">Collectibles:</label>
+              <input
+                readonly
+                class="form__field w-full"
+                type="text"
+                value="<%= resource.collectibles.length %>"
+              />
+
+              <div>
+                <form action="/student/p/resources" method="post">
+                  <input
+                    type="text"
+                    value="<%= resource._id %>"
+                    name="code"
+                    hidden
+                  />
+
+                  <div class="flex w-full">
+                    <button
+                      class="button button--cta flex w-full items-center justify-center gap-5"
+                      type="submit"
+                    >
+                      Join
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div
+              class="flex max-w-xs flex-col items-center justify-center gap-10"
+            >
+              <div class="single delete group hover:cursor-pointer">
+                <form
+                  action="/student/p/resources"
+                  method="post"
+                  class="h-70 relative inline-block h-full w-60 transform-gpu rounded-lg border px-4 py-5 shadow-sm transition-all duration-150 group-hover:scale-105 group-hover:shadow-lg"
+                >
+                  <input
+                    type="text"
+                    value="<%= resource._id %>"
+                    name="code"
+                    hidden
+                  />
+                  <div
+                    class="flex h-20 w-full items-center justify-center rounded-lg bg-gradient-to-b from-primary via-primary-accent to-primary text-2xl font-bold text-foreground"
+                  >
+                    <%= resource.title.substring(0,2).toUpperCase() %>
+                  </div>
+                  <div
+                    class="absolute top-3 right-3 hidden ease-in-out group-hover:flex group-hover:gap-1"
+                  >
+                    <button
+                      class="flex items-center justify-center gap-2 rounded-full bg-violet-50 py-2 px-4 text-gray-600 hover:cursor-pointer hover:bg-violet-200"
+                      type="submit"
+                    >
+                      <span>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="icon icon-tabler icon-tabler-eye"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          stroke-width="2"
+                          stroke="currentColor"
+                          fill="none"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        >
+                          <desc>
+                            Download more icon variants from
+                            https://tabler-icons.io/i/eye
+                          </desc>
+                          <path
+                            stroke="none"
+                            d="M0 0h24v24H0z"
+                            fill="none"
+                          ></path>
+                          <circle cx="12" cy="12" r="2"></circle>
+                          <path
+                            d="M22 12c-2.667 4.667 -6 7 -10 7s-7.333 -2.333 -10 -7c2.667 -4.667 6 -7 10 -7s7.333 2.333 10 7"
+                          ></path>
+                        </svg>
+                      </span>
+                      <span class="text-xs">Join</span>
+                    </button>
+                  </div>
+
+                  <div class="mt-5">
+                    <h3 class="font-bold text-primary"><%= resource.title%></h3>
+                    <p class="text-primary"><%= resource.subtitle %></p>
+                  </div>
+                </form>
+              </div>
+              <div>
+                <label>Journey Code</label>
+                <input
+                  readonly
+                  class="form__field w-full"
+                  value="<%= resource._id %>"
+                />
+                <label>Journey Link:</label>
+                <input
+                  readonly
+                  class="form__field w-full"
+                  value="http://gogamify-education.herokuapp.com/resource/view/<%= resource._id %>"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <%- include('../partials/footer.ejs') %>
+      <script src="/js/gamify/index.js"></script>
+    </div>
+  </body>
+</html>

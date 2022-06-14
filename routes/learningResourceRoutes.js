@@ -18,6 +18,12 @@ router.get(
   learningResourceController.learning_resource_join
 );
 
+router.get(
+  "/view/:id",
+  ensureAuthenticated,
+  learningResourceController.learning_resource_view
+);
+
 router.get("/data/all", learningResourceController.learning_resource);
 router.get("/data/:id", learningResourceController.learning_resource_data_get);
 

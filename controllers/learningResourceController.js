@@ -45,6 +45,62 @@ const learning_resource_index = (req, res) => {
   }
 };
 
+const learning_resource_view = async (req, res) => {
+  console.log("Journey view...");
+  const id = req.params.id;
+  const userRole = req.session.user?.role.toLowerCase();
+  await LearningResource.findById(id)
+    .then((result) => {
+      if (userRole == "student") {
+        console.log("Viewing as student...");
+        Student.findById(req.session.user.profile, (err, doc) => {
+          if (err) {
+            console.log("Error while accessing the document.");
+            console.log(err);
+          } else {
+            res.render("app/journey-summary", {
+              title: "Journey | GoGamify",
+              resource: result,
+              user: req.session.user,
+              profile: doc,
+            });
+          }
+        })
+          .clone()
+          .catch((err) => {
+            console.log("Retrieval failed.");
+            console.log(err);
+          });
+      } else if (userRole == "teacher") {
+        console.log("Viewing as teacher...");
+        Teacher.findById(req.session.user.profile, (err, doc) => {
+          if (err) {
+            console.log("Error while accessing the document.");
+            console.log(err);
+          } else {
+            res.render("app/journey-summary", {
+              title: "Journey | GoGamify",
+              resource: result,
+              user: req.session.user,
+              profile: doc,
+            });
+          }
+        })
+          .clone()
+          .catch((err) => {
+            console.log("Retrieval failed.");
+            console.log(err);
+          });
+      } else {
+        console.log("Error, must log in as a student.");
+        res.redirect(`/resource/view/${id}`);
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
 const learning_resource_post = (req, res) => {
   const learningResource = new LearningResource(req.body);
 
@@ -69,7 +125,6 @@ const learning_resource_post = (req, res) => {
           req.session.user.profile,
           { $addToSet: { resources: resource._id } },
           { safe: true, upsert: true },
-
           (err, doc) => {
             if (err) {
               console.log("Error while accessing the document.");
@@ -77,7 +132,7 @@ const learning_resource_post = (req, res) => {
             } else {
               console.log("resource id", resource._id);
               console.log("teacher resources: ", doc.resources);
-              res.redirect("/home");
+              res.redirect(`/resource/view/${resource._id}`);
             }
           }
         )
@@ -205,6 +260,7 @@ const learning_resource_join = async (req, res) => {
 module.exports = {
   learning_resource,
   learning_resource_index,
+  learning_resource_view,
   learning_resource_post,
   learning_resource_get,
   learning_resource_put,
