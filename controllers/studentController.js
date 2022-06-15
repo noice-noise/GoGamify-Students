@@ -1117,18 +1117,18 @@ const student_stats_assess = async (req, res) => {
       const dbReference = {
         completed: {
           1: {
-            id: "62a4a1b3f56bf2a8970c8f1a",
+            _id: "62a4a1b3f56bf2a8970c8f1a",
           },
           3: {
-            id: "62a4a23bf56bf2a8970c8f20",
+            _id: "62a4a23bf56bf2a8970c8f20",
           },
         },
         resources: {
           1: {
-            id: "62a4a2eff56bf2a8970c8f32",
+            _id: "62a4a2eff56bf2a8970c8f32",
           },
           3: {
-            id: "62a4a304f56bf2a8970c8f38",
+            _id: "62a4a304f56bf2a8970c8f38",
           },
         },
       };
@@ -1137,14 +1137,14 @@ const student_stats_assess = async (req, res) => {
 
       if (completed.length >= 100) {
       } else if (completed.length >= 1) {
-        targetCollectibleIds.push(dbReference.completed[1].id);
+        targetCollectibleIds.push(dbReference.completed[1]._id);
       } else {
         console.log("No earned collectible for completed.");
       }
 
       if (resources.length >= 100) {
       } else if (resources.length >= 1) {
-        targetCollectibleIds.push(dbReference.resources[1].id);
+        targetCollectibleIds.push(dbReference.resources[1]._id);
       } else {
         console.log("No earned collectible for resources.");
       }
@@ -1154,6 +1154,7 @@ const student_stats_assess = async (req, res) => {
 
       console.log("targetCollectibleIds", targetCollectibleIds);
       // TODO Create guard clauses for empty collectibles
+      targetCollectibleIds.filter((p) => p); // remove empty elements
       return targetCollectibleIds;
     })
     .then((targetCollectibleIds) => {
@@ -1163,7 +1164,7 @@ const student_stats_assess = async (req, res) => {
         .in(targetCollectibleIds)
         .exec();
 
-      console.log("earnedCollectibles!", earnedCollectibles);
+      console.log("earnedCollectibles2!", earnedCollectibles);
       return earnedCollectibles;
     })
     .then((data) => {
