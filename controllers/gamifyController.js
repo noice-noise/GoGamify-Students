@@ -82,6 +82,7 @@ const gamify_create_get = async (req, res) => {
     return res.render("gamify/create", {
       title: "Gamify Create",
       user: {
+        _id: "xxxadminxxx",
         familyName: "Community",
         middleName: "X",
         firstName: "GoGamify",

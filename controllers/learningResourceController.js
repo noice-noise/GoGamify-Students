@@ -95,7 +95,18 @@ const learning_resource_view = async (req, res) => {
           });
       } else {
         console.log("Error, must log in as a student.");
-        res.redirect(`/resource/view/${id}`);
+        res.render("app/journey-summary", {
+          title: "Journey | GoGamify",
+          resource: result,
+          user: req.session.user,
+          profile: {
+            _id: "xxxadminxxx",
+            familyName: "Community",
+            middleName: "X",
+            firstName: "GoGamify",
+          },
+        });
+        res.end();
       }
     })
     .catch((err) => {
@@ -104,6 +115,7 @@ const learning_resource_view = async (req, res) => {
 };
 
 const learning_resource_post = (req, res) => {
+  console.log("Resource post...");
   const learningResource = new LearningResource(req.body);
 
   // active means that the learning resource can be shown to public
@@ -150,6 +162,9 @@ const learning_resource_post = (req, res) => {
             console.log("Retrieval failed.");
             console.log(err);
           });
+      } else {
+        console.log("Gamifying as a non-teacher account...");
+        res.send(JSON.stringify(resource));
       }
     })
     .catch((err) => {
