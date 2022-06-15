@@ -78,12 +78,14 @@ const learning_resource_view = async (req, res) => {
             console.log("Error while accessing the document.");
             console.log(err);
           } else {
+            console.log("Rendered!");
             res.render("app/journey-summary", {
               title: "Journey | GoGamify",
               resource: result,
               user: req.session.user,
               profile: doc,
             });
+            res.end();
           }
         })
           .clone()
@@ -114,7 +116,13 @@ const learning_resource_post = (req, res) => {
   let modules = htmlContent.split(`<!-- module -->`); // split modules into an array
   modules = modules.filter((p) => p); // remove empty elements
   learningResource.modules = modules;
-  learningResource.collectibles = [...req.body.collectibles.split(",")];
+
+  try {
+    learningResource.collectibles = [...req.body.collectibles.split(",")];
+  } catch (err) {
+    console.log("Error");
+    learningResource.collectibles = [];
+  }
 
   learningResource
     .save()
@@ -132,7 +140,8 @@ const learning_resource_post = (req, res) => {
             } else {
               console.log("resource id", resource._id);
               console.log("teacher resources: ", doc.resources);
-              res.redirect(`/resource/view/${resource._id}`);
+              // res.redirect(`/resource/view/${resource._id}`);
+              res.send(JSON.stringify(resource));
             }
           }
         )

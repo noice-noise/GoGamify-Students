@@ -267,14 +267,25 @@ learningResourceForm.addEventListener("submit", async (e) => {
   });
 
   let collectibleArr = Array.from(embeddedCollectibles);
-  values.append("collectibles", [...collectibleArr]);
+  collectibleArr.filter((c) => c); // remove empty
+
+  if (collectibleArr.length > 0) {
+    values.append("collectibles", [...collectibleArr]);
+  }
 
   await fetch(endpoint, {
     method: "POST",
     body: values,
   })
     .then((res) => {
-      window.location.replace("/home");
+      if (res.ok) {
+        return res.json();
+      }
+      return null;
+    })
+    .then((resource) => {
+      // res.redirect(`/resource/view/${resource._id}`);
+      window.location.replace(`/resource/view/${resource._id}`);
     })
     .catch((err) => {
       console.log(err);
