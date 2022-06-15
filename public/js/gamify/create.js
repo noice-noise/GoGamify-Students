@@ -247,7 +247,7 @@ function getYoutubeVideoId(url) {
 }
 
 learningResourceForm.addEventListener("submit", async (e) => {
-  console.log("HPY");
+  console.log("Submitting resource form...");
   e.preventDefault();
   console.log(e.target.value);
 
@@ -273,6 +273,7 @@ learningResourceForm.addEventListener("submit", async (e) => {
     values.append("collectibles", [...collectibleArr]);
   }
 
+  console.log("Posting gamified resource...");
   await fetch(endpoint, {
     method: "POST",
     body: values,
