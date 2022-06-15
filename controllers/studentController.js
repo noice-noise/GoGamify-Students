@@ -834,12 +834,6 @@ const student_page_next = async (req, res) => {
                         return earnedCollectibles;
                       })
                       .then((earnedCollectibles) => {
-                        if (
-                          !earnedCollectibles ||
-                          earnedCollectibles.length == 0
-                        ) {
-                          return;
-                        }
                         Student.findByIdAndUpdate(
                           req.session.user.profile,
                           {
@@ -1159,6 +1153,7 @@ const student_stats_assess = async (req, res) => {
       targetCollectibleIds.push(...doc.collections);
 
       console.log("targetCollectibleIds", targetCollectibleIds);
+      // TODO Create guard clauses for empty collectibles
       return targetCollectibleIds;
     })
     .then((targetCollectibleIds) => {
