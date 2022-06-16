@@ -114,13 +114,29 @@ types of users.
 
 ## Roadmap
 
-- [ ] Landing Page
-- [ ] Login/Register/Guest
-- [ ] Journey
-- [ ] Community
-- [ ] Module
-- [ ] Collections
-- [ ] Profile
+v1.0
+
+- [x] Landing Page
+- [x] Features Page
+
+- [x] Login/Register/Guest
+  - [x] Basic Route Protection & Authentication
+  - [x] Basic password encryption, session, and cookie handling
+- [x] Admin/Teacher/Student Account Types
+- [x] Gamify Resources & Collectibles
+- [x] Join Journey
+- [x] Earn Collectibles (Badges/Achievements/Themes)
+
+- [x] Journey
+- [x] Community
+- [x] Module
+- [x] Collections
+- [x] Profile
+
+Future
+
+- [ ] Quiz Generator (Class-based Response System)
+- [ ] OAuth implementation
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -164,6 +180,7 @@ Don't forget to give the project a star! Thanks again!
 - [tabler icons](https://tabler-icons.io/)
 - [unDraw ](https://undraw.co/)
 - [shields.io](https://undraw.co/)
+- [Freepik via Flaticon](https://www.flaticon.com/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -175,4 +192,4 @@ Don't forget to give the project a star! Thanks again!
 [heroku-url]: gogamify-education.herokuapp.com/
 [package-shield]: https://img.shields.io/github/package-json/v/noice-noise/GoGamify-Students/master
 [project-banner]: images/gogamify-banner.png
-[project-status-shield]: https://img.shields.io/badge/Development-In--Progress-informational
+[project-status-shield]: https://img.shields.io/badge/Development-Released--v1.0-informational
