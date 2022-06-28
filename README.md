@@ -21,10 +21,12 @@
   <h3 align="center">GoGamify Education</h3>
 
   <p align="center">
-    a gamification progressive web platform which converts a learning resource's rich-text data into HTML elements for gamified learning resources.
+    a gamification <a href="https://web.dev/what-are-pwas/">progressive web application</a> which converts a learning resource's rich-text data into HTML elements for gamified learning resources, quizzes, and mini-games
     <br />
     <br />
-    <a href="https://gogamify-education.herokuapp.com/">Deployed Website</a>
+    <a href="https://gogamify-education.herokuapp.com/">Visit Website</a>
+    ·
+    <a href="http://gogamify-education.herokuapp.com/install.html">Install App</a>
     ·
     <a href="https://github.com/noice-noise/GoGamify-Students/issues">Report Bug</a>
     ·
